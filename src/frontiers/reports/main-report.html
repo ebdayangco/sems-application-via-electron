@@ -1,0 +1,56 @@
+<div class="main-report-area">
+  <link rel="stylesheet" href="../reports/report.css">
+  <div class="main-report-content">
+    <div class="main-report-row">
+
+        <div class="main-report-item">
+            <div class="main-report-label">Genexpert Site Per-Region</div>
+            <div class="main-report-button-group">
+                <a href="#" class="btn btn-danger w-100 mr-2" report-name="site-per-region"
+                onclick="reportController.createReport(this,'#report-frame-area')">PDF</a>
+                <a href="#" class="btn btn-success w-100 ">Excel</a>
+            </div>
+        </div>
+
+        <div class="main-report-item">
+          <div class="main-report-label">Assay Statistics</div>
+          <div class="main-report-button-group">
+              <a href="#" class="btn btn-danger w-100 mr-2" 
+              onclick="reportController.createReport(this,'#report-frame-area')"
+              report-name="assay-statistic">PDF</a>
+              <a href="#" class="btn btn-success w-100 ">Excel</a>
+          </div>
+        </div>
+
+        <div class="main-report-item">
+          <div class="main-report-label">Xpertcheck</div>
+          <div class="main-report-button-group">
+              <a href="#" class="btn btn-danger w-100 mr-2" 
+              onclick="reportController.createReport(this,'#report-frame-area')"
+              report-name="xpertcheck">PDF</a>
+              <a href="#" class="btn btn-success w-100 ">Excel</a>
+          </div>
+        </div>
+
+        <div class="main-report-item">
+          <div class="main-report-label">Preventive Maintenance</div>
+          <div class="main-report-button-group">
+              <a href="#" class="btn btn-danger w-100 mr-2" 
+              onclick="reportController.createReport(this,'#report-frame-area')" 
+              report-name="preventive-maintenance">PDF</a>
+              <a href="#" class="btn btn-success w-100 ">Excel</a>
+          </div>
+        </div>
+
+    </div>
+  </div>
+ 
+  <script>
+
+    const reportController = require("../reports/ReportController");
+
+
+  </script>
+
+
+</div>

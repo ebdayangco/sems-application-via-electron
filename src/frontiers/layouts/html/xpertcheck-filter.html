@@ -1,0 +1,427 @@
+<link rel="stylesheet" href="../css/xpertcheck/filter.css">
+
+    <div class="filter-content-area">
+
+        <div class="xpertcheck-filter-control-panel d-flex">
+            <a href="#" class="xpertcheck-filter-submit-btn" 
+            onclick="xpertcheckController.filterProcess(this)">Filter Now</a>
+        </div>
+        <div class="xpertcheck-filter-note-area">Note: If you want an exact result, put 
+            (=) sign before you type the search word. </div>
+            <div class="xpertcheck-filter-category-panel xpertcheck-filter-xpertcheck-area">
+                <div class="xpertcheck-filter-category-body">
+    
+                    <div class="xpertcheck-filter-form-panel-row d-flex">
+                        
+                        <div class="xpertcheck-filter-form-panel-item w-25">
+                            <div class="xpertcheck-filter-form-panel-item-label">Current (Full)</div>
+                            <div class="xpertcheck-filter-form-panel-item-field w-100 d-flex">
+                                <input type="date" id="xpertcheck-filter-xpertcheck-current-full-date"
+                                class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                data-field-name="a.calibrate_start">
+                            </div>
+                        </div>
+    
+                        <div class="xpertcheck-filter-form-panel-item w-25">
+                            <div class="xpertcheck-filter-form-panel-item-label">Current (Split)</div>
+                            <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                <div class="d-flex">
+                                    <select id="xpertcheck-filter-xpertcheck-current-month" 
+                                    class="xpertcheck-filter-form-panel-item-field-input w-50"
+                                    data-field-name="a.calibrate_start" data-field-name-part="month">
+                                        <option value="0"></option>
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+
+                                    <script>
+                                        var currentYear = new Date().getFullYear();
+                                    </script>
+    
+                                    <select id="xpertcheck-filter-xpertcheck-current-date" 
+                                    class="xpertcheck-filter-form-panel-item-field-input w-20"
+                                    data-field-name="a.calibrate_start" data-field-name-part="date">
+    
+                                    <script>
+                                        $("#xpertcheck-filter-xpertcheck-current-date").html("");
+                                        $("#xpertcheck-filter-xpertcheck-current-date")
+                                            .append(`<option value="0"></option>`);
+                                        for(let x = 1; x<=31; x++){
+                                            $("#xpertcheck-filter-xpertcheck-current-date")
+                                            .append(`<option value="${x}">${x}</option>`);
+                                            
+                                        }
+                                    </script>
+                                     
+                                    </select>
+    
+                                    <select id="xpertcheck-filter-xpertcheck-current-year" 
+                                    class="xpertcheck-filter-form-panel-item-field-input w-30"
+                                    data-field-name="a.calibrate_start" data-field-name-part="year">
+    
+                                    <script>
+                                        $("#xpertcheck-filter-xpertcheck-current-year").html("");
+                                        $("#xpertcheck-filter-xpertcheck-current-year")
+                                            .append(`<option value="0"></option>`);
+                                        let min = currentYear-50;
+                                        let max = currentYear+10;  
+                                        for(min; min<=max; min++){
+                                            $("#xpertcheck-filter-xpertcheck-current-year")
+                                            .append(`<option value="${min}">${min}</option>`)
+                                            
+                                        }
+                                    </script>
+                                     
+                                    </select>
+                                </div>
+                               
+                            </div>
+                        </div>
+                        
+    
+                        <div class="xpertcheck-filter-form-panel-item w-25">
+                            <div class="xpertcheck-filter-form-panel-item-label">Due (Calendar)</div>
+                            <div class="xpertcheck-filter-form-panel-item-field w-100 d-flex">
+                                <input type="date" id="xpertcheck-filter-xpertcheck-due-full-date"
+                                class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                data-field-name="a.calibrate_done">
+                            </div>
+                        </div>
+    
+                        <div class="xpertcheck-filter-form-panel-item w-25">
+                            <div class="xpertcheck-filter-form-panel-item-label">Due (Split)</div>
+                            <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                <div class="d-flex">
+                                    <select id="xpertcheck-filter-xpertcheck-due-month" 
+                                    class="xpertcheck-filter-form-panel-item-field-input w-50"
+                                    data-field-name="a.calibrate_done" data-field-name-part="month">
+                                        <option value="0"></option>
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+    
+                                    <select id="xpertcheck-filter-xpertcheck-due-date" 
+                                    class="xpertcheck-filter-form-panel-item-field-input w-20"
+                                    data-field-name="a.calibrate_done" data-field-name-part="date">
+    
+                                    <script>
+                                        $("#xpertcheck-filter-xpertcheck-due-date").html("");
+                                        $("#xpertcheck-filter-xpertcheck-due-date")
+                                            .append(`<option value="0"></option>`);
+                                        for(let x = 1; x<=31; x++){
+                                            $("#xpertcheck-filter-xpertcheck-due-date")
+                                            .append(`<option value="${x}">${x}</option>`);
+                                            
+                                        }
+                                    </script>
+                                     
+                                    </select>
+    
+                                    <select id="xpertcheck-filter-xpertcheck-due-year" 
+                                    class="xpertcheck-filter-form-panel-item-field-input w-30"
+                                    data-field-name="a.calibrate_done" data-field-name-part="year">
+    
+                                    <script>
+                                        $("#xpertcheck-filter-xpertcheck-due-year").html("");
+                                        $("#xpertcheck-filter-xpertcheck-due-year")
+                                            .append(`<option value="0"></option>`);
+                                        let dueMin = currentYear-50;
+                                        let dueMax = currentYear+10;  
+                                        for(dueMin; dueMin<=dueMax; dueMin++){
+                                            $("#xpertcheck-filter-xpertcheck-due-year")
+                                            .append(`<option value="${dueMin}">${dueMin}</option>`)
+                                            
+                                        }
+                                    </script>
+                                     
+                                    </select>
+                                </div>
+                               
+                            </div>
+                        </div>
+            
+                    </div>
+                    <div class="xpertcheck-filter-form-panel-row d-flex">
+    
+                        <div class="xpertcheck-filter-form-panel-item w-30">
+                            <div class="xpertcheck-filter-form-panel-item-label">Calibrate By</div>
+                            <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                <select name="" id="xpertcheck-filter-xpertcheck-engineer"
+                                    class="xpertcheck-filter-form-panel-item-field-input w-100
+                                    engineer-drop-down" 
+                                    data-field-name="i.engineerID">
+                                    <option value="0"></option> 
+                                </select>
+                            </div>
+                        </div>
+                        
+    
+                        <div class="xpertcheck-filter-form-panel-item w-30">
+                            <div class="xpertcheck-filter-form-panel-item-label">Updated By</div>
+                            <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                <input type="text" id="xpertcheck-filter-xpertcheck-updated-by"
+                                class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                data-field-fname="k.firstname" data-field-lname="k.lastname">
+                            </div>
+                        </div>
+                        <div class="xpertcheck-filter-form-panel-item w-20">
+                            <div class="xpertcheck-filter-form-panel-item-label">Updated Date</div>
+                            <div class="xpertcheck-filter-form-panel-item-field w-100 d-flex">
+                                <input type="date" id="xpertcheck-filter-xpertcheck-updated-date"
+                                class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                data-field-name="a.dateupdated">
+                            </div>
+                        </div>
+                    
+                    </div>
+        
+                </div>
+            </div>
+            
+            <div class="xpertcheck-filter-category-panel xpertcheck-filter-genexpert-area">
+                    <div class="xpertcheck-filter-category-body">
+            
+                        <div class="xpertcheck-filter-form-panel-row d-flex">
+                            <div class="xpertcheck-filter-form-panel-item w-20">
+            
+                                <div class="xpertcheck-filter-form-panel-item-label">Serial Number</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <input type="text"
+                                    class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                    id="xpertcheck-filter-genexpert-serial-number" 
+                                    data-field-name="b.serialnumber">
+                                </div>
+                            </div>
+                            <div class="xpertcheck-filter-form-panel-item w-52">
+            
+                                <div class="xpertcheck-filter-form-panel-item-label">Facility</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <input type="text"
+                                    class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                    id="xpertcheck-filter-genexpert-facility" 
+                                    data-field-name="h.siteName">
+                                </div>
+                            </div>
+                            <div class="xpertcheck-filter-form-panel-item w-18">
+            
+                                <div class="xpertcheck-filter-form-panel-item-label">Date Installed</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <input type="date"
+                                    class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                    id="xpertcheck-filter-genexpert-date-installed" 
+                                    data-field-name="b.dateinstalled">
+                                </div>
+                            </div>
+                            <div class="xpertcheck-filter-form-panel-item w-10">
+                                <div class="xpertcheck-filter-form-panel-item-label">Status</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <select name="" id="xpertcheck-genexpert-filter-status"
+                                        class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                        data-field-name="b.status">
+                                        <option value="0"></option>
+                                        <option value="Active">Active</option>
+                                        <option value="Terminated">Terminated</option>
+                                        <option value="Under Repair">Under Repair</option>
+                                    </select>
+                                </div>
+                            </div>
+            
+                        </div>
+                        <div class="xpertcheck-filter-form-panel-row d-flex">
+                            <div class="xpertcheck-filter-form-panel-item w-28">
+            
+                                <div class="xpertcheck-filter-form-panel-item-label">Installed By</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <select name="" id="xpertcheck-filter-genexpert-installed-by"
+                                        class="xpertcheck-filter-form-panel-item-field-input w-100 engineer-drop-down" 
+                                        data-field-name="c.engineerID" 
+                                        data-field-name-v2="c.fullname">
+                                        <option value="0"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="xpertcheck-filter-form-panel-item w-28">
+                                <div class="xpertcheck-filter-form-panel-item-label">Installation Type</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <select name="" id="xpertcheck-filter-genexpert-installation-type" 
+                                        class="xpertcheck-filter-form-panel-item-field-input w-100 installation-type-drop-down" 
+                                        data-field-name="d.itID" 
+                                        data-field-name-v2="d.itName">
+                                        <option value="0"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="xpertcheck-filter-form-panel-item w-44">
+                                <div class="xpertcheck-filter-form-panel-item-label">Model Number</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <select id="xpertcheck-filter-model-number"  
+                                        class="xpertcheck-filter-form-panel-item-field-input model-number-drop-down 
+                                        w-100" data-field-name="e.mnID" 
+                                        data-field-name-v2="e.mnName">
+                                        <option value="0"></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="xpertcheck-filter-form-panel-row d-flex">
+
+                            <div class="xpertcheck-filter-form-panel-item w-25">
+                                <div class="xpertcheck-filter-form-panel-item-label">Region</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <select name="" id="xpertcheck-filter-region" 
+                                    data-field-name="h.region" 
+                                        class="xpertcheck-filter-form-panel-item-field-input 
+                                        region-drop-down w-100">
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="xpertcheck-filter-form-panel-item w-25">
+                                <div class="xpertcheck-filter-form-panel-item-label">Province</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <select name="" id="xpertcheck-filter-province"  
+                                        class="xpertcheck-filter-form-panel-item-field-input w-100 province-drop-down" 
+                                        data-field-name="h.province" >
+                                        <option value=""></option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+            
+                            <div class="xpertcheck-filter-form-panel-item w-25">
+                                <div class="xpertcheck-filter-form-panel-item-label">City</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <select name="" id="xpertcheck-filter-city"  
+                                        class="xpertcheck-filter-form-panel-item-field-input w-100 city-drop-down" 
+                                        data-field-name="h.city">
+                                        <option value=""></option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="xpertcheck-filter-form-panel-item w-25">
+                                <div class="xpertcheck-filter-form-panel-item-label">Barangay</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <select name="" id="xpertcheck-filter-barangay"  
+                                        class="xpertcheck-filter-form-panel-item-field-input w-100 
+                                        barangay-drop-down" 
+                                        data-field-name="h.barangay">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+            
+                        
+            
+                        </div>
+                        <div class="xpertcheck-filter-form-panel-row d-flex">
+
+                            <div class="xpertcheck-filter-form-panel-item w-60">
+                                <div class="xpertcheck-filter-form-panel-item-label">Street</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <input type="text" id="xpertcheck-filter-street"  
+                                    class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                    data-field-name="h.street">
+                                </div>
+                            </div>
+
+                            <div class="xpertcheck-filter-form-panel-item w-20">
+                                <div class="xpertcheck-filter-form-panel-item-label">Latitude</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <input type="text" id="xpertcheck-filter-latitude"  
+                                    class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                    data-field-name="h.latitude">
+                                </div>
+                            </div>
+                            <div class="xpertcheck-filter-form-panel-item w-20">
+                                <div class="xpertcheck-filter-form-panel-item-label">Longitude</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <input type="text" id="xpertcheck-filter-longitude"  
+                                    class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                    data-field-name="h.longitude">
+                                </div>
+                            </div>
+                        
+                        </div>
+
+                        <div class="xpertcheck-filter-form-panel-row d-flex">
+
+                            <div class="xpertcheck-filter-form-panel-item w-20">
+            
+                                <div class="xpertcheck-filter-form-panel-item-label">Software Version</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <input type="text" id="xpertcheck-filter-software-version"
+                                    class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                    data-field-name="genex.software_version">
+                                </div>
+                            </div>
+                            <div class="xpertcheck-filter-form-panel-item w-20">
+            
+                                <div class="xpertcheck-filter-form-panel-item-label">OS Version</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <input type="text" id="xpertcheck-filter-os-version"
+                                    class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                    data-field-name="genex.os_version">
+                                </div>
+                            </div>
+
+                            <div class="xpertcheck-filter-form-panel-item w-30">
+            
+                                <div class="xpertcheck-filter-form-panel-item-label">Warranty Expiry Date</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <input type="date" id="xpertcheck-filter-warranty-expiry-date"
+                                    class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                    data-field-name="b.warranty_expiry_date">
+                                </div>
+                            </div>
+                            <div class="xpertcheck-filter-form-panel-item w-30">
+            
+                                <div class="xpertcheck-filter-form-panel-item-label">Service Contract Expiry Date</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <input type="date" id="xpertcheck-filter-service-contract-expiry-date" 
+                                    class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                    data-field-name="b.service_contract_expiry_date">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="xpertcheck-filter-form-panel-row d-flex">
+                            <div class="xpertcheck-filter-form-panel-item w-100">
+                                <div class="xpertcheck-filter-form-panel-item-label">Remarks</div>
+                                <div class="xpertcheck-filter-form-panel-item-field w-100">
+                                    <input type="text"  id="xpertcheck-filter-remarks" 
+                                    class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                                    data-field-name="b.remarks">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+            </div>
+    
+    
+    
+    </div>
+    </div>

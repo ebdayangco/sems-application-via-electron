@@ -1,0 +1,150 @@
+<link rel="stylesheet" href="../css/xpertcheck/info.css">
+<div id="xpertcheck-information-area">
+
+    <div class="frame-info-control-area pull-right">
+        <a href="#" class="frame-info-control-button" 
+            style="width:100px; margin-left:40px; 
+            margin-top:20px !important;" onclick="xpertcheckController.update()">
+            Save Update</a>
+        </div>
+    <a class="xpertcheck-info-exit-btn" 
+        onclick="hideSubForm('#xpertcheck-information-area','top')">
+        <i class="fa fa-angle-up"></i></a>
+    <div class="xpertcheck-information-body">
+        <div class="xpertcheck-info-title">Genexpert Machine Information</div>
+        <div class="xpertcheck-info-panel">
+            <div class="xpertcheck-info-row">
+
+                <div class="xpertcheck-info-label">Genexpert SN:</div>
+                <div class="xpertcheck-info-value" 
+                id="xpertcheck-info-genexpert-serial-number">809453</div>
+            </div>
+    
+            <div class="xpertcheck-info-row">
+                <div class="xpertcheck-info-label">Facility/Site:</div>
+                <div class="xpertcheck-info-value" 
+                id="xpertcheck-info-genexpert-facility">Cebu City Medical Center</div>
+            </div>
+    
+            <div class="xpertcheck-info-row">
+                <div class="xpertcheck-info-label">Date Installed:</div>
+                <div class="xpertcheck-info-value" 
+                id="xpertcheck-info-genexpert-date-installed">2022-05-26</div>
+            </div>
+    
+            
+            <div class="xpertcheck-info-row">
+                <div class="xpertcheck-info-label">Engineer:</div>
+                <div class="xpertcheck-info-value" 
+                id="xpertcheck-info-genexpert-installed-by"></div>
+            </div>
+    
+            <div class="xpertcheck-info-row">
+                <div class="xpertcheck-info-label">Installation Type:</div>
+                <div class="xpertcheck-info-value" 
+                id="xpertcheck-info-genexpert-installation-type">MACARE-PDBC</div>
+            </div>
+    
+            <div class="xpertcheck-info-row">
+                <div class="xpertcheck-info-label">Model Number:</div>
+                <div class="xpertcheck-info-value" 
+                id="xpertcheck-info-genexpert-model-number">Genexpert Machine System 4</div>
+            </div>
+    
+            <div class="xpertcheck-info-row">
+                <div class="xpertcheck-info-label">Address:</div>
+                <div class="xpertcheck-info-value" 
+                id="xpertcheck-info-genexpert-address">Tisa Morehai II Cebu City</div>
+            </div>
+        </div>
+
+        <div class="xpertcheck-info-title">Genexpert Contacts Information</div>
+        <div class="xpertcheck-info-panel" id="xpertcheck-genexpert-contact-panel">
+
+            <div class="genexpert-waiting-loading-area"></div>
+           <table class="xpertcheck-info-table" 
+           id="xpertcheck-info-genexpert-contact-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Contact Number</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="xpertcheck-info-genexpert-contact-tbody">
+               
+            </tbody>
+           </table>
+        </div>
+
+        <div class="xpertcheck-info-title">Xpertcheck (Only Can Edit Here)</div>
+        <div class="xpertcheck-info-panel">
+            <!-- <div class="xpertcheck-info-row">
+
+                <div class="xpertcheck-info-label">Genexpert SN:</div>
+                <div class="xpertcheck-info-value" 
+                id="xpertcheck-info-serial-number">
+                <a href="#" 
+                onclick="xpertcheckValueToField(this)" 
+                data-field="text" id="xpertcheck-info-serial-number-value"
+                class="xpertcheck-info-link">803452</a></div>
+            </div> -->
+    
+            <div class="xpertcheck-info-row">
+                <div class="xpertcheck-info-label">Current:</div>
+                <div class="xpertcheck-info-value" 
+                id="xpertcheck-info-current-date">
+                <a href="#" onclick="xpertcheckValueToField(this)" 
+                data-field="date" data-id="xpertcheck-info-current-date-value" 
+                id="xpertcheck-info-current-date-value"
+                class="xpertcheck-info-link">2022-03-20</a>
+                </div>
+            </div>
+    
+            <div class="xpertcheck-info-row">
+                <div class="xpertcheck-info-label">Due:</div>
+                <div class="xpertcheck-info-value" 
+                id="xpertcheck-info-due-date">
+                <a href="#" onclick="xpertcheckValueToField(this)" 
+                data-field="date" data-id="xpertcheck-info-due-date-value" 
+                id="xpertcheck-info-due-date-value"
+                class="xpertcheck-info-link">2023-03-20</a></div>
+            </div>
+    
+            
+            <div class="xpertcheck-info-row">
+                <div class="xpertcheck-info-label">Engineer:</div>
+                <div class="xpertcheck-info-value" 
+                id="xpertcheck-info-engineer"> 
+                <a href="#" onclick="xpertcheckValueToField(this)" 
+                data-field="select" data-main-class="engineer-drop-down" 
+                data-id="xpertcheck-info-engineer-value"
+                id="xpertcheck-info-engineer-value"
+                class="xpertcheck-info-link"></a></div>
+            </div>
+           
+    
+        </div>
+
+
+        <div class="xpertcheck-info-title">History Information</div>
+        <div class="xpertcheck-info-panel" id="xpertcheck-records-panel">
+           <table class="xpertcheck-info-table">
+            <thead>
+                <tr>
+                    <th style="width:15%;">Xpertcheck Date</th>
+                    <th style="width:15%;">Due Date</th>
+                    <th style="width:30%;">Engineer</th>
+                    <th style="width:30%;">Done By</th>
+                    <th style="width:10%;">Status</th>
+                </tr>
+            </thead>
+            <tbody id="xpertcheck-records-tbody">
+                
+            </tbody>
+           </table>
+        </div>
+    </div>
+
+</div>

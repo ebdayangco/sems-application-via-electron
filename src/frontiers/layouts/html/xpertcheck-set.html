@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="../css/transaction/xpertcheck-schedule.css">
+<div id="xpertcheck-schedule-form">
+
+    <div class="xpertcheck-genexpert-info-form"></div>
+
+    <div class="xpertcheck-schedule-content d-flex">
+
+        <div class="form-left-side">
+            <div class="screen-image-side"></div>
+            <img src="../../../supporters/galleries/xpertcheck_schedule_bg.jpg" alt="">
+        </div>
+
+        <div class="form-right-side">
+            <!-- <div class="xpertcheck-title">Schedule Form</div> -->
+            <div class="xpertcheck-body">
+                
+                <div class="xpertcheck-row">
+                    <label for="" class="text-light">Genexpert</label>
+                    <div class="xpertcheck-field w-100">
+                        <input type="text" class="on-hover on-active on-focus"
+                        id="xpertcheck-schedule-genexpert-serial-number">
+                        <a href="#" class="btn btn-primary ml-1 input-submit-btn" 
+                        style="width:120px;" 
+                        onclick="xpertcheckController.transaction().setSchedule().findInfo()">Show Info</a>
+                    </div>
+                </div>
+
+                <div class="xpertcheck-row d-flex">
+
+                    <div class="xpertcheck-col w-50 mr-1">
+                        <label for="" class="text-light">Engineer</label>
+
+                        <select name="#" id="xpertcheck-schedule-engineer"  
+                        class="engineer-drop-down w-100 on-hover on-active on-focus"></select>
+                    </div>
+
+                    <div class="xpertcheck-col w-50">
+                        <label for="" class="text-light">Last Calibration</label>
+                        <div class="d-flex">
+                            <a href="#" class="btn btn-primary"
+                            onclick="xpertcheckController.transaction()
+                            .setSchedule().lastCalibration()"><i class="fa fa-search"></i></a>
+                            <input type="text" id="xpertcheck-schedule-last-calibration" disabled
+                        class="w-100 on-hover on-active on-focus">
+                        </div>
+                        
+                    </div>
+
+                </div>
+                <div class="xpertcheck-row d-flex">
+                   
+                    <div class="xpertcheck-col w-50 mr-1">
+                        <label for="" class="text-light">Xpertcheck Date</label>
+                        <input type="date" class="w-100 on-hover on-active on-focus" 
+                        onchange="xpertcheckController.onView().transaction()
+                        .setSchedule().setCalibrationTo()" 
+                        id="xpertcheck-schedule-calibration-from">
+                    </div>
+
+                    <div class="xpertcheck-col w-50">
+                        <label for="" class="text-light">Xpertcheck Due</label>
+                        <input type="date" class="w-100 on-hover on-active on-focus" 
+                        id="xpertcheck-schedule-calibration-to">
+                    </div>
+                   
+                </div>
+
+                <div class="xpertcheck-row d-flex" style="display:none !important;">
+                    <div class="xpertcheck-col w-50 mr-2">
+                        <label for="" class="text-light">Frequency</label>
+                        <div class="d-flex">
+                            <input type="number" value="1" class="w-100 on-hover on-active on-focus" onkeyup="
+                                xpertcheckController.onView().transaction().mainList().setCalibrationTo()" 
+                                onchange="xpertcheckController.onView().transaction()
+                                .setSchedule().setCalibrationTo()"
+                            id="xpertcheck-schedule-time-length-value">
+                            <select id="xpertcheck-schedule-time-length-format" 
+                            class="on-hover on-active on-focus" 
+                            onchange="xpertcheckController.onView().transaction()
+                            .setSchedule().setCalibrationTo()">
+                                <option value="year">Year</option>
+                                <option value="month">Month</option>
+                                <option value="day">Day</option>
+                            </select>
+                        </div>
+                    </div>
+                   
+                   
+                </div>
+
+                <div class="xpertcheck-row">
+                    <label for="" class="text-light">Remarks</label>
+                    <textarea class="on-hover on-active on-focus" id="xpertcheck-schedule-remarks">
+                    </textarea>
+                    <!-- <a href="#" class="btn btn-success w-100 mb-2">Clear All</a>
+                    <a href="#" class="btn btn-primary w-100" 
+                    onclick="xpertcheckTransactionController.goSchedule()">Set Schedule</a> -->
+                    
+                </div>
+
+                <a href="#" class="btn btn-success w-40 input-submit-btn mt-4"
+                onclick="xpertcheckController.transaction().setSchedule().onSchedule()">
+                    <i class="fa fa-save"></i> Save</a>
+                <!-- <a href="#" class="btn btn-primary w-20 input-submit-btn mt-4 mr-1"><i class="fa fa-trash"></i> Clear All</a> -->
+            </div>
+        </div>
+       
+    </div>    
+   
+</div>
+<script src="../js/xpertcheck.js"></script>

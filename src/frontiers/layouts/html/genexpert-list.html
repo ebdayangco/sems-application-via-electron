@@ -1,0 +1,406 @@
+<link rel="stylesheet" href="../css/genexpert/filter.css">
+<link rel="stylesheet" href="../css/genexpert/info.css">
+<link rel="stylesheet" href="../css/genexpert/edit.css">
+<link rel="stylesheet" href="../css/genexpert/record.css">
+<!-- <link rel="stylesheet" href="../../../supporters/dependencies/navs/nav.css"> -->
+<div class="frame-area d-flex flex-column" id="genexpert-frame-area">
+
+    <!-- CONTROL AREA -->
+
+    <div class="frame-control-area">
+
+        <ul class="d-flex">
+            
+            <!-- <li>
+                <a href="#" class="frame-control-item frame-control-active" 
+                onclick="genexpertController.showDataList(this)">
+                <i class="fa fa-list"></i> Data List</a>
+                
+            </li> -->
+
+            <li>
+                <a href="#" class="frame-control-item genexpert-list-group" 
+                onclick="genexpertController.onFilterView(this)">
+                <i class="fa fa-filter"></i> Show Filter</a>
+            </li>
+            <!-- <li>
+                <a href="#" class="frame-control-item genexpert-list-group" 
+                onclick="genexpertController.onView().userInterfaces()
+                .openGenexpertInstallationFromList(this)">
+                    <i class="fa fa-plus"></i> New</a>
+            </li> -->
+            <li>
+                <a href="#" class="frame-control-item frame-excel-based genexpert-list-group">
+                    <i class="fa fa-file"></i>  Generate Reports</a>
+                <ul>
+                    <li class="li-red-bg"><a href="#">Generate All Datas in PDF Individual</a></li>
+                    <li class="li-red-bg"><a href="#">Generate All Datas in PDF List</a></li>
+                    <li class="li-light-red-bg"><a href="#">Generate Filter Datas in PDF Individual</a></li>
+                    <li class="li-light-red-bg">
+                        <a href="#" 
+                        onclick="genexpertController.onReport().listFilterDatasInPDF()">Generate Filter Datas in PDF List</a></li>
+                    <li class="li-green-bg"><a href="#" 
+                        onclick="genexpertController.onReport().listFilterDatasInExcel()">
+                        Generate Filter Datas in Excel</a></li>
+                    <li class="li-green-bg"><a href="#" 
+                        onclick="genexpertController.onReport().listAllDatasInExcel()">
+                        Generate All Datas in Excel</a></li>
+                </ul>
+                
+            </li>
+
+            <!-- <li>
+                <a href="#" class="frame-control-item genexpert-record-group" 
+                onclick="genexpertController.showRecordView(this)">
+                <i class="fa fa-history"></i> Records</a>
+            </li> -->
+        </ul>
+
+        <div class="pagination-box d-flex genexpert-list-group" id="genexpert-index-pagination">
+          
+            <div class="pagination-paging-control d-flex">
+                <div class="pagination-previous">
+                    <a href="#" onclick="genexpertController.onPagination().onPage('Prev')" 
+                    class="a-disabled">
+                        <i class="fa fa-chevron-left"></i></a>
+                </div>
+                <div class="pagination-label small">0-0 of 0</div>
+                <div class="pagination-select hide-pagination">
+                    <input type="number" value='1' onkeyup="paginationControl().onKeyUp(event)">
+                </div>
+                <div class="pagination-next">
+                    <a href="#" onclick="genexpertController.onPagination().onPage('Next')">
+                        <i class="fa fa-chevron-right"></i></a>
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+
+    <div class="frame-filter-area" id="genexpert-filter-area"></div>
+
+    <!-- BODY AREA -->
+
+    <div class="frame-body-area">
+        <div class="frame-content-area" id="genexpert-list-area">
+            <div class="frame-body-list-area d-flex flex-column" id="genexpert-normal-views">
+                <div class="frame-body-list-title-area d-flex" style="width:3450px;">
+                    <div class="frame-body-list-title-item small" 
+                    style="width:50px; line-height:2.1em !important;">PRINT</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:50px; line-height:2.1em !important;">PDF</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:50px; line-height:2.1em !important;">EXCEL</div>
+                    <div class="frame-body-list-title-item small" style="width:150px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_serialnumber"
+                    sorter-table="genexpert">SERIAL NUMBER</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:350px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_faci_siteName"
+                    sorter-table="genexpert">FACILITY/SITE</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:150px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_dateinstalled"
+                    sorter-table="genexpert">DATE INSTALLED</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:200px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_inst_itName"
+                    sorter-table="genexpert">INSTALLATION TYPE</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:250px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_eng_fullname"
+                    sorter-table="genexpert">ENGINEER</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:300px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_mode_mnName"
+                    sorter-table="genexpert">MODEL NUMBER</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:200px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_faci_cont_fullname"
+                    sorter-table="genexpert">CONTACT FULLNAME</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:200px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_faci_cont_contactnumber"
+                    sorter-table="genexpert">CONTACT NUMBER</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:200px"
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_faci_cont_email"
+                    sorter-table="genexpert">CONTACT EMAIL</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:300px"
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_faci_complete_address"
+                    sorter-table="genexpert">COMPLETE ADDRESS</div>
+                    <div class="frame-body-list-title-item small" style="width:300px"
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_faci_region"
+                    sorter-table="genexpert">REGION</div>
+                    <div class="frame-body-list-title-item small" style="width:250px"
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_faci_province"
+                    sorter-table="genexpert">PROVINCE</div>
+                    <div class="frame-body-list-title-item small" style="width:250px"
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_faci_city"
+                    sorter-table="genexpert">CITY</div>
+                    <div class="frame-body-list-title-item small" style="width:250px"
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_faci_barangay"
+                    sorter-table="genexpert">BARANGAY</div>
+                </div>
+    
+                <div class="frame-body-list-content-area" 
+                id="genexpert-body-list-content-area"
+                style="width:3450px;"></div>
+            
+    
+            </div>
+    
+            <div id="genexpert-tree-views" class="d-none">
+    
+                <!-- <div class="genexpert-tree-views-item make-hover">
+                    <div class="tree-views-item-body">
+                        <div class="body-semi-details" 
+                        onclick="machineController.machineUI().showFullDetails(this)">
+                            <a href="#" class="genexpert-tree-show-control-btn">
+                                <i class="fa fa-caret-right"></i></a>
+    
+                            <div class="control-button-area d-flex">
+                                <a href="#" class="btn btn-success mr-2" title="Save Edited Data"><i class="fa fa-save"></i></a>
+                                <a href="#" class="btn btn-danger mr-2" title="Generate in PDF"><i class="fa fa-file-pdf-o"></i></a>
+                                <a href="#" class="btn btn-success mr-2" title="Generate in Excel"><i class="fa fa-file-excel-o"></i></a>
+                                <a href="#" class="btn btn-primary"><i class="fa fa-bus" title="Transfer to other Site"></i></a>
+                                <a href="#" class="btn btn-danger mr-2"><i class="fa fa-trash" title="Pull-out the Machine"></i></a>
+                                
+                            </div>
+                            <div class="genexpert-tree-views-header">812423</div>
+                            <div class="genexpert-tree-views-details">XAVIER UNIV. COMMUNITY HEALTH CARE CENTER -COMMITTEE OF GERMAN DOCTORS</div>
+                        </div>
+                        <div class="body-full-details">
+                           
+                            <div class="genexpert-basic-information sub-make-hover">
+                                <div class="genexpert-details-title" 
+                                onclick="machineController.machineUI().showGenexpertInformationInfo(this)">
+                                    Basic Information
+                                    <a href="#" class="genexpert-tree-show-control-btn">
+                                        <i class="fa fa-caret-right"></i>
+                                    </a>
+                                </div>
+                               
+                                <div class="genexpert-full-details-content">
+    
+                                    <div class="full-details-content-row">
+                                        <div class="full-details-content-item w-15">
+                                            <label for="#">Serial Number</label>
+                                            <input type="text" class="w-100">
+                                        </div>
+                                        <div class="full-details-content-item w-15">
+                                            <label for="#">Date Installed</label>
+                                            <input type="date" class="w-100">
+                                        </div>
+    
+                                        <div class="full-details-content-item w-35">
+                                            <label for="#">Installed By</label>
+                                           <select class="engineer-drop-down w-100">
+                                           </select>
+                                        </div>
+                                        <div class="full-details-content-item w-35">
+                                            <label for="#">Installation Type</label>
+                                           <select 
+                                           class="installation-type-drop-down w-100">
+                                           </select>
+                                        </div>
+    
+                                    </div>
+    
+                                    <div class="full-details-content-row">
+                                        <div class="full-details-content-item w-50">
+                                            <label for="#">Model Number</label>
+                                            <select 
+                                           class="model-number-drop-down w-100">
+                                           </select>
+                                        </div>
+                                        <div class="full-details-content-item w-25">
+                                            <label for="#">Software Vcersion</label>
+                                            <input type="text" class="w-100">
+                                        </div>
+    
+                                        <div class="full-details-content-item w-25">
+                                            <label for="#">OS Version</label>
+                                            <input type="text" class="w-100">
+                                        </div>
+                                        
+    
+                                    </div>
+                                  
+    
+    
+    
+                                </div>
+    
+                            </div>
+                            <div class="genexpert-site-information sub-make-hover">
+                                <div class="genexpert-details-title" 
+                                onclick="machineController.machineUI().showGenexpertInformationInfo(this)">
+                                    Site Information
+                                    <a href="#" class="genexpert-tree-show-control-btn">
+                                        <i class="fa fa-caret-right"></i></a>
+                                </div>
+                               
+                                <div class="genexpert-full-details-content">
+                                </div>
+                            </div>
+                            <div class="genexpert-assaystatistic-information sub-make-hover">
+                               
+                                    <div class="genexpert-details-title"
+                                    onclick="machineController.machineUI().showGenexpertInformationInfo(this)">
+                                        Assay Statistics
+                                        <a href="#" class="genexpert-tree-show-control-btn">
+                                            <i class="fa fa-caret-right"></i></a>
+                                    </div>
+                                   
+                                    <div class="genexpert-full-details-content">
+                                    </div>
+                                
+                            </div>
+                            <div class="genexpert-peripheral-information sub-make-hover">
+                                
+                                    <div class="genexpert-details-title" 
+                                    onclick="machineController.machineUI().showGenexpertInformationInfo(this)"> 
+                                        Peripherals
+                                        <a href="#" class="genexpert-tree-show-control-btn">
+                                            <i class="fa fa-caret-right"></i></a>
+                                    </div>
+                                   
+                                    <div class="genexpert-full-details-content">
+                                    </div>
+                                
+                            </div>
+                            <div class="genexpert-module-information sub-make-hover">
+                                
+                                    <div class="genexpert-details-title" 
+                                    onclick="machineController.machineUI().showGenexpertInformationInfo(this)">
+                                        Modules
+                                        <a href="#" class="genexpert-tree-show-control-btn">
+                                            <i class="fa fa-caret-right"></i></a>
+                                    </div>
+                                   
+                                    <div class="genexpert-full-details-content">
+                                    </div>
+                                
+                            </div>
+                            <div class="genexpert-xpertcheck-information sub-make-hover">
+                                
+                                    <div class="genexpert-details-title"
+                                    onclick="machineController.machineUI().showGenexpertInformationInfo(this)">
+                                        Xpertchecks
+                                        <a href="#" class="genexpert-tree-show-control-btn">
+                                            <i class="fa fa-caret-right"></i></a>
+                                    </div>
+                                   
+                                    <div class="genexpert-full-details-content">
+                                    </div>
+                               
+                            </div>
+                            <div class="genexpert-preventive-maintenance-information sub-make-hover">
+                                
+                                    <div class="genexpert-details-title"
+                                    onclick="machineController.machineUI().showGenexpertInformationInfo(this)">
+                                        Preventive Maintenances
+                                        <a href="#" class="genexpert-tree-show-control-btn">
+                                            <i class="fa fa-caret-right"></i></a>
+                                    </div>
+                                   
+                                    <div class="genexpert-full-details-content">
+                                    </div>
+                                
+                            </div>
+                        </div>
+    
+                    </div>
+                    
+                </div> -->
+    
+               
+                
+    
+            </div>
+        </div>
+
+        <div class="frame-content-area" id="genexpert-record-area"></div>
+
+
+    </div>
+
+
+
+    <!-- <div class="frame-body-area genexpert-record-content-area"></div> -->
+
+    <!-- <div id="context-menu">
+        <div class="item">
+            <i class="fa fa-cut"></i> Cut
+        </div>
+
+        <div class="item">
+            <i class="fa fa-clone"></i> Copy
+        </div>
+
+        <div class="item">
+            <i class="fa fa-paste"></i> Paste
+        </div>
+
+        <div class="item">
+            <i class="fa fa-trash-o"></i> Delete
+        </div>
+
+        <div class="item">
+            <i class="fa fa-refresh"></i> Reload
+        </div>
+
+        <div class="item">
+            <i class="fa fa-times"></i> Exit
+        </div>
+
+    </div> -->
+
+
+</div>
+<script src="../js/genexpert.js"></script>
+<!-- https://www.youtube.com/watch?v=RHQfmpBEKf8 -->

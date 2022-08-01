@@ -1,0 +1,152 @@
+.transaction-form-back-btn{
+    position:absolute;
+    top:40px;
+    right:55px;
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+}
+.transaction-form-back-btn:hover{
+    color:rgb(211, 210, 210);
+}
+.transaction-form-back-btn:active{
+    color:rgb(184, 184, 184);
+}
+.transaction-title-panel{
+    font-size: 18px;
+    color:#fff !important;
+    font-weight:600;
+}
+.transaction-body-panel > .transaction-box-panel{
+    position:relative;
+    top:0;
+    left:0;
+    width:100%;
+    height:auto;
+    padding:5px;
+    margin-top:10px;
+}
+
+.transaction-body-panel > 
+.transaction-box-panel > .transaction-box-title{
+    color:rgb(2, 238, 255);
+    background:rgb(41, 41, 41);
+    padding:2px;
+    padding-left:10px;
+    font-weight:500;
+    border-radius:5px;
+    font-size:10px;
+    text-transform: uppercase;
+    border:0.7px solid #fff;
+}
+.transaction-body-panel > 
+.transaction-box-panel > 
+.transaction-box-content{
+    padding:5px;
+}
+
+.transaction-body-panel > 
+.transaction-box-panel > 
+.transaction-box-content > 
+.transaction-box-row{
+    width:100%;
+    display:flex;
+    margin-top:10px;
+}
+.transaction-body-panel > 
+.transaction-box-panel > 
+.transaction-box-content > 
+.transaction-box-row >
+.transaction-box-item{
+    display:flex;
+    flex-direction: column;
+}
+
+.transaction-body-panel > 
+.transaction-box-panel > 
+.transaction-box-content > 
+.transaction-box-row >
+.transaction-box-item > label{
+    color:rgb(235, 235, 235);
+    font-size:11px;
+    font-weight:500;
+    text-transform:uppercase;
+}
+
+.transaction-body-panel > 
+.transaction-box-panel > 
+.transaction-box-content > 
+.transaction-box-row >
+.transaction-box-item > input{
+    background:rgb(172, 172, 172);
+    color:rgb(0, 0, 0);
+    border:0.5px solid rgb(138, 137, 137);
+    padding:1.5px;
+    font-weight:700;
+    font-size:12px;
+}
+.transaction-body-panel > 
+.transaction-box-panel > 
+.transaction-box-content > 
+.transaction-box-row >
+.transaction-box-item > select{
+    background:rgb(172, 172, 172);
+    color:rgb(0, 0, 0);
+    border:0.5px solid rgb(138, 137, 137);
+    padding:2px;
+    font-weight:600;
+    font-size:12px;
+}
+.transaction-body-panel > 
+.transaction-box-panel > 
+.transaction-box-content > 
+.transaction-box-row >
+.transaction-box-item {
+    margin-right:10px;
+}
+
+.transaction-body-panel > 
+.transaction-box-panel > 
+.transaction-box-content > 
+.transaction-box-row >
+.transaction-box-item:last-child{
+    margin-right:0px;
+}
+.transaction-body-panel > 
+.transaction-box-panel > 
+.transaction-box-content > 
+.transaction-box-content-table{
+    width:100%;
+}
+.transaction-body-panel > 
+.transaction-box-panel > 
+.transaction-box-content > 
+.transaction-box-content-table thead tr th{
+    border:0.7px solid #fff;
+    color:#fff;
+}
+
+.transaction-body-panel > 
+.transaction-box-panel > 
+.transaction-box-content > 
+.transaction-box-content-table tbody tr td{
+    border:0.7px solid #fff;
+}
+.transaction-body-panel > 
+.transaction-box-panel > 
+.transaction-box-content > 
+.transaction-box-content-table tbody tr td > input{
+    width: 100%;
+    background:rgb(172, 172, 172);
+    color:rgb(0, 0, 0);
+    border:0.5px solid rgb(138, 137, 137);
+    padding:2px;
+    font-weight:600;
+    font-size:12px;
+}
+.transaction-body-panel > 
+.transaction-box-panel > 
+.transaction-box-content > 
+.transaction-box-content-table tbody tr td > select{
+    width: 100%;
+}

@@ -1,0 +1,287 @@
+<link rel="stylesheet" href="../css/transaction/genexpert-transfer.css">
+<div id="genexpert-transfer-form">
+
+    <div class="genexpert-transfer-info-form">
+    
+
+    </div>
+    <div class="genexpert-transfer-main-form">
+     
+        <!-- <h4>Transfer To</h4> -->
+        <div class="gt-form-group mt-1">
+            <div class="gt-form-item">
+                <div class="gt-form-label" style="margin-top:19px;">Facility/Site</div>
+                <div class="gt-form-field gt-facility-select" style=" margin-top:-20px !important;">
+                    <div class="genexpert-transfer-display-panel-body-item-value   
+                    genexpert-transfer-display-panel-body-item-value-auto-complete"
+                    style="background:none !important;">
+                
+                         <form autocomplete="off" class="w-100 mb-2">
+                            <div class="autocomplete w-100">
+                                <input type="text" id="genexpert-transfer-to-facility" 
+                                style=
+                                "background:#fff !important; 
+                                width:825px !important;
+                                border:0.7px solid rgb(83, 83, 83);
+                                color:#000 !important;
+                                 font-weight:600 !important;
+                                 padding:5px !important;
+                                 font-size:12px !important;" 
+                                onkeyup="genexpertController.onView().transaction().transfer()
+                                .catchUpdateData(this,
+                                '#genexpert-transfer-to-facility','div-auto-complete-field')"
+                                onmouseleave="genexpertController.onView().transaction()
+                                .transfer().catchUpdateData(this,
+                                '#genexpert-transfer-to-facility','div-auto-complete-field')"
+                                     onclick="genexpertController.onView().transaction()
+                                     .transfer().catchUpdateData(this,
+                                     '#genexpert-transfer-to-facility','div-auto-complete-field')"
+                                >
+                            </div>
+                        </form>
+
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+        <div class="get-form-full-group-area">
+            <div class="gt-form-group">
+                <div class="gt-form-item">
+                    <div class="gt-form-label">Region</div>
+                    <div class="gt-form-field">
+                        <input type="text" id="genexpert-transfer-region" disabled>
+                    </div>
+                </div>
+
+                <div class="gt-form-item">
+                    <div class="gt-form-label">Province</div>
+                    <div class="gt-form-field">
+                        <input type="text" id="genexpert-transfer-province" disabled>
+                    </div>
+                </div>
+            
+            </div>
+
+            <div class="gt-form-group">
+                <div class="gt-form-item">
+                    <div class="gt-form-label">City</div>
+                    <div class="gt-form-field">
+                        <input type="text" id="genexpert-transfer-city" disabled>
+                    </div>
+                </div>
+
+                <div class="gt-form-item">
+                    <div class="gt-form-label">Barangay</div>
+                    <div class="gt-form-field">
+                        <input type="text" id="genexpert-transfer-barangay" disabled>
+                    </div>
+                </div>
+            
+            </div>
+
+            <div class="gt-form-group">
+                <div class="gt-form-item">
+                    <div class="gt-form-label">Other Address</div>
+                    <div class="gt-form-field">
+                        <input type="text" id="genexpert-transfer-other-address" disabled>
+                    </div>
+                </div>
+
+            
+            </div>
+
+            <div class="gt-form-group w-25">
+                <div class="gt-form-item w-100">
+                    <div class="gt-form-label">Date Installed</div>
+                    <div class="gt-form-field">
+                        <input type="date" id="genexpert-transfer-date-installed">
+                    </div>
+                </div>
+
+            
+            </div>
+            <div class="gt-form-group">
+                <div class="gt-form-item">
+                    <div class="gt-form-label">Remarks</div>
+                    <div class="gt-form-field">
+                        <textarea id="genexpert-transfer-remarks"></textarea>
+                    </div>
+                </div>
+
+            
+            </div>
+
+            <div class="gt-form-group gt-button-group">
+                <div class="gt-button-sub-group">
+                   
+                    <a href="#" class="btn btn-success w-25"
+                    onclick="genexpertController.transaction()
+                    .transfer().onTransferProcess()">Save Changes</a>
+                    <a href="#" class="btn btn-danger mr-2 w-25"
+                    onclick="genexpertController.onView().transaction().transfer().hideTransferform()">Return</a>
+                </div>
+              
+            </div>
+
+        </div>
+     
+        
+
+
+
+       <!-- <div class="genexpert-transfer-search-site-area">
+            <input type="text" placeholder="Search Site/Facility" class="mr-1">
+            <a href="#" class="btn btn-primary" style="width:70px">Find</a>
+
+            <div class="genexpert-transfer-return-area">
+                <a href="#" class="btn btn-success mr-3" style="width:70px;"
+                onclick="genexpertTransactionController.save()">Save</a>
+                <a href="#" class="btn btn-danger" style="width:70px;"
+                onclick="genexpertTransactionController.hideTransferForm()">Return</a>
+            </div>
+
+       </div> -->
+
+       <!-- <div class="genexpert-transfer-result-area">
+            <div class="genexpert-transfer-facility-list-area">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width:30%">Facility Name</th>
+                            <th style="width:15%">Region</th>
+                            <th style="width:15%">Province</th>
+                            <th style="width:15%">City</th>
+                            <th style="width:15%">Barangay</th>
+                            <th style="width:10%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width:30%">Cebu City Medical Center</td>
+                            <td style="width:15%">Region VII</td>
+                            <td style="width:15%">Cebu</td>
+                            <td style="width:15%">Cebu City</td>
+                            <td style="width:15%">Tisa</td>
+                            <td style="width:10%; padding:5px;" >
+                                <a href="#" class="btn btn-success transfer-here-btn">Transfer Here</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width:30%">Cebu City Medical Center</td>
+                            <td style="width:15%">Region VII</td>
+                            <td style="width:15%">Cebu</td>
+                            <td style="width:15%">Cebu City</td>
+                            <td style="width:15%">Tisa</td>
+                            <td style="width:10%; padding:5px;" >
+                                <a href="#" class="btn btn-success transfer-here-btn">Transfer Here</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width:30%">Cebu City Medical Center</td>
+                            <td style="width:15%">Region VII</td>
+                            <td style="width:15%">Cebu</td>
+                            <td style="width:15%">Cebu City</td>
+                            <td style="width:15%">Tisa</td>
+                            <td style="width:10%; padding:5px;" >
+                                <a href="#" class="btn btn-success transfer-here-btn">Transfer Here</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width:30%">Cebu City Medical Center</td>
+                            <td style="width:15%">Region VII</td>
+                            <td style="width:15%">Cebu</td>
+                            <td style="width:15%">Cebu City</td>
+                            <td style="width:15%">Tisa</td>
+                            <td style="width:10%; padding:5px;" >
+                                <a href="#" class="btn btn-success transfer-here-btn">Transfer Here</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width:30%">Cebu City Medical Center</td>
+                            <td style="width:15%">Region VII</td>
+                            <td style="width:15%">Cebu</td>
+                            <td style="width:15%">Cebu City</td>
+                            <td style="width:15%">Tisa</td>
+                            <td style="width:10%; padding:5px;" >
+                                <a href="#" class="btn btn-success transfer-here-btn">Transfer Here</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width:30%">Cebu City Medical Center</td>
+                            <td style="width:15%">Region VII</td>
+                            <td style="width:15%">Cebu</td>
+                            <td style="width:15%">Cebu City</td>
+                            <td style="width:15%">Tisa</td>
+                            <td style="width:10%; padding:5px;" >
+                                <a href="#" class="btn btn-success transfer-here-btn">Transfer Here</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="genexpert-transfer-genexpert-list-area">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width:11%">Genexpert SN</th>
+                            <th style="width:12%">Date Installed</th>
+                            <th style="width:20%">Installed By</th>
+                            <th style="width:20%">Installation Type</th>
+                            <th style="width:30%">Model Number</th>
+                            <th style="width:7%">Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+       </div> -->
+
+       
+    </div>
+
+    <div class="search-genexpert-area d-flex pull-left">
+        <input type="text" class="mr-2" id="genexpertTransferSearchField" 
+        placeholder="Search...">
+        <a href="#" class="btn btn-primary" 
+        onclick="genexpertController.transaction().transfer().onSearchforTransfer()">Search</a>
+    </div>
+
+    <div class="genexpert-result-area">
+        <div class="genexpert-result-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:5%">Info</th>
+                        <th style="width:15%">Genexpert SN</th>
+                        <th style="width:35%">Facility</th>
+                        <th style="width:15%">Date Installed</th>
+                        <th style="width:15%">Installation Type</th>
+                        <th style="width:15%">Engineer</th>
+                        <th style="width:10%">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="genexpert-transfer-tbody-area">
+                  
+
+                </tbody>
+
+            </table>
+
+        </div>
+       
+     
+
+    </div>
+
+</div>

@@ -1,0 +1,30 @@
+#jotform-frame-area{
+    position: relative;
+    width:100%;
+    height:100%;
+    background:rgba(87, 43, 43, 0.6);
+    backdrop-filter:blur(5px);
+    display:flex;
+    flex-direction: column;
+    overflow: hidden !important;
+}
+.jotform-form-box{
+    position: absolute;
+    width:100%;
+    height:100%;
+}
+
+.jotform-form-box-hide{
+    display:none !important;
+}
+.jotform-pagination-hide{
+    display:none !important;
+}
+
+.jotform-filter-form-hide{
+    display:none !important;
+}
+
+#jotform-filter-area{
+    height:0%;
+}

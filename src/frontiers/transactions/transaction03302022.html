@@ -1,0 +1,340 @@
+<div id="transaction-main">
+
+    <link rel="stylesheet" href="../transactions/transaction.css">
+    <!-- <link rel="stylesheet" href="../transactions/genexpert/genexpert-installation.css">
+    <link rel="stylesheet" href="../transactions/haemonetics/haemonetics-installation.css">
+    <link rel="stylesheet" href="../transactions/modules/module-installation.css"> -->
+    
+    <div class="transaction-header">
+        <input type="text" placeholder="Service Report #">
+        <select id="transaction-category-list" onchange="displayForm()">
+            <option value="">Genexpert</option>
+            <option value="">Haemonetics</option>
+        </select>
+
+        <select id="transaction-type-list" onchange="displayForm(true)">
+            <option value="">Installation</option>
+            <option value="">Transfer</option>
+            <option value="">Replacement</option>
+            <option value="">Repair</option>
+            <option value="">Schedule</option>
+        </select>
+
+        <select class="transaction-engineer-list engineer-drop-down"></select>
+        <a href="#" class="transaction-submit-btn btn btn-success" onclick="saveForm()">Save</a>
+    </div>
+
+    <div class="transaction-body">
+        <div class="searching-genexpert-transaction">
+            <div class="tbc-control-area d-flex">
+                <input type="text" class="mr-1 w-75" placeholder="Search for Serial Number/Facility...">
+                <a href="#" class="btn btn-success">Find</a>
+            </div>
+            <div class="tbc-result-area">
+               <table class="tbc-table table table-dark table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="w-15">Serial Number</th>
+                            <th class="w-50">Facility</th>
+                            <th class="w-25">Engineer</th>
+                            <th class="w-10">Select</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="w-15">8094563</td>
+                            <td class="w-50">Cebu City Medical Center</td>
+                            <td class="w-25">Eunar Dayangco</td>
+                            <td class="w-10"><a href="#" class="btn btn-primary w-100">Proceed</a></td>
+                        </tr>
+                        <tr>
+                            <td class="w-15">857564</td>
+                            <td class="w-50">General Hospital</td>
+                            <td class="w-25">Juan Dela Cruz</td>
+                            <td class="w-10"><a href="#" class="btn btn-primary w-100">Proceed</a></td>
+                        </tr>
+                        <tr>
+                            <td class="w-15">5756756</td>
+                            <td class="w-50">Cebu Doctor's University</td>
+                            <td class="w-25">Rodrigo Duterte</td>
+                            <td class="w-10"><a href="#" class="btn btn-primary w-100">Proceed</a></td>
+                        </tr>
+                    </tbody>
+
+               </table>
+
+            </div>
+            
+        </div>
+        <div class="transaction-body-content">
+
+            <div class="genexpert-installation-container"></div>
+            <div class="haemonetics-installation-container"></div>
+            <div class="module-installation-container"></div>
+            <div class="xpertcheck-schedule-container"></div>
+            <div class="pm-schedule-container"></div>
+
+    
+
+        </div>
+        
+    </div>
+  
+
+    <script>
+
+        displayAllForm();
+
+        function changingTransTypeList(){
+            const categ = $("#transaction-category-list").children("option:selected").text();
+            const typ = $("#transaction-type-list");
+
+            switch(categ){
+                case "Genexpert":setGenexpertTransType(); break;
+                case "Haemonetics":setHaemoneticsTransType(); break;
+                case "Module":setModuleTransType(); break;
+                case "Xpertcheck":setXpertcheckTransType(); break;
+                case "Preventive Maintenance":setPMTransType(); break;
+                default:null;
+            }
+
+            function setGenexpertTransType(){
+                typ.html("");
+                typ.append(` 
+                <option value="">Installation</option>
+                <option value="">Module Replacement</option>
+                <option value="">Transfer</option>
+                <option value="">Pull-out</option>
+                <option value="">Xpertcheck</option>
+                <option value="">Preventive Maintenance</option>
+                `);
+            }
+
+            function setHaemoneticsTransType(){
+                typ.html("");
+                typ.append(` 
+                <option value="">Installation</option>
+                <option value="">Replacement</option>
+                `);
+            }
+
+            function setModuleTransType(){
+                typ.html("");
+                typ.append(` 
+                <option value="">Installation</option>
+                <option value="">Replacement</option>
+                <option value="">Repair</option>
+                <option value="">Transfer</option>
+                `);
+            }
+
+            function setXpertcheckTransType(){
+                typ.html("");
+                typ.append(` 
+                <option value="">Schedule</option>
+                `);
+            }
+
+            function setPMTransType(){
+                typ.html("");
+                typ.append(` 
+                <option value="">Schedule</option>
+                `);
+            }
+        }
+        
+        function displayAllForm(){
+
+            const ledger = [
+                {
+                    "url":"../transactions/genexpert/installation.html",
+                    "content":".genexpert-installation-container"
+                },
+                {
+                    "url":"../transactions/genexpert/replacement.html",
+                    "content":".genexpert-replacement-container"
+                },
+                {
+                    "url":"../transactions/haemonetics/installation.html",
+                    "content":".haemonetics-installation-container"
+                },
+                {
+                    "url":"../transactions/modules/installation.html",
+                    "content":".module-installation-container"
+                }, 
+                {
+                    "url":"../transactions/modules/repair.html",
+                    "content":".module-repair-container"
+                },
+                {
+                    "url":"../transactions/modules/transfer.html",
+                    "content":".module-transfer-container"
+                },
+                {
+                    "url":"../transactions/modules/replacement.html",
+                    "content":".module-replacement-container"
+                },
+                {
+                    "url":"../transactions/xpertcheck/schedule.html",
+                    "content":".xpertcheck-schedule-container"
+                },
+                {
+                    "url":"../transactions/preventive-maintenance/schedule.html",
+                    "content":".pm-schedule-container"
+                }
+                
+            ];
+            $(`.transaction-body-content`).hide();
+            ledger.forEach(content=>{
+                $(`.transaction-body-content > ${content["content"]}`).load(content['url']);
+            }); 
+            setTimeout(function(){
+                $(`.transaction-body-content`).show();
+            },500);
+            displayForm();
+
+        }
+        function displayForm(ignoreTransType = false){
+
+            if(!ignoreTransType){
+                changingTransTypeList();
+            }
+
+            const categ = $("#transaction-category-list").children("option:selected").text();
+            const typ = $("#transaction-type-list").children("option:selected").text();
+
+            const ledger = [
+                {
+                    "category":"Genexpert",
+                    "trans-type":"Installation",
+                    "content":".genexpert-installation-container"
+                },
+                {
+                    "category":"Haemonetics",
+                    "trans-type":"Installation",
+                    "content":".haemonetics-installation-container"
+                },
+                {
+                    "category":"Genexpert",
+                    "trans-type":"Module Replacement",
+                    "content":".module-installation-container"
+                }, 
+                {
+                    "category":"Genexpert",
+                    "trans-type":"Xpertcheck",
+                    "content":".xpertcheck-schedule-container"
+                },
+                {
+                    "category":"Genexpert",
+                    "trans-type":"Preventive Maintenance",
+                    "content":".pm-schedule-container"
+                }
+                
+            ];
+                
+            const current = ledger.filter(ledg=>{
+                return ledg['category'] == categ && 
+                ledg['trans-type'] == typ;
+            })[0];
+            $(`.transaction-body > .transaction-body-content > div`)
+            .removeClass("show-transaction-panel-content");
+
+            $(`.transaction-body-content`).hide();
+
+            setTimeout(function(){
+                $(`.transaction-body > .transaction-body-content > ${current["content"]}`)
+                .addClass("show-transaction-panel-content");
+            },500);
+
+            setTimeout(function(){
+                $(`.transaction-body-content`).show();
+            },100);
+            
+        
+
+        }
+
+ 
+
+        function saveForm(){
+
+            const categ = $("#transaction-category-list").children("option:selected").text();
+            const typ = $("#transaction-type-list").children("option:selected").text();
+
+
+            function onGenexpertInstallationSubmit(){
+               
+                transactionController.genexpert().installation().onProcess();
+            }
+
+
+            
+            const ledger = [
+                {
+                    "process":onGenexpertInstallationSubmit,
+                    "category":"Genexpert",
+                    "trans-type":"Installation"
+                },
+                {
+                    "url":"../transactions/genexpert/replacement.html",
+                    "category":"Genexpert",
+                    "trans-type":"Replacement"
+                },
+                {
+                    "url":"../transactions/haemonetics/installation.html",
+                    "category":"Haemonetics",
+                    "trans-type":"Installation"
+                },
+                {
+                    "url":"../transactions/modules/installation.html",
+                    "category":"Module",
+                    "trans-type":"Installation"
+                }, 
+                {
+                    "url":"../transactions/modules/repair.html",
+                    "category":"Module",
+                    "trans-type":"Repair"
+                },
+                {
+                    "url":"../transactions/modules/transfer.html",
+                    "category":"Module",
+                    "trans-type":"Transfer"
+                },
+                {
+                    "url":"../transactions/modules/replacement.html",
+                    "category":"Module",
+                    "trans-type":"Replacement"
+                },
+                {
+                    "url":"../transactions/xpertcheck/schedule.html",
+                    "category":"Xpertcheck",
+                    "trans-type":"Schedule"
+                },
+                {
+                    "url":"../transactions/preventive-maintenance/schedule.html",
+                    "category":"Preventive Maintenance",
+                    "trans-type":"Schedule"
+                }
+                
+            ]
+
+            const current = ledger.filter(ledg=>{
+                return ledg['category'] == categ && 
+                ledg['trans-type'] == typ;
+            })[0];
+
+            current['process']();
+
+
+        }
+
+
+        function openSearchGenexpert(){
+            $(".searching-genexpert-transaction")
+            .addClass("searching-genexpert-show");
+        }
+
+    </script>
+
+
+</div>

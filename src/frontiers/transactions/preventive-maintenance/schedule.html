@@ -1,0 +1,81 @@
+<div id="pm-schedule-form">
+    <link rel="stylesheet" href="../transactions/preventive-maintenance/pm-schedule.css">
+    <div class="pm-schedule-area">
+
+        <div id="pm-schedule-genexpert-search-area"></div>
+        <div id="pm-schedule-form-area">
+            <div class="pm-title">Schedule Form</div>
+            <div class="pm-body">
+
+                <div class="pm-row">
+                    <label for="">Genexpert</label>
+                    <div class="pm-field">
+                        <input type="text" id="pm-schedule-genexpert-serial-number">
+                        <a href="#" class="btn btn-primary">Browse</a>
+                    </div>
+                </div>
+
+                <div class="pm-row">
+                    <label for="">Engineer</label>
+                        <select name="#" id="pm-schedule-engineer"  
+                    class="engineer-drop-down w-100"></select>
+                   
+                </div>
+                <div class="pm-row d-flex">
+                    <div class="pm-col w-50 mr-2">
+                        <label for="">Last Calibration</label>
+                        <input type="text" class="w-100" id="pm-schedule-last-calibration">
+                    </div>
+                    <div class="pm-col w-50">
+                        <label for="">Set Calibration From</label>
+                        <input type="date" class="w-100" 
+                        id="pm-schedule-calibration-from" onchange="
+                        pmTransactionController.setCalibrationTo()">
+                    </div>
+                   
+                </div>
+
+                <div class="pm-row d-flex">
+                    <div class="pm-col w-50 mr-2">
+                        <label for="">Time Length</label>
+                        <div class="d-flex">
+                            <input type="number" 
+                            id="pm-schedule-time-length-value"
+                            class="w-100" onkeyup="
+                            pmTransactionController.setCalibrationTo()" 
+                            onchange="pmTransactionController.setCalibrationTo()">
+                            <select id="pm-schedule-time-length-format" 
+                            onchange="pmTransactionController.setCalibrationTo()">
+                                <option value="year">Year</option>
+                                <option value="month">Month</option>
+                                <option value="day">Day</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="pm-col w-50">
+                        <label for="">Set Calibration To</label>
+                        <input type="date" class="w-100" id="pm-schedule-calibration-to">
+                    </div>
+                   
+                </div>
+
+                <div class="pm-row">
+                    <a href="#" class="btn btn-success w-100 mb-2">Clear All</a>
+                    <a href="#" class="btn btn-primary w-100" 
+                    onclick="pmTransactionController.goSchedule()">Set Schedule</a>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div id="pm-schedule-image-area">
+            <div class="pm-schedule-image-screen-area"></div>
+        </div>
+       
+    </div>
+    <script>
+        const pmTransactionController = 
+       require("../transactions/preventive-maintenance/PMTransactionController");
+    </script>
+</div>

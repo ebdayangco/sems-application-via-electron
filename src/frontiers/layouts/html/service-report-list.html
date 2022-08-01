@@ -1,0 +1,472 @@
+<link rel="stylesheet" href="../css/service-report.css">
+<link rel="stylesheet" href="../css/service-report/list.css">
+<link rel="stylesheet" href="../css/service-report/filter.css">
+<link rel="stylesheet" href="../css/service-report/info.css">
+
+
+
+<div class="frame-area d-flex flex-column" id="service-report-frame-area">
+    <div id="service-report-information-area">
+
+        <a href="#" class="service-report-info-btn" onclick="hideServiceReportInformation()"><i class="fa fa-caret-up"></i></a>
+
+        <div class="service-report-information-body">
+
+            
+
+
+        </div>
+    </div>
+    <div class="frame-control-area">
+
+        <ul class="d-flex">
+            
+
+            <li>
+                <a href="#" class="frame-control-item genexpert-list-group" 
+                onclick="serviceReportController.onFilterView(this)">
+                <i class="fa fa-filter"></i> Show Filter</a>
+            </li>
+            
+            <li>
+                <a href="#" class="frame-control-item frame-excel-based genexpert-list-group">
+                    <i class="fa fa-file"></i> Generate Reports</a>
+                <ul>
+                    <li><a href="#">Filter Datas in PDF</a></li>
+                    <li><a href="#">All Datas in PDF</a></li>
+                    <li><a href="#" onclick="serviceReportController.onReport().datasInExcel(true)">Filter Datas in Excel</a></li>
+                    <li><a href="#" onclick="serviceReportController.onReport().datasInExcel()">All Datas in Excel</a></li>
+                </ul>
+                
+            </li>
+
+        </ul>
+
+        <div class="pagination-box d-flex service-report-list-group" id="service-report-index-pagination">
+            <!-- <div class="pagination-label small">0-0 of 0</div> -->
+            <div class="pagination-paging-control d-flex">
+                <div class="pagination-previous">
+                    <a href="#" onclick="serviceReportController.onPagination().onPage('Prev')" 
+                    class="a-disabled">
+                        <i class="fa fa-chevron-left"></i></a>
+                </div>
+                <div class="pagination-label small">0-0 of 0</div>
+                <div class="pagination-select hide-pagination">
+                    <input type="number" value='1' onkeyup="paginationControl().onKeyUp(event)">
+                </div>
+                <div class="pagination-next">
+                    <a href="#" onclick="serviceReportController.onPagination().onPage('Next')">
+                        <i class="fa fa-chevron-right"></i></a>
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+
+    <div class="frame-filter-area" id="service-report-filter-area">
+
+        <div class="filter-content-area">
+
+            <div class="service-report-filter-control-panel d-flex">
+                <a href="#" class="service-report-filter-submit-btn" onclick="serviceReportController.displayServiceReport()">Filter Now</a>
+            </div>
+
+            <div class="service-report-filter-note-area mb-2">Note: If you want an exact result, put 
+                (=) sign before you type the search word. </div>
+
+                <div class="service-report-filter-category-panel service-report-filter-service-report-area">
+
+
+                        <div class="service-report-filter-form-panel-row d-flex">
+
+                            <div class="service-report-filter-form-panel-item w-25">
+                                <div class="service-report-filter-form-panel-item-label">Service Report Number</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="text" 
+                                    id="service-report-filter-service-report-number"
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                            <div class="service-report-filter-form-panel-item w-25">
+                                <div class="service-report-filter-form-panel-item-label">Genexpert SN</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="text" 
+                                    id="service-report-filter-genexpert-serial-number" 
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                            <div class="service-report-filter-form-panel-item w-50">
+                                <div class="service-report-filter-form-panel-item-label">Facility</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="text" 
+                                    id="service-report-filter-facility" 
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="service-report-filter-form-panel-row d-flex">
+
+                            <div class="service-report-filter-form-panel-item w-30">
+                                <div class="service-report-filter-form-panel-item-label">Model Number</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <select id="service-report-filter-model-number"
+                                    class="service-report-filter-form-panel-item-field-input 
+                                    model-number-drop-down w-100">
+                                </select>
+                                  
+                                </div>
+                            </div>
+
+                            <div class="service-report-filter-form-panel-item w-20">
+                                <div class="service-report-filter-form-panel-item-label">Equipment</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="text" id="service-report-filter-equipment" 
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                            <div class="service-report-filter-form-panel-item w-30">
+                                <div class="service-report-filter-form-panel-item-label">Department</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="text" id="service-report-filter-department" 
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                            <div class="service-report-filter-form-panel-item w-20">
+                                <div class="service-report-filter-form-panel-item-label">Tel No.</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="text" id="service-report-filter-tel-no" 
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+
+                        <div class="service-report-filter-form-panel-row d-flex">
+
+                            <div class="service-report-filter-form-panel-item w-30">
+                                <div class="service-report-filter-form-panel-item-label">Service Type</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <select id="service-report-filter-service-type"
+                                        class="service-report-filter-form-panel-item-field-input w-100">
+                                        <option value="None"></option>
+                                        <option value="Installation">Installation</option>
+                                        <option value="Repair">Repair</option>
+                                        <option value="Transfer">Transfer</option>
+                                        <option value="Pull-out">Pull-out</option>
+                                        <option value="Module">Module</option>
+                                        <option value="Xpertcheck">Xpertcheck/Calibration</option>
+                                        <option value="Maintenance">Maintenance</option>
+                                        <option value="Others">Others</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="service-report-filter-form-panel-item w-20">
+                                <div class="service-report-filter-form-panel-item-label">Transaction ID</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="text" id="service-report-filter-transaction-id" 
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                            <div class="service-report-filter-form-panel-item w-30">
+                                <div class="service-report-filter-form-panel-item-label">Encoded Date</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="date" id="service-report-filter-encoded-date" 
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                            <div class="service-report-filter-form-panel-item w-20">
+                                <div class="service-report-filter-form-panel-item-label">Encoded By</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <select id="service-report-filter-encoded-by" 
+                                    class="service-report-filter-form-panel-item-field-input 
+                                    user-drop-down w-100"></select>
+                                  
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="service-report-filter-form-panel-row d-flex">
+
+                            <div class="service-report-filter-form-panel-item w-100">
+                                <div class="service-report-filter-form-panel-item-label">Problems Reported</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="text" id="service-report-filter-problems-reported"
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="service-report-filter-form-panel-row d-flex">
+
+                            <div class="service-report-filter-form-panel-item w-100">
+                                <div class="service-report-filter-form-panel-item-label">Diagnostic Findings</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="text" id="service-report-filter-diagnostic-findings"
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="service-report-filter-form-panel-row d-flex">
+
+                            <div class="service-report-filter-form-panel-item w-100">
+                                <div class="service-report-filter-form-panel-item-label">Corrective Action</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="text" id="service-report-filter-corrective-action"
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="service-report-filter-form-panel-row d-flex">
+
+                            <div class="service-report-filter-form-panel-item w-100">
+                                <div class="service-report-filter-form-panel-item-label">Comments</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="text" id="service-report-filter-comments"
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="service-report-filter-form-panel-row pb-5 d-flex">
+
+                            <div class="service-report-filter-form-panel-item w-30">
+                                <div class="service-report-filter-form-panel-item-label">Engineer Name</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <select id="service-report-filter-engineer-name"
+                                    class="service-report-filter-form-panel-item-field-input 
+                                    w-100 engineer-drop-down"></select>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="service-report-filter-form-panel-item w-20">
+                                <div class="service-report-filter-form-panel-item-label">Engineer Sign Date</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="date" id="service-report-filter-engineer-sign-date"
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                            <div class="service-report-filter-form-panel-item w-30">
+                                <div class="service-report-filter-form-panel-item-label">Customer Name</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="text" id="service-report-filter-customer-name"
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                            <div class="service-report-filter-form-panel-item w-20">
+                                <div class="service-report-filter-form-panel-item-label">Customer Sign Date</div>
+                                <div class="service-report-filter-form-panel-item-field w-100">
+                                    <input type="date" id="service-report-filter-customer-sign-date"
+                                    class="service-report-filter-form-panel-item-field-input w-100">
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                   
+                </div>
+            
+        
+            
+        
+           
+        
+        </div>
+        
+        <script>
+            
+            
+        
+            function showSRPanel(div){
+                $(div).addClass("service-report-filter-control-panel-btn-active").siblings()
+                .removeClass("service-report-filter-control-panel-btn-active");
+            }
+            
+            function defaultFilterSRPanel(){
+                $(".service-report-filter-service-report-area").show();
+                $(".service-report-filter-genexpert-area").hide();
+                $(".service-report-filter-assay-area").hide();
+                $(".service-report-filter-module-area").hide();
+                $(".service-report-filter-peripheral-area").hide();
+                $(".service-report-filter-xpertcheck-area").hide();
+                $(".service-report-filter-preventive-maintenance-area").hide();
+            }
+            function serviceReportSRPanel(div){
+
+                $(".service-report-filter-service-report-area").show();
+                $(".service-report-filter-genexpert-area").hide();
+                $(".service-report-filter-assay-area").hide();
+                $(".service-report-filter-module-area").hide();
+                $(".service-report-filter-peripheral-area").hide();
+                $(".service-report-filter-xpertcheck-area").hide();
+                $(".service-report-filter-preventive-maintenance-area").hide();
+                showSRPanel(div);
+            }
+            function genexpertSRPanel(div){
+                $(".service-report-filter-genexpert-area").show();
+                $(".service-report-filter-assay-area").hide();
+                $(".service-report-filter-module-area").hide();
+                $(".service-report-filter-peripheral-area").hide();
+                $(".service-report-filter-xpertcheck-area").hide();
+                $(".service-report-filter-preventive-maintenance-area").hide();
+                $(".service-report-filter-service-report-area").hide();
+                showSRPanel(div);
+            }
+            function assaySRPanel(div){
+                $(".service-report-filter-assay-area").show();
+                $(".service-report-filter-genexpert-area").hide();
+                $(".service-report-filter-module-area").hide();
+                $(".service-report-filter-peripheral-area").hide();
+                $(".service-report-filter-xpertcheck-area").hide();
+                $(".service-report-filter-preventive-maintenance-area").hide();
+                $(".service-report-filter-service-report-area").hide();
+                showSRPanel(div);
+            }
+            function moduleSRPanel(div){
+                $(".service-report-filter-module-area").show();
+                $(".service-report-filter-genexpert-area").hide();
+                $(".service-report-filter-assay-area").hide();
+                $(".service-report-filter-peripheral-area").hide();
+                $(".service-report-filter-xpertcheck-area").hide();
+                $(".service-report-filter-preventive-maintenance-area").hide();
+                showSRPanel(div);
+                $(".service-report-filter-service-report-area").hide();
+            }
+            function peripheralSRPanel(div){
+                $(".service-report-filter-peripheral-area").show();
+                $(".service-report-filter-genexpert-area").hide();
+                $(".service-report-filter-assay-area").hide();
+                $(".service-report-filter-module-area").hide();
+                $(".service-report-filter-xpertcheck-area").hide();
+                $(".service-report-filter-preventive-maintenance-area").hide();
+                showSRPanel(div);
+                $(".service-report-filter-service-report-area").hide();
+            }
+            function xpertcheckSRPanel(div){
+                $(".service-report-filter-xpertcheck-area").show();
+                $(".service-report-filter-genexpert-area").hide();
+                $(".service-report-filter-assay-area").hide();
+                $(".service-report-filter-module-area").hide();
+                $(".service-report-filter-peripheral-area").hide();
+                $(".service-report-filter-preventive-maintenance-area").hide();
+                showSRPanel(div);
+                $(".service-report-filter-service-report-area").hide();
+            }
+            function pmSRPanel(div){
+                $(".service-report-filter-preventive-maintenance-area").show();
+                $(".service-report-filter-genexpert-area").hide();
+                $(".service-report-filter-assay-area").hide();
+                $(".service-report-filter-module-area").hide();
+                $(".service-report-filter-peripheral-area").hide();
+                $(".service-report-filter-xpertcheck-area").hide();
+                showSRPanel(div);
+                $(".service-report-filter-service-report-area").hide();
+            }
+        </script>
+        
+
+
+
+    </div>
+    <div class="frame-body-area">
+        <div class="frame-content-area" id="genexpert-list-area">
+            <div class="frame-body-list-area d-flex flex-column" id="genexpert-normal-views">
+                <div class="frame-body-list-title-area d-flex" style="width:1650px;">
+                    <div class="frame-body-list-title-item small" 
+                    style="width:50px; line-height:2.1em !important;">PRINT</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:50px; line-height:2.1em !important;">PDF</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:100px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_serialnumber"
+                    sorter-table="genexpert">SR #</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:100px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_faci_siteName"
+                    sorter-table="genexpert">GENEX SN</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:350px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_dateinstalled"
+                    sorter-table="genexpert">FACILITY/SITE</div>
+
+                    <div class="frame-body-list-title-item small" 
+                    style="width:250px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_eng_fullname"
+                    sorter-table="genexpert">ENGINEER</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:250px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_mode_mnName"
+                    sorter-table="genexpert">PROBLEMS REPORTED</div>
+
+                    <div class="frame-body-list-title-item small" 
+                    style="width:250px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_inst_itName"
+                    sorter-table="genexpert">DIAGNOSTIC FINDINGS</div>
+
+
+                    <div class="frame-body-list-title-item small" 
+                    style="width:250px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field="genex_faci_cont_fullname"
+                    sorter-table="genexpert">CORRECTIVE ACTION</div>
+                   
+                </div>
+    
+                <div class="frame-body-list-content-area" 
+                id="service-report-body-list-content-area"
+                style="width:1650px;"></div>
+            
+            </div>
+        </div>
+
+       
+
+    </div>
+</div>
+<script src="../js/service-report.js"></script>

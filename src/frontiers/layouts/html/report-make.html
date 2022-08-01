@@ -1,0 +1,144 @@
+<div id="report-make-area">
+    <div class="report-make-form">
+        <div class="d-flex w-100">
+            <div class="report-make-left w-50 mr-1">
+                <div class="report-make-row">
+                    <div class="report-make-label">Report Name:</div>
+                    <div class="report-make-field w-100"><input type="text" name="" id=""></div>
+                </div>
+                <div class="report-make-row">
+                    <div class="report-make-label">Report Description:</div>
+                    <div class="report-make-field w-100">
+                        <textarea></textarea>
+                    </div>
+                  
+                </div>
+                <div class="report-make-row d-flex">
+                    <div class="w-50">
+                        <div class="report-make-label">Access Type:</div>
+                        <div class="report-make-field mr-1">
+                            <select>
+                                <option value="Public">Public</option>
+                                <option value="Protected">Protected</option>
+                                <option value="Private">Private</option>
+                            </select>
+                        </div>
+                    </div>
+        
+                    <div class="w-50">
+                        <div class="report-make-label">Password:</div>
+                        <div class="report-make-field">
+                            <input type="text" name="" id="">
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+            <div class="report-make-right w-50">
+                <div class="report-make-row">
+                    <h5 class="mt-2">Table List</h5>
+                    <div class="report-make-table-list">
+                        
+                        <table class="table table-dark table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox"></th>
+                                    <th>Table Name</th>
+                                    <th>Selected Only</th>
+                                    <th>Select All</th>
+                                </tr>
+                            </thead>
+                            <tbody id="report-table-list-tbody"></tbody>
+                        </table>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+       
+
+        <div class="report-make-row">
+            <h5 class="mt-2">Field List</h5>
+            <div class="report-make-field-list">
+                
+                <table class="table table-dark table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <th>Table Name</th>
+                            <th>Field Name</th>
+                            <th>Filter</th>
+                            <th>Value 1</th>
+                            <th>Value 2</th>
+                            <th>Value 3</th>
+                            <th>Group By</th>
+                            <th>Order By</th>
+                        </tr>
+                    </thead>
+                    <tbody id="report-field-list-tbody">
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>Genexpert</td>
+                            <td>Serial Number</td>
+                            <td><select class="w-100" style="height:28px;">
+                                    <option value="N/A"></option>
+                                    <option value="=">Equal To</option>
+                                    <option value="%">Contain</option>
+                                    
+                                </select>
+                            </td>
+                            <td><input type="text" class="w-100"></td>
+                            <td><input type="text" class="w-100"></td>
+                            <td><input type="text" class="w-100"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>Genexpert</td>
+                            <td>Facility</td>
+                            <td><select class="w-100" style="height:28px;">
+                                <option value="N/A"></option>
+                                <option value="=">Equal To</option>
+                                <option value="%">Contain</option>
+                                </select>
+                            </td>
+                            <td><input type="text" class="w-100"></td>
+                            <td><input type="text" class="w-100"></td>
+                            <td><input type="text" class="w-100"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+
+        <div class="report-make-row w-25">
+            <div class="report-make-label">Print Type</div>
+            <div class="report-make-field">
+                <select>
+                    <option value="Group">Group</option>
+                    <option value="Individual">Individual</option>
+                </select>
+            </div>
+
+
+        </div>
+        <div class="report-make-row d-flex flex-row-reverse">
+            <a href="#" class="btn btn-success w-20 mt-4"><i class="fa fa-save"></i> Save</a>
+            <a href="#" class="btn btn-danger w-20 mt-4 mr-1"
+            onclick="hideSubForm('#report-make-area','top')"><i class="fa fa-exit"></i> Return</a>
+            
+            
+        </div>
+        
+    </div>
+
+   
+
+
+
+</div>

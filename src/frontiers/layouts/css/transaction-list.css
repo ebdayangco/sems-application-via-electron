@@ -1,0 +1,42 @@
+#transaction-list-frame-area{
+    position: relative;
+    width:100%;
+    height:100%;
+    /* background:rgba(87, 43, 43, 0.6); */
+    /* background:lime; */
+    backdrop-filter:blur(5px);
+    display:flex;
+    flex-direction: column;
+    overflow: hidden !important;
+   
+}
+.row-text-line-height{
+    line-height: 2.5em;
+}
+
+.btn-border-warning{
+    border:1px solid rgb(255, 193, 7);
+    background:none;
+    color:rgb(255, 193, 7);
+    font-weight: 700;
+    border-radius: 3px !important;
+    width:80%;
+    height:35px !important;
+    padding:1px !important;
+    display: block;
+    text-align: center;
+    line-height: 2.5em;
+}
+.btn-border-primary{
+    border:1px solid rgb(12, 110, 253);
+    background:none;
+    color:rgb(12, 110, 253);
+    font-weight: 700;
+    border-radius: 3px !important;
+    width:80%;
+    height:35px !important;
+    padding:1px !important;
+    display: block;
+    text-align: center;
+    line-height: 2.5em;
+}

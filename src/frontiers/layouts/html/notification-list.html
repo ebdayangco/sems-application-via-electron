@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="../css/notification.css">
+<div class="frame-area" id="notification-frame-area">
+
+    <!-- CONTROL AREA -->
+
+    <div class="frame-control-area">
+
+        <ul class="d-flex">
+            
+
+            <li>
+                <a href="#" class="frame-control-item genexpert-list-group" 
+                onclick="genexpertController.filter(this)">
+                <i class="fa fa-filter"></i> Show Filter</a>
+            </li>
+            
+
+        </ul>
+
+        <div class="pagination-box d-flex genexpert-list-group" id="genexpert-index-pagination">
+            <!-- <div class="pagination-label small">0-0 of 0</div> -->
+            <div class="pagination-paging-control d-flex">
+                <div class="pagination-previous">
+                    <a href="#" onclick="genexpertController.onPagination().onPage('Prev')" 
+                    class="a-disabled">
+                        <i class="fa fa-chevron-left"></i></a>
+                </div>
+                <div class="pagination-label small">0-0 of 0</div>
+                <div class="pagination-select hide-pagination">
+                    <input type="number" value='1' onkeyup="paginationControl().onKeyUp(event)">
+                </div>
+                <div class="pagination-next">
+                    <a href="#" onclick="genexpertController.onPagination().onPage('Next')">
+                        <i class="fa fa-chevron-right"></i></a>
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+
+    <div class="frame-filter-area"></div>
+
+    <!-- BODY AREA -->
+
+    <div class="frame-body-area">
+        <div class="frame-content-area">
+            <div class="frame-body-list-area d-flex flex-column" id="genexpert-normal-views">
+                <div class="frame-body-list-title-area d-flex" style="width:100%;">
+                    <div class="frame-body-list-title-item small" 
+                    style="width:10%">DATE</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:20%">TRANSACTION</div>
+                    <div class="frame-body-list-title-item small" 
+                    style="width:70%">MESSAGE</div>
+                  
+
+                </div>
+    
+                <div class="frame-body-list-content-area" id="notification-list-content-area" 
+                style="width:100%;">
+
+            
+                </div>
+            
+    
+            </div>
+    
+          
+        </div>
+
+        
+
+    </div>
+
+</div>
+<script src="../js/notification.js"></script>

@@ -1,0 +1,183 @@
+#haemonetics-installation-form{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    padding:50px;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+.haemonetics-installation-content{
+    position:relative;
+    width:100%;
+    padding:30px;
+    padding-top:10px !important;
+    margin-bottom: 100px;
+    background:rgba(89, 92, 92, 0.562);
+    border-radius:10px;
+    box-shadow:0px 0px 5px 1px rgba(31, 30, 30, 0.938);
+
+}
+
+.haemonetics-installation-content > .transaction-block{
+    position: relative;
+    width:100%;
+    margin-top:20px;
+    padding:10px;
+    display:block;
+    margin-bottom:20px;
+}
+.transaction-block-hide{
+    display:none;
+}
+
+.transaction-block-button-highlight{
+    color:rgb(255, 255, 255) !important;
+}
+.haemonetics-installation-content > .transaction-block > .title,
+.haemonetics-installation-content > .transaction-block > .title > a{
+    position: relative;
+    top:0;
+    left:0;
+    color:rgb(236, 60, 60);
+    font-weight:700;
+    font-size:14px;
+    padding:0 !important;
+    margin:0 !important;
+    margin-bottom:10px !important;
+    margin-left:5px !important;
+    text-transform: uppercase;
+}
+
+.haemonetics-installation-content > .transaction-block > .body > .line{
+    display:flex;
+    width:100%;
+    margin-bottom: 10px;
+}  
+
+.haemonetics-installation-content > .transaction-block > .body > .line:last-child{
+    margin-bottom:0px;
+}  
+
+.haemonetics-installation-content > .transaction-block > .body > .line > .item{
+    display:flex;
+    flex-direction: column;
+    margin-right:10px;
+    
+}
+.haemonetics-installation-content > .transaction-block > .body > .line > .item:last-child{
+    margin-right:0px;
+}
+.haemonetics-installation-content > .transaction-block > .body > .line > .item > label{
+    color:rgb(194, 194, 194);
+    font-weight:500;
+    font-size:11px;
+}
+.haemonetics-installation-content > .transaction-block > .body > .line > .item > div > label{
+    color:rgb(194, 194, 194);
+    font-weight:500;
+    font-size:11px;
+}
+.haemonetics-installation-content > .transaction-block > .body > .line > .item > input{
+    background: rgb(223, 130, 130) !important;
+    /* background:rgba(250, 250, 250, 0.644); */
+    border:1px solid rgb(250, 250, 250,0.9);
+    padding:3px;
+    color:#000;
+    font-size:12px;
+    font-weight:700;
+}
+
+.haemonetics-installation-content > .transaction-block > .body > .line > .item form > div > input{
+    background: rgb(223, 130, 130) !important;
+    /* background:rgba(250, 250, 250, 0.644); */
+    border:1px solid rgb(250, 250, 250,0.9);
+    padding:3px;
+    color:#000;
+    font-size:12px;
+    font-weight:700;
+}
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+  }
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+  }
+  .autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+  }
+  .autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+  }
+.haemonetics-installation-content >  .transaction-block > .body > .line > .item > select{
+    /* background:rgba(250, 250, 250, 0.644); */
+    background: rgb(223, 130, 130) !important;
+    border:1px solid rgb(250, 250, 250,0.9);
+    padding:3px;
+    color:#000;
+    font-size:12px;
+    font-weight:700;
+}
+.haemonetics-installation-content > .transaction-block > .body > table{
+    margin-top:-15px !important;
+}
+.haemonetics-installation-content > .transaction-block > .body > table > tbody > tr > td{
+    margin:0 !important;
+    height:35px !important;
+}
+
+.haemonetics-installation-content > .transaction-block > .body > table,
+.haemonetics-installation-content > .transaction-block > .body > table > tbody,
+.haemonetics-installation-content > .transaction-block > .body > table > tbody > tr {
+    width:100% !important;
+}
+
+.haemonetics-installation-content > .transaction-block > .body > table > thead > tr > th,
+.haemonetics-installation-content > .transaction-block > .body > table > tbody > tr > td{
+    text-align: center !important;
+    border:1px solid #fff !important;
+    color:#fff !important;
+}
+.haemonetics-installation-content > .transaction-block > .body > table > tbody > tr > td > input{
+    /* background:rgba(250, 250, 250, 0.644); */
+    background: rgb(223, 130, 130) !important;
+    border:1px solid rgb(250, 250, 250,0.9);
+    padding:1px;
+    color:#000;
+    font-size:12px;
+    font-weight:700;
+    width:100%;
+    height:100%;
+}
+.haemonetics-installation-content > .transaction-block > .body > table > tbody > tr > td > select{
+    background: rgb(223, 130, 130) !important;
+    /* background:rgba(250, 250, 250, 0.644); */
+    border:1px solid rgb(250, 250, 250,0.9);
+    padding:1px;
+    color:#000;
+    font-size:12px;
+    font-weight:700;
+    width:100%;
+    height:100%;
+}

@@ -1,0 +1,136 @@
+<div class="frame-area" id="xpertcheck-frame-area">
+
+
+    <div class="xpertcheck-main-area d-flex flex-column">
+
+
+        <div class="xpertcheck-control-area d-flex">
+
+            <ul class="d-flex">
+                <!-- <li>
+                    <a href="#" class="xpertcheck-control-item 
+                    xpertcheck-control-item-active">
+                        <i class="fa fa-table"></i> On List
+                    </a>
+
+                </li> -->
+                <li>
+                    <a href="#" class="xpertcheck-control-item" 
+                    onclick="xpertcheckController.onFilterView(this)">
+                <i class="fa fa-filter"></i> Show Filter</a>
+                </li>
+                <!-- <li>
+                    <a href="#" class="xpertcheck-control-item" 
+                    onclick="xpertcheckController.onView().userInterfaces()
+                    .openXpertcheckScheduleFromList(this)">
+                        <i class="fa fa-plus"></i> Set Schedule</a>
+                </li> -->
+                <li>
+                    <a href="#" class="xpertcheck-control-item xpertcheck-excel-based">
+                        <i class="fa fa-file"></i> Generate Reports</a>
+                    <ul>
+                        <li><a href="#">Generate Excel</a></li>
+                        <li><a href="#">Upload From Generate Excel</a></li>
+                        <li><a href="#">Upload Equipment Calibration Schedule</a></li>
+                        <li><a href="#">Upload Vismin Monitoring Sheet</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+             <div class="pagination-box d-flex" id="xpertcheck-index-pagination">
+                <!-- <div class="pagination-label small">0-0 of 0</div> -->
+                <div class="pagination-paging-control d-flex">
+                    <div class="pagination-previous">
+                        <a href="#" onclick="xpertcheckController.onPagination().onPage('Prev')">
+                            <i class="fa fa-chevron-left"></i></a>
+                    </div>
+                    <div class="pagination-label small">0-0 of 0</div>
+                    <div class="pagination-select hide-pagination">
+                        <input type="number" value='1' onkeyup="paginationControl().onKeyUp(event)">
+                    </div>
+                    <div class="pagination-next">
+                        <a href="#" onclick="xpertcheckController.onPagination().onPage('Next')">
+                            <i class="fa fa-chevron-right"></i></a>
+                    </div>
+                        
+                </div>
+            </div>    
+        </div>
+        <div class="xpertcheck-body-area">
+
+
+            <div class="xpertcheck-filter-area">
+
+               
+            </div>
+
+            <div class="xpertcheck-content-list-area d-flex">
+                <div class="xpertcheck-body-list-area">
+                    <div class="xpertcheck-list-area d-flex flex-column">
+                    
+                        <div class="xpertcheck-list-header-area d-flex">
+
+                            <!-- <div class="xpertcheck-list-title-item small" style="width:9%">
+                                RE-PERFORM</div> -->
+                            <div class="xpertcheck-list-title-item small" style="width:10%" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".xpertcheck-body-list-content-area" 
+                            sorter-field="a_calibrate_done"
+                            sorter-table="xpertcheck">GENEX. SN</div>
+                            <div class="xpertcheck-list-title-item small" style="width:35%" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".xpertcheck-body-list-content-area" 
+                            sorter-field="h_siteName"
+                            sorter-table="xpertcheck">FACILITY/SITE</div>
+                            <div class="xpertcheck-list-title-item small" style="width:10%"
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".xpertcheck-body-list-content-area" 
+                            sorter-field="a_calibrate_start"
+                            sorter-table="xpertcheck">CURRENT</div>
+                            <div class="xpertcheck-list-title-item small" style="width:10%"
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".xpertcheck-body-list-content-area" 
+                            sorter-field="a_calibrate_done"
+                            sorter-table="xpertcheck">DUE</div>
+                            <div class="xpertcheck-list-title-item small" style="width:15%"
+                            dd-sorter="sorter" 
+                            sorter-type="date-calculate" 
+                            sorter-source=".xpertcheck-body-list-content-area" 
+                            sorter-field="a_calibrate_done"
+                            sorter-table="xpertcheck">STATUS</div>
+                            <div class="xpertcheck-list-title-item small" 
+                            style="width:20%" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".xpertcheck-body-list-content-area" 
+                            sorter-field="i_fullname"
+                            sorter-table="xpertcheck">CALIBRATE BY</div>
+                        </div>
+                        <div class="xpertcheck-body-list-content-area">
+                           
+                           
+                        </div>
+            
+                    </div>
+    
+                </div>
+    
+    
+               
+                <div class="xpertcheck-entry-area">
+    
+    
+                </div>
+            </div>
+           
+        </div>
+    
+    </div>
+
+
+
+</div>

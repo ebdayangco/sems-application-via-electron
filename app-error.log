@@ -1,0 +1,250 @@
+error while generating or saving report: Error: EPERM: operation not permitted, open 'C:\Users\macare-programmer\Desktop\report.pdf'
+    at Object.openSync (node:fs:585:3)
+    at Object.func [as openSync] (node:electron/js2c/asar_bundle:5:1812)
+    at Object.writeFileSync (node:fs:2153:35)
+    at D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\windows\app.js:100:36
+    at saveFile (D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\windows\app.js:61:13)
+    at IpcMainImpl.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\windows\app.js:96:25)
+error while generating or saving report: Error: EPERM: operation not permitted, open 'C:\Users\macare-programmer\Desktop\report.pdf'
+    at Object.openSync (node:fs:585:3)
+    at Object.func [as openSync] (node:electron/js2c/asar_bundle:5:1812)
+    at Object.writeFileSync (node:fs:2153:35)
+    at D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\windows\app.js:100:36
+    at saveFile (D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\windows\app.js:61:13)
+    at IpcMainImpl.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\windows\app.js:96:25)
+error while generating or saving report: Error: EPERM: operation not permitted, open 'C:\Users\macare-programmer\Desktop\report.pdf'
+    at Object.openSync (node:fs:585:3)
+    at Object.func [as openSync] (node:electron/js2c/asar_bundle:5:1812)
+    at Object.writeFileSync (node:fs:2153:35)
+    at D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\windows\app.js:99:36
+    at saveFile (D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\windows\app.js:61:13)
+    at IpcMainImpl.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\windows\app.js:96:25)
+error while generating or saving report: Error: EPERM: operation not permitted, open 'C:\Users\macare-programmer\Documents\report.pdf'
+    at Object.openSync (node:fs:585:3)
+    at Object.func [as openSync] (node:electron/js2c/asar_bundle:5:1812)
+    at Object.writeFileSync (node:fs:2153:35)
+    at D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\windows\app.js:99:36
+    at saveFile (D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\windows\app.js:61:13)
+    at IpcMainImpl.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\windows\app.js:96:25)
+error while starting jsreport: Error: Engine 'handlebars' not found. If this is a custom engine make sure it's properly installed from npm
+    at module.exports (D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+    at WorkerReporter.createError (D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:47:12)
+    at invokeRender (D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:40:22)
+    at WorkerReporter._render (D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:151:13)
+    at async D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:177:19
+    at async Domain.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04062022\electron_beta\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:141:19)
+error while generating or saving report: TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string or an instance of Buffer or URL. Received an instance of Object
+    at Object.openSync (node:fs:577:10)
+    at Object.func [as openSync] (node:electron/js2c/asar_bundle:5:1812)
+    at Object.writeFileSync (node:fs:2153:35)
+    at IpcMainImpl.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\windows\app.js:256:24)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+error while starting jsreport: Error: Parse error on line 109:
+...       <td>{{@index + 1}}</td>        
+-----------------------^
+Expecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'INVALID'
+    at Parser.parseError (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:267:19)
+    at Parser.parse (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:336:30)
+    at parseWithoutProcessing (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:46:33)
+    at HandlebarsEnvironment.parse (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:52:13)
+    at Object.precompile (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:485:17)
+    at HandlebarsEnvironment.hb.precompile (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\handlebars\dist\cjs\handlebars.js:42:40)
+    at Object.compile (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-handlebars\lib\handlebarsEngine.js:33:52)
+    at Object.compile (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-handlebars\lib\worker.js:25:43)
+    at executionFn (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:114:33)
+    at BaseHandler.apply (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\vm2\lib/bridge.js:477:11)
+error while starting jsreport: Error: Report timeout
+    at Timeout._onTimeout (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\advanced-workers\lib\threadWorker.js:41:23)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+error while starting jsreport: Error: Report timeout
+    at Timeout._onTimeout (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\advanced-workers\lib\threadWorker.js:41:23)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+error while starting jsreport: Error: Report timeout
+    at Timeout._onTimeout (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\advanced-workers\lib\threadWorker.js:41:23)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+error while starting jsreport: Error: Report timeout
+    at Timeout._onTimeout (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\advanced-workers\lib\threadWorker.js:41:23)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+error while starting jsreport: Error: Report timeout
+    at Timeout._onTimeout (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\advanced-workers\lib\threadWorker.js:41:23)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)

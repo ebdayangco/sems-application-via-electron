@@ -1,0 +1,157 @@
+#transaction-main{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(68, 32, 40, 0.616);
+}
+
+.transaction-header{
+    display:flex;
+    margin-top:30px;
+    margin-left:20px;
+    padding-bottom:20px;
+    width:96%;
+    height: 7%;
+    position: relative;
+    border-bottom:0.6px solid rgba(199, 199, 199, 0.815) !important;
+}
+
+.hide-panel{
+    opacity:0 !important;
+    display:none !important;
+    z-index:0;
+}
+
+.show-panel{
+    opacity:1 !important;
+    display:block !important;
+    z-index:1;
+}
+
+.transaction-header > *{
+    margin-right:20px;
+    width:170px;
+    border-radius: 20px;
+    border:0.7px solid #ccc !important;
+    padding:4px;
+    font-weight:700;
+}
+
+.transaction-header > input{
+    padding-left:10px;
+    background:#ddd;
+    width:150px !important;
+}
+
+.transaction-header > select > option{
+    border-radius: 20px !important;
+    border:0.7px solid #ccc !important;
+}
+.transaction-header > *:active,
+.transaction-header > *:focus{
+    outline:none;
+    box-shadow:none;
+}
+
+.transaction-engineer-list{
+    position: absolute;
+    top:0;
+    right:100px;
+    width:200px;
+}
+.transaction-submit-btn{
+    position: absolute;
+    top:0;
+    right:0;
+    width:80px;
+    
+}
+.transaction-body{
+    position:relative;
+    top:0;
+    left:0;
+    width:100%;
+    height:93%;
+    border:none;
+    overflow:hidden;
+}
+.transaction-body > .transaction-body-content{
+    position:relative;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border:none;
+    padding:50px !important;
+    overflow-y:auto;
+    overflow-x: hidden;
+}
+/* .transaction-body > .transaction-body-content > div{
+    position: absolute;
+    top:0;
+    left: 0;
+    width:100%;
+    height:100%;
+    visibility:hidden;
+    transition:600ms all;
+} */
+
+.genexpert-container{
+    position: relative;
+    top:0;
+    left: 0;
+    width:100%;
+    background:rgba(89, 92, 92, 0.562);
+    border-radius:10px;
+    box-shadow:0px 0px 5px 1px rgba(31, 30, 30, 0.938);
+}
+.show-transaction-panel-content{
+    visibility:visible !important;
+}
+.transaction-body > .searching-genexpert-transaction{
+    position: absolute;
+    top:-100%;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.6);
+    z-index:50;
+    backdrop-filter:blur(10px);
+    transition:600ms all;
+    padding:50px;
+    color:#fff;
+}
+.transaction-body > .searching-genexpert-transaction > .tbc-control-area{
+    position: relative;
+    width:auto;
+    margin-left:10%;
+}
+.transaction-body > .searching-genexpert-transaction > .tbc-result-area{
+    /* padding-left:5%;
+    padding-right:5%; */
+    margin-top:30px;
+    width:100%;
+}
+.transaction-body > .searching-genexpert-transaction > .tbc-result-area > .tbc-item{
+    background:#fff;
+    color:#000;
+    border-radius:2px;
+    box-shadow:0px 0px 15px 10px rgb(73, 37, 67);
+    padding:7px;
+    width:90%;
+    font-weight:700;
+    font-size:16px;
+    margin-bottom:2px;
+}
+.transaction-body > .searching-genexpert-transaction > .tbc-control-area > input{
+    padding:5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius:5px;
+
+}
+
+.searching-genexpert-show{
+    top:0 !important;
+}

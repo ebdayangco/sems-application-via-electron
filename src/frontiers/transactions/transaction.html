@@ -1,0 +1,1509 @@
+<div id="transaction-main">
+
+    <link rel="stylesheet" href="../transactions/transaction.css">
+    <link rel="stylesheet" href="../transactions/genexpert/genexpert-installation.css">
+    <link rel="stylesheet" href="../transactions/genexpert/genexpert-transfer.css">
+    <link rel="stylesheet" href="../transactions/modules/module-replacement.css">
+    <link rel="stylesheet" href="../transactions/xpertcheck/xpertcheck-schedule.css">
+    <link rel="stylesheet" href="../transactions/preventive-maintenance/pm-schedule.css">
+
+    <div class="transaction-form">
+
+        <div class="transaction-control-area">
+
+            <div class="transaction-header">
+                <input type="text" id="transaction-service-report-number" 
+                placeholder="Service Report #">
+                <select id="transaction-category-list" onchange="displayForm()">
+                    <option value="">Genexpert</option>
+                    <option value="">Haemonetics</option>
+                </select>
+        
+                <select id="transaction-type-list" onchange="displayForm(true)">
+                    <option value="">Installation</option>
+                    <option value="">Transfer</option>
+                    <option value="">Module Replacement</option>
+                    <option value="">Pull-out</option>
+                    <option value="">Xpertcheck</option>
+                    <option value="">Preventive Maintenance</option>
+                </select>
+
+                
+                <a href="#" class="transaction-submit-btn btn btn-success"onclick="chooseSave()">Save</a>
+            </div>
+        </div>
+        <div class="transaction-upload-sc-area">
+
+            <div class="d-flex w-100">
+               
+                <div class="item w-100 d-flex">
+                    <label for="" class="w-35 text-light" style="text-align:left;">
+                        Upload File:(image format and pdf only) - For Option Only</label>
+                    <form method="post" class="w-50" enctype="multipart/form-data" action="/upload">
+                        <input type="file" id="service-report-file" onchange="getFileName(this,event)">
+                        <p id="service_report_full_location" class="d-none"></p>
+                    </form>
+                   
+                    <script>
+
+                        function readImageFile(file) {
+                        // read binary data from a file:
+                        const bitmap = fs.readFileSync(file);
+                        const buf = new Buffer(bitmap);
+
+                            return buf;
+                        }
+
+                        var dataURLToBlob = function(dataURL) {
+                                var BASE64_MARKER = ';base64,';
+                                if (dataURL.indexOf(BASE64_MARKER) == -1) {
+                                    var parts = dataURL.split(',');
+                                    var contentType = parts[0].split(':')[1];
+                                    var raw = parts[1];
+
+                                    return new Blob([raw], {type: contentType});
+                                }
+
+                                var parts = dataURL.split(BASE64_MARKER);
+                                var contentType = parts[0].split(':')[1];
+                                var raw = window.atob(parts[1]);
+                                var rawLength = raw.length;
+
+                                var uInt8Array = new Uint8Array(rawLength);
+
+                                for (var i = 0; i < rawLength; ++i) {
+                                    uInt8Array[i] = raw.charCodeAt(i);
+                                }
+
+                                return new Blob([uInt8Array], {type: contentType});
+                        }
+                        function getFileName(div,ev){
+
+                            const MAX_WIDTH = 420;
+                            const MAX_HEIGHT = 560;
+                            const MIME_TYPE = "image/jpeg";
+                            const QUALITY = 0.7;
+
+                            const file = ev.target.files[0]; // get the file
+                            
+                            const blobURL = URL.createObjectURL(file);
+                            const img = new Image();
+                            
+                            img.src = blobURL;
+                            
+                            img.onerror = function () {
+                                URL.revokeObjectURL(this.src);
+                                // Handle the failure properly
+                                console.log("Cannot load image");
+                            };
+                            img.onload = function () {
+                                URL.revokeObjectURL(this.src);
+                                const [newWidth, newHeight] = calculateSize(img, MAX_WIDTH, MAX_HEIGHT);
+                                const canvas = document.createElement("canvas");
+                                canvas.width = newWidth;
+                                canvas.height = newHeight;
+                                const ctx = canvas.getContext("2d");
+                                ctx.drawImage(img, 0, 0, newWidth, newHeight);
+                                
+                                var dataurl = ctx.canvas.toDataURL()
+                                
+                                
+                                canvas.toBlob(
+                                (blob) => {
+                                    // Handle the compressed image. es. upload or save in local state
+                                    // console.log(file);
+                                    blob.arrayBuffer().then(arbu=>{
+                                        const view = new Uint8Array(arbu);
+                                        // function toBuffer(ab) {
+                                        //     const buf = Buffer.alloc(ab.byteLength);
+                                        //     const view = new Uint8Array(ab);
+                                        //     for (let i = 0; i < buf.length; ++i) {
+                                        //         buf[i] = view[i];
+                                        //     }
+                                        //     return buf;
+                                        // }
+
+                                        $("#service-report-file").data("file",{
+                                        "file":convertBlobToFile(blob,file),
+                                        "path":view
+                                         });
+                                    });
+                                    // var arrayBuffer, uint8Array;
+                                    // var fileReader = new FileReader();
+                                    // fileReader.onload = function() {
+                                    //     arrayBuffer = this.result;
+                                    //     // uint8Array  = new Uint8Array(arrayBuffer);
+
+                                    //     function toBuffer(ab) {
+                                    //         const buf = Buffer.alloc(ab.byteLength);
+                                    //         const view = new Uint8Array(ab);
+                                    //         for (let i = 0; i < buf.length; ++i) {
+                                    //             buf[i] = view[i];
+                                    //         }
+                                    //         return buf;
+                                    //     }
+
+                                    //     $("#service-report-file").data("file",{
+                                    //     "file":convertBlobToFile(blob,file),
+                                    //     "path":toBuffer(arrayBuffer)
+                                    //      });
+                                    //     // var printer = require("./js/controller/lib");
+                                    //     // printer.printDirect({
+                                    //     //     data: uint8Array,
+                                    //     //     printer:'Deskjet_3540',
+                                    //     //     type: 'PDF',
+                                    //     //     success: function(id) {
+                                    //     //         console.log('printed with id ' + id);
+                                    //     //     },
+                                    //     //     error: function(err) {
+                                    //     //         console.error('error on printing: ' + err);
+                                    //     //     }
+                                    //     // })
+                                    // };
+                                    // fileReader.readAsArrayBuffer(blob);
+
+
+                                    displayInfo('Original file', file);
+                                   
+                                    displayInfo('Compressed file', blob);
+                                    
+                                    // div.files = convertBlobToFile(blob,file).files;
+                                    
+                                },
+                            
+                                MIME_TYPE,
+                                QUALITY
+                                );
+                                // document.getElementById("root").append(canvas);
+                            };
+
+                         
+
+                            
+
+                            };
+
+                            function convertBlobToFile(blob, f){
+
+                                let list = new DataTransfer();
+                                let file =  new File([blob],f['name']);
+                                
+                                // list.items.add(file);
+
+                                return file;
+                            }
+
+                            function calculateSize(img, maxWidth, maxHeight) {
+                            let width = img.width;
+                            let height = img.height;
+
+                            // calculate the width and height, constraining the proportions
+                            if (width > height) {
+                                if (width > maxWidth) {
+                                height = Math.round((height * maxWidth) / width);
+                                width = maxWidth;
+                                }
+                            } else {
+                                if (height > maxHeight) {
+                                width = Math.round((width * maxHeight) / height);
+                                height = maxHeight;
+                                }
+                            }
+                            return [width, height];
+                            
+                            }
+
+                            // Utility functions for demo purpose
+
+                                function displayInfo(label, file) {
+                                const p = document.createElement('p');
+                                p.innerText = `${label} - ${readableBytes(file.size)}`;
+                                console.log(p.innerHTML);
+                                // document.getElementById('root').append(p);
+                                }
+
+                                function readableBytes(bytes) {
+                                const i = Math.floor(Math.log(bytes) / Math.log(1024)),
+                                    sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+                                return (bytes / Math.pow(1024, i)).toFixed(2) + ' ' + sizes[i];
+                                }
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="transaction-content-area">
+
+            <div class="genexpert-content-area go-to-show">
+
+                <div id="genexpert-installation-form" class="go-to-show">
+
+                    <!-- GENERAL INFORMATION -->
+                    <div class="transaction-block transaction-general-block">
+            
+                        <div class="title">General information</div>
+                            <div class="body">
+                                <div class="line">
+                                    <div class="item w-15">
+                                        <label for="">Serial Number</label>
+                                        <input type="text" 
+                                        id="genex-install-general-serial-number">
+                                    </div>
+                                    <div class="item w-15">
+                                        <label for="">Date Installed</label>
+                                        <input type="date" 
+                                        id="genex-install-general-date-installed">
+                                    </div>
+                                    <div class="item w-70">
+                                        <label for="">Site</label>
+            
+                                        <form autocomplete="off" class="w-100">
+                                        <div class="autocomplete w-100">
+                                            <input type="text" class="site-field  w-100" 
+                                            id="genex-install-general-site">
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="line">
+                                    <div class="item w-20">
+                                        <label for="">Installed By</label>
+                                        <select id="genex-install-general-engineer" 
+                                        class="engineer-drop-down"></select>
+                                    </div>
+                                    <div class="item w-20">
+                                        <label for="">Installation Type</label>
+                                        <select id="genex-install-general-installType" 
+                                        class="installation-type-drop-down"></select>
+                                    </div>
+                                    <div class="item w-60">
+                                        <label for="">Model Number</label>
+                                        <select id="genex-install-general-model-number" 
+                                        class="model-number-drop-down"></select>
+                                    </div>
+                                </div>
+                                <div class="line">
+                                    <div class="item w-100">
+                                        <label for="">Remarks</label>
+                                        <input type="text" 
+                                        id="genex-install-general-remarks" >
+                                    </div>
+                                    </div>
+            
+                            </div>
+            
+                        
+                    </div>
+            
+                    <!-- ADDRESS INFORMATION -->
+                    <div class="transaction-block transaction-address-block">
+            
+                        <div class="title">Address information</div>
+                            <div class="body">
+                                <div class="line">
+                                    <div class="item w-60">
+                                        <label for="">Complete Address</label>
+                                        <input type="text" 
+                                        id="genex-install-address-complete-address" 
+                                        class="complete-address-field">
+                                    </div>
+                                    <div class="item w-40">
+                                        <label for="">Region</label>
+                                        <select class="region-drop-down" 
+                                        id="genex-install-address-region"></select>
+                                    </div>
+                                    
+                                </div>
+                                <div class="line">
+                                <div class="item w-35">
+                                    <label for="">Province</label>
+                                    <select class="province-drop-down" 
+                                    id="genex-install-address-province"></select>
+                                </div>
+                                    <div class="item w-35">
+                                        <label for="">City</label>
+                                        <select class="city-drop-down" 
+                                        id="genex-install-address-city"></select>
+                                    </div>
+                                    <div class="item w-30">
+                                        <label for="">Barangay</label>
+                                        <select class="barangay-drop-down" 
+                                        id="genex-install-address-barangay"></select>
+                                    </div>
+                                
+                                </div>
+                                <div class="line">
+                                <div class="item w-60">
+                                    <label for="">Street</label>
+                                    <input type="text" 
+                                    id="genex-install-address-street">
+                                </div>
+                                <div class="item w-20">
+                                    <label for="">Latitude</label>
+                                    <input type="text" 
+                                    id="genex-install-address-latitude">
+                                </div>
+                                <div class="item w-20">
+                                    <label for="">Longitude</label>
+                                    <input type="text" 
+                                    id="genex-install-address-longitude">
+                                </div>
+                            </div>
+            
+                            </div>
+            
+                        
+                    </div>
+            
+                    <!-- CONTACT INFORMATION -->
+                    <div class="transaction-block transaction-contact-block">
+                        <div class="title">Contact Information</div>
+                        <div class="body">
+                            <div class="line">
+                                <div class="item w-70">
+                                    <label for="#">Fullname</label>
+                                    <input type="text" 
+                                    id="genex-install-contact-fullname">
+                                </div>
+                                <div class="item w-30">
+                                    <label for="#">Position</label>
+                                    <input type="text" 
+                                    id="genex-install-contact-position">
+                                </div>
+                            </div>
+                            <div class="line">
+                                <div class="item w-50">
+                                    <label for="#">Email</label>
+                                    <input type="text" 
+                                    id="genex-install-contact-email">
+                                </div>
+                                <div class="item w-50">
+                                    <label for="#">Contact Number</label>
+                                    <input type="text" 
+                                    id="genex-install-contact-number">
+                                </div>
+                            </div>
+                        </div>
+            
+                    </div>
+            
+                    <!-- SOFTWARE INFORMATION -->
+                    <div class="transaction-block transaction-software-block">
+                        <div class="title">Software Information</div>
+                        <div class="body">
+                            <div class="line">
+                                <div class="item w-30">
+                                    <label for="#">Software Version</label>
+                                    <input type="text" 
+                                    id="genex-install-software-version">
+                                </div>
+                                <div class="item w-30">
+                                    <label for="#">OS Version</label>
+                                    <input type="text" 
+                                    id="genex-install-software-os-version">
+                                </div>
+                                <div class="item w-20">
+                                    <label for="#">Warranty Expiry Date</label>
+                                    <input type="date" 
+                                    id="genex-install-software-warranty-expiry-date">
+                                </div>
+                                <div class="item w-20">
+                                    <label for="#">Service Contract Expiry Date</label>
+                                    <input type="date" 
+                                    id="genex-install-software-service-contract-expiry-date">
+                                </div>
+                            </div>
+                            
+                        </div>
+            
+                    </div>
+            
+                    <!-- ASSAYSTATISTIC INFORMATION -->
+                    <div class="transaction-block transaction-assaystatistic-block">
+            
+                        <div class="title d-flex">Assay Statistic Information
+                            <a href="#" onclick="transactionController
+                            .genexpert().installation().assaystatistic()
+                            .addAssayStatisticRow(this)">
+                            <i class="fa fa-plus"></i></a>
+                        </div>
+                        <div class="body">
+                            <table class="w-100">
+                                <thead>
+                                        <tr>
+                                            <th class="w-5">Remove</th>
+                                            <th class="w-20">Test Date</th>
+                                            <th class="w-25">Test Name</th>
+                                            <th class="w-25">Quantity</th>
+                                            <th class="w-25">Engineer</th>
+                                        </tr>
+                                </thead>
+                                <tbody id="genex-install-assay-rows">
+                                    <tr>
+                                        <td class="w-5">
+                                            <a href="#" class="btn btn-danger w-100 h-100" 
+                                            onclick="transactionController.genexpert().installation().assaystatistic().deleteAssayStatisticRow(this)">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </td>
+                                        <td class="w-20"><input type="date" 
+                                        id="genex-install-assay-test-date"></td>    
+                                        <td class="w-25"><input 
+                                        id="genex-install-assay-test-name"  
+                                        type="text"></td>    
+                                        <td class="w-25"><input type="text" 
+                                        id="genex-install-assay-quantity" ></td>    
+                                        <td class="w-25"><select 
+                                        id="genex-install-assay-engineer" 
+                                        class="engineer-drop-down"></select></td>   
+                                        
+                                    </tr>
+                                
+                                </tbody>
+            
+                            </table>
+                        </div>
+            
+                    </div>
+            
+                    <!-- PERIPHERAL INFORMATION -->
+                    <div class="transaction-block transaction-peripheral-block">
+            
+                        <div class="title d-flex">Peripheral Information
+                            <a href="#" onclick="transactionController
+                            .genexpert().installation()
+                            .peripheral().addPeripheralRow(this)">
+                            <i class="fa fa-plus"></i></a>
+                        </div>
+                        <div class="body">
+                            <table class="w-100">
+                                <thead>
+                                        <tr>
+                                            <th class="w-5">Remove</th>
+                                            <th class="w-20">Peripheral Name</th>
+                                            <th class="w-20">Serial Number</th>
+                                            <th class="w-20">Model Number</th>
+                                            <th class="w-35">Remarks</th>
+                                        </tr>
+                                </thead>
+                                <tbody id="genex-install-peripheral-rows">
+                                    <tr>
+                                        <td class="w-5">
+                                            <a href="#" class="btn btn-danger w-100 
+                                            h-100" 
+                                            onclick="transactionController.genexpert().installation().peripheral().deletePeripheralRow(this)">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </td>
+                                        <td class="w-20"><input type="text" 
+                                        id="genex-install-peripheral-name"></td>    
+                                        <td class="w-20"><input type="text" 
+                                        id="genex-install-peripheral-serial-number"></td>    
+                                        <td class="w-20"><input type="text"  
+                                        id="genex-install-peripheral-model-number"></td>    
+                                        <td class="w-35"><input type="text"
+                                        id="genex-install-peripheral-remarks"></td>   
+                                        
+                                    </tr>
+                                
+                                </tbody>
+            
+                            </table>
+                        </div>
+            
+                    </div>
+            
+                    <!-- MODULE INFORMATION -->
+                    <div class="transaction-block transaction-module-block">
+                        <div class="title d-flex">Module Information
+                            <a href="#" onclick="transactionController
+                            .genexpert().installation().module()
+                            .addModuleRow(this)">
+                            <i class="fa fa-plus"></i></a>
+                        </div>
+                        <div class="body">
+                            <table class="w-100">
+                                <thead>
+                                    <tr>
+                                        <th class="w-5">Remove</th>
+                                        <th class="w-10">Serial Number</th>
+                                        <th class="w-10">Location</th>
+                                        <th class="w-15">Date Installed</th>
+                                        <th class="w-15">Installation Type</th>
+                                        <th class="w-15">Installed By</th>
+                                        <th class="w-15">Revision Number</th>
+                                        <th class="w-15">Part Number</th>
+                                    </tr>
+                                </thead>
+                            <tbody id="genex-install-module-rows">
+                                <tr>
+                                    <td class="w-5">
+                                        <a href="#" class="btn btn-danger w-100 h-100" 
+                                        onclick="transactionController.genexpert().installation().module().deleteModuleRow(this)"">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                    <td class="w-10"><input type="text"
+                                        id="genex-install-module-serial-number"></td>    
+                                    <td class="w-10"><input type="text" 
+                                        id="genex-install-module-location"></td>    
+                                    <td class="w-15"><input type="date" 
+                                        id="genex-install-module-date-installed"></td>    
+                                    <td class="w-15"><select id="genex-install-module-installType" 
+                                        class="installation-type-drop-down"></select></td>   
+                                    <td class="w-15"><select id="genex-install-module-engineer" 
+                                        class="engineer-drop-down"></select></td>   
+                                    <td class="w-15"><input type="text" 
+                                        id="genex-install-module-revision-number"></td>    
+                                    <td class="w-15"><input type="text" 
+                                        id="genex-install-module-part-number"></td>    
+                                </tr>
+                                <tr>
+                                    <td class="w-5">
+                                        <a href="#" class="btn btn-danger w-100 h-100" 
+                                        onclick="transactionController.genexpert().installation().module().deleteModuleRow(this)">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                    <td class="w-10"><input type="text"
+                                        id="genex-install-module-serial-number"></td>    
+                                    <td class="w-10"><input type="text" 
+                                        id="genex-install-module-location"></td>    
+                                    <td class="w-15"><input type="date" 
+                                        id="genex-install-module-date-installed"></td>    
+                                    <td class="w-15"><select id="genex-install-module-installType" 
+                                        class="installation-type-drop-down"></select></td>   
+                                    <td class="w-15"><select id="genex-install-module-engineer" 
+                                        class="engineer-drop-down"></select></td>   
+                                    <td class="w-15"><input type="text" 
+                                        id="genex-install-module-revision-number"></td>    
+                                    <td class="w-15"><input type="text" 
+                                        id="genex-install-module-part-number"></td>    
+                                </tr>
+                                <tr>
+                                    <td class="w-5">
+                                        <a href="#" class="btn btn-danger w-100 h-100" 
+                                        onclick="transactionController.genexpert().installation().module().deleteModuleRow(this)">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                    <td class="w-10"><input type="text"
+                                        id="genex-install-module-serial-number"></td>    
+                                    <td class="w-10"><input type="text" 
+                                        id="genex-install-module-location"></td>    
+                                    <td class="w-15"><input type="date" 
+                                        id="genex-install-module-date-installed"></td>    
+                                    <td class="w-15"><select id="genex-install-module-installType" 
+                                        class="installation-type-drop-down"></select></td>   
+                                    <td class="w-15"><select id="genex-install-module-engineer" 
+                                        class="engineer-drop-down"></select></td>   
+                                    <td class="w-15"><input type="text" 
+                                        id="genex-install-module-revision-number"></td>    
+                                    <td class="w-15"><input type="text" 
+                                        id="genex-install-module-part-number"></td>    
+                                </tr>
+                                <tr>
+                                    <td class="w-5">
+                                        <a href="#" class="btn btn-danger w-100 h-100" 
+                                        onclick="transactionController.genexpert().installation().module().deleteModuleRow(this)">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                    <td class="w-10"><input type="text"
+                                        id="genex-install-module-serial-number"></td>    
+                                    <td class="w-10"><input type="text" 
+                                        id="genex-install-module-location"></td>    
+                                    <td class="w-15"><input type="date" 
+                                        id="genex-install-module-date-installed"></td>    
+                                    <td class="w-15"><select id="genex-install-module-installType" 
+                                        class="installation-type-drop-down"></select></td>   
+                                    <td class="w-15"><select id="genex-install-module-engineer" 
+                                        class="engineer-drop-down"></select></td>   
+                                    <td class="w-15"><input type="text" 
+                                        id="genex-install-module-revision-number"></td>    
+                                    <td class="w-15"><input type="text" 
+                                        id="genex-install-module-part-number"></td>    
+                                </tr>
+                            </tbody>
+            
+                            </table>
+                        </div>
+            
+                    </div>
+            
+                    
+                </div>
+
+                <div id="genexpert-transfer-form">
+
+                    <div class="genexpert-transfer-info-form">
+                    
+
+                    </div>
+                    <div class="genexpert-transfer-main-form">
+                     
+                        <h4>Transfer To</h4>
+                        <div class="gt-form-group">
+                        
+                            <div class="gt-form-item">
+                                <div class="gt-form-label">Facility/Site</div>
+                                <div class="gt-form-field gt-facility-select">
+                                    
+                                    <div class="asset-info-display-panel-body-item-value 
+                                    asset-info-display-panel-body-item-value-auto-complete"
+                                    style="background:none !important;">
+                                
+                                         <form autocomplete="off" class="w-100 mb-2">
+                                            <div class="autocomplete w-100">
+                                                <input type="text" id="genexpert-transfer-to-facility" 
+                                                style=
+                                                "background:#fff !important; 
+                                                width:825px !important;
+                                                border:0.7px solid rgb(83, 83, 83);
+                                                color:#000 !important;
+                                                 font-weight:600 !important;
+                                                 padding:5px !important;
+                                                 font-size:12px !important;" 
+                                                onkeyup="transactionController.catchUpdateData(this,
+                                                '#genexpert-transfer-to-facility','div-auto-complete-field')"
+                                                onmouseleave="transactionController.catchUpdateData(this,
+                                                '#genexpert-transfer-to-facility','div-auto-complete-field')"
+                                                     onclick="transactionController.catchUpdateData(this,
+                                                     '#genexpert-transfer-to-facility','div-auto-complete-field')"
+                                                >
+                                            </div>
+                                        </form>
+            
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="get-form-full-group-area">
+                            <div class="gt-form-group">
+                                <div class="gt-form-item">
+                                    <div class="gt-form-label">Region</div>
+                                    <div class="gt-form-field">
+                                        <input type="text" id="genexpert-transfer-region" disabled>
+                                    </div>
+                                </div>
+    
+                                <div class="gt-form-item">
+                                    <div class="gt-form-label">Province</div>
+                                    <div class="gt-form-field">
+                                        <input type="text" id="genexpert-transfer-province" disabled>
+                                    </div>
+                                </div>
+                            
+                            </div>
+    
+                            <div class="gt-form-group">
+                                <div class="gt-form-item">
+                                    <div class="gt-form-label">City</div>
+                                    <div class="gt-form-field">
+                                        <input type="text" id="genexpert-transfer-city" disabled>
+                                    </div>
+                                </div>
+    
+                                <div class="gt-form-item">
+                                    <div class="gt-form-label">Barangay</div>
+                                    <div class="gt-form-field">
+                                        <input type="text" id="genexpert-transfer-barangay" disabled>
+                                    </div>
+                                </div>
+                            
+                            </div>
+
+                            <div class="gt-form-group">
+                                <div class="gt-form-item">
+                                    <div class="gt-form-label">Other Address</div>
+                                    <div class="gt-form-field">
+                                        <input type="text" id="genexpert-transfer-other-address" disabled>
+                                    </div>
+                                </div>
+    
+                            
+                            </div>
+    
+    
+                            <div class="gt-form-group">
+                                <div class="gt-form-item">
+                                    <div class="gt-form-label">Remarks</div>
+                                    <div class="gt-form-field">
+                                        <textarea></textarea>
+                                    </div>
+                                </div>
+    
+                            
+                            </div>
+    
+                            <div class="gt-form-group gt-button-group">
+                                <div class="gt-button-sub-group">
+                                   
+                                    <a href="#" class="btn btn-success w-25"
+                                    onclick="genexpertTransactionController.ontransferProcess()">Save Changes</a>
+                                    <a href="#" class="btn btn-danger mr-2 w-25"
+                                    onclick="genexpertTransactionController.hideTransferForm()">Return</a>
+                                </div>
+                               
+    
+                            </div>
+
+                        </div>
+                     
+                        
+
+
+
+                       <!-- <div class="genexpert-transfer-search-site-area">
+                            <input type="text" placeholder="Search Site/Facility" class="mr-1">
+                            <a href="#" class="btn btn-primary" style="width:70px">Find</a>
+
+                            <div class="genexpert-transfer-return-area">
+                                <a href="#" class="btn btn-success mr-3" style="width:70px;"
+                                onclick="genexpertTransactionController.save()">Save</a>
+                                <a href="#" class="btn btn-danger" style="width:70px;"
+                                onclick="genexpertTransactionController.hideTransferForm()">Return</a>
+                            </div>
+    
+                       </div> -->
+
+                       <!-- <div class="genexpert-transfer-result-area">
+                            <div class="genexpert-transfer-facility-list-area">
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width:30%">Facility Name</th>
+                                            <th style="width:15%">Region</th>
+                                            <th style="width:15%">Province</th>
+                                            <th style="width:15%">City</th>
+                                            <th style="width:15%">Barangay</th>
+                                            <th style="width:10%">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:30%">Cebu City Medical Center</td>
+                                            <td style="width:15%">Region VII</td>
+                                            <td style="width:15%">Cebu</td>
+                                            <td style="width:15%">Cebu City</td>
+                                            <td style="width:15%">Tisa</td>
+                                            <td style="width:10%; padding:5px;" >
+                                                <a href="#" class="btn btn-success transfer-here-btn">Transfer Here</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="width:30%">Cebu City Medical Center</td>
+                                            <td style="width:15%">Region VII</td>
+                                            <td style="width:15%">Cebu</td>
+                                            <td style="width:15%">Cebu City</td>
+                                            <td style="width:15%">Tisa</td>
+                                            <td style="width:10%; padding:5px;" >
+                                                <a href="#" class="btn btn-success transfer-here-btn">Transfer Here</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="width:30%">Cebu City Medical Center</td>
+                                            <td style="width:15%">Region VII</td>
+                                            <td style="width:15%">Cebu</td>
+                                            <td style="width:15%">Cebu City</td>
+                                            <td style="width:15%">Tisa</td>
+                                            <td style="width:10%; padding:5px;" >
+                                                <a href="#" class="btn btn-success transfer-here-btn">Transfer Here</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="width:30%">Cebu City Medical Center</td>
+                                            <td style="width:15%">Region VII</td>
+                                            <td style="width:15%">Cebu</td>
+                                            <td style="width:15%">Cebu City</td>
+                                            <td style="width:15%">Tisa</td>
+                                            <td style="width:10%; padding:5px;" >
+                                                <a href="#" class="btn btn-success transfer-here-btn">Transfer Here</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="width:30%">Cebu City Medical Center</td>
+                                            <td style="width:15%">Region VII</td>
+                                            <td style="width:15%">Cebu</td>
+                                            <td style="width:15%">Cebu City</td>
+                                            <td style="width:15%">Tisa</td>
+                                            <td style="width:10%; padding:5px;" >
+                                                <a href="#" class="btn btn-success transfer-here-btn">Transfer Here</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="width:30%">Cebu City Medical Center</td>
+                                            <td style="width:15%">Region VII</td>
+                                            <td style="width:15%">Cebu</td>
+                                            <td style="width:15%">Cebu City</td>
+                                            <td style="width:15%">Tisa</td>
+                                            <td style="width:10%; padding:5px;" >
+                                                <a href="#" class="btn btn-success transfer-here-btn">Transfer Here</a>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="genexpert-transfer-genexpert-list-area">
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width:11%">Genexpert SN</th>
+                                            <th style="width:12%">Date Installed</th>
+                                            <th style="width:20%">Installed By</th>
+                                            <th style="width:20%">Installation Type</th>
+                                            <th style="width:30%">Model Number</th>
+                                            <th style="width:7%">Action</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                       </div> -->
+
+                       
+                    </div>
+
+                    <div class="search-genexpert-area d-flex pull-left">
+                        <input type="text" class="mr-2" id="genexpertTransferSearchField" 
+                        placeholder="Search...">
+                        <a href="#" class="btn btn-primary" 
+                        onclick="genexpertTransactionController.findGenexpertFacilityOrSN()">Search</a>
+                    </div>
+
+                    <div class="genexpert-result-area">
+                        <div class="genexpert-result-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="width:5%">Info</th>
+                                        <th style="width:15%">Genexpert SN</th>
+                                        <th style="width:35%">Facility</th>
+                                        <th style="width:15%">Date Installed</th>
+                                        <th style="width:15%">Installation Type</th>
+                                        <th style="width:15%">Engineer</th>
+                                        <th style="width:10%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="genexpert-transfer-tbody-area">
+                                  
+    
+                                </tbody>
+    
+                            </table>
+
+                        </div>
+                       
+                     
+
+                    </div>
+
+                </div>
+
+                <div id="module-replacement-form">
+
+                    <div class="module-replacement-main-form">
+                        <div class="prev-module-record-area">
+                            <div class="module-replacement-row">
+                                <div class="module-replacement-item">
+                                    <div class="module-replacement-label">Part Number</div>
+                                    <div class="module-replacement-field">
+                                        <input type="text" id="module-replacement-part-number">
+                                    </div>
+                                </div>
+    
+                                <div class="module-replacement-item">
+                                    <div class="module-replacement-label">Revision Number</div>
+                                    <div class="module-replacement-field">
+                                        <input type="text" id="module-replacement-revision-number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="module-replacement-row">
+                                <div class="module-replacement-item w-100">
+                                    <div class="module-replacement-label">Remarks</div>
+                                    <div class="module-replacement-field">
+                                       <textarea  id="module-replacement-remarks"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        
+                        <div class="module-to-replace-area mt-2">
+                            <h3 class="text-light ml-2 mt-1 mb-2">Module To Replace</h3>
+
+                            <div class="module-replacement-row">
+                                
+                                <div class="module-replacement-item">
+                                    <div class="module-replacement-label" 
+                                    style="width:100px;">Serial Number</div>
+                                  
+                                    <div class="module-replacement-field mr-2">
+                                        <input type="text" 
+                                        id="module-replacement-new-serial-number">
+                                    </div>
+                                       
+                                </div>
+    
+                                <div class="module-replacement-item">
+                                    <div class="module-replacement-label">Date Installed</div>
+                                    <div class="module-replacement-field">
+                                        <input type="date" 
+                                        id="module-replacement-new-date-installed">
+                                    </div>
+                                </div>
+    
+                              
+                            </div>
+    
+                            <div class="module-replacement-row">
+                                <div class="module-replacement-item">
+                                    <div class="module-replacement-label">Installed By</div>
+                                    <div class="module-replacement-field">
+                                        <select class="engineer-drop-down" 
+                                        id="module-replacement-new-installed-by"></select>
+                                    </div>
+                                </div>
+                                <div class="module-replacement-item">
+                                    <div class="module-replacement-label">Installation Type</div>
+                                    <div class="module-replacement-field">
+                                        <select class="installation-type-drop-down" 
+                                        id="module-replacement-new-installation-type"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="module-replacement-row">
+                                <a href="#" class="btn btn-danger w-50 mr-2"
+                                onclick="moduletransactionController.hideReplaceForm()">Return</a>
+                                <a href="#" class="btn btn-success w-50" 
+                                onclick="moduletransactionController.goReplaceModule()">Save</a>
+                            </div>
+                            
+                        </div>
+     
+
+                    </div>
+
+                    <div class="module-replacement-info-form">
+
+
+                    </div>
+
+                    <div class="module-replacement-content">
+
+                
+                    <div class="module-replace-control-area">
+                        <input type="text" id="searchmoduleviaReplacementField" 
+                        placeholder="Search Genexpert SN/Facility/Module SN">
+                        <a href="#" class="btn btn-primary" 
+                        onclick="moduletransactionController.goFindModule()">Search</a>
+                    </div>
+                    <div class="module-replace-body-area">
+
+                        <div class="module-replace-table-area">
+                              <table>
+                            <thead>
+                                <tr>
+                                    <th style="width:5%">Info</th>
+                                    <th style="width:10%">Genexpert SN</th>
+                                    <th style="width:30%">Facility</th>
+                                    <th style="width:10%">Module SN</th>
+                                    <th style="width:10%">Location</th>
+                                    <th style="width:20%">Engineer</th>
+                                    <th style="width:10%">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="module-replacement-tbody-area"></tbody>
+                        </table>
+
+                        </div>
+
+                      
+
+
+                    </div>
+
+
+                        
+                    </div>
+                   
+
+                </div>
+
+                <div id="xpertcheck-schedule-form">
+                    <div class="xpertcheck-schedule-content d-flex">
+
+                        <div class="form-left-side">
+                            <div class="screen-image-side"></div>
+                            <img src="../galleries/xpertcheck_schedule_bg.jpg" alt="">
+                        </div>
+
+                        <div class="form-right-side">
+                            <!-- <div class="xpertcheck-title">Schedule Form</div> -->
+                            <div class="xpertcheck-body">
+                                
+                                <div class="xpertcheck-row">
+                                    <label for="" class="text-light">Genexpert</label>
+                                    <div class="xpertcheck-field">
+                                        <input type="text" 
+                                        id="xpertcheck-schedule-genexpert-serial-number">
+                                        <a href="#" class="btn btn-primary">Browse</a>
+                                    </div>
+                                </div>
+                
+                                <div class="xpertcheck-row">
+                                   
+                                    <label for="" class="text-light">Engineer</label>
+                
+                                    <select name="#" id="xpertcheck-schedule-engineer"  
+                                    class="engineer-drop-down w-100"></select>
+                                   
+                                </div>
+                                <div class="xpertcheck-row d-flex">
+                                    <div class="xpertcheck-col w-50 mr-2">
+                                        <label for="" class="text-light">Last Calibration</label>
+                                        <input type="text" id="xpertcheck-schedule-last-calibration" 
+                                        class="w-100">
+                                    </div>
+                                    <div class="xpertcheck-col w-50">
+                                        <label for="" class="text-light">Set Calibration From</label>
+                                        <input type="date" class="w-100" onchange="
+                                        xpertcheckTransactionController.setCalibrationTo()" 
+                                        id="xpertcheck-schedule-calibration-from">
+                                    </div>
+                                   
+                                </div>
+                
+                                <div class="xpertcheck-row d-flex">
+                                    <div class="xpertcheck-col w-50 mr-2">
+                                        <label for="" class="text-light">Frequency</label>
+                                        <div class="d-flex">
+                                            <input type="number" class="w-100" onkeyup="
+                                                xpertcheckTransactionController.setCalibrationTo()" 
+                                                onchange="xpertcheckTransactionController.setCalibrationTo()"
+                                            id="xpertcheck-schedule-time-length-value">
+                                            <select id="xpertcheck-schedule-time-length-format" 
+                                            onchange="xpertcheckTransactionController.setCalibrationTo()">
+                                                <option value="year">Year</option>
+                                                <option value="month">Month</option>
+                                                <option value="day">Day</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="xpertcheck-col w-50">
+                                        <label for="" class="text-light">Set Calibration To</label>
+                                        <input type="date" class="w-100" 
+                                        id="xpertcheck-schedule-calibration-to">
+                                    </div>
+                                   
+                                </div>
+                
+                                <div class="xpertcheck-row">
+                                    <label for="" class="text-light">Remarks</label>
+                                    <textarea name="" id="xpertcheck-schedule-remarks">
+                                    </textarea>
+                                    <!-- <a href="#" class="btn btn-success w-100 mb-2">Clear All</a>
+                                    <a href="#" class="btn btn-primary w-100" 
+                                    onclick="xpertcheckTransactionController.goSchedule()">Set Schedule</a> -->
+                                    
+                                </div>
+                
+                
+                            </div>
+                        </div>
+                       
+                    </div>    
+                   
+                </div>
+
+                <div id="pm-schedule-form">
+                    <div class="pm-schedule-content d-flex">
+
+                        <div class="form-left-side">
+                            <div class="screen-image-side"></div>
+                            <img src="../galleries/preventive_maintenance_schedule_bg.jpg" alt="">
+                        </div>
+
+                        <div class="form-right-side">
+                            <!-- <div class="pm-title">Schedule Form</div> -->
+                            <div class="pm-body">
+                                
+                                <div class="pm-row">
+                                    <label for="" class="text-light">Genexpert</label>
+                                    <div class="pm-field">
+                                        <input type="text" 
+                                        id="pm-schedule-genexpert-serial-number">
+                                        <a href="#" class="btn btn-primary">Browse</a>
+                                    </div>
+                                </div>
+                
+                                <div class="pm-row">
+                                   
+                                    <label for="" class="text-light">Engineer</label>
+                
+                                    <select name="#" id="pm-schedule-engineer"  
+                                    class="engineer-drop-down w-100"></select>
+                                   
+                                </div>
+                                <div class="pm-row d-flex">
+                                    <div class="pm-col w-50 mr-2">
+                                        <label for="" class="text-light">Last Calibration</label>
+                                        <input type="text" id="pm-schedule-last-calibration" 
+                                        class="w-100">
+                                    </div>
+                                    <div class="pm-col w-50">
+                                        <label for="" class="text-light">Set Calibration From</label>
+                                        <input type="date" class="w-100" onchange="
+                                        pmTransactionController.setCalibrationTo()" 
+                                        id="pm-schedule-calibration-from">
+                                    </div>
+                                   
+                                </div>
+                
+                                <div class="pm-row d-flex">
+                                    <div class="pm-col w-50 mr-2">
+                                        <label for="" class="text-light">Frequency</label>
+                                        <div class="d-flex">
+                                            <input type="number" class="w-100" onkeyup="
+                                                pmTransactionController.setCalibrationTo()" 
+                                                onchange="pmTransactionController.setCalibrationTo()"
+                                            id="pm-schedule-time-length-value">
+                                            <select id="pm-schedule-time-length-format" 
+                                            onchange="pmTransactionController.setCalibrationTo()">
+                                                <option value="year">Year</option>
+                                                <option value="month">Month</option>
+                                                <option value="day">Day</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="pm-col w-50">
+                                        <label for="" class="text-light">Set Calibration To</label>
+                                        <input type="date" class="w-100" 
+                                        id="pm-schedule-calibration-to">
+                                    </div>
+                                   
+                                </div>
+                
+                                <div class="pm-row">
+                                    <label for="" class="text-light">Remarks</label>
+                                    <textarea name="" id="pm-schedule-remarks">
+                                    </textarea>
+                                    <!-- <a href="#" class="btn btn-success w-100 mb-2">Clear All</a>
+                                    <a href="#" class="btn btn-primary w-100" 
+                                    onclick="pmTransactionController.goSchedule()">Set Schedule</a> -->
+                                    
+                                </div>
+                
+                
+                            </div>
+                        </div>
+                       
+                    </div>    
+                   
+                </div>
+            </div>
+
+            <div class="haemonetics-content-area"></div>
+           
+            
+        </div>
+
+    </div>
+
+    <script>
+        function changingTransTypeList(){
+            const categ = $("#transaction-category-list").children("option:selected").text();
+            const typ = $("#transaction-type-list");
+
+            switch(categ){
+                case "Genexpert":setGenexpertTransType(); break;
+                case "Haemonetics":setHaemoneticsTransType(); break;
+                case "Module":setModuleTransType(); break;
+                case "Xpertcheck":setXpertcheckTransType(); break;
+                case "Preventive Maintenance":setPMTransType(); break;
+                default:null;
+            }
+
+            function setGenexpertTransType(){
+                typ.html("");
+                typ.append(` 
+                <option value="">Installation</option>
+                <option value="">Module Replacement</option>
+                <option value="">Transfer</option>
+                <option value="">Pull-out</option>
+                <option value="">Xpertcheck</option>
+                <option value="">Preventive Maintenance</option>
+                `);
+            }
+
+            function setHaemoneticsTransType(){
+                typ.html("");
+                typ.append(` 
+                <option value="">Installation</option>
+                <option value="">Replacement</option>
+                `);
+            }
+
+            function setModuleTransType(){
+                typ.html("");
+                typ.append(` 
+                <option value="">Installation</option>
+                <option value="">Replacement</option>
+                <option value="">Repair</option>
+                <option value="">Transfer</option>
+                `);
+            }
+
+            function setXpertcheckTransType(){
+                typ.html("");
+                typ.append(` 
+                <option value="">Schedule</option>
+                `);
+            }
+
+            function setPMTransType(){
+                typ.html("");
+                typ.append(` 
+                <option value="">Schedule</option>
+                `);
+            }
+        }
+
+        function displayForm(ignoreTransType = false){
+
+            if(!ignoreTransType){
+                changingTransTypeList();
+            }
+
+            const categ = $("#transaction-category-list").children("option:selected").text();
+            const typ = $("#transaction-type-list").children("option:selected").text();
+
+            const ledger = [
+                {
+                    "category":"Genexpert",
+                    "trans-type":"Installation",
+                    "content":"#genexpert-installation-form"
+                },
+                {
+                    "category":"Genexpert",
+                    "trans-type":"Transfer",
+                    "content":"#genexpert-transfer-form"
+                },
+                {
+                    "category":"Haemonetics",
+                    "trans-type":"Installation",
+                    "content":".haemonetics-installation-container"
+                },
+                {
+                    "category":"Genexpert",
+                    "trans-type":"Module Replacement",
+                    "content":"#module-replacement-form"
+                }, 
+                {
+                    "category":"Genexpert",
+                    "trans-type":"Xpertcheck",
+                    "content":"#xpertcheck-schedule-form"
+                },
+                {
+                    "category":"Genexpert",
+                    "trans-type":"Preventive Maintenance",
+                    "content":"#pm-schedule-form"
+                }
+                
+            ];
+                
+            const current = ledger.filter(ledg=>{
+                return ledg['category'] == categ && 
+                ledg['trans-type'] == typ;
+            })[0];
+
+            if(current['category'] == "Genexpert"){
+
+                $(".transaction-content-area").children().removeClass("go-to-show");
+                $(".genexpert-content-area").addClass("go-to-show");
+
+                $(".genexpert-content-area").children().removeClass("go-to-show");
+                $(current['content']).addClass("go-to-show");
+
+                if(current['trans-type'] == "Transfer" || 
+                current['trans-type'] == "Module Replacement"){
+                    $(".transaction-submit-btn").hide();
+                }else{
+                    $(".transaction-submit-btn").show();
+                }
+
+            }
+
+            if(current['category'] == "Haemonetics"){
+
+                $(".transaction-content-area").children().removeClass("go-to-show");
+                $(".haemonetics-content-area").addClass("go-to-show");
+
+                $(".haemonetics-content-area").children().removeClass("go-to-show");
+                $(current['content']).addClass("go-to-show");
+
+            }
+
+
+        }
+
+        function chooseSave(){
+
+            const categ = $("#transaction-category-list").children("option:selected").text();
+            const typ = $("#transaction-type-list").children("option:selected").text();
+
+            const ledger = [
+                {
+                    "category":"Genexpert",
+                    "trans-type":"Installation",
+                    "execute":function(){
+                        genexpertInstallationForm();
+                    }
+                },
+                {
+                    "category":"Genexpert",
+                    "trans-type":"Module Replacement",
+                    "execute":function(){
+                        moduleTransferForm();
+                    }
+                },
+                {
+                    "category":"Genexpert",
+                    "trans-type":"Xpertcheck",
+                    "execute":function(){
+                        xpertcheckScheduleForm();
+                    }
+                },
+                {
+                    "category":"Genexpert",
+                    "trans-type":"Preventive Maintenance",
+                    "execute":function(){
+                        pmScheduleForm();
+                    }
+                }];
+            const current = ledger.filter(ledg=>{
+                return ledg['category'] == categ && 
+                ledg['trans-type'] == typ;
+            })[0];
+
+            current['execute']();
+
+        }
+
+        function genexpertInstallationForm(){
+
+            const categ = $("#transaction-category-list").children("option:selected").text();
+            const typ = $("#transaction-type-list").children("option:selected").text();
+
+
+            function onGenexpertInstallationSubmit(){
+            
+                transactionController.genexpert().installation().onProcess();
+            }
+
+
+
+            const ledger = [
+                {
+                    "process":onGenexpertInstallationSubmit,
+                    "category":"Genexpert",
+                    "trans-type":"Installation"
+                },
+                {
+                    "url":"../transactions/genexpert/replacement.html",
+                    "category":"Genexpert",
+                    "trans-type":"Replacement"
+                },
+                {
+                    "url":"../transactions/haemonetics/installation.html",
+                    "category":"Haemonetics",
+                    "trans-type":"Installation"
+                },
+                {
+                    "url":"../transactions/modules/installation.html",
+                    "category":"Module",
+                    "trans-type":"Installation"
+                }, 
+                {
+                    "url":"../transactions/modules/repair.html",
+                    "category":"Module",
+                    "trans-type":"Repair"
+                },
+                {
+                    "url":"../transactions/modules/transfer.html",
+                    "category":"Module",
+                    "trans-type":"Transfer"
+                },
+                {
+                    "url":"../transactions/modules/replacement.html",
+                    "category":"Module",
+                    "trans-type":"Replacement"
+                },
+                {
+                    "url":"../transactions/xpertcheck/schedule.html",
+                    "category":"Xpertcheck",
+                    "trans-type":"Schedule"
+                },
+                {
+                    "url":"../transactions/preventive-maintenance/schedule.html",
+                    "category":"Preventive Maintenance",
+                    "trans-type":"Schedule"
+                }
+                
+            ]
+
+            const current = ledger.filter(ledg=>{
+                return ledg['category'] == categ && 
+                ledg['trans-type'] == typ;
+            })[0];
+
+            current['process']();
+
+
+        }
+        
+        function moduleTransferForm(){
+            moduletransactionController.goInstall();
+
+        }
+
+        function xpertcheckScheduleForm(){
+          
+            xpertcheckTransactionController.goSchedule();
+        }
+
+        function pmScheduleForm(){
+            pmTransactionController.goSchedule();
+        }
+
+
+        function toggleToShowMachineInfo(div){
+            $(div).parent(".genexpert-result-item").toggleClass("toggle-more-result-view");
+        }
+    </script>
+
+    <script>
+        const moduletransactionController = require("../transactions/modules/ModuleTransactionController");
+        const xpertcheckTransactionController = 
+       require("../transactions/xpertcheck/XpertcheckTransactionController");
+       const pmTransactionController = 
+       require("../transactions/preventive-maintenance/PMTransactionController");
+       const genexpertTransactionController = 
+       require("../transactions/genexpert/GenexpertTransactionController");
+    </script>
+   
+
+</div>

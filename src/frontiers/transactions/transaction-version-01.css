@@ -1,0 +1,294 @@
+#transaction-frame-area{
+    background:rgba(17, 17, 17, 0.733);
+    position: relative;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+
+}
+#transaction-frame-area > .transaction-form-display-area{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(22, 22, 22, 0.727);
+    backdrop-filter:blur(50px);
+    z-index:10;
+    height:0%;
+    transition:600ms all;
+    overflow: hidden;
+}
+#transaction-frame-area > .transaction-form-display-area > .transaction-genexpert-installation-form{
+    z-index:20;
+}
+.display-form-area{
+    height:100% !important;
+}
+
+#transaction-frame-area > .transaction-main-area{
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    position: relative;
+    padding:50px;
+    overflow-y: auto;
+    overflow-x: hidden;
+   
+}
+#transaction-frame-area > .transaction-main-area > .transaction-head-area{
+    position: relative;
+    /* border:1px solid lime; */
+    overflow: hidden;
+    padding:40px;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > 
+.transaction-head-screen-area{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(58, 58, 58, 0.486);
+    backdrop-filter:blur(5px);
+    z-index:10;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-body-area{
+    position: relative;
+    top:0;
+    left:0;
+    padding-bottom:20px;
+    /* border:1px solid red; */
+}
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .input-service-report-area{
+    margin-bottom:10px;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-head-area
+> .input-service-report-area > input{
+    width:278px;
+    height:30px;
+    background:rgba(0, 0, 0, 0.747);
+    color:#fff;
+    font-weight:700;
+    border:0.7px solid #ccc;
+    padding:5px;
+    border-radius:2px;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-head-area
+> .input-service-report-area > input:active,
+#transaction-frame-area > .transaction-main-area > .transaction-head-area
+> .input-service-report-area > input:focus{
+    outline:none;
+    box-shadow:none;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-head-area
+> .input-service-report-area > label{
+    color:#fff;
+    font-weight:600;
+    font-size:16px;
+}
+
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-control-area{
+    width:100%;
+    position: relative;
+}
+
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-control-area > select{
+    width:323px;
+    height:30px;
+    background:rgba(0, 0, 0, 0.747);
+    color:#fff;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-control-area > label{
+    color:#fff;
+    font-weight:600;
+    font-size:16px;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-control-area > select:active,
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-control-area > select:focus{
+    outline:none;
+    box-shadow: none;
+    color:#fff;
+    font-weight:700;
+}
+
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-field-area{
+    padding-top:20px;
+    position: relative;
+    height:100px;
+    transition:600ms all;
+}
+
+.expand-vertical{
+    height:510px !important;
+}
+
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-field-area > div{
+    position: absolute;
+    top:20px;
+    left:0;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-field-area > 
+div.search-serial-number-area > input{
+    width:320px;
+    margin-left:90px;
+    background:none;
+    color:#fff;
+    font-weight:700;
+    border:0.7px solid #ccc;
+    padding:5px;
+    border-radius:2px;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-field-area 
+> div.search-serial-number-area > input::placeholder{
+    color:#fff;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-field-area 
+> div.search-serial-number-area > input:active,
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-field-area 
+> div.search-serial-number-area > input:focus{
+
+    outline:none;
+    box-shadow:none;
+
+}
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-field-area 
+> div.search-site-area > input{
+    width:700px;
+    margin-left:90px;
+    background:none;
+    color:#fff;
+    font-weight:700;
+    border:0.7px solid #ccc;
+    padding:5px;
+    border-radius:2px;
+}
+
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-field-area 
+> div.search-site-area > input::placeholder{
+    color:#fff;
+}
+#transaction-frame-area > .transaction-main-area  > .transaction-head-area > .search-field-area 
+> div.search-site-area > input:active,
+#transaction-frame-area > .transaction-main-area  > .transaction-head-area > .search-field-area 
+> div.search-site-area > input:focus{
+
+    outline:none;
+    box-shadow:none;
+
+}
+#transaction-frame-area > .transaction-main-area  > .transaction-head-area > .search-field-area 
+> div.search-address-area{
+    height:400px;
+}
+#transaction-frame-area > .transaction-main-area  > .transaction-head-area > .search-field-area 
+> div.search-address-area > div{
+    width:100%;
+   
+    padding:5px;
+    margin-left:10px;
+    color:#fff;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-field-area 
+> div.search-address-area > .search-complete-address-area > input{
+    width:700px;
+    margin-left:0px;
+    background:none;
+    color:#fff;
+    font-weight:700;
+    border:0.7px solid #ccc;
+    padding:5px;
+    border-radius:2px;
+}
+
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-field-area 
+> div.search-address-area > .search-complete-address-area > input::placeholder{
+    color:#fff;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-field-area 
+> div.search-address-area > .search-complete-address-area > input:active,
+#transaction-frame-area > .transaction-main-area > .transaction-head-area > .search-field-area 
+> div.search-address-area > .search-complete-address-area > input:focus{
+
+    outline:none;
+    box-shadow:none;
+
+}
+
+#transaction-frame-area > .transaction-main-area  > .transaction-head-area > .search-field-area 
+> div.search-address-area > div > select{
+    height:30px;
+    background:none;
+    color:#fff;
+    font-weight:700;
+}
+#transaction-frame-area > .transaction-main-area  > .transaction-head-area > .search-field-area 
+> div.search-address-area > div > select > option{
+    color:#000;
+}
+#transaction-frame-area > .transaction-main-area  > .transaction-head-area > .search-field-area 
+> div.search-address-area > div > select:active,
+#transaction-frame-area > .transaction-main-area  > .transaction-head-area > .search-field-area 
+> div.search-address-area > div > select:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+#transaction-frame-area > .transaction-main-area > .transaction-body-area > .result-list-area > table{
+    width:100%;
+    color:#fff;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-body-area > .result-list-area > table
+> thead > tr > th{
+    border:1px solid #ccc;
+    padding:3px;
+    text-align: center;
+}
+
+#transaction-frame-area > .transaction-main-area > .transaction-body-area > .result-list-area > table
+> tbody > tr > td{
+    border:1px solid #ccc;
+    padding:3px;
+    text-align: center;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-body-area > .result-list-area > table
+> tbody > tr > td:nth-child(1){
+    width:10%;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-body-area > .result-list-area > table
+> tbody > tr > td:nth-child(2){
+    width:15%;
+}
+
+#transaction-frame-area > .transaction-main-area > .transaction-body-area > .result-list-area > table
+> tbody > tr > td:nth-child(3){
+    width:30%;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-body-area > .result-list-area > table
+> tbody > tr > td:nth-child(4){
+    width:31%;
+}
+#transaction-frame-area > .transaction-main-area > .transaction-body-area > .result-list-area > table
+> tbody > tr > td:nth-child(5){
+    width:7%;
+}
+
+#transaction-frame-area > .transaction-main-area > .transaction-body-area > .result-list-area > table
+> tbody > tr > td:nth-child(6){
+    width:7%;
+}
+#transactionResultListArea > tr:hover{
+
+    background:rgba(54, 54, 54, 0.658);
+
+}
+
+.transaction-genexpert-installation-form{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}

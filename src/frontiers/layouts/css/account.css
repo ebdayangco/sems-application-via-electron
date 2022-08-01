@@ -1,0 +1,349 @@
+*{
+    padding:0;
+    margin: 0;
+    font-size:16px;
+}
+body,html{
+    border-radius:10px; 
+    /* background:rgb(255, 255, 255) !important; */
+}
+.access-exit-btn{
+    position: absolute;
+    top:10px;
+    right:10px;
+    z-index:999;
+    color:#fff;
+}
+.forgot-password-button{
+    position: absolute;
+    top:60px;
+    right:0;
+}
+
+.retrieve-password-button{
+    position: absolute;
+    top:60px;
+    left:0;
+}
+.control-button-group{
+    margin-top:70px !important;
+}
+.form-group{
+    position: relative;
+}
+.access-area{
+    position: absolute;
+    width:100%;
+    height:100%;
+    box-sizing: border-box;
+    background:rgb(255, 255, 255);
+    border-radius:10px !important; 
+    border: solid 2px #fff;
+    overflow:hidden !important;
+    box-shadow:
+    inset 3px 0 10px #000,  /* left magenta */
+    inset -2px 0 2px #000;
+  
+}
+.access-area > .login_screen{
+    border-radius:10px; 
+    overflow:hidden !important;
+}
+.circle-background{
+    position: absolute;
+    top: -10%;
+    right: 48%;
+    height: 2000px;
+    width: 2000px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    /* transform:translateX(-100%); */
+    transition: 800ms all ease-in-out;
+    border: solid 2px #fff;
+    overflow:hidden !important;
+    box-shadow:
+    3px 0 10px #000,  /* left magenta */
+    -2px 0 2px #000;
+    z-index:999;
+}
+
+.registerbtn:focus > .circle-background{
+    transform:translate(100%,-50%);
+}
+
+.image-circle{
+    position:relative;
+    background-image: linear-gradient(-45deg, rgba(102,0,0,0.7),rgba(153,0,0,0.7),rgba(204,0,0,0.7),rgba(255,51,52,0.7) 100%),
+    url("../../../supporters/galleries/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    top:50%;
+    width:100%;
+    height:40%;
+}
+.login-option-area{
+    position: absolute;
+    top:0%;
+    left:0%;
+    width:100%;
+    height:100%;
+    transition: 800ms all ease-in-out;
+   
+}
+
+
+.register-open-control{
+    position:absolute;
+    top:60%;
+    left:7%;
+    color:#fff;
+    font-weight: 800;
+    z-index:9999;
+    text-align: left;
+}
+
+.register-open-control p{
+    display:inline-block;
+    width: 100%;
+    font-weight: 100;
+    color:#fff;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-family: 'Tahoma';
+    font-size: 24px;
+}
+
+.register-option-area{
+    position: absolute;
+    top:0%;
+    right:-100%;
+    width:100%;
+    height:100%;
+    transition: 800ms all ease-in-out;
+    text-align: right;
+}
+.instruction-area{
+    position:absolute;
+    top:7%;
+    left:1.8%;
+    width: 35%;
+    color:#fff;
+    z-index:9999;
+    font-size: 17px;
+    
+}
+
+.instruction-area p:first-child{
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.instruction-area p:last-child{
+    text-align:right !important;
+    font-size: 24px;
+    font-style: italic;
+}
+
+.email-area{
+    position:absolute;
+    top:40%;
+    left:1.5%;
+    width: 35%;
+    color:#fff;
+    z-index:9999;
+    font-size: 20px;
+    text-align: right;
+}
+.email-area p{
+    font-family: 'Tahoma';
+    font-size: 24px;
+}
+.login-open-control{
+    position:absolute;
+    top:60%;
+    left:9.5%;
+    color:#fff;
+    font-weight: 800;
+    z-index:9999;
+    text-align: right;
+}
+
+.login-open-control p{
+    display:inline-block;
+    width: 100%;
+    font-weight: 100;
+    color:#fff;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-family: 'Tahoma';
+    font-size: 24px;
+}
+
+.welcome-area{
+    position:absolute;
+    top:15%;
+    left:7%;
+    width: 35%;
+    color:#fff;
+    z-index:9999;
+    font-size: 20px;
+    
+}
+.welcome-area p:first-child{
+    font-size: 40px;
+    font-weight: 800;
+}
+.welcome-area p:last-child{
+    justify-content: left;
+}
+.login-form{
+    position:absolute;
+    top:10%;
+    right:2%;
+    bottom:5%;
+    width:45%;
+    height: 90%;
+    padding: 5%;
+    
+}
+
+.login-form h2{
+    margin-bottom: 30px;
+}
+
+.register-form{
+    position:absolute;
+    top:3%;
+    right:2%;
+    bottom:5%;
+    width:50%;
+    height: 90%;
+    padding: 5%;
+    visibility: hidden;
+    margin-top:-27px;
+}
+
+.register-form h2{
+    margin-bottom: 30px;
+}
+
+input{
+    background: rgba(255, 255, 255,0);
+    border: 1px solid #000 ;
+    margin-bottom: 30px;
+    height:50px ;
+    font-size:16px;
+}
+
+
+#txtforgot{
+    height:40px !important;
+    border: 1px solid #fff !important;
+    width:75%;
+    color:#fff;
+    font-weight:800;
+    border-radius:0px !important;
+}
+#sendEmail{
+    height:40px !important;
+    width:25%;
+}
+
+.btn-red{
+    color: rgba(255,255,255,0.8);
+    border:1px solid rgba(255,255,255,0.8);
+    border-radius: 0px;
+    font-size:12px;
+}
+
+.btn-red:hover{
+    color:rgba(255,51,52,0.8);
+    background: rgba(255,255,255,0.8);
+}
+
+.btn-defaults{
+    background:rgb(247, 35, 35);
+    color: #fff !important;
+    border-radius: 5px;
+    font-size: 18px;
+   
+}
+.btn-defaults-inverse{
+    background:#fff;
+    color: rgba(255,51,52,1) !important;
+    border-radius: 5px;
+    font-weight:400;
+    border:0.7px solid rgba(255,51,52,1);
+}
+
+.btn-defaults:hover{
+    font-weight:600;
+    background:rgb(235, 17, 17);
+    font-size: 18px;
+}
+.btn-defaults-inverse:hover{
+    font-weight:600;
+    border:2px solid rgb(247, 35, 35);
+
+}
+.btn-defaults:active,.btn-defaults-inverse:active,
+.btn-defaults:focus,.btn-defaults-inverse:focus{
+    outline:none !important;
+    box-shadow: none !important;
+    
+}
+.btn-defaults:active{
+    background:rgb(255, 1, 1);
+    box-shadow:0px 0px 5px 1px solid #000;
+}
+.btn-defaults-inverse:active{
+    border:1.5px solid rgba(255,51,52,1);
+}
+label{
+    font-weight: bold;
+}
+.access-profile-image-upload{
+    position: absolute;
+    top:-100%;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter:blur(5px);
+    z-index:10000;
+    transition:600ms all;
+
+}
+.access-profile-image-upload-content{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    align-items: center;
+}
+.access-profile-image-upload-content > h3{
+    color:#fff;
+    margin-bottom:30px;
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.button-control-group{
+    margin-top:20px;
+}
+.button-control-group > a{
+    width:100%;
+    margin-bottom:5px;
+}
+#user-pp{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    box-shadow:0px 0px 10px 3px rgb(49, 49, 49);
+    cursor: pointer;
+}
+
+.access-profile-image-upload-display{
+    top:0 !important;
+}
+

@@ -1,0 +1,91 @@
+<div id="xpertcheck-schedule-form">
+    <link rel="stylesheet" href="../transactions/xpertcheck/xpertcheck-schedule.css">
+    <div class="xpertcheck-schedule-area">
+
+        <div id="xpertcheck-schedule-genexpert-search-area"></div>
+        <div id="xpertcheck-schedule-form-area">
+            <div class="xpertcheck-title">Schedule Form</div>
+            <div class="xpertcheck-body">
+                
+                <div class="xpertcheck-row">
+                    <label for="">Genexpert</label>
+                    <div class="xpertcheck-field">
+                        <input type="text" 
+                        id="xpertcheck-schedule-genexpert-serial-number">
+                        <a href="#" class="btn btn-primary">Browse</a>
+                    </div>
+                </div>
+
+                <div class="xpertcheck-row">
+                   
+                    <label for="">Engineer</label>
+
+                    <select name="#" id="xpertcheck-schedule-engineer"  
+                    class="engineer-drop-down w-100"></select>
+                   
+                </div>
+                <div class="xpertcheck-row d-flex">
+                    <div class="xpertcheck-col w-50 mr-2">
+                        <label for="">Last Calibration</label>
+                        <input type="text" id="xpertcheck-schedule-last-calibration" 
+                        class="w-100">
+                    </div>
+                    <div class="xpertcheck-col w-50">
+                        <label for="">Date of Calibration</label>
+                        <input type="date" class="w-100" onchange="
+                        xpertcheckTransactionController.setCalibrationTo()" 
+                        id="xpertcheck-schedule-calibration-from">
+                    </div>
+                   
+                </div>
+
+                <div class="xpertcheck-row d-flex">
+                    <div class="xpertcheck-col w-50 mr-2">
+                        <label for="">Time Length</label>
+                        <div class="d-flex">
+                            <input type="number" class="w-100" onkeyup="
+                                xpertcheckTransactionController.setCalibrationTo()" 
+                                onchange="xpertcheckTransactionController.setCalibrationTo()"
+                            id="xpertcheck-schedule-time-length-value">
+                            <select id="xpertcheck-schedule-time-length-format" 
+                            onchange="xpertcheckTransactionController.setCalibrationTo()">
+                                <option value="year">Year</option>
+                                <option value="month">Month</option>
+                                <option value="day">Day</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="xpertcheck-col w-50">
+                        <label for="">New Calibration Due</label>
+                        <input type="date" class="w-100" 
+                        id="xpertcheck-schedule-calibration-to">
+                    </div>
+                   
+                </div>
+
+                <div class="xpertcheck-row">
+                    <a href="#" class="btn btn-success w-100 mb-2">Clear All</a>
+                    <a href="#" class="btn btn-primary w-100" 
+                    onclick="xpertcheckTransactionController.goSchedule()">Set Schedule</a>
+                    
+                </div>
+
+
+            </div>
+
+        </div>
+        <div id="xpertcheck-schedule-image-area">
+            <div class="xpertcheck-schedule-image-screen-area"></div>
+        </div>
+       
+    </div>
+
+    <script>
+
+       const xpertcheckTransactionController = 
+       require("../transactions/xpertcheck/XpertcheckTransactionController");
+
+
+    </script>
+
+</div>

@@ -1,0 +1,185 @@
+#genexpert-installation-form{
+    position:relative;
+    width:100%;
+    padding:30px;
+    padding-top:10px !important;
+    margin-bottom: 50px;
+    opacity:1;
+    display:block;
+    transition:600ms all;
+    display: none;
+}
+
+ .transaction-block{
+    position: relative;
+    width:100%;
+    margin-top:20px;
+    padding:10px;
+    display:block;
+    margin-bottom:20px;
+}
+#genexpert-installation-form > .transaction-block-hide{
+    display:none;
+}
+
+#genexpert-installation-form > .transaction-block-button-highlight{
+    color:rgb(255, 255, 255) !important;
+}
+.transaction-block > .title,
+.transaction-block > .title > a{
+    position: relative;
+    top:0;
+    left:0;
+    color:rgb(1, 196, 255);
+    font-weight:700;
+    font-size:14px;
+    padding:0 !important;
+    margin:0 !important;
+    margin-bottom:10px !important;
+    margin-left:5px !important;
+    text-transform: uppercase;
+}
+
+.transaction-block > .body > .line{
+    display:flex;
+    width:100%;
+    margin-bottom: 10px;
+}  
+
+.transaction-block > .body > .line:last-child{
+    margin-bottom:0px;
+}  
+.transaction-block > .body > .line > .item{
+    display:flex;
+    flex-direction: column;
+    margin-right:10px;
+    
+}
+.transaction-block > .body > .line > .item:last-child{
+    margin-right:0px;
+}
+.transaction-block > .body > .line > .item > label{
+    color:rgb(194, 194, 194);
+    font-weight:500;
+    font-size:11px;
+}
+.transaction-block > .body > .line > .item > div > label{
+    color:rgb(194, 194, 194);
+    font-weight:500;
+    font-size:11px;
+}
+.transaction-block > .body > .line > .item > input{
+    background: rgb(115, 165, 214) !important;
+    /* background:rgba(250, 250, 250, 0.644); */
+    border:1px solid rgb(250, 250, 250,0.9);
+    padding:3px;
+    color:#000;
+    font-size:12px;
+    font-weight:700;
+}
+
+.transaction-block > .body > .line > .item > div > input{
+    background: rgb(115, 165, 214) !important;
+    /* background:rgba(250, 250, 250, 0.644); */
+    border:1px solid rgb(250, 250, 250,0.9);
+    padding:3px;
+    color:#000;
+    font-size:12px;
+    font-weight:700;
+}
+
+.transaction-block > .body > .line > .item > form > div > input{
+    background: rgb(115, 165, 214) !important;
+    /* background:rgba(250, 250, 250, 0.644); */
+    border:1px solid rgb(250, 250, 250,0.9);
+    padding:3px;
+    color:#000;
+    font-size:12px;
+    font-weight:700;
+}
+
+
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+  }
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+  }
+  .autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+  }
+  .autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+  }
+.transaction-block > .body > .line > .item > select{
+    /* background:rgba(250, 250, 250, 0.644); */
+    background: rgb(115, 165, 214) !important;
+    border:1px solid rgb(250, 250, 250,0.9);
+    padding:3px;
+    color:#000;
+    font-size:12px;
+    font-weight:700;
+}
+.transaction-block > .body > table{
+    margin-top:-15px !important;
+}
+.transaction-block > .body > table > tbody > tr > td{
+    margin:0 !important;
+    height:35px !important;
+    padding: 5px;
+}
+
+.transaction-block > .body > table,
+.transaction-block > .body > table > tbody,
+.transaction-block > .body > table > tbody > tr {
+    width:100% !important;
+}
+
+.transaction-block > .body > table > thead > tr > th,
+.transaction-block > .body > table > tbody > tr > td{
+    text-align: center !important;
+    border:1px solid #fff !important;
+    color:#fff !important;
+    padding:5px;
+}
+.transaction-block > .body > table > tbody > tr > td > input{
+    /* background:rgba(250, 250, 250, 0.644); */
+    background: rgb(115, 165, 214) !important;
+    border:1px solid rgb(250, 250, 250,0.9);
+    padding:1px;
+    color:#000;
+    font-size:12px;
+    font-weight:700;
+    width:100%;
+    height:100%;
+}
+.transaction-block > .body > table > tbody > tr > td > select{
+    background: rgb(115, 165, 214) !important;
+    /* background:rgba(250, 250, 250, 0.644); */
+    border:1px solid rgb(250, 250, 250,0.9);
+    padding:1px;
+    color:#000;
+    font-size:12px;
+    font-weight:700;
+    width:100%;
+    height:100%;
+}

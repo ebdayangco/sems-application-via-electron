@@ -1,0 +1,394 @@
+<link rel="stylesheet" href="../css/transactions.css">
+<div class="frame-area d-flex" id="transaction-frame-area">
+    <div id="transaction-main">
+        <div class="frame-form">
+            <div class="frame-background-option-area">
+                <input type="color" onchange="setTransactionBackground(this)">
+            </div>
+           <h1>TRANSACTION FORM</h1>
+           <div class="frame-border"></div>
+
+            <div class="frame-picture-bg">
+                
+            </div>
+            <div class="frame-blur"></div>
+            <div class="frame-panel" id="facility-panel">
+                
+                <!-- facility -->
+                <div class="frame-row">
+                    <div class="frame-item d-flex w-100">
+                        <div class="frame-label">FACILITY/SITE:</div>
+                        <div class="frame-input w-100">
+                                    <input type="text"
+                                    class="trans-underline-field" 
+                                    id="transaction-facility-field" 
+                                    onkeyup="getFacilitySN(this)">
+                           </div>
+                    </div>
+                </div>
+    
+                <!-- department -->
+                <div class="frame-row d-flex">
+                    <div class="frame-item d-flex w-50">
+                        <div class="frame-label" style="margin-right:34px;">DEPARTMENT:</div>
+                        <div class="frame-input w-100">
+                            <input type="text" class="trans-underline-field"
+                            id="transaction-department-field">
+                          
+                        </div>
+                    </div>
+
+                    <div class="frame-item d-flex w-50">
+                        <div class="frame-label ml-2">TEL NO:</div>
+                        <div class="frame-input w-100"><input type="text" 
+                            id="transaction-tel-no-field"
+                            class="trans-underline-field"></div>
+                    </div>
+                </div>
+    
+                <!-- address -->
+                <div class="frame-row">
+                    <div class="frame-item w-100">
+    
+                        <div class="frame-mini-form">
+
+                            <!-- region and province -->
+                            <div class="frame-row d-flex">
+                                <div class="frame-item d-flex w-50">
+                                    <div class="frame-label">REGION:</div>
+                                    <div class="frame-input w-100">
+                                        <select
+                                        class="trans-underline-field region-drop-down" 
+                                        id="transaction-address-region-field">
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="frame-item d-flex w-50">
+                                    <div class="frame-label ml-2">PROVINCE:</div>
+                                    <div class="frame-input w-100">
+                                        <select class="trans-underline-field 
+                                        province-drop-down" 
+                                        id="transaction-address-province-field">
+                                        </select>
+                                    </div>
+
+                                </div>
+                            
+                            </div>
+
+                            <!-- city and barangay -->
+                            <div class="frame-row d-flex">
+                                <div class="frame-item d-flex w-50">
+                                    <div class="frame-label">CITY:</div>
+                                    <div class="frame-input w-100">
+                                        <select class="trans-underline-field 
+                                        city-drop-down" 
+                                        id="transaction-address-city-field">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="frame-item d-flex w-50">
+                                    <div class="frame-label ml-2">BARANGAY:</div>
+                                    <div class="frame-input w-100">
+                                        <select class="trans-underline-field 
+                                        barangay-drop-down" 
+                                        id="transaction-address-barangay-field">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- street -->
+                            <div class="frame-row d-flex">
+                              
+                                <div class="frame-item d-flex w-100">
+                                    <div class="frame-label" 
+                                    style="margin-right:-20px !important;">STREET:</div>
+                                    <div class="frame-input w-100">
+                                        <input type="text" class="trans-underline-field" 
+                                        id="transaction-address-street-field">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- latitude and longitude -->
+                            <div class="frame-row d-flex">
+                                <div class="frame-item d-flex w-50">
+                                    <div class="frame-label">LATITUDE:</div>
+                                    <div class="frame-input w-100">
+                                        <input type="text" class="trans-underline-field" 
+                                        id="transaction-address-latitude-field">
+                                    </div>
+                                </div>
+                                <div class="frame-item d-flex w-50">
+                                    <div class="frame-label ml-2">LONGITUDE:</div>
+                                    <div class="frame-input w-100">
+                                       <input type="text" class="trans-underline-field" 
+                                       id="transaction-address-longitude-field">
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- contacts -->
+                <div class="frame-row">
+                    <div class="frame-item w-100">
+                        <div class="frame-mini-form">
+                            <div class="frame-item d-flex w-100">
+                                <div class="frame-label">CONTACT NAME:</div>
+                                <div class="frame-input w-100">
+                                    <input type="text" 
+                                    class="trans-underline-field" 
+                                    id="transaction-contact-name-field">
+                                </div>
+                            </div>
+                            <div class="frame-item d-flex w-100">
+                                <div class="frame-label">POSITION:</div>
+                                <div class="frame-input w-100"><input type="text" 
+                                    class="trans-underline-field" 
+                                    id="transaction-contact-position-field"></div>
+                            </div>
+                            <div class="frame-item d-flex w-100">
+                                <div class="frame-label">CONTACT #:</div>
+                                <div class="frame-input w-100"><input type="text" 
+                                    class="trans-underline-field" 
+                                    id="transaction-contact-number-field"></div>
+                            </div>
+                            <div class="frame-item d-flex w-100">
+                                <div class="frame-label">EMAIL:</div>
+                                <div class="frame-input w-100"><input type="text" 
+                                    class="trans-underline-field" 
+                                    id="transaction-contact-email-field"></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- jotform -->
+                <div class="frame-row mt-3">
+
+                    <div class="frame-item d-flex w-100">
+                        <div class="frame-label w-30">Jotform ? </div>
+                        <div class="frame-input w-70 d-flex">
+                            <input type="checkbox" 
+                            class="myinput large custom jotform-toggle-box" 
+                            id="transaction-jotform-connect-field"
+                            onchange="toggleJotformOption(event)"/>
+                           <!-- <input type="checkbox" value="yes"
+                            class="trans-underline-field service-report-toggle-box" onchange="toggleServiceReportOption(event)">  -->
+                        </div>
+                    </div>
+
+                    <div class="frame-row pt-2 mt-2" id="jotform-reveal-area">
+                        <div class="frame-item d-flex w-100">
+                            <div class="frame-label">TICKET NO:</div>
+                          
+                            <div class="frame-input w-100">
+
+                                <select class="trans-underline-field 
+                                hide-jotform-component transaction-jotform-select 
+                                transaction-jotform-ticket-no-field" 
+                                 disabled>
+                                </select>
+
+                                <input type="text" value="GX-000000"
+                                class="trans-underline-field transaction-jotform-input
+                                transaction-jotform-ticket-no-field" 
+                                id="transaction-jotform-ticket-no-field" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                </div>
+                
+                <!-- equipment -->
+                <div class="frame-row">
+                    <div class="frame-item d-flex w-100">
+                        <div class="frame-label">EQUIPMENT:</div>
+                        <div class="frame-input w-100">
+                            <input type="text" value="Genexpert"
+                            class="trans-underline-field" id="transaction-equipment-field">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- model -->
+                <div class="frame-row">
+                    <div class="frame-item d-flex w-100">
+                        <div class="frame-label">MODEL:</div>
+                        <div class="frame-input w-100">
+                            <select class="trans-underline-field 
+                            model-number-drop-down" 
+                            id="transaction-model-number-field">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- serial number -->
+                <div class="frame-row">
+                    <div class="frame-item d-flex w-100">
+                        <div class="frame-label">SERIAL NUMBER:</div>
+                        <div class="frame-input w-100">
+
+                            <select class="trans-underline-field 
+                            hide-serial-number-select transaction-serial-number-select" 
+                            id="transaction-serial-number-field" 
+                            onchange="genexpertSNServiceTypeOptionSelect(this)">
+                            </select>
+                            <input type="text" value="000000" 
+                            onkeyup="genexpertSNServiceTypeOption(this)"
+                            class="trans-underline-field transaction-serial-number-input" 
+                            id="transaction-serial-number-field">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- type of service -->
+                <div class="frame-row">
+
+                    <div id="transaction-service-area">
+                        <div class="frame-label mt-2">TYPE OF SERVICE:</div>
+                        <div class="transaction-service-panel-area">
+                            <div class="transaction-service-panel-title frame-label">INSTALLATIONHi this is Installation</div>
+                        </div>
+
+                        <div class="transaction-service-panel-area">
+                            <div class="transaction-service-panel-title frame-label">REPAIR</div>
+                        </div>
+
+                        <div class="transaction-service-panel-area">
+                            <div class="transaction-service-panel-title frame-label">MACHINE TRANSFER</div>
+                        </div>
+
+                        <div class="transaction-service-panel-area">
+                            <div class="transaction-service-panel-title frame-label">MACHINE PULL OUT</div>
+                        </div>
+
+                        <div class="transaction-service-panel-area">
+                            <div class="transaction-service-panel-title frame-label">MODULE NEW/REPLACEMENT</div>
+                        </div>
+
+                        <div class="transaction-service-panel-area">
+                            <div class="transaction-service-panel-title frame-label">XPERTCHECK / CALIBRATION</div>
+                        </div>
+
+                        <div class="transaction-service-panel-area">
+                            <div class="transaction-service-panel-title frame-label">MAINTENANCE</div>
+                        </div>
+
+                        <div class="transaction-service-panel-area">
+                            <div class="transaction-service-panel-title frame-label">OTHERS</div>
+                        </div>
+
+
+                    </div>
+                   
+
+                            
+
+                </div>
+                
+
+            
+
+                <div class="frame-row">
+                    <div class="frame-item d-flex w-100">
+                        <div class="frame-label w-30">Needed Service Report ? </div>
+                        <div class="frame-input w-70 d-flex">
+                            <input type="checkbox" 
+                            class="myinput large custom service-report-toggle-box" 
+                            id="transaction-service-report-needed-field"
+                            onchange="toggleServiceReportOption(this)"/>
+                           <!-- <input type="checkbox" value="yes"
+                            class="trans-underline-field service-report-toggle-box" onchange="toggleServiceReportOption(event)">  -->
+                        </div>
+                    </div>
+
+                    <div class="service-reveal-area-report" id="service-report-reveal-area">
+
+                        <div class="frame-row pt-2">
+                            <div class="frame-item d-flex w-100">
+                                <div class="frame-label">SERVICE REPORT #:</div>
+                                <div class="frame-input w-100">
+                                    <input type="text" value="000000"
+                                    class="trans-underline-field" 
+                                    id="transaction-service-report-number-field">
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="frame-row">
+                            <div class="frame-item w-100">
+                                <div class="frame-label w-100">PROBLEMS REPORTED:</div>
+                                <div class="frame-input w-100">
+                                    <textarea class="trans-underline-field"
+                                    id="transaction-service-report-problems-reported-field"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="frame-row">
+                            <div class="frame-item w-100">
+                                <div class="frame-label w-100">DIAGNOSTIC / FINDINGS:</div>
+                                <div class="frame-input w-100">
+                                    <textarea class="trans-underline-field"
+                                    id="transaction-service-report-diagnostic-findings-field"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="frame-row">
+                            <div class="frame-item w-100">
+                                <div class="frame-label w-100">CORRECTIVE ACTIONS / SERVICES DONE:</div>
+                                <div class="frame-input w-100">
+                                    <textarea class="trans-underline-field"
+                                    id="transaction-service-report-corrective-action-field"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="frame-row" style="margin-bottom: 50px !important;">
+                            <div class="frame-item w-100">
+                                <div class="frame-label w-100">COMMENT(S) / RECOMMENDATION(S):</div>
+                                <div class="frame-input w-100">
+                                    <textarea class="trans-underline-field 
+                                    trans-underline-field-second"
+                                    id="transaction-service-report-comments-field"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="frame-row transaction-control-button-area">
+                    <a href="#" class="w-40 input-submit-btn mt-4 ml-2"
+                    onclick="transactionController.transactionProcess()">
+                        <i class="fa fa-save"></i> Save</a>
+                    <a href="#" class="w-40 input-submit-btn mt-4"
+                    onclick="">
+                        <i class="fa fa-trash"></i> Clear All</a>
+                    
+                </div>
+
+               
+               
+        
+            </div>
+        </div>
+    </div>
+  
+   
+
+</div>
+<script src="../js/xpertcheck.js"></script>
+<script src="../js/preventive-maintenance.js"></script>
+<script src="../js/transaction.js"></script>

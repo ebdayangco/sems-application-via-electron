@@ -1,0 +1,202 @@
+<html>
+  <head>
+    <style>
+      table, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      @page { size: landscape; margin: 40px; overflow:hidden;}
+
+
+      .region-site-area{
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+
+      }
+      .region-site-panel{
+        position:relative;
+        top:0;
+        left:0;
+        width:100%;
+        height:auto;
+        margin-top:50px;
+      }
+      .region-site-list{
+        position:relative;
+        top:0;
+        left:0;
+        width:100%;
+        height:auto;
+      }
+
+      .region-site-list > table > thead > tr > th{
+        border:1px solid rgb(0, 0, 0);
+        font-size:6px;
+        text-transform: uppercase;
+        font-weight:600;
+        color:rgb(53, 53, 53);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center !important;
+      }
+
+      .region-site-list > table > tbody > tr > td{
+        font-size:8px;
+        font-weight:100;
+        color:rgb(24, 24, 24);
+        padding:10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .region-site-list > table > thead > tr > th:nth-child(1),
+      .region-site-list > table > tbody > tr > td:nth-child(1){
+        width:4%;
+        text-align: center;
+      }
+
+      .region-site-list > table > thead > tr > th:nth-child(2),
+      .region-site-list > table > tbody > tr > td:nth-child(2){
+        width:18%;
+      }
+
+      .region-site-list > table > thead > tr > th:nth-child(3),
+      .region-site-list > table > tbody > tr > td:nth-child(3){
+        width:9%;
+      }
+      .region-site-list > table > thead > tr > th:nth-child(4),
+      .region-site-list > table > tbody > tr > td:nth-child(4){
+        width:12%;
+      }
+
+      .region-site-list > table > thead > tr > th:nth-child(5),
+      .region-site-list > table > tbody > tr > td:nth-child(5){
+        width:18%;
+      }
+
+      .region-site-list > table > thead > tr > th:nth-child(6),
+      .region-site-list > table > tbody > tr > td:nth-child(6){
+        width:9%;
+      }
+
+      
+      .region-site-list > table > thead > tr > th:nth-child(7),
+      .region-site-list > table > tbody > tr > td:nth-child(7){
+        width:10%;
+      }
+
+      
+      .region-site-list > table > thead > tr > th:nth-child(8),
+      .region-site-list > table > tbody > tr > td:nth-child(8){
+        width:10%;
+      }
+
+            
+      .region-site-list > table > thead > tr > th:nth-child(9),
+      .region-site-list > table > tbody > tr > td:nth-child(9){
+        width:10%;
+      }
+      .region-site-list > table > tbody > tr:nth-child(even){
+        background:rgb(157, 233, 127);
+      }
+
+      .author-details{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom:20px;
+      }
+      .author-details > .author-details-item{
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom:20px;
+      }
+
+      .author-details > .author-details-item > .author-details-label{
+         font-weight:900;
+         font-size:10px;
+         text-transform: uppercase;
+         margin-bottom:5px;
+      }
+      .author-details > .author-details-item > .author-details-value{
+        font-weight:100;
+        font-size:14px;
+        margin-left:40px;
+      }
+      .report-header{
+        position: absolute;
+        top:10px;
+        right:10px;
+        font-size:25px;
+        font-weight:700;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="report-header">List of Assay Statistics</div>
+  
+    <div class="author-details">
+      <div class="author-details-item">
+          <div class="author-details-label">Generate Date</div>
+          <div class="author-details-value">{{current_date}}</div>
+      </div>
+      <div class="author-details-item">
+        <div class="author-details-label">Generate By</div>
+        <div class="author-details-value">{{generate_by}}</div>
+      </div>
+      
+    </div>
+
+    <div class="region-site-panel">
+
+        <div class="region-site-list">
+          
+          <table>
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Site Name</th>
+                <th>Gx Serial No.</th>
+                <th>Installation Type</th>
+                <th>Model Number</th>
+                <th>Date Installed</th>
+                <th>Assay/Test</th>
+                <th>Assay Statistics</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+                {{#each rows}}
+              <tr>
+                <td>{{item_no}}</td>
+                <td>{{c_siteName}}</td>
+                <td>{{b_serialnumber}}</td>
+                <td>{{d_itName}}</td>
+                <td>{{e_mnName}}</td>
+                <td>{{b_dateinstalled}}</td>
+                <td>{{a_test}}</td>
+                <td>{{a_quantity}}</td>
+                <td>{{a_dateupdated}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+     
+          </table>
+
+        </div>
+
+
+    </div>
+
+    
+
+  </body>
+  <script>
+        function incremented(num){
+            return num + 1;
+        }
+  </script>
+</html>

@@ -1,0 +1,324 @@
+<html>
+<head>
+
+	<style>
+
+		/* @page { size: portrait; margin: 30px; overflow:hidden;} */
+		.main{
+			padding:35px;
+			margin:0 auto;
+			width:90%;
+		}
+		.text-serial-number{
+			font-size:28px;
+			color:rgb(238,121,108);
+			font-family: 'Microsoft Sans Serif';
+			font-weight:600;
+		}
+
+		.text-facility{
+			font-size:18px;
+			color:rgb(0, 0, 0);
+			font-family: 'Calbiri';
+			font-weight:500;
+			text-transform:uppercase;
+			margin-top:5px;
+		}
+		.text-address{
+			font-size:12px;
+			color:rgb(0, 0, 0);
+			font-family: 'Calbiri';
+			font-weight:100;
+			text-transform:uppercase;
+		}
+		.title{
+			width:100%;
+			background:rgb(238,121,108);
+			color:#fff;
+			padding:5px 0px;
+			font-size:11px;
+			font-weight:100;
+			text-transform:uppercase;
+			font-family: 'Calbiri';
+			margin-top:20px;
+		}
+		.title > span{
+			margin-left:5px;
+		}
+		.content{
+			width:100%;
+			padding:0;
+		}
+		.item{
+			display:flex;
+			/* border:1px solid lime; */
+		}
+
+		.label{
+			font-size:12px;
+			color:rgb(238,121,108);
+			font-family: 'Microsoft Sans Serif';
+			font-weight:600;
+			height:25px;
+			
+			/* background:red; */
+		}
+		.value{
+			font-size:11px;
+			color:rgb(0, 0, 0);
+			font-family: 'Microsoft Sans Serif';
+			font-weight:100;
+			height:25px;
+			
+			/* background:green; */
+		}
+		.row{
+			display: flex;
+			width:100%;
+			margin-top:5px;
+			line-height:1.5em !important;
+		}
+		.table-panel{
+			position: relative;
+			top:0;
+			left:0;
+			width:100% !important;
+			margin-top:20px !important;
+			padding:0 !important;
+		}
+		table{
+			width:100%;
+			
+		}
+		thead{
+			background:rgb(59, 59, 59);
+			border:1px solid #fff;
+			color:#fff;
+			width:100%;
+			
+		}
+		thead > tr > th{
+			padding:7px;
+			font-size:12px;
+		}
+		tbody > tr:nth-child(even){
+			background:rgba(196, 196, 196, 0.685);
+		}
+		tbody > tr > td{
+			font-family: 'Microsoft Sans Serif';
+			font-size:11px !important;
+			color: rgb(48, 48, 48) !important;
+			font-weight: 100 !important;
+			padding:5px;
+			padding-left:15px;
+		}
+		.w-50{
+			width:50%;
+		}
+		.w-100{
+			width:100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+
+		<div class="text-serial-number">{{genexpert.genex_serialnumber}}</div>
+		<div class="text-facility">{{genexpert.genex_faci_siteName}}</div>
+		<div class="text-address">{{address}}</div>
+		<div class="title"><span>Machine Information</span></div>
+		<div class="content">
+
+		
+			<div class="row">
+
+				<div class="item w-50">
+					<div class="label">INSTALLED DATE:</div>
+					<div class="value" style="padding-left:10px !important;">{{installed_date}}</div>
+				</div>
+
+				<div class="item w-50">
+					<div class="label">INSTALLATION TYPE:</div>
+					<div class="value" style="padding-left:8px !important;">
+						{{genexpert.genex_inst_itName}}</div>
+				</div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="item w-50">
+					<div class="label">INSTALLED BY:</div>
+					<div class="value" style="padding-left:28px !important;">
+					{{genexpert.genex_eng_fullname}}</div>
+				</div>
+
+				<div class="item w-50">
+					<div class="label">LAST UPDATE:</div>
+					<div class="value" style="padding-left:51px !important;">{{last_date_update}}</div>
+				</div>
+				
+			</div>
+
+			<div class="row">
+
+				<div class="item w-50">
+					<div class="label">LAST UPDATE BY:</div>
+					<div class="value" style="padding-left:9px !important;">{{updated_by}}</div>
+				</div>
+
+				<div class="item w-50">
+					<div class="label">CURRENT STATUS:</div>
+					<div class="value" style="padding-left:20px !important;">{{genexpert.genex_status}}</div>
+				</div>
+				
+			</div>
+
+			<div class="row">
+
+				<div class="item w-100">
+					<div class="label">MODEL NUMBER:</div>
+					<div class="value" style="padding-left:13px !important;">
+						{{genexpert.genex_mode_mnName}}</div>
+				</div>
+
+				
+				
+			</div>
+
+		</div>
+
+		<div class="title"><span>Module Information</span></div>
+		<div class="table-panel">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:12%">Serial #</th>
+						<th style="width:10%;">Location</th>
+						<th style="width:16%;">Date Installed</th>
+						<th style="width:18%;">Installation Type</th>
+						<th style="width:20%;">Installed By</th>
+						<th style="width:12%;">Revision #</th>
+						<th style="width:12%;">Part #</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each module}}
+						<tr>
+							<td style="width:12%;">{{modu_serialnumber}}</td>
+							<td style="width:10%;">{{modu_location}}</td>
+							<td style="width:16%;">{{modu_dateinstalled}}</td>
+							<td style="width:18%;">{{modu_inst_itName}}</td>
+							<td style="width:20%;">{{modu_eng_fullname}}</td>
+							<td style="width:12%;">{{modu_revision_number}}</td>
+							<td style="width:12%;">{{modu_part_number}}</td>
+						</tr>
+					{{/each}}	
+				</tbody>
+			</table>
+		</div>
+
+		<div class="title"><span>Assay Statistic Information</span></div>
+		<div class="table-panel">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:15%;">Date</th>
+						<th style="width:28%;">Assay</th>
+						<th style="width:28%;">Assay Statistics</th>
+						<th style="width:29%;">Added By</th>
+
+					</tr>
+				</thead>
+				<tbody>
+				{{#each assaystatistic}}
+					<tr>
+						<td style="width:15%">{{assay_dateadded}}</td>
+						<td style="width:28%;">{{assay_test}}</td>
+						<td style="width:28%;">{{assay_quantity}}</td>
+						<td style="width:29%;">{{assay_addedby_firstname}}</td>
+					</tr>
+				{{/each}}	
+				</tbody>
+			</table>
+		</div>
+
+
+		<div class="title"><span>Peripheral Information</span></div>
+		<div class="table-panel">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:29%">Name</th>
+						<th style="width:28%;">Serial #</th>
+						<th style="width:28%;">Model #</th>
+						<th style="width:15%;">Date</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					{{#each peripheral}}
+						<tr>
+							<td style="width:29%">{{peri_peripheralName}}</td>
+							<td style="width:28%;">{{peri_serialnumber}}</td>
+							<td style="width:28%;">{{peri_modelnumber}}</td>
+							<td style="width:15%;">{{peri_dateadded}}</td>
+						</tr>
+					{{/each}}	
+				</tbody>
+			</table>
+		</div>
+
+		<div class="title"><span>Xpertcheck Information</span></div>
+		<div class="table-panel">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:29%">Xpertcheck Date</th>
+						<th style="width:28%;">Due</th>
+						<th style="width:28%;">Engineer</th>
+						<th style="width:15%;">Status</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					{{#each xpertcheck}}
+						<tr>
+							<td style="width:29%">{{calibrate_start}}</td>
+							<td style="width:28%;">{{calibrate_done}}</td>
+							<td style="width:28%;">{{fullname}}</td>
+							<td style="width:15%;">{{status}}</td>
+						</tr>
+					{{/each}}	
+				</tbody>
+			</table>
+		</div>
+
+		<div class="title"><span>Preventive Maintenance Information</span></div>
+		<div class="table-panel">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:29%">PM Date</th>
+						<th style="width:28%;">Due</th>
+						<th style="width:28%;">Engineer</th>
+						<th style="width:15%;">Status</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					{{#each preventive_maintenance}}
+						<tr>
+							<td style="width:29%">{{calibrate_start}}</td>
+							<td style="width:28%;">{{calibrate_done}}</td>
+							<td style="width:28%;">{{fullname}}</td>
+							<td style="width:15%;">{{status}}</td>
+						</tr>
+					{{/each}}	
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</body>
+</html>
