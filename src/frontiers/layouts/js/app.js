@@ -1,3 +1,4 @@
+const reportLibrary = require("../../../supporters/sections/ReportLibrary");
 
 function openMacareSite(){
     shell.openExternal("https://www.macare-medicals.com/");
@@ -11,13 +12,20 @@ function buildInstaller(){
 
 }
 
+function sapImport(){
+    reportLibrary.excel().importing().SAP(function(datas){
+        console.log(datas);
+    });
+}
+
 function notifying(title,body,onclick){
     ipcRenderer.send("show-notification",{body,title});
     ipcRenderer.on("catch-notification",function(d){
 
         d.on('click', (event, arg)=>{
            onclick();
-          })
+           
+        });
     });
     
 }

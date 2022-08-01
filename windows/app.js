@@ -200,6 +200,25 @@ class MainApplication extends require("./blueprint"){
 
         });
 
+        ipcMain.on('read-excel-file',function (event,datas){
+            
+            const homeDir = require('os').homedir();
+            const desktopDir = `${homeDir}/Desktop`;
+            
+            let p = dialog.showOpenDialogSync(null,{
+                defaultPath:desktopDir
+            });
+
+            if(p){
+                
+                event.reply('file-path',p);
+            }
+
+            
+
+        });
+
+
         ipcMain.on('find-excel-file',function (event,datas){
             
             const homeDir = require('os').homedir();

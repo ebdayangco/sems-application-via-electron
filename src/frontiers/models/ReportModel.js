@@ -2,7 +2,7 @@ const Model = require("./Model");
 class ReportModel extends Model{
     constructor(){
         super();
-        this.database = 'lpytdtsx_sems';
+        this.database = 'lpytdtsx_macare_sems';
         
     }
 
