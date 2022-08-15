@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.main{
+			padding:30px;
+			margin:0 auto;
+			width:90%;
+			overflow: hidden;
+		}
+		.text-serial-number{
+			font-size:28px;
+			color:rgb(238,121,108);
+			font-family: 'Microsoft Sans Serif';
+			font-weight:600;
+		}
+
+		.text-facility{
+			font-size:18px;
+			color:rgb(0, 0, 0);
+			font-family: 'Calbiri';
+			font-weight:500;
+			text-transform:uppercase;
+			margin-top:5px;
+		}
+		.text-address{
+			font-size:12px;
+			color:rgb(0, 0, 0);
+			font-family: 'Calbiri';
+			font-weight:100;
+			text-transform:uppercase;
+		}
+		.title{
+			width:100%;
+			background:rgb(238,121,108);
+			color:#fff;
+			padding:5px;
+			font-size:11px;
+			font-weight:100;
+			text-transform:uppercase;
+			font-family: 'Calbiri';
+			margin-top:20px;
+		}
+		.content{
+			width:100%;
+			padding:0;
+		}
+		.item{
+			display:flex;
+			width:50%;
+		}
+
+		.label{
+			font-size:14px;
+			color:rgb(238,121,108);
+			font-family: 'Microsoft Sans Serif';
+			font-weight:600;
+			height:25px;
+			/* background:red; */
+		}
+		.value{
+			font-size:11px;
+			color:rgb(0, 0, 0);
+			font-family: 'Microsoft Sans Serif';
+			font-weight:100;
+			height:25px;
+			/* background:green; */
+		}
+		.row{
+			display: flex;
+			width:100%;
+			margin-top:5px;
+			line-height:1.5em !important;
+		}
+		.table-panel{
+			position: relative;
+			top:0;
+			left:0;
+			width:100% !important;
+			margin-top:20px !important;
+			padding:0 !important;
+		}
+		table{
+			width:90% !important;
+			overflow: hidden !important;
+			
+		}
+		thead{
+			background:rgb(128,128,128);
+			border:1px solid #fff;
+			color:#fff;
+			width:100%;
+			
+		}
+		thead > tr > th{
+			padding:10px;
+		}
+		tbody > tr:nth-child(even){
+			background:rgba(196, 196, 196, 0.685);
+		}
+		tbody > tr > td{
+			font-family: 'Microsoft Sans Serif';
+			font-size:14px;
+			color: rgb(128,128,128);
+			font-weight: 100 !important;
+			padding:5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="text-serial-number">809453</div>
+		<div class="text-facility">Cebu City Medical Center</div>
+		<div class="text-address">TIsa Morehai II Cebu City, Cebu</div>
+		<div class="title">Machine Information</div>
+		<div class="content">
+			<div class="row">
+
+				<div class="item">
+					<div class="label">INSTALLED DATE:</div>
+					<div class="value" style="padding-left:10px !important;">December 12,2020</div>
+				</div>
+
+				<div class="item">
+					<div class="label">INSTALLATION TYPE:</div>
+					<div class="value" style="padding-left:8px !important;">MACARE-PDBC</div>
+				</div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="item">
+					<div class="label">INSTALLED BY:</div>
+					<div class="value" style="padding-left:28px !important;">Gerald Fritz Selga</div>
+				</div>
+
+				<div class="item">
+					<div class="label">LAST UPDATE:</div>
+					<div class="value" style="padding-left:51px !important;">April 01,2021</div>
+				</div>
+				
+			</div>
+
+			<div class="row">
+
+				<div class="item">
+					<div class="label">LAST UPDATE BY:</div>
+					<div class="value" style="padding-left:9px !important;">Jovy Noel</div>
+				</div>
+
+				<div class="item">
+					<div class="label">CURRENT STATUS:</div>
+					<div class="value" style="padding-left:20px !important;">Active</div>
+				</div>
+				
+			</div>
+
+			<div class="row">
+
+				<div class="item w-100">
+					<div class="label">MODEL NUMBER:</div>
+					<div class="value" style="padding-left:13px !important;">
+						GeneXpert IV -4 Module with Desktop R2 System</div>
+				</div>
+
+				
+				
+			</div>
+
+		</div>
+
+		<div class="title">Module Information</div>
+		<div class="table-panel">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:10%;">Serial Number</th>
+						<th style="width:10%;">Location</th>
+						<th style="width:10%;">Date Installed</th>
+						<th style="width:20%;">Installation Type</th>
+						<th style="width:20%;">Installed By</th>
+						<th style="width:10%;">Revision Number</th>
+						<th style="width:10%;">Part Number</th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr>
+							<td style="width:10%">899455</td>
+							<td style="width:10%;">A1</td>
+							<td style="width:10%;">2022-01-03</td>
+							<td style="width:20%;">MACARE-PDBC</td>
+							<td style="width:20%;">Eunar Dayangco</td>
+							<td style="width:10%;">1213232323</td>
+							<td style="width:10%;">3563535635</td>
+						
+						</tr>
+						<tr>
+							<td style="width:10%">899455</td>
+							<td style="width:10%;">A1</td>
+							<td style="width:10%;">2022-01-03</td>
+							<td style="width:20%;">MACARE-PDBC</td>
+							<td style="width:20%;">Eunar Dayangco</td>
+							<td style="width:10%;">1213232323</td>
+							<td style="width:10%;">3563535635</td>
+						</tr>
+						<tr>
+							<td style="width:10%">899455</td>
+							<td style="width:10%;">A1</td>
+							<td style="width:10%;">2022-01-03</td>
+							<td style="width:20%;">MACARE-PDBC</td>
+							<td style="width:20%;">Eunar Dayangco</td>
+							<td style="width:10%;">1213232323</td>
+							<td style="width:10%;">3563535635</td>
+						</tr>
+						<tr>
+							<td style="width:10%">899455</td>
+							<td style="width:10%;">A1</td>
+							<td style="width:10%;">2022-01-03</td>
+							<td style="width:20%;">MACARE-PDBC</td>
+							<td style="width:20%;">Eunar Dayangco</td>
+							<td style="width:10%;">1213232323</td>
+							<td style="width:10%;">3563535635</td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- <div class="title">Assay Statistic Information</div>
+		<div class="table-panel">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:150px">Date</th>
+						<th style="width:100px;">Assay Test</th>
+						<th style="width:150px;">Quantity</th>
+						<th style="width:200px;">Done By</th>
+
+					</tr>
+				</thead>
+				<tbody>
+						<tr>
+							<td style="width:150px">2019-08-19</td>
+							<td style="width:100px;">A1</td>
+							<td style="width:150px;">2022-01-03</td>
+							<td style="width:200px;">MACARE-PDBC</td>
+							
+						
+						</tr>
+						<tr>
+							<td style="width:150px">899456</td>
+							<td style="width:100px;">A2</td>
+							<td style="width:150px;">2022-05-29</td>
+							<td style="width:200px;">MACARE-PDBC</td>
+							
+						</tr>
+						
+				</tbody>
+			</table>
+		</div> -->
+
+
+		<!-- <div class="title">Peripheral Information</div>
+		<div class="table-panel">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:150px">Name</th>
+						<th style="width:100px;">Serial Number</th>
+						<th style="width:150px;">Model Number</th>
+						<th style="width:200px;">Date</th>
+
+					</tr>
+				</thead>
+				<tbody>
+						<tr>
+							<td style="width:150px">2019-08-19</td>
+							<td style="width:100px;">A1</td>
+							<td style="width:150px;">2022-01-03</td>
+							<td style="width:200px;">MACARE-PDBC</td>
+							
+						
+						</tr>
+						<tr>
+							<td style="width:150px">899456</td>
+							<td style="width:100px;">A2</td>
+							<td style="width:150px;">2022-05-29</td>
+							<td style="width:200px;">MACARE-PDBC</td>
+							
+						</tr>
+						
+				</tbody>
+			</table>
+		</div> -->
+	</div>
+</body>
+</html>

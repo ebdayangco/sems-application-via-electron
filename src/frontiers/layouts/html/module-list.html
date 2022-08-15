@@ -1,0 +1,78 @@
+<div class="frame-area" id="modules-frame-area">
+    <div class="frame-control-area">
+
+        <div class="frame-control-block-area"></div>
+        <a href="#" class="frame-control-item frame-control-item-active" 
+        onclick="assetController.displayAsset()">
+            <i class="fa fa-list"></i> Module List
+        </a>
+
+        <a href="#" class="frame-control-item" 
+        onclick="newAsset().showEntryForm()">
+            <i class="fa fa-plus"></i> New Module
+        </a>
+
+        <a href="#" class="frame-control-item" 
+        onclick="machineController.machineUI().showFilter()">
+            <i class="fa fa-filter"></i> Filter Module
+        </a>
+
+        <a href="#" class="frame-control-item" 
+            onclick="machineController.machineReport().createReportsFilterBased()">
+            <i class="fa fa-file"></i> Create Module Report
+        </a>
+
+        <a href="#" class="frame-control-item" 
+        onclick="machineController.machineUI().showNotification()">
+            
+            <i class="fa fa-bell"></i> Module Notification</a>
+       
+        <div class="pagination-box d-flex" id="frame-index-pagination">
+            <!-- <div class="pagination-label small">0-0 of 0</div> -->
+            <div class="pagination-paging-control d-flex">
+                <div class="pagination-previous">
+                    <a href="#" onclick="machineController.paginationControl().onPage('Prev')">
+                        <i class="fa fa-chevron-left"></i></a>
+                </div>
+                <div class="pagination-label small">0-0 of 0</div>
+                <div class="pagination-select hide-pagination">
+                    <input type="number" value='1' onkeyup="paginationControl().onKeyUp(event)">
+                </div>
+                <div class="pagination-next">
+                    <a href="#" onclick="machineController.paginationControl().onPage('Next')">
+                        <i class="fa fa-chevron-right"></i></a>
+                </div>
+                    
+            </div>
+        </div>
+
+    </div>
+    <div class="frame-filter-area"></div>
+    <div class="frame-body-area">
+     
+        <div class="frame-body-list-area d-flex flex-column">
+            <div class="frame-body-list-title-area d-flex" style="width:1950px;">
+                <div class="frame-body-list-title-item small" style="width:50px">PDF</div>
+                <div class="frame-body-list-title-item small" style="width:50px">EXCEL</div>
+                <div class="frame-body-list-title-item small" style="width:150px">SERIAL NUMBER</div>
+                <div class="frame-body-list-title-item small" style="width:100px">LOCATION</div>
+                <div class="frame-body-list-title-item small" style="width:150px">GENEXPERT</div>
+                <div class="frame-body-list-title-item small" style="width:350px">FACILITY/SITE</div>
+                <div class="frame-body-list-title-item small" style="width:150px">DATE INSTALLED</div>
+                <div class="frame-body-list-title-item small" style="width:200px">INSTALLATION TYPE</div>
+                <div class="frame-body-list-title-item small" style="width:250px">ENGINEER</div>
+                <div class="frame-body-list-title-item small" style="width:250px">PART NUMBER</div>
+                <div class="frame-body-list-title-item small" style="width:250px">REVISION NUMBER</div>
+               
+            </div>
+
+            <div class="frame-body-list-content-area" style="width:1950px;"></div>
+        
+
+        </div>
+
+
+    </div>
+
+</div>
+<script src="../js/module.js"></script>

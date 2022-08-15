@@ -1,0 +1,4 @@
+input:active,input:focus,select:active,select:focus{
+    outline:none !important;
+    box-shadow:none;
+}

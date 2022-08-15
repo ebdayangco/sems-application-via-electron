@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/component.css">
+    <link rel="stylesheet" href="../css/account.css">
+    <div id="account-current-form" data-current="login"></div>
+</head>
+<body>
+    <div class="access-area">
+        
+        <div class="access-profile-image-upload">
+
+            <div class="access-profile-image-upload-content">
+                <h3>Profile Image</h3>
+                <img src="../../../supporters/galleries/profilepic.jpg" alt="" id="user-pp" 
+                onclick="accountController.uploadImage('#account-profile-picture')">
+                <div class="button-control-group">
+                    <form method="post" class="d-none" 
+                    enctype="multipart/form-data" action="/upload">
+                        <input type="file" id="account-profile-picture">
+                    </form>
+                    <a href="#" class="btn btn-success">Save</a>
+                    <a href="#" class="btn btn-primary" 
+                    onclick="accountController.exitProfileImageForm()">Skip for Now</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Image background in the form where move if change to login or register -->
+        <div class="circle-background">
+            <div class="image-circle"></div>
+            
+        </div>
+        
+        <!-- left side of login area -->
+        <div class="login-option-area">
+            
+            <div class="welcome-area">
+                <p>Welcome to SEMS</p>
+                <p class="small">
+                    Thank you for using SEMS.<br>
+                    To know about me, Please click the button below!<br> 
+                    <a href="#" onclick="showDevTools()" class="btn btn-red w-50 mt-4">About Me</a>
+                </p>
+
+            </div>
+
+            <!-- Location of button where you click to move to register area -->
+            <div class="register-open-control">
+                <p>New Here?</p>
+                <button type="button" class="btn btn-red goRegisterbtn w-75">Create Account</button>
+
+            </div>
+       </div>
+
+       <!-- right side of login area where forms located -->
+       <div class="login-form">
+
+            <h2>Sign-In Here</h2>
+
+            <div class="form-group">
+                            
+                <input type="text" class="form-control" placeholder="Enter email" id="txtLoginEmail" name="Email">
+            </div>
+            <div class="form-group">
+                
+                <input type="password" class="form-control" 
+                placeholder="Enter password" id="txtLoginPassword" name="Password">
+
+                <a href="#" class="retrieve-password-button text-primary small" 
+                onclick="accountController.forgotPassword().openRetrievePasswordForm()">
+                    Recover Form</a>
+
+                <a href="#" class="forgot-password-button text-primary small" 
+                onclick="accountController.forgotPassword().openForgotPasswordForm()">
+                    Forgot Password?</a>
+            </div>
+
+            
+            <div class="d-flex control-button-group">
+                <a href="#" class="btn btn-defaults-inverse w-50" id="btnExit" 
+                onclick="quitApp()">Exit</a>
+
+                <a href="#" class="btn btn-defaults w-50 ml-3" id="btnAccountLogin" 
+                onclick="accountController.login()">Login</a>
+
+
+            </div>
+           
+        </div>
+
+        <!-- right side of login area -->
+        <div class="register-option-area">
+
+            <div class="instruction-area">
+                <p>Macare Medicals Inc.</p>
+                <p>"We are helping the hands that heal."</p>
+            </div>
+            
+            <!-- <div class="email-area">
+
+                <p>Forgot Password?</p>
+                <div class="d-flex">
+                    <input type="text" name="emailtoSend" class="form-control mr-1" id="txtforgot"/>
+                    <button type="button" id="sendEmail" class="btn btn-red">Email Me</button>
+                </div>
+            </div> -->
+
+            <!-- Location of button where you click to move to login area -->
+            <div class="login-open-control">
+
+                <p>Already an Account?</p>
+                <button type="button" class="btn btn-red goLoginbtn w-75">Go Sign-In</button>
+
+            </div>
+       </div>
+
+       <!-- left side of register area where form is located -->
+       <div class="register-form">
+    
+            <h2>Sign-Up Here</h2>
+
+            <form role="form">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                        
+                            <input type="text" name="First name" id="txtRegisterFirstname" class="form-control input-sm" placeholder="First Name">
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                    
+                            <input type="text" name="Last name" id="txtRegisterLastname" class="form-control input-sm" placeholder="Last Name">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <input type="email" name="Email" id="txtRegisterEmail" class="form-control input-sm" placeholder="Email Address">
+                </div>
+                
+                <div class="form-group">
+                
+                    <input type="text" name="Contact number" id="txtRegistercontactNumber" class="form-control input-sm" placeholder="Contact Number">
+                </div>
+                
+
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                        
+                            <input type="password" name="Password" id="txtRegisterPassword" class="form-control input-sm" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                    
+                            <input type="password" name="Re-type password" id="txtRegisterPasswordConfirmation" class="form-control input-sm" placeholder="Confirm Password">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <button type="button" 
+                    class="btn btn-defaults-inverse w-100 btnExit" 
+                    onclick="quitApp()">Exit</button>
+
+                    <button type="button" 
+                    class="btn btn-defaults w-100 ml-3 btnRegister" 
+                    id="btnAccountRegister" onclick="accountController.register()">Register</button>
+    
+                    
+
+                </div>
+              
+            
+            </form>
+
+        </div>
+
+    </div>
+</body>
+
+<!-- Declaration of Dependencies -->
+<script src="../../../../node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    try {
+        $ = jQuery = module.exports;
+        // If you want module.exports to be empty, uncomment:
+        // module.exports = {};
+    } catch(e) {}
+</script>
+<script src="../../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../js/account.js"></script>
+<script src="../js/app.js"></script>
+
+</html>

@@ -1,0 +1,171 @@
+<link rel="stylesheet" href="../css/transaction-list.css">
+
+<!-- <link rel="stylesheet" href="../../../supporters/dependencies/navs/nav.css"> -->
+<div class="frame-area d-flex flex-column" id="transaction-list-frame-area">
+
+
+
+    <!-- CONTROL AREA -->
+
+    <div class="frame-control-area">
+
+        <ul class="d-flex">
+            
+            <li>
+                <a href="#" class="frame-control-item frame-control-active" 
+                onclick="genexpertController.showDataList(this)">
+                <i class="fa fa-list"></i> Data List</a>
+                
+            </li>
+
+            <li>
+                <a href="#" class="frame-control-item genexpert-list-group" 
+                onclick="genexpertController.filter(this)">
+                <i class="fa fa-filter"></i> Show Filter</a>
+            </li>
+            <!-- <li>
+                <a href="#" class="frame-control-item genexpert-list-group" 
+                onclick="genexpertController.onView().userInterfaces()
+                .openGenexpertInstallationFromList(this)">
+                    <i class="fa fa-plus"></i> New</a>
+            </li>
+            <li>
+                <a href="#" class="frame-control-item frame-excel-based genexpert-list-group">
+                    <i class="fa fa-file"></i>  Report</a>
+                <ul>
+                    <li><a href="#">Individual in PDF</a></li>
+                    <li><a href="#">Individual in Excel</a></li>
+                    <li><a href="#">List of Data in PDF</a></li>
+                    <li><a href="#">List of Data in Excel</a></li>
+                </ul>
+                
+            </li>
+
+            <li>
+                <a href="#" class="frame-control-item genexpert-record-group" 
+                onclick="genexpertController.showRecordView(this)">
+                <i class="fa fa-history"></i> Records</a>
+            </li> -->
+        </ul>
+
+        <div class="pagination-box d-flex transaction-list-group" id="transaction-index-pagination">
+            <!-- <div class="pagination-label small">0-0 of 0</div> -->
+            <div class="pagination-paging-control d-flex">
+                <div class="pagination-previous">
+                    <a href="#" onclick="genexpertController.onPagination().onPage('Prev')" 
+                    class="a-disabled">
+                        <i class="fa fa-chevron-left"></i></a>
+                </div>
+                <div class="pagination-label small">0-0 of 0</div>
+                <div class="pagination-select hide-pagination">
+                    <input type="number" value='1' onkeyup="paginationControl().onKeyUp(event)">
+                </div>
+                <div class="pagination-next">
+                    <a href="#" onclick="genexpertController.onPagination().onPage('Next')">
+                        <i class="fa fa-chevron-right"></i></a>
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+    <div class="frame-filter-area"></div>
+
+    <!-- BODY AREA -->
+
+    <div class="frame-body-area">
+        
+        <div class="frame-content-area">
+            
+            <div class="frame-body-list-area d-flex flex-column" id="transaction-normal-views">
+                <div class="frame-body-list-title-area d-flex" style="width:1250px;">
+                  
+                    <div class="frame-body-list-title-item small" 
+                    style="width:100px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field=""
+                    sorter-table="transaction-list">TRANS ID</div>
+
+                    <div class="frame-body-list-title-item small" 
+                    style="width:100px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field=""
+                    sorter-table="transaction-list">DATE</div>
+
+                    <div class="frame-body-list-title-item small" 
+                    style="width:100px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field=""
+                    sorter-table="transaction-list">GENEX SN </div>
+
+
+                    <div class="frame-body-list-title-item small" 
+                    style="width:300px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field=""
+                    sorter-table="transaction-list">FACILITY</div>
+
+                    <div class="frame-body-list-title-item small" 
+                    style="width:150px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field=""
+                    sorter-table="transaction-list">TRANS TYPE</div>
+
+
+                    <div class="frame-body-list-title-item small" 
+                    style="width:150px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field=""
+                    sorter-table="transaction-list">SERVICE REPORT</div>
+
+                    <div class="frame-body-list-title-item small" 
+                    style="width:150px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field=""
+                    sorter-table="transaction-list">JOTFORM</div>
+
+                    <div class="frame-body-list-title-item small" 
+                    style="width:200px" 
+                    add-sorter="sorter" 
+                    sorter-type="alphanumeric" 
+                    sorter-source=".frame-body-list-content-area" 
+                    sorter-field=""
+                    sorter-table="transaction-list">TRANSACT BY</div>
+                    
+                </div>
+    
+                <div class="frame-body-list-content-area" 
+                id="transaction-body-list-content-area"
+                style="width:1250px;"></div>
+            
+    
+            </div>
+    
+            <div id="transaction-tree-views" class="d-none">
+            </div>
+
+        </div>
+
+      
+
+
+    </div>
+
+
+
+</div>
+<script src="../js/transaction-list.js"></script>
+

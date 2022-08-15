@@ -1,0 +1,350 @@
+<div class="frame-area" id="ledger-frame-area">
+
+    <div class="ledger-main-area d-flex flex-column">
+
+
+        <div class="ledger-control-area d-flex">
+
+            <ul class="d-flex">
+                <li>
+                    <select id="">
+                        <option value=""><a href="#" class="ledger-control-item">Genexpert</a></option>
+                        <option value=""><a href="#" class="ledger-control-item">Module</a></option>
+                        <option value=""><a href="#" class="ledger-control-item">Assay Statistic</a></option>
+                        <option value=""><a href="#" class="ledger-control-item">Peripheral</a></option>
+                        <option value=""><a href="#" class="ledger-control-item">Xpertcheck</a></option>
+                        <option value=""><a href="#" class="ledger-control-item">Preventive Maintenance</a></option>
+                    </select>
+                   
+
+                </li>
+                <li>
+                    <a href="#" class="ledger-control-item" 
+                    onclick="ledgerController.toggleFilter()">
+                <i class="fa fa-filter"></i> Show Filter</a>
+                </li>
+                <li>
+                    <a href="#" class="ledger-control-item" 
+                    onclick="ledgerController.onView().userInterfaces()
+                    .openledgerScheduleFromList(this)">
+                        <i class="fa fa-plus"></i> Set Schedule</a>
+                </li>
+                <li>
+                    <a href="#" class="ledger-control-item ledger-excel-based">
+                        Excel Based</a>
+                    <ul>
+                        <li><a href="#">Generate Excel</a></li>
+                        <li><a href="#">Upload From Generate Excel</a></li>
+                        <li><a href="#">Upload Equipment Calibration Schedule</a></li>
+                        <li><a href="#">Upload Vismin Monitoring Sheet</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+             <div class="pagination-box d-flex" id="ledger-index-pagination">
+                <!-- <div class="pagination-label small">0-0 of 0</div> -->
+                <div class="pagination-paging-control d-flex">
+                    <div class="pagination-previous">
+                        <a href="#" onclick="ledgerController.onPagination().onPage('Prev')">
+                            <i class="fa fa-chevron-left"></i></a>
+                    </div>
+                    <div class="pagination-label small">0-0 of 0</div>
+                    <div class="pagination-select hide-pagination">
+                        <input type="number" value='1' onkeyup="paginationControl().onKeyUp(event)">
+                    </div>
+                    <div class="pagination-next">
+                        <a href="#" onclick="ledgerController.onPagination().onPage('Next')">
+                            <i class="fa fa-chevron-right"></i></a>
+                    </div>
+                        
+                </div>
+            </div>    
+        </div>
+        <div class="ledger-body-area">
+
+
+
+
+            <div class="ledger-filter-area">
+                <div class="ledger-filter-control-area d-flex">
+                    <a href="#" onclick="ledgerController.toggleFilterPanel(this)">All</a>
+                    <a href="#" onclick="ledgerController.toggleFilterPanel(this)">ledger</a>
+                    <a href="#" onclick="ledgerController.toggleFilterPanel(this)">Genexpert</a>
+                    <a href="#" onclick="ledgerController.toggleFilterPanel(this)">Module</a>
+                    <a href="#" onclick="ledgerController.goFilter()">Filter Now</a>
+
+                </div>
+
+                <div class="ledger-filter-content-area">
+
+                    <div class="ledger-ledger-panel">
+                        <div class="ledger-filter-title">ledger Filter</div>
+                        <div class="ledger-filter-content">
+                            <div class="ledger-filter-row">
+                                <div class="ledger-filter-item w-20">
+                                    <label for="#">Calibration From</label>
+                                    <input type="date" 
+                                    id="ledger-filter-calibrate-from" 
+                                    field-name="aa.calibrate_start">
+                                </div>
+                                <div class="ledger-filter-item w-20">
+                                    <label for="#">Calibration To</label>
+                                    <input type="date" id="ledger-filter-calibrate-to" 
+                                    field-name="aa.calibrate_done">
+                                </div>
+                                <div class="ledger-filter-item w-35">
+                                    <label for="#">Calibration By</label>
+                                    <select name="" id="ledger-filter-calibrate-by" 
+                                    field-name="c.engineerID" 
+                                    class="engineer-drop-down"></select>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="ledger-genexpert-panel">
+                        <div class="ledger-filter-title">Genexpert Filter</div>
+                        <div class="ledger-filter-content">
+
+                            <div class="ledger-filter-row">
+                                <div class="ledger-filter-item w-20">
+                                    <label for="#">Serial Number</label>
+                                    <input type="text" 
+                                    id="ledger-filter-genexpert-serial-number" 
+                                    field-name="b.serialnumber">
+                                </div>
+                                <div class="ledger-filter-item w-60">
+                                    <label for="#">Facility/Site</label>
+                                    <input type="text" 
+                                    id="ledger-filter-genexpert-facility" 
+                                    field-name="ba.siteName">
+                                </div>
+
+                                <div class="ledger-filter-item w-20">
+                                    <label for="#">Date Installed</label>
+                                    <input type="date" field-name="b.dateinstalled"
+                                    id="ledger-filter-genexpert-date-installed">
+                                </div>
+
+                            </div>
+
+                            <div class="ledger-filter-row">
+                               
+                             
+                                <div class="ledger-filter-item w-25">
+                                    <label for="#">Engineer</label>
+                                    <select name="" id="ledger-filter-genexpert-engineer" 
+                                    field-name="bc.engineerID"
+                                    class="engineer-drop-down"></select>
+                                </div>
+
+                                <div class="ledger-filter-item w-30">
+                                    <label for="#">Installation Type</label>
+                                    <select
+                                    id="ledger-filter-genexpert-installation-type" 
+                                    field-name="bd.itID" 
+                                    class="installation-type-drop-down"></select>
+                                </div>
+
+                                <div class="ledger-filter-item w-45">
+                                    <label for="#">Model Number</label>
+                                    <select field-name="be.mnID"
+                                    id="ledger-filter-genexpert-model-number"
+                                    class="model-number-drop-down"></select>
+                                </div>
+
+                            </div>
+
+
+                            <div class="ledger-filter-row">
+
+                                <div class="ledger-filter-item w-45">
+                                    <label for="#">Complete Address</label>
+                                    <input type="text" field-name="ba.complete_address"
+                                    id="ledger-filter-genexpert-complete-address">
+                                  
+                                </div>
+                               
+                                <div class="ledger-filter-item w-30">
+                                    <label for="#">Region</label>
+                                    <select id="ledger-filter-genexpert-region" 
+                                    field-name="ba.region" 
+                                    class="region-drop-down"></select>
+                                </div>
+
+                                <div class="ledger-filter-item w-25">
+                                    <label for="#">Province</label>
+                                    <select
+                                    id="ledger-filter-genexpert-province" 
+                                    field-name="ba.province" 
+                                    class="province-drop-down"></select>
+                                </div>
+
+
+                            </div>
+
+                            <div class="ledger-filter-row">
+
+                             
+                                <div class="ledger-filter-item w-30">
+                                    <label for="#">City</label>
+                                    <select id="ledger-filter-genexpert-city" 
+                                    field-name="ba.city" 
+                                    class="city-drop-down"></select>
+                                </div>
+
+                                <div class="ledger-filter-item w-30">
+                                    <label for="#">Barangay</label>
+                                    <select
+                                    id="ledger-filter-genexpert-barangay" 
+                                    field-name="ba.barangay" 
+                                    class="barangay-drop-down"></select>
+                                </div>
+
+                                <div class="ledger-filter-item w-40">
+                                    <label for="#">Street</label>
+                                    <input type="text" field-name="ba.street" 
+                                    id="ledger-filter-genexpert-street">
+                                  
+                                </div>
+                               
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="ledger-module-panel">
+                        <div class="ledger-filter-title">Module Filter</div>
+                        <div class="ledger-filter-content">
+
+                            
+                            <div class="ledger-filter-row">
+                                <div class="ledger-filter-item w-20">
+                                    <label for="#">Serial Number</label>
+                                    <input type="text" field-name="bb.serialnumber" 
+                                    id="ledger-filter-module-serial-number">
+                                </div>
+                                <div class="ledger-filter-item w-20">
+                                    <label for="#">Location</label>
+                                    <input type="text" field-name="bb.location" 
+                                    id="ledger-filter-module-location">
+                                </div>
+
+                                <div class="ledger-filter-item w-20">
+                                    <label for="#">Date Installed</label>
+                                    <input type="date" field-name="bb.dateinstalled" 
+                                    id="ledger-filter-module-date-installed">
+                                </div>
+
+                                <div class="ledger-filter-item w-40">
+                                    <label for="#">Engineer</label>
+                                   <select class="engineer-drop-down" 
+                                   field-name="bba.engineerID" 
+                                   id="ledger-filter-module-engineer"></select>
+                                </div>
+
+                            </div>
+
+                            <div class="ledger-filter-row">
+                                <div class="ledger-filter-item w-30">
+                                    <label for="#">Part Number</label>
+                                    <input type="text" field-name="bb.part_number" 
+                                    id="ledger-filter-module-part-number">
+                                </div>
+                                <div class="ledger-filter-item w-30">
+                                    <label for="#">Revision Number</label>
+                                    <input type="text" field-name="bb.revision_number" 
+                                    id="ledger-filter-module-revision-number">
+                                </div>
+
+                                <div class="ledger-filter-item w-40">
+                                    <label for="#">Installation Type</label>
+                                   <select class="installation-type-drop-down" 
+                                   field-name="bbb.itID"
+                                   id="ledger-filter-module-installation-type"></select>
+                                </div>
+
+                               
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+              
+             
+                
+
+            </div>
+            <div class="ledger-content-list-area d-flex">
+                <div class="ledger-body-list-area">
+                    <div class="ledger-list-area d-flex flex-column">
+                    
+                        <div class="ledger-list-header-area d-flex">
+                            <div class="ledger-list-title-item small" style="width:10%" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".ledger-body-list-content-area" 
+                            sorter-field="aa_calibrate_done"
+                            sorter-table="ledger">GENEX. SN</div>
+                            <div class="ledger-list-title-item small" style="width:35%" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".ledger-body-list-content-area" 
+                            sorter-field="ba_siteName"
+                            sorter-table="ledger">FACILITY/SITE</div>
+                            <div class="ledger-list-title-item small" style="width:10%"
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".ledger-body-list-content-area" 
+                            sorter-field="aa_calibrate_start"
+                            sorter-table="ledger">CURRENT</div>
+                            <div class="ledger-list-title-item small" style="width:10%"
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".ledger-body-list-content-area" 
+                            sorter-field="aa_calibrate_done"
+                            sorter-table="ledger">DUE</div>
+                            <div class="ledger-list-title-item small" style="width:15%"
+                            dd-sorter="sorter" 
+                            sorter-type="date-calculate" 
+                            sorter-source=".ledger-body-list-content-area" 
+                            sorter-field="aa_calibrate_done"
+                            sorter-table="ledger">STATUS</div>
+                            <div class="ledger-list-title-item small" 
+                            style="width:20%" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".ledger-body-list-content-area" 
+                            sorter-field="c_fullname"
+                            sorter-table="ledger">CALIBRATE BY</div>
+                        </div>
+                        <div class="ledger-body-list-content-area">
+                           
+                           
+                        </div>
+            
+                    </div>
+    
+                </div>
+    
+    
+               
+                <div class="ledger-entry-area">
+    
+    
+                </div>
+            </div>
+           
+        </div>
+    
+    </div>
+
+
+
+</div>

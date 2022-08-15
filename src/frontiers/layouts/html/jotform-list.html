@@ -1,0 +1,548 @@
+<link rel="stylesheet" href="../css/jotform.css">
+<link rel="stylesheet" href="../css/jotform/filter.css">
+<div class="frame-area d-flex flex-column" id="jotform-frame-area">
+
+    
+    
+    <!-- CONTROL AREA -->
+
+    <div class="frame-control-area">
+
+        <ul class="d-flex">
+            
+            <li>
+
+                <select class="frame-control-item frame-control-active" onchange="onDisplayJotForms(this)">
+                    <option value="jotform-genexpert-assistance-form">GeneXpert Assistance List</option>
+                    <option value="jotform-genexpert-report-system-form">GeneXpert Reporting System List</option>
+                </select>
+                
+                
+            </li>
+
+            <li>
+                <a href="#" class="frame-control-item genexpert-list-group" 
+                onclick="jotformController.onFilterView(this)">
+                <i class="fa fa-filter"></i> Show Filter</a>
+            </li>
+           
+            <li>
+                <a href="#" class="frame-control-item frame-excel-based genexpert-list-group">
+                    <i class="fa fa-file"></i> Generate Report</a>
+                <ul>
+                    <li><a href="#" onclick="jotformController.onReport().datasInExcel()">Generate Lists Excel</a></li>
+                    <li><a href="#" onclick="jotformController.onReport().datasInExcel(true)">Generate Lists Excel (with Filter)</a></li>
+                    <li><a href="#">Generate Lists PDF</a></li>
+                </ul>
+                
+            </li>
+
+           
+        </ul>
+
+        <div class="pagination-box d-flex genexpert-list-group" 
+        id="jotform-index-pagination-assistance">
+            <!-- <div class="pagination-label small">0-0 of 0</div> -->
+            <div class="pagination-paging-control d-flex">
+                <div class="pagination-previous">
+                    <a href="#" onclick="jotformController.onPagination_ass().onPage('Prev')" 
+                    class="a-disabled">
+                        <i class="fa fa-chevron-left"></i></a>
+                </div>
+                <div class="pagination-label small">0-0 of 0</div>
+                <div class="pagination-select hide-pagination">
+                    <input type="number" value='1' onkeyup="paginationControl().onKeyUp(event)">
+                </div>
+                <div class="pagination-next">
+                    <a href="#" onclick="jotformController.onPagination_ass().onPage('Next')">
+                        <i class="fa fa-chevron-right"></i></a>
+                </div>
+                    
+            </div>
+        </div>
+
+        <div class="pagination-box d-flex genexpert-list-group jotform-pagination-hide" 
+        id="jotform-index-pagination-reporting">
+            <!-- <div class="pagination-label small">0-0 of 0</div> -->
+            <div class="pagination-paging-control d-flex">
+                <div class="pagination-previous">
+                    <a href="#" onclick="jotformController.onPagination_repo().onPage('Prev')" 
+                    class="a-disabled">
+                        <i class="fa fa-chevron-left"></i></a>
+                </div>
+                <div class="pagination-label small">0-0 of 0</div>
+                <div class="pagination-select hide-pagination">
+                    <input type="number" value='1' onkeyup="paginationControl().onKeyUp(event)">
+                </div>
+                <div class="pagination-next">
+                    <a href="#" onclick="jotformController.onPagination_repo().onPage('Next')">
+                        <i class="fa fa-chevron-right"></i></a>
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+
+     <div class="frame-filter-area" id="jotform-filter-area">
+
+        <div class="filter-content-area">
+
+            <div class="asset-filter-control-panel d-flex">
+                <a href="#" class="asset-filter-submit-btn" onclick="jotformController.filterProcess()">Filter Now</a>
+            </div>
+
+            <div class="jotform-filter-form">
+                
+                <div class="jotform-filter-panel jotform-filter-assistance" id="jotform-filter-assistance-assistance">
+    
+                    <div class="jotform-filter-row">
+                        <div class="jotform-filter-col w-20">
+                            <div class="jotform-filter-label">Ticket No.</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-ticket-no">
+                        </div>
+                        <div class="jotform-filter-col w-20">
+                            <div class="jotform-filter-label">Submission Date</div>
+                            <input type="date" class="jotform-filter-value jotform-filter-submission-date" 
+                            id="jotform-filter-assistance-submission-date">
+                        </div>
+                        <div class="jotform-filter-col w-60">
+                            <div class="jotform-filter-label">End User</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-end-user">
+                           
+                        </div>
+                      
+                    </div>
+                    <div class="jotform-filter-row">
+                        <div class="jotform-filter-col w-100">
+                            <div class="jotform-filter-label">Account/Hospital</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-account-hospital">
+                        </div>
+                    </div>
+                    <div class="jotform-filter-row">
+                        <div class="jotform-filter-col w-100">
+                            <div class="jotform-filter-label">Department</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-department">
+                        </div>
+                    </div>
+            
+                    <div class="jotform-filter-row">
+                       
+                        <div class="jotform-filter-col w-35">
+                            <div class="jotform-filter-label">Email</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-email">
+                        </div>
+                        <div class="jotform-filter-col w-25">
+                            <div class="jotform-filter-label">Contact Number</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-contact-number">
+                        </div>
+                        <div class="jotform-filter-col w-20">
+                            <div class="jotform-filter-label">Date Of Incident</div>
+                            <input type="date" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-date-of-incident">
+                        </div>
+                        <div class="jotform-filter-col w-20">
+                            <div class="jotform-filter-label">Time of Incident</div>
+                            <input type="time" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-time-of-incident">
+                        </div>
+            
+                    </div>
+            
+                    <div class="jotform-filter-row">
+            
+                        <div class="jotform-filter-col w-25">
+                            <div class="jotform-filter-label">Model Of Genexpert</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-model-of-genexpert">
+                        </div>
+                        <div class="jotform-filter-col w-25">
+                            <div class="jotform-filter-label">Instrument Serial Number</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-instrument-serial-number">
+                        </div>
+                        <div class="jotform-filter-col w-50">
+                            <div class="jotform-filter-label">Module Serial Number/s</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-module-serial-numbers">
+                        </div>
+            
+                    </div>
+            
+                    <div class="jotform-filter-row">
+                       
+                        <div class="jotform-filter-col w-50">
+                            <div class="jotform-filter-label">Kind of Cartridge</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-kind-of-cartridge">
+                        </div>
+                        <div class="jotform-filter-col w-25">
+                            <div class="jotform-filter-label">Quantity of Damage</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-quantity-of-damage">
+                        </div>
+                        <div class="jotform-filter-col w-25">
+                            <div class="jotform-filter-label">Lot No. in the box</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-lot-no-box">
+                        </div>
+                    </div>
+            
+                    <div class="jotform-filter-row">
+                        <div class="jotform-filter-col w-100">
+                            <div class="jotform-filter-label">Type of Concern</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-type-of-concern">
+                        </div>
+                    </div>
+            
+                    <div class="jotform-filter-row">
+                        <div class="jotform-filter-col w-100">
+                            <div class="jotform-filter-label">Description of Concern</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-assistance-description-of-concern">
+                        </div>
+                    </div>
+            
+                </div>
+        
+                <div class="jotform-filter-panel jotform-filter-form-hide jotform-filter-reporting" id="jotform-filter-reporting">
+                    <div class="jotform-filter-row">
+                        <div class="jotform-filter-col w-15">
+                            <div class="jotform-filter-label">Ticket No.</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-ticket-no">
+                        </div>
+                        <div class="jotform-filter-col w-15">
+                            <div class="jotform-filter-label">Submission Date</div>
+                            <input type="date" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-submission-date">
+                        </div>
+                     
+                        <div class="jotform-filter-col w-40">
+                            <div class="jotform-filter-label">Reported By</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-reported-by">
+                        </div>
+    
+                        <div class="jotform-filter-col w-30">
+                            <div class="jotform-filter-label">Reporter Email</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-reporter-email">
+                        </div>
+                     
+                      
+                    </div>
+                    <div class="jotform-filter-row">
+                        <div class="jotform-filter-col w-30">
+                            <div class="jotform-filter-label">Reporter Contact Number</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-reporter-contact-number">
+                        </div>
+                        <div class="jotform-filter-col w-20">
+                            <div class="jotform-filter-label">Machine Serial Number</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-machine-serial-number">
+                        </div>
+                        <div class="jotform-filter-col w-50">
+                            <div class="jotform-filter-label">Facility Name</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-facility-name">
+                        </div>
+                    </div>
+                  
+            
+                    <div class="jotform-filter-row">
+            
+                        <div class="jotform-filter-col w-50">
+                            <div class="jotform-filter-label">Model Of Genexpert</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-model-of-genexpert">
+                        </div>
+                        <div class="jotform-filter-col w-25">   
+                            <div class="jotform-filter-label">Module All Pass Xpertcheck</div>
+    
+                            <select id="jotform-filter-reporting-module-pass-xpertcheck"
+                            class="jotform-filter-value">
+                                <option value="N/A"></option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                            
+                        </div>
+    
+                        <div class="jotform-filter-col w-25">   
+                            <div class="jotform-filter-label">Type Report</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-type-of-report">
+                        </div>
+                     
+            
+                    </div>
+            
+                    <div class="jotform-filter-row">
+                       
+                        <div class="jotform-filter-col w-20">   
+                            <div class="jotform-filter-label">Date Of Problem Encountered</div>
+                            <input type="date" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-date-of-problem-encountered">
+                        </div>
+    
+                        <div class="jotform-filter-col w-25">   
+                            <div class="jotform-filter-label">Type Of Problem Encountered</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-type-of-problem-encountered">
+                        </div>
+                        <div class="jotform-filter-col w-30">
+                            <div class="jotform-filter-label">Concerned Modules</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-concerned-modules">
+                        </div>
+    
+                        <div class="jotform-filter-col w-25">
+                            <div class="jotform-filter-label">Type of Genexpert Accessory</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-type-genexpert-accessory">
+                        </div>
+                    </div>
+            
+    
+                    <div class="jotform-filter-row">
+                      
+                        <div class="jotform-filter-col w-25">
+                            <div class="jotform-filter-label">Genexpert CPU Serial #</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-genexpert-cpu-sn">
+                        </div>
+    
+                        <div class="jotform-filter-col w-25">
+                            <div class="jotform-filter-label">Genexpert Laptop Serial #</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-genexpert-laptop-sn">
+                        </div>
+    
+                        <div class="jotform-filter-col w-25">
+                            <div class="jotform-filter-label">Genexpert Monitor Serial #</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-genexpert-monitor-sn">
+                        </div>
+    
+                        <div class="jotform-filter-col w-25">
+                            <div class="jotform-filter-label">Genexpert Barcode Scanner Serial #</div>
+                            <input type="text" class="jotform-filter-value" 
+                            id="jotform-filter-reporting-genexpert-barcode-scanner-sn">
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+
+
+        </div>
+       
+
+
+     </div>
+
+    <!-- BODY AREA -->
+    <div class="frame-body-area">
+        <script>
+
+            function onDisplayJotForms(div){
+                const val = $(div).val();
+                $(`.${val}`).removeClass("jotform-form-box-hide").siblings().addClass("jotform-form-box-hide");
+
+                if(val == "jotform-genexpert-assistance-form"){
+
+                    $("#jotform-index-pagination-reporting").addClass("jotform-pagination-hide");
+                    $("#jotform-index-pagination-assistance").removeClass("jotform-pagination-hide");
+
+                    $(".jotform-filter-reporting").addClass("jotform-filter-form-hide");
+                    $(".jotform-filter-assistance").removeClass("jotform-filter-form-hide");
+                }else{
+                    
+                    $("#jotform-index-pagination-reporting").removeClass("jotform-pagination-hide");
+                    $("#jotform-index-pagination-assistance").addClass("jotform-pagination-hide");
+
+                    $(".jotform-filter-reporting").removeClass("jotform-filter-form-hide");
+                    $(".jotform-filter-assistance").addClass("jotform-filter-form-hide");
+                }
+
+            }
+
+
+        </script>
+
+
+
+        <div class="jotform-genexpert-assistance-form jotform-form-box">
+            
+                <div class="frame-content-area">
+                    <div class="frame-body-list-area d-flex flex-column" id="genexpert-normal-views">
+                        <div class="frame-body-list-title-area d-flex" style="width:1850px;">
+                            <div class="frame-body-list-title-item small" 
+                            style="width:150px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_serialnumber"
+                            sorter-table="genexpert">SUBMISSION DATE</div>
+                            <div class="frame-body-list-title-item small" 
+                            style="width:150px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_serialnumber"
+                            sorter-table="genexpert">TICKET NO.</div>
+                            <div class="frame-body-list-title-item small" 
+                            style="width:150px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_faci_siteName"
+                            sorter-table="genexpert">SERIAL NUMBER</div>
+                            <div class="frame-body-list-title-item small" 
+                            style="width:350px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_faci_siteName"
+                            sorter-table="genexpert">FACILITY</div>
+                            <div class="frame-body-list-title-item small" 
+                            style="width:200px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_dateinstalled"
+                            sorter-table="genexpert">END USER</div>
+                            <div class="frame-body-list-title-item small" 
+                            style="width:250px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_inst_itName"
+                            sorter-table="genexpert">@ EMAIL</div>
+                            <div class="frame-body-list-title-item small" 
+                            style="width:300px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_inst_itName"
+                            sorter-table="genexpert">TYPE OF CONCERN</div>
+                            <div class="frame-body-list-title-item small" 
+                            style="width:300px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_eng_fullname"
+                            sorter-table="genexpert">DESCRIPTION OF CONCERN</div>
+        
+                        </div>
+            
+                        <div class="frame-body-list-content-area" 
+                        id="jotform-list-content-area-genexpert-assistance" 
+                        style="width:1850px;"></div>
+                    
+            
+                    </div>
+            
+                
+                </div>
+        
+                
+        
+        </div>
+
+        <div class="jotform-genexpert-report-system-form jotform-form-box jotform-form-box-hide">
+            
+                <div class="frame-content-area">
+                    <div class="frame-body-list-area d-flex flex-column" id="genexpert-normal-views">
+                        <div class="frame-body-list-title-area d-flex" style="width:1850px;">
+                            <div class="frame-body-list-title-item small" 
+                            style="width:150px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_serialnumber"
+                            sorter-table="genexpert">SUBMISSION DATE</div>
+                            <div class="frame-body-list-title-item small" 
+                            style="width:150px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_serialnumber"
+                            sorter-table="genexpert">TICKET NO.</div>
+                            <div class="frame-body-list-title-item small" 
+                            style="width:150px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_faci_siteName"
+                            sorter-table="genexpert">SERIAL NUMBER</div>
+                            <div class="frame-body-list-title-item small" 
+                            style="width:350px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_faci_siteName"
+                            sorter-table="genexpert">FACILITY</div>
+                            <div class="frame-body-list-title-item small" 
+                            style="width:200px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_dateinstalled"
+                            sorter-table="genexpert">REPORTED BY</div>
+                            <div class="frame-body-list-title-item small" 
+                            style="width:250px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_inst_itName"
+                            sorter-table="genexpert">REPORTER EMAIL</div>
+                            <div class="frame-body-list-title-item small" 
+                            style="width:300px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_inst_itName"
+                            sorter-table="genexpert">TYPE OF REPORT</div>
+                            <div class="frame-body-list-title-item small" 
+                            style="width:300px" 
+                            add-sorter="sorter" 
+                            sorter-type="alphanumeric" 
+                            sorter-source=".frame-body-list-content-area" 
+                            sorter-field="genex_eng_fullname"
+                            sorter-table="genexpert">TYPE OF PROBLEM ENCOUNTERED</div>
+        
+                        </div>
+            
+                        <div class="frame-body-list-content-area" 
+                        id="jotform-list-content-area-genexpert-report" 
+                        style="width:1850px;"></div>
+                    
+            
+                    </div>
+            
+                
+                </div>
+        
+                
+        
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+
+    
+

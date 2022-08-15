@@ -1,0 +1,368 @@
+2022-04-07T19:28:35.874Z - error: Error occurred during reporter init: Error: Error when loading extension electron-pdf@3.2.0
+Error: Extension "electron-pdf" is not compatible with "core" extension. Missing ".requires" information in "electron-pdf" definition
+    at validateMinimalVersion (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\main\extensions\validateMinimalVersion.js:24:11)
+    at Object._useOne (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\main\extensions\extensionsManager.js:158:9)
+    at Object._useMany (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\main\extensions\extensionsManager.js:99:38)
+    at async MainReporter.init (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\main\reporter.js:199:7)
+    at async IpcMainImpl.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\windows\app.js:233:21)
+    at Object._useOne (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\main\extensions\extensionsManager.js:248:15)
+    at Object._useMany (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\main\extensions\extensionsManager.js:99:38)
+    at async MainReporter.init (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\main\reporter.js:199:7)
+    at async IpcMainImpl.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\windows\app.js:233:21)
+2022-04-07T20:37:05.371Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:37:05.372Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:37:34.566Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:37:34.566Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:43:34.876Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:43:34.876Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:44:11.803Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:44:11.803Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:55:05.826Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:55:05.827Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:57:13.647Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:57:13.647Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:57:56.782Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:57:56.782Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:59:59.677Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T20:59:59.677Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T21:05:26.171Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T21:05:26.171Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T21:06:10.156Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T21:06:10.156Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T21:11:56.462Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T21:11:56.463Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T21:12:23.637Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T21:12:23.637Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T21:13:42.586Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T21:13:42.586Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T21:20:20.658Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T21:20:20.658Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T12:48:31.939Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T12:48:31.940Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T12:54:19.012Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-04-07T12:54:19.013Z - error: Error occurred during reporter init: Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-express\lib\main.js:319:30)
+    at async ListenerCollection.fire (D:\MacarePrograms\SEMS\ElectronJS\04072022\electron_beta\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-07-29T01:35:01.147Z - error: Error when processing render request 3 Timeout Error: chrome pdf generation not completed after 59526ms Error: Timeout Error: chrome pdf generation not completed after 59526ms
+    at Timeout._onTimeout (D:\MacarePrograms\07282022\1_0\node_modules\@jsreport\jsreport-chrome-pdf\lib\conversion.js:389:21)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7) rootId=i5meedqc6i54k1g, id=i5meedqc6i54k1g
+2022-07-29T01:35:01.149Z - error: Rendering request 3 finished with error in 60014 ms rootId=i5meedqc6i54k1g, id=i5meedqc6i54k1g

@@ -1,0 +1,150 @@
+<link rel="stylesheet" href="../css/preventive-maintenance/info.css">
+<div id="pm-information-area">
+
+    <div class="frame-info-control-area pull-right">
+        <a href="#" class="frame-info-control-button" 
+            style="width:100px; margin-left:40px; 
+            margin-top:20px !important;" onclick="preventiveMaintenanceController.update()">
+            Save Update</a>
+        </div>
+    <a class="pm-info-exit-btn" 
+        onclick="hideSubForm('#pm-information-area','top')">
+        <i class="fa fa-angle-up"></i></a>
+    <div class="pm-information-body">
+        <div class="pm-info-title">Genexpert Machine Information</div>
+        <div class="pm-info-panel">
+            <div class="pm-info-row">
+
+                <div class="pm-info-label">Genexpert SN:</div>
+                <div class="pm-info-value" 
+                id="pm-info-genexpert-serial-number">809453</div>
+            </div>
+    
+            <div class="pm-info-row">
+                <div class="pm-info-label">Facility/Site:</div>
+                <div class="pm-info-value" 
+                id="pm-info-genexpert-facility">Cebu City Medical Center</div>
+            </div>
+    
+            <div class="pm-info-row">
+                <div class="pm-info-label">Date Installed:</div>
+                <div class="pm-info-value" 
+                id="pm-info-genexpert-date-installed">2022-05-26</div>
+            </div>
+    
+            
+            <div class="pm-info-row">
+                <div class="pm-info-label">Engineer:</div>
+                <div class="pm-info-value" 
+                id="pm-info-genexpert-installed-by">N/A</div>
+            </div>
+    
+            <div class="pm-info-row">
+                <div class="pm-info-label">Installation Type:</div>
+                <div class="pm-info-value" 
+                id="pm-info-genexpert-installation-type">MACARE-PDBC</div>
+            </div>
+    
+            <div class="pm-info-row">
+                <div class="pm-info-label">Model Number:</div>
+                <div class="pm-info-value" 
+                id="pm-info-genexpert-model-number">Genexpert Machine System 4</div>
+            </div>
+    
+            <div class="pm-info-row">
+                <div class="pm-info-label">Address:</div>
+                <div class="pm-info-value" 
+                id="pm-info-genexpert-address">Tisa Morehai II Cebu City</div>
+            </div>
+        </div>
+
+        <div class="pm-info-title">Genexpert Contacts Information</div>
+        <div class="pm-info-panel" id="pm-genexpert-contact-panel">
+
+            <div class="genexpert-waiting-loading-area"></div>
+           <table class="pm-info-table" 
+           id="pm-info-genexpert-contact-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Contact Number</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="pm-info-genexpert-contact-tbody">
+               
+            </tbody>
+           </table>
+        </div>
+
+        <div class="pm-info-title">Preventive Maintenance (Only Can Edit Here)</div>
+        <div class="pm-info-panel">
+            <!-- <div class="pm-info-row">
+
+                <div class="pm-info-label">Genexpert SN:</div>
+                <div class="pm-info-value" 
+                id="pm-info-serial-number">
+                <a href="#" 
+                onclick="pmValueToField(this)" 
+                data-field="text" id="pm-info-serial-number-value"
+                class="pm-info-link">803452</a></div>
+            </div> -->
+    
+            <div class="pm-info-row">
+                <div class="pm-info-label">Current:</div>
+                <div class="pm-info-value" 
+                id="pm-info-current-date">
+                <a href="#" onclick="pmValueToField(this)" 
+                data-field="date" data-id="pm-info-current-date-value" 
+                id="pm-info-current-date-value"
+                class="pm-info-link">2022-03-20</a>
+                </div>
+            </div>
+    
+            <div class="pm-info-row">
+                <div class="pm-info-label">Due:</div>
+                <div class="pm-info-value" 
+                id="pm-info-due-date">
+                <a href="#" onclick="pmValueToField(this)" 
+                data-field="date" data-id="pm-info-due-date-value" 
+                id="pm-info-due-date-value"
+                class="pm-info-link">2023-03-20</a></div>
+            </div>
+    
+            
+            <div class="pm-info-row">
+                <div class="pm-info-label">Engineer:</div>
+                <div class="pm-info-value" 
+                id="pm-info-engineer"> 
+                <a href="#" onclick="pmValueToField(this)" 
+                data-field="select" data-main-class="engineer-drop-down" 
+                data-id="pm-info-engineer-value"
+                id="pm-info-engineer-value"
+                class="pm-info-link">Noel, Jovy</a></div>
+            </div>
+           
+    
+        </div>
+
+
+        <div class="pm-info-title">History Information</div>
+        <div class="pm-info-panel" id="pm-records-panel">
+           <table class="pm-info-table">
+            <thead>
+                <tr>
+                    <th style="width:15%;">Prev. Main. Date</th>
+                    <th style="width:15%;">Due Date</th>
+                    <th style="width:30%;">Engineer</th>
+                    <th style="width:30%;">Done By</th>
+                    <th style="width:10%;">Status</th>
+                </tr>
+            </thead>
+            <tbody id="pm-records-tbody">
+      
+            </tbody>
+           </table>
+        </div>
+    </div>
+
+</div>

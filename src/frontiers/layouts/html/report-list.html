@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="../css/report/make.css">
+<div class="frame-area" id="report-frame-area">
+    <div class="report-control-area d-flex justify-content-between">
+
+        <div class="report-title">Report List</div>
+       
+        <div class="report-input d-flex">
+            <a href="#" class="btn btn-primary mr-1" style="width:130px;" 
+            onclick="reportController.list().onView().list().showDefault()">Show Default</a>
+            <a href="#" class="btn btn-danger mr-1" style="width:130px;">Show Created</a>
+            <input type="text" class="mr-1">
+            <a href="#" class="btn btn-primary mr-1"><i class="fa fa-search"></i></a>
+            <a href="#" class="btn btn-success" onclick="showSubForm('#report-make-area','top')"><i class="fa fa-plus"></i></a>
+        </div>
+
+    </div>
+    <div class="report-content-area">
+        <div class="report-table">
+            <div class="report-thead">
+                <div class="report-col w-5">PDF</div>
+                <div class="report-col w-5">Excel</div>
+                <div class="report-col w-25">Report Name</div>
+                <div class="report-col w-40">Report Description</div>
+                <div class="report-col w-20">Made By</div>
+                <div class="report-col w-10">Access Type</div>
+            </div>
+            <div class="report-tbody"></div>
+
+        </div>
+    </div>
+
+</div>

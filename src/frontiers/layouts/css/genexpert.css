@@ -1,0 +1,119 @@
+#genexpert-frame-area{
+    position: relative;
+    width:100%;
+    height:100%;
+    background:rgba(87, 43, 43, 0.6);
+    backdrop-filter:blur(5px);
+    display:flex;
+    flex-direction: column;
+    overflow: hidden !important;
+}
+
+.genexpert-asset-reveal-table-list-body-area{
+    width:3750px;
+    height: 100%;
+}
+
+
+.please-wait-loading-area{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(156, 156, 156, 0.685);
+    z-index: 999999;
+}
+.please-wait-loading-area > *{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-20%);
+    width:300px;
+    height:300px;
+    font-size:25px;
+    color:#000;
+    font-weight:400;
+
+}
+.genexpert-report-btns{
+    font-weight:900;
+}
+.genexpert-report-btns-pdf{
+    color:rgb(255, 0, 0) !important;
+}
+.genexpert-report-btns-pdf:hover{
+    color:rgb(219, 26, 26) !important;
+    font-weight:800 !important;
+}
+.genexpert-report-btns-pdf:active{
+    color:rgb(255, 0, 0) !important;
+    font-weight:800 !important;
+}
+.genexpert-report-btns-excel{
+    color:rgb(0, 255, 0) !important;
+}
+.genexpert-report-btns-excel:hover{
+    color:rgb(35, 189, 61) !important;
+}
+.genexpert-report-btns-excel:active{
+    color:rgb(0, 255, 42) !important;
+}
+.genexpert-list-checkbox{
+    background:rgba(0,0,0,0) !important;
+}
+.genexpert-asset-reveal-table-list-title-item{
+    line-height:1.5em;
+}
+.error-label{
+    color:rgb(255, 0, 0) !important;
+    font-style: italic !important;
+    text-align: right;
+}
+.error-label::before{
+    content: "* ";
+}
+.genexpert-terminated-bg{
+    background:rgba(204, 55, 55, 0.473);
+    backdrop-filter:blur(3px);
+}
+.row-danger-bg{
+    background:rgba(204, 55, 55, 0.473);
+    backdrop-filter:blur(3px);
+}
+
+.row-success-bg{
+    background:rgba(0, 255, 0, 0.623);
+    backdrop-filter:blur(3px);
+}
+
+#genexpert-list-area{
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:998;
+    transition:600ms all;
+}
+
+#genexpert-record-area{
+    position:absolute;
+    top:0;
+    left:100%;
+    width:100%;
+    height:100%;
+    z-index:998;
+    transition:600ms all;
+}
+
+ul.genexpert-list-group-area{
+    background:lime !important;
+    border:1px solid #fff !important;
+   
+}
+
+.waiting-view{
+    color:rgb(0, 255, 0) !important;
+}
+.need-view{
+    color:rgb(255, 0, 0) !important;
+}

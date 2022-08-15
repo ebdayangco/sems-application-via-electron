@@ -1,0 +1,102 @@
+<div class="title-bar-area">
+    <div class="sub-control-area pull-left">
+        <!-- <ul class="menu">
+            <li><a href="#" class="text-light">File</a>
+              
+            </li>
+            <li><a href="#" class="text-light">Settings</a></li>
+            <li><a href="#" class="text-light">Show SAP Form</a></li>
+            <li><a href="#" class="text-light" onclick="showDevTools()">Dev Tools</a></li>
+        </ul> -->
+
+
+        <ul id="menu">
+            
+            <li><a href="#" onclick="titlebar_form('')">File</a>
+              
+            </li>
+            <li>
+                <a href="#" onclick="titlebar_form('')">Settings</a>
+            </li>
+
+            <li>
+                <a href="#" onclick="titlebar_form('')">Software</a>
+            </li>
+
+            <li>
+                <a href="#" onclick="titlebar_form('')">Suggestion and Comments</a>
+            </li>
+      
+            <li><a href="#" class="text-light" onclick="showDevTools()">Dev Tools</a></li>
+            <li><a href="#" class="text-light" onclick="sapImport()">Import SAP</a></li>
+        </ul>
+    </div>
+
+    <div class="display-control-area d-flex pull-right">
+        <a href="#" class="chat-btn notification-btn mr-4" onclick="toggleNotificationDocker()">
+            <span class="badge-notification badge-notification-hide">3</span><i class="fa fa-bell"></i></a>
+        <a href="#" onclick="minimize()" class="text-light">&dash;</a>
+        <!-- <a href="#" class="text-light" style="font-weight:100;" 
+        onclick="maximize(this)" name="restore">&#128471;&#xFE0E;</a> -->
+        <a href="#" class="text-light" style="border-top-right-radius:10px !important;" onclick="quitApp()">&times;</a>
+    </div>
+
+</div>
+
+<script>
+    // const ele = document.getElementById('element');
+    // ele.addEventListener('click',function(){
+    //     console.log("helo");
+    // });
+//     ele.addEventListener('contextmenu', function (e) {
+//     const rect = ele.getBoundingClientRect();
+//     const x = e.clientX - rect.left;
+//     const y = e.clientY - rect.top;
+
+//     // Set the position for menu
+//     menu.style.top = `${y}px`;
+//     menu.style.left = `${x}px`;
+
+//     // Show the menu
+//     menu.classList.remove('hidden');
+
+//     document.addEventListener('click', documentClickHandler);
+// });
+function rightclick(div,evt){
+
+    const rect = div.getBoundingClientRect();
+    const x = evt.clientX - rect.left;
+    const y = evt.clientY - rect.top;
+
+    const menu = document.getElementById("menu-right-click");
+    // Set the position for menu
+    menu.style.top = `${y}px`;
+    menu.style.left = `${x}px`;
+
+    // Show the menu
+    menu.classList.remove('hidden');
+
+    document.addEventListener('click', documentClickHandler);
+
+}
+
+const documentClickHandler = function(e) {
+
+    const menu = document.getElementById("menu-right-click");
+    const cls = $(e.target);  
+
+    const isClickedOutside = !menu.contains(e.target);
+    if (isClickedOutside) {
+        // Hide the menu
+
+        
+        menu.classList.add('hidden');
+
+        // Remove the event handler
+        document.removeEventListener('click', documentClickHandler);
+    }
+};
+</script>
+
+
+

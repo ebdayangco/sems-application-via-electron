@@ -1,0 +1,215 @@
+<div id="haemonetics-installation-form">
+    <link rel="stylesheet" href="../transactions/haemonetics/haemonetics-installation.css">
+    <div class="haemonetics-installation-content">
+
+        <!-- GENERAL INFORMATION -->
+    <div class="transaction-block transaction-general-block">
+            <div class="title">General information</div>
+                <div class="body">
+                    <div class="line">
+                        <div class="item w-15">
+                            <label for="">Serial Number</label>
+                            <input type="text" 
+                            id="genex-install-general-serial-number">
+                        </div>
+                        <div class="item w-15">
+                            <label for="">Date Installed</label>
+                            <input type="date" 
+                            id="genex-install-general-date-installed">
+                        </div>
+                        <div class="item w-70">
+                            <label for="">Site</label>
+
+                            <form autocomplete="off" class="w-100">
+                            <div class="autocomplete w-100">
+                                <input type="text" class="site-field  w-100" 
+                                id="genex-install-general-site">
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="item w-20">
+                            <label for="">Installed By</label>
+                            <select id="genex-install-general-engineer" 
+                            class="engineer-drop-down"></select>
+                        </div>
+                        <div class="item w-20">
+                            <label for="">Installation Type</label>
+                            <select id="genex-install-general-installType" 
+                            class="installation-type-drop-down"></select>
+                        </div>
+                        <div class="item w-60">
+                            <label for="">Model Number</label>
+                            <select id="genex-install-general-model-number" 
+                            class="model-number-drop-down"></select>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="item w-100">
+                            <label for="">Remarks</label>
+                            <input type="text" 
+                            id="genex-install-general-remarks" >
+                        </div>
+                        </div>
+
+                </div>
+
+            
+        </div>
+
+        <!-- ADDRESS INFORMATION -->
+        <div class="transaction-block transaction-address-block">
+
+            <div class="title">Address information</div>
+                <div class="body">
+                    <div class="line">
+                        <div class="item w-60">
+                            <label for="">Complete Address</label>
+                            <input type="text" 
+                            id="genex-install-address-complete-address" 
+                            class="complete-address-field">
+                        </div>
+                        <div class="item w-40">
+                            <label for="">Region</label>
+                            <select class="region-drop-down" 
+                            id="genex-install-address-region"></select>
+                        </div>
+                        
+                    </div>
+                    <div class="line">
+                    <div class="item w-35">
+                        <label for="">Province</label>
+                        <select class="province-drop-down" 
+                        id="genex-install-address-province"></select>
+                    </div>
+                        <div class="item w-35">
+                            <label for="">City</label>
+                            <select class="city-drop-down" 
+                            id="genex-install-address-city"></select>
+                        </div>
+                        <div class="item w-30">
+                            <label for="">Barangay</label>
+                            <select class="barangay-drop-down" 
+                            id="genex-install-address-barangay"></select>
+                        </div>
+                    
+                    </div>
+                    <div class="line">
+                    <div class="item w-60">
+                        <label for="">Street</label>
+                        <input type="text" 
+                        id="genex-install-address-street">
+                    </div>
+                    <div class="item w-20">
+                        <label for="">Latitude</label>
+                        <input type="text" 
+                        id="genex-install-address-latitude">
+                    </div>
+                    <div class="item w-20">
+                        <label for="">Longitude</label>
+                        <input type="text" 
+                        id="genex-install-address-longitude">
+                    </div>
+                </div>
+
+                </div>
+
+            
+        </div>
+
+        <!-- CONTACT INFORMATION -->
+        <div class="transaction-block transaction-contact-block">
+            <div class="title">Contact Information</div>
+            <div class="body">
+                <div class="line">
+                    <div class="item w-70">
+                        <label for="#">Fullname</label>
+                        <input type="text" 
+                        id="genex-install-contact-fullname">
+                    </div>
+                    <div class="item w-30">
+                        <label for="#">Position</label>
+                        <input type="text" 
+                        id="genex-install-contact-position">
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="item w-50">
+                        <label for="#">Email</label>
+                        <input type="text" 
+                        id="genex-install-contact-email">
+                    </div>
+                    <div class="item w-50">
+                        <label for="#">Contact Number</label>
+                        <input type="text" 
+                        id="genex-install-contact-number">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SERVICE REPORT INFORMATION -->
+        <div class="transaction-block transaction-service-report-block">
+            <div class="title">Service Report Information</div>
+                <div class="body">
+                    <div class="line">
+                        <div class="item w-30">
+                            <label for="">Service Report #</label>
+                            <input type="text">
+                        </div>
+                        <div class="item w-30">
+                            <label for="">Upload File:(image format and pdf only)
+
+                            </label>
+                            <form method="post" enctype="multipart/form-data" action="/upload">
+                                <input type="file" id="service-report-file" onchange="getFileName(event)">
+                            </form>
+
+                            <script>
+
+                                function readImageFile(file) {
+                                // read binary data from a file:
+                                const bitmap = fs.readFileSync(file);
+                                const buf = new Buffer(bitmap);
+
+                                
+                                    return buf;
+                                }
+                                function getFileName(evt){
+                                    
+                                    let files = evt.target.files; // FileList object
+
+                                    // use the 1st file from the list
+                                    let f = files[0];
+                                    transactionController.installation().readFile(f);
+                                    // console.log(f);
+                                    transactionController.installation()
+                                    .validateServiceReportUploadSize(f["size"],function(){
+                                        // var reader = new FileReader();
+                                        // reader.onloadend = function() {
+                                            
+
+                                            
+                                        //     $('.service-report-screenshot').attr('src', reader.result);
+                                        // }
+                                        // reader.readAsDataURL(f); 
+                                    });
+                                    
+                                    
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <!-- <div class="line">
+                        <div class="item w-100">
+                            <label for="">Service Report Screenshot:</label>
+                            <img class="service-report-screenshot">
+                        </div>
+                    </div> -->
+                </div>
+        </div>
+        
+    </div>
+</div>

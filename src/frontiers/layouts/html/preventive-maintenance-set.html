@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="../css/transaction/pm-schedule.css">
+<div id="pm-schedule-form">
+
+    <div class="pm-genexpert-info-form"></div>
+
+    <div class="pm-schedule-content d-flex">
+
+        <div class="form-left-side">
+            <div class="screen-image-side"></div>
+            <img src="../../../supporters/galleries/preventive_maintenance_schedule_bg.jpg" alt="">
+        </div>
+
+        <div class="form-right-side">
+            <!-- <div class="pm-title">Schedule Form</div> -->
+            <div class="pm-body">
+                
+                <div class="pm-row">
+                    <label for="" class="text-light">Genexpert</label>
+                    <div class="pm-field">
+                        <input type="text" 
+                        id="pm-schedule-genexpert-serial-number">
+                        <a href="#" class="btn btn-primary ml-1 input-submit-btn" 
+                        style="width:120px;" 
+                        onclick="preventiveMaintenanceController.transaction().setSchedule().findInfo()">Show Info</a>
+                    </div>
+                </div>
+
+                <div class="pm-row">
+                   
+                    <label for="" class="text-light">Engineer</label>
+
+                    <select name="#" id="pm-schedule-engineer"  
+                    class="engineer-drop-down w-100"></select>
+                   
+                </div>
+                <div class="pm-row d-flex">
+                    <div class="pm-col w-50 mr-2">
+                        <label for="" class="text-light">Last Calibration</label>
+                        <div class="d-flex">
+                            <a href="#" class="btn btn-primary"
+                            onclick="preventiveMaintenanceController.transaction()
+                            .setSchedule().lastCalibration()"><i class="fa fa-search"></i></a>
+                            <input type="text" id="pm-schedule-last-calibration" disabled 
+                            class="w-100">
+                        </div>
+                        
+                    </div>
+                    <div class="pm-col w-50">
+                        <label for="" class="text-light">Date of Preventive Maintenance</label>
+                        <input type="date" class="w-100" onchange="
+                        preventiveMaintenanceController.onView().transaction()
+                        .setSchedule().setCalibrationTo()" 
+                        id="pm-schedule-calibration-from">
+                    </div>
+                   
+                </div>
+
+                <div class="pm-row d-flex">
+                    <div class="pm-col w-50 mr-2">
+                        <label for="" class="text-light">Frequency</label>
+                        <div class="d-flex">
+                            <input type="number" class="w-100" onkeyup="
+                                 preventiveMaintenanceController.onView().transaction()
+                        .setSchedule().setCalibrationTo()" 
+                                onchange="preventiveMaintenanceController.onView().transaction()
+                                .setSchedule().setCalibrationTo()"
+                            id="pm-schedule-time-length-value">
+                            <select id="pm-schedule-time-length-format" 
+                            onchange="preventiveMaintenanceController.onView().transaction()
+                            .setSchedule().setCalibrationTo()">
+                                <option value="year">Year</option>
+                                <option value="month">Month</option>
+                                <option value="day">Day</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="pm-col w-50">
+                        <label for="" class="text-light">Preventive Maintenance Due</label>
+                        <input type="date" class="w-100" 
+                        id="pm-schedule-calibration-to">
+                    </div>
+                   
+                </div>
+
+                <div class="pm-row">
+                    <label for="" class="text-light">Remarks</label>
+                    <textarea name="" id="pm-schedule-remarks">
+                    </textarea>
+                    <!-- <a href="#" class="btn btn-success w-100 mb-2">Clear All</a>
+                    <a href="#" class="btn btn-primary w-100" 
+                    onclick="pmTransactionController.goSchedule()">Set Schedule</a> -->
+                    
+                </div>
+
+                <a href="#" class="btn btn-success w-40 input-submit-btn mt-4" 
+                onclick="preventiveMaintenanceController.transaction().setSchedule().onSchedule()">
+                    <i class="fa fa-save"></i> Save</a>
+            </div>
+        </div>
+       
+    </div>    
+   
+</div>
+
+<script src="../js/preventive-maintenance.js"></script>

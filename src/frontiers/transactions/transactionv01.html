@@ -1,0 +1,156 @@
+<div class="transaction-form-display-area">
+
+    <div id="transaction-genexpert-installation-form"></div>
+</div>
+<div class="transaction-main-area">
+
+    <link rel="stylesheet" href="../transactions/transaction.css">
+    <link rel="stylesheet" href="../transactions/transaction-form.css">
+    <link rel="stylesheet" href="../transactions/genexpert-installation-v01.css">
+
+    <div class="transaction-head-area">
+
+        <!-- <div class="transaction-head-screen-area"></div> -->
+
+        <div class="input-service-report-area d-flex">
+            <label class="mr-1">Service Report #</label>
+            <input type="text" placeholder="Input Service Report Number" id="serviceReportInput">
+        </div>
+
+        <div class="search-control-area table-select d-flex">
+            
+            <label style="margin-right:19.5px; margin-bottom:10px;">Category</label>
+            <select id="">
+                    <option value="genexpert">Genexpert</option>
+                    <option value="haemonetics">Haemonetics</option>
+                    <option value="module">Module</option>
+                    <option value="xpertcheck">Xpertcheck</option>
+                    <option value="preventive-maintenance">Preventive Maintenance</option>
+            </select>
+        </div>
+
+        <div class="search-control-area field-select d-flex">
+            
+            <label class="mr-1">Search For</label>
+            <select id="" onchange="displaySearchField(this)">
+                    <option value=".search-serial-number-area" data-field="a.serialnumber">Serial Number</option>
+                    <option value=".search-site-area" data-field="b.siteName">Site/Facility</option>
+                    <option value=".search-address-area" data-field="addresses">Address</option>
+            </select>
+        </div>
+        <div class="search-field-area">
+    
+            <div class="search-serial-number-area" class="w-100" >
+                <input type="text" placeholder="Input Serial Number" id="searchTransactionBySerialNumber">
+                <a href="#" class="btn btn-success w-25" 
+                style="margin-left:90px; margin-top:10px;" onclick="transController.searchOn()">Find</a>
+            </div>
+    
+            <div class="search-site-area d-none ">
+                <input type="text" placeholder="Input Site/Facility" id="searchTransactionBySite">
+                <a href="#" class="btn btn-success w-10" 
+                style="margin-left:90px; margin-top:10px;" onclick="transController.searchOn()">Find</a>
+            </div>
+    
+            <div class="search-address-area d-none">
+                <div class="search-complete-address-area">
+                    <label class="mr-5">Complete Address</label>
+                    <input type="text" placeholder="Input Complete Address" 
+                    id="searchTransactionByCompleteAddress" class="w-100">
+                </div>
+                <div class="search-region-area">
+                    <label class="mr-5">Region</label>
+                    <select id="searchTransactionByRegion" class="w-100"></select>
+                </div>
+                <div class="search-province-area">
+                    <label class="mr-5">Province</label>
+                    <select id="searchTransactionByProvince" class="w-100"></select>
+                </div>
+                <div class="search-city-area">
+                    <label class="mr-5">City</label>
+                    <select id="searchTransactionByCity" class="w-100"></select>
+                </div>
+                <div class="search-barangay-area">
+                    <label class="mr-5">Barangay</label>
+                    <select id="searchTransactionByBarangay" class="w-100"></select>
+                </div>
+                <a href="#" class="btn btn-success w-25" 
+                style="margin-left:15px; margin-top:10px;" onclick="transController.searchOn()">Find</a>
+              
+            </div>
+    
+        </div>
+
+        
+    </div>
+    <div class="transaction-body-area">
+        <div class="result-list-area">
+            <table class="result-list-table">
+                <thead>
+                    <tr>
+                        <th>Transaction Type</th>
+                        <th>Serial Number</th>
+                        <th>Facility</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                        <th>Submit</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionResultListArea">
+                    <tr>
+                        <td>Installation</td>
+                        <td><input type="text" class="w-100" placeholder="New"></td>
+                        <td><input type="text" class="w-100" placeholder="New"></td>
+                        <td><input type="text" class="w-100" placeholder="New"></td>
+                        <td>Active</td>
+                        <td><a href="#" class="btn btn-primary w-100" 
+                            onclick="transController. displayFormArea()">Proceed</a></td>
+                    </tr>
+                </tbody>
+            </table>
+    
+    
+        </div>
+    </div>
+
+    
+
+    <script>
+        function displaySearchField(div){
+
+            const cls = $(div).children("option:selected").val();
+
+            if(cls == ".search-address-area"){
+                $(`#transaction-frame-area > .transaction-main-area > .transaction-head-area`)
+                .addClass("expand-vertical");
+            }else{
+                $(`#transaction-frame-area > .transaction-main-area > .transaction-head-area`)
+                .removeClass("expand-vertical");
+            }
+
+            $(cls).removeClass("d-none").siblings().addClass("d-none");
+        }
+    </script>
+
+    <script>
+
+        const transController = require("../transactions/TransController");
+
+
+        transController.displayAddresses();
+
+    </script>
+
+    <script>
+
+        $("#transaction-genexpert-installation-form").load(`../transactions/genexpert-installation-v01.html`);
+
+        function closeForm(div){
+
+            $(div).parent().parent().parent().removeClass("display-form-area");
+        }
+
+    </script>
+
+
+</div>

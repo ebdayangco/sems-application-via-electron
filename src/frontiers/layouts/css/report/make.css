@@ -1,0 +1,77 @@
+#report-make-area{
+    position: absolute;
+    top:-120%;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(2, 2, 2, 0.8);
+    backdrop-filter:blur(10px);
+    z-index:100;
+    transition:600ms all;
+    padding:50px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.report-make-form{
+    width:100%;
+    padding:40px;
+    background:rgba(161, 161, 161, 0.555);
+    border-radius:5px;
+    box-shadow:0px 0px 3px 2px rgb(26, 26, 26);
+    
+}
+.report-make-row{
+    margin-bottom:10px;
+}
+.report-make-label{
+    text-transform:uppercase;
+    font-size:11px;
+    color:rgb(189, 189, 189);
+}
+
+.report-make-field > input{
+    border:1px solid #fff;
+    background:#ccc;
+    width:100%;
+}
+
+.report-make-field > textarea{
+    border:1px solid #fff !important;
+    background:#ccc !important;
+    width:100%;
+    height:120px;
+}
+.report-make-field > textarea:active,
+.report-make-field > textarea:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+.report-make-field > select{
+    border:1px solid #fff;
+    background:#ccc;
+    width:100%;
+    height:30px;
+}
+
+.report-make-field > select:active,
+.report-make-field > select:focus{
+    box-shadow: none;
+    outline: none;
+}
+.report-make-table-list{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height:225px;
+    padding:0;
+}
+.report-make-field-list{
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height:400px;
+    padding:0;
+}
+.report-make-table-list > table > thead > tr th:nth-child(1){
+    width:30px !important;
+    text-align: center;
+}

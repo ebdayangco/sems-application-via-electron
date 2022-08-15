@@ -1,0 +1,180 @@
+#xpertcheck-information-area{
+    position: absolute;
+    top:-100%;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(2, 2, 2, 0.8);
+    backdrop-filter:blur(10px);
+    z-index:9999;
+    transition:600ms all;
+    display:flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.xpertcheck-info-exit-btn{
+    position: absolute;
+    top:20px;
+    right:30px;
+    color:rgb(161, 161, 161);
+    font-weight:900;
+    font-size:30px !important;
+    cursor: pointer;
+}
+.xpertcheck-info-exit-btn:hover{
+    color:rgb(185, 185, 185);
+}
+
+.xpertcheck-info-exit-btn:active,
+.xpertcheck-info-exit-btn:focus{
+    color:#fff;
+}
+.xpertcheck-information-body{
+    width:100%;
+    padding:5px 50px;
+}
+.xpertcheck-info-panel{
+    position: relative;
+    padding:30px;
+    box-shadow:0px 0px 3px 1px #fff;
+    border-radius:5px;
+    overflow: hidden;
+}
+.xpertcheck-info-title{
+    color:#fff;
+    text-transform: uppercase;
+    font-size:16px;
+    font-weight:700;
+    margin-bottom:5px;
+    margin-top:20px;
+}
+.xpertcheck-info-row{
+    display:flex;
+    margin-bottom:10px;
+}
+
+.xpertcheck-info-label{
+    font-weight:700;
+    color:rgb(146, 146, 146);
+    font-size:14px;
+    text-transform: uppercase;
+    padding-right:20px;
+    width:20%;
+    text-align: left;
+}
+
+.xpertcheck-info-value,.xpertcheck-info-value > a{
+    font-weight:100;
+    color:rgb(0, 255, 0);
+    font-size:14px;
+    width:80%;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    /* text-transform: uppercase; */
+}
+.xpertcheck-info-table{
+    width:100%;
+    border:0.7px solid #fff;
+}
+.xpertcheck-info-table > thead > tr > th{
+    padding:5px;
+    color:#fff;
+    border:0.7px solid #fff;
+    text-transform: uppercase;
+    font-weight:700;
+}
+.xpertcheck-info-table > tbody > tr > td{
+    padding:5px;
+    color:rgb(1, 247, 255);
+    border:0.7px solid #fff;
+}
+.normal-color > td{
+    color:rgb(0, 255, 0)!important;
+}
+.edit-color > td{
+    color:rgb(255, 217, 1) !important;
+}
+
+.done-color > td{
+    color:rgb(0, 255, 0)!important;
+}
+.xpertcheck-info-field{
+    background:transparent !important;
+    color:rgb(0, 255, 0);
+    height:25px;
+    border:0.6px solid rgba(184, 184, 184, 0.664);
+    padding:3px;
+    border-radius:5px;
+    transition:600ms all;
+    font-weight: 600;
+}
+select.xpertcheck-info-field > option{
+    background:#000 !important;
+}
+.xpertcheck-info-field:active,
+.xpertcheck-info-field:focus{
+    outline:none;
+    box-shadow: none;
+}
+.xpertcheck-info-link{
+    transition:600ms all;
+}
+/* .xpertcheck-show-info{
+    left:0 !important;
+}
+.w-auto{
+    width:auto;
+}
+.w-content{
+    width: fit-content;
+}
+.xpertcheck-info-close-btn{
+    position: absolute;
+    top:20px;
+    right:30px;
+    color:#fff;
+    font-weight:700;
+    font-size:30px !important;
+}
+.xpertcheck-info-panel{
+    position: relative;
+    margin-top:10px;
+    width:100%;
+}
+.xpertcheck-info-title{
+    margin-bottom:10px;
+    width:100%;
+    font-size:20px;
+    font-weight:700;
+}
+.xpertcheck-info-row{
+    position: relative;
+    display:flex;
+    width:100%;
+    margin-top: 10px;
+}
+.xpertcheck-info-row > .xpertcheck-info-item{
+    margin-right:40px;
+    margin-bottom:20px;
+}
+.xpertcheck-info-row > .xpertcheck-info-item > .xpertcheck-info-label{
+    text-transform: uppercase;
+    font-size:12px;
+    font-weight:700;
+    color:rgb(131, 131, 131);
+}
+.xpertcheck-info-row > .xpertcheck-info-item > .xpertcheck-info-value{
+    font-size:15px;
+    font-weight:600;
+}
+.xpertcheck-info-table{
+    position: relative;
+    width:100%;
+    color:#fff;
+    font-weight:500;
+    font-size:14px;
+} */

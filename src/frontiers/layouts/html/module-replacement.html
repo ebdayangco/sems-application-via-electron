@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="../css/transaction/module-replacement.css">
+<div id="module-replacement-form">
+    <div class="module-replacement-main-form">
+        <div class="prev-module-record-area">
+            <div class="module-replacement-row">
+                <div class="module-replacement-item">
+                    <div class="module-replacement-label">Part Number</div>
+                    <div class="module-replacement-field">
+                        <input type="text" id="module-replacement-part-number">
+                    </div>
+                </div>
+
+                <div class="module-replacement-item">
+                    <div class="module-replacement-label">Revision Number</div>
+                    <div class="module-replacement-field">
+                        <input type="text" id="module-replacement-revision-number">
+                    </div>
+                </div>
+            </div>
+            <div class="module-replacement-row">
+                <div class="module-replacement-item w-100">
+                    <div class="module-replacement-label">Remarks</div>
+                    <div class="module-replacement-field">
+                       <textarea  id="module-replacement-remarks"></textarea>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        
+        <div class="module-to-replace-area mt-2">
+            <h3 class="text-light ml-2 mt-1 mb-2">Module To Replace</h3>
+
+            <div class="module-replacement-row">
+                
+                <div class="module-replacement-item">
+                    <div class="module-replacement-label" 
+                    style="width:100px;">Serial Number</div>
+                  
+                    <div class="module-replacement-field mr-2">
+                        <input type="text" 
+                        id="module-replacement-new-serial-number">
+                    </div>
+                       
+                </div>
+
+                <div class="module-replacement-item">
+                    <div class="module-replacement-label">Date Installed</div>
+                    <div class="module-replacement-field">
+                        <input type="date" 
+                        id="module-replacement-new-date-installed">
+                    </div>
+                </div>
+
+              
+            </div>
+
+            <div class="module-replacement-row">
+                <div class="module-replacement-item">
+                    <div class="module-replacement-label">Installed By</div>
+                    <div class="module-replacement-field">
+                        <select class="engineer-drop-down" 
+                        id="module-replacement-new-installed-by"></select>
+                    </div>
+                </div>
+                <div class="module-replacement-item">
+                    <div class="module-replacement-label">Installation Type</div>
+                    <div class="module-replacement-field">
+                        <select class="installation-type-drop-down" 
+                        id="module-replacement-new-installation-type"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="module-replacement-row">
+                <a href="#" class="btn btn-danger w-50 mr-2"
+                onclick="moduleController.onView().transaction()
+                .replacement().hideReplaceform()">Return</a>
+                <a href="#" class="btn btn-success w-50" 
+                onclick="moduleController.transaction().replacement()
+                .replacementProcess()">Save</a>
+            </div>
+            
+        </div>
+
+
+    </div>
+
+    <div class="module-replacement-info-form">
+
+
+    </div>
+
+    <div class="module-replacement-content">
+
+
+    <div class="module-replace-control-area">
+        <input type="text" id="searchmoduleviaReplacementField" 
+        placeholder="Search Genexpert SN/Facility/Module SN">
+        <a href="#" class="btn btn-primary" 
+        onclick="moduleController.transaction().replacement().searchDataForReplacement()">Search</a>
+    </div>
+    <div class="module-replace-body-area">
+
+        <div class="module-replace-table-area">
+              <table>
+            <thead>
+                <tr>
+                    <th style="width:5%">Info</th>
+                    <th style="width:10%">Genexpert SN</th>
+                    <th style="width:30%">Facility</th>
+                    <th style="width:10%">Module SN</th>
+                    <th style="width:10%">Location</th>
+                    <th style="width:20%">Engineer</th>
+                    <th style="width:10%">Action</th>
+                </tr>
+            </thead>
+            <tbody id="module-replacement-tbody-area"></tbody>
+        </table>
+
+        </div>
+
+      
+
+
+    </div>
+
+
+        
+    </div>
+   
+
+</div>

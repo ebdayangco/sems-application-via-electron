@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <style>
+      table, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+
+      }
+      @page { size: landscape; }
+    </style>
+  </head>
+  <body>
+    
+    <br />
+    <br />
+    <table>
+      <tr>
+        <td>
+          <b>Name</b>
+        </td>
+        <td>
+          <b>Description</b>
+        </td>
+      </tr>
+      {{#each rows}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{description}}</td>
+      </tr>
+      {{/each}}
+    </table>
+  </body>
+</html>

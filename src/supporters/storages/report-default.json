@@ -1,0 +1,99 @@
+[
+    {
+        "report-name":"Site Per Region",
+        "report-description":"List of Site Per Region",
+        "report-made-by":"default",
+        "report-access-type":"public",
+        "schema":{
+            "tables":{
+                "site":["siteName","province","city"],
+                "genexpert":["serialnumber","dateinstalled"],
+                "engineer":["fullname"],
+                "installationtype":["itName"],
+                "modelnumber":["mnName"]
+            },
+            "where":{
+                "site":{
+                    "region":{
+                        "value":["IS NOT NULL",""],
+                        "conditional-type":"AND"
+                    }
+                }
+            },
+            "order-by":{
+                "site":{
+                    "region":1,
+                    "province":2,
+                    "city":3
+                }
+            },
+            "group-by":{
+                "site":{
+                    "region":1
+                }
+            }
+        }
+      
+    },
+    {
+        "report-name":"Assay Statistics",
+        "report-description":"List of latest Assay Statistics in every Genexpert Machine",
+        "report-made-by":"default",
+        "report-access-type":"public",
+        "schema":{
+            "tables":{
+                "assaystatistic":["test","quantity","dateadded"],
+                "genexpert":["serialnumber","dateinstalled"],
+                "site":["siteName"],
+                "engineer":["fullname"],
+                "installationtype":["itName"],
+                "modelnumber":["mnName"]
+            },
+            "where":{
+                "site":{
+                    "region":{
+                        "value":["IS NOT NULL",""],
+                        "conditional-type":"AND"
+                    }
+                }
+            },
+            "order-by":{
+                "site":{
+                    "region":1,
+                    "province":2,
+                    "city":3
+                }
+            },
+            "group-by":{
+                "site":{
+                    "region":1
+                }
+            }
+        }
+    },
+    {
+        "report-name":"Xpertcheck",
+        "report-description":"List of Xpertcheck in every Genexpert Machine",
+        "report-made-by":"default",
+        "report-access-type":"public",
+        "table":["xpertcheck","genexpert"],
+        "fields":["no","siteName","serialnumber","itName","mnName",
+            "dateinstalled","calibrate_start","calibrate_done","region"],
+        "condition":[],
+        "order-by":[],
+        "group-by":[]
+    },
+    {
+        "report-name":"Preventive Maintenance",
+        "report-description":"List of Preventive Maintenance in every Genexpert Machine",
+        "report-made-by":"default",
+        "report-access-type":"public",
+        "table":["preventive_maintenance","genexpert"],
+        "fields":["no","siteName","serialnumber","itName","mnName",
+            "dateinstalled","calibrate_start","calibrate_done","region"],
+        "condition":[],
+        "order-by":[],
+        "group-by":[]
+    }
+
+]

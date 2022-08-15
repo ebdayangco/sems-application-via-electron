@@ -1,0 +1,423 @@
+<link rel="stylesheet" href="../css/preventive-maintenance/filter.css">
+
+    <div class="filter-content-area">
+
+        <div class="pm-filter-control-panel d-flex">
+            <a href="#" class="pm-filter-submit-btn" 
+            onclick="preventiveMaintenanceController.filterProcess(this)">Filter Now</a>
+        </div>
+        <div class="pm-filter-note-area">Note: If you want an exact result, put 
+            (=) sign before you type the search word. </div>
+            
+        <div class="pm-filter-category-panel pm-filter-pm-area">
+            <div class="pm-filter-category-body">
+
+                <div class="pm-filter-form-panel-row d-flex">
+                    
+                    <div class="pm-filter-form-panel-item w-25">
+                        <div class="pm-filter-form-panel-item-label">Current (Full)</div>
+                        <div class="pm-filter-form-panel-item-field w-100 d-flex">
+                            <input type="date" id="pm-filter-pm-current-full-date"
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-name="a.calibrate_start">
+                        </div>
+                    </div>
+
+                    <div class="pm-filter-form-panel-item w-25">
+                        <div class="pm-filter-form-panel-item-label">Current (Split)</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <div class="d-flex">
+                                <select id="pm-filter-pm-current-month" 
+                                class="pm-filter-form-panel-item-field-input w-50"
+                                data-field-name="a.calibrate_start" data-field-name-part="month">
+                                    <option value="0"></option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+
+                                <script>
+                                    var currentYear = new Date().getFullYear();
+                                </script>
+
+                                <select id="pm-filter-pm-current-date" 
+                                class="pm-filter-form-panel-item-field-input w-20"
+                                data-field-name="a.calibrate_start" data-field-name-part="date">
+
+                                <script>
+                                    $("#pm-filter-pm-current-date").html("");
+                                    $("#pm-filter-pm-current-date")
+                                        .append(`<option value="0"></option>`);
+                                    for(let x = 1; x<=31; x++){
+                                        $("#pm-filter-pm-current-date")
+                                        .append(`<option value="${x}">${x}</option>`);
+                                        
+                                    }
+                                </script>
+                                    
+                                </select>
+
+                                <select id="pm-filter-pm-current-year" 
+                                class="pm-filter-form-panel-item-field-input w-30"
+                                data-field-name="a.calibrate_start" data-field-name-part="year">
+
+                                <script>
+                                    $("#pm-filter-pm-current-year").html("");
+                                    $("#pm-filter-pm-current-year")
+                                        .append(`<option value="0"></option>`);
+                                    let cmin = currentYear-50;
+                                    let cmax = currentYear+10;  
+                                    for(cmin; cmin<=cmax; cmin++){
+                                        $("#pm-filter-pm-current-year")
+                                        .append(`<option value="${cmin}">${cmin}</option>`)
+                                        
+                                    }
+                                </script>
+                                    
+                                </select>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <div class="pm-filter-form-panel-item w-25">
+                        <div class="pm-filter-form-panel-item-label">Due (Calendar)</div>
+                        <div class="pm-filter-form-panel-item-field w-100 d-flex">
+                            <input type="date" id="pm-filter-pm-due-full-date"
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-name="a.calibrate_done">
+                        </div>
+                    </div>
+
+                    <div class="pm-filter-form-panel-item w-25">
+                        <div class="pm-filter-form-panel-item-label">Due (Split)</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <div class="d-flex">
+                                <select id="pm-filter-pm-due-month" 
+                                class="pm-filter-form-panel-item-field-input w-50"
+                                data-field-name="a.calibrate_done" data-field-name-part="month">
+                                    <option value="0"></option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+
+                                <select id="pm-filter-pm-due-date" 
+                                class="pm-filter-form-panel-item-field-input w-20"
+                                data-field-name="a.calibrate_done" data-field-name-part="date">
+
+                                <script>
+                                    $("#pm-filter-pm-due-date").html("");
+                                    $("#pm-filter-pm-due-date")
+                                        .append(`<option value="0"></option>`);
+                                    for(let x = 1; x<=31; x++){
+                                        $("#pm-filter-pm-due-date")
+                                        .append(`<option value="${x}">${x}</option>`);
+                                        
+                                    }
+                                </script>
+                                    
+                                </select>
+
+                                <select id="pm-filter-pm-due-year" 
+                                class="pm-filter-form-panel-item-field-input w-30"
+                                data-field-name="a.calibrate_done" data-field-name-part="year">
+
+                                <script>
+                                    $("#pm-filter-pm-due-year").html("");
+                                    $("#pm-filter-pm-due-year")
+                                        .append(`<option value="0"></option>`);
+                                    let pmdueMin  = currentYear-50;
+                                    let pmdueMax  = currentYear+10;  
+                                    for(dueMin; pmdueMin<=pmdueMax; pmdueMin++){
+                                        $("#pm-filter-pm-due-year")
+                                        .append(`<option value="${pmdueMin }">${pmdueMin }</option>`)
+                                        
+                                    }
+                                </script>
+                                    
+                                </select>
+                            </div>
+                            
+                        </div>
+                    </div>
+        
+                </div>
+                <div class="pm-filter-form-panel-row d-flex">
+
+                    <div class="pm-filter-form-panel-item w-30">
+                        <div class="pm-filter-form-panel-item-label">Calibrate By</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <select name="" id="pm-filter-pm-engineer"
+                                class="pm-filter-form-panel-item-field-input w-100
+                                engineer-drop-down" 
+                                data-field-name="i.engineerID">
+                                <option value="0"></option> 
+                            </select>
+                        </div>
+                    </div>
+                    
+
+                    <div class="pm-filter-form-panel-item w-30">
+                        <div class="pm-filter-form-panel-item-label">Updated By</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <input type="text" id="pm-filter-pm-updated-by"
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-fname="k.firstname" data-field-lname="k.lastname">
+                        </div>
+                    </div>
+                    <div class="pm-filter-form-panel-item w-20">
+                        <div class="pm-filter-form-panel-item-label">Updated Date</div>
+                        <div class="pm-filter-form-panel-item-field w-100 d-flex">
+                            <input type="date" id="pm-filter-pm-updated-date"
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-name="a.dateupdated">
+                        </div>
+                    </div>
+                
+                </div>
+    
+            </div>
+        </div>
+        <div class="pm-filter-category-panel pm-filter-genexpert-area">
+            <div class="pm-filter-category-body">
+    
+                <div class="pm-filter-form-panel-row d-flex">
+                    <div class="pm-filter-form-panel-item w-20">
+    
+                        <div class="pm-filter-form-panel-item-label">Serial Number</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <input type="text"
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            id="pm-filter-genexpert-serial-number" 
+                            data-field-name="b.serialnumber">
+                        </div>
+                    </div>
+                    <div class="pm-filter-form-panel-item w-52">
+    
+                        <div class="pm-filter-form-panel-item-label">Facility</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <input type="text"
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            id="pm-filter-genexpert-facility" 
+                            data-field-name="h.siteName">
+                        </div>
+                    </div>
+                    <div class="pm-filter-form-panel-item w-18">
+    
+                        <div class="pm-filter-form-panel-item-label">Date Installed</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <input type="date"
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            id="pm-filter-genexpert-date-installed" 
+                            data-field-name="b.dateinstalled">
+                        </div>
+                    </div>
+                    <div class="pm-filter-form-panel-item w-10">
+                        <div class="pm-filter-form-panel-item-label">Status</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <select name="" id="pm-genexpert-filter-status"
+                                class="pm-filter-form-panel-item-field-input w-100" 
+                                data-field-name="b.status">
+                                <option value="0"></option>
+                                <option value="Active">Active</option>
+                                <option value="Terminated">Terminated</option>
+                                <option value="Under Repair">Under Repair</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="pm-filter-form-panel-row d-flex">
+                    <div class="pm-filter-form-panel-item w-28">
+    
+                        <div class="pm-filter-form-panel-item-label">Installed By</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <select name="" id="pm-filter-genexpert-installed-by"
+                                class="pm-filter-form-panel-item-field-input w-100 engineer-drop-down" 
+                                data-field-name="c.engineerID" 
+                                data-field-name-v2="c.fullname">
+                                <option value="0"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="pm-filter-form-panel-item w-28">
+                        <div class="pm-filter-form-panel-item-label">Installation Type</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <select name="" id="pm-filter-genexpert-installation-type" 
+                                class="pm-filter-form-panel-item-field-input w-100 installation-type-drop-down" 
+                                data-field-name="d.itID" 
+                                data-field-name-v2="d.itName">
+                                <option value="0"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="pm-filter-form-panel-item w-44">
+                        <div class="pm-filter-form-panel-item-label">Model Number</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <select id="pm-filter-model-number"  
+                                class="pm-filter-form-panel-item-field-input model-number-drop-down 
+                                w-100" data-field-name="e.mnID" 
+                                data-field-name-v2="e.mnName">
+                                <option value="0"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="pm-filter-form-panel-row d-flex">
+
+                    <div class="pm-filter-form-panel-item w-25">
+                        <div class="pm-filter-form-panel-item-label">Region</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <select name="" id="pm-filter-region" 
+                            data-field-name="h.region" 
+                                class="pm-filter-form-panel-item-field-input 
+                                region-drop-down w-100">
+                                
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="pm-filter-form-panel-item w-25">
+                        <div class="pm-filter-form-panel-item-label">Province</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <select name="" id="pm-filter-province"  
+                                class="pm-filter-form-panel-item-field-input w-100 province-drop-down" 
+                                data-field-name="h.province" >
+                                <option value=""></option>
+                                
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="pm-filter-form-panel-item w-25">
+                        <div class="pm-filter-form-panel-item-label">City</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <select name="" id="pm-filter-city"  
+                                class="pm-filter-form-panel-item-field-input w-100 city-drop-down" 
+                                data-field-name="h.city">
+                                <option value=""></option>
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="pm-filter-form-panel-item w-25">
+                        <div class="pm-filter-form-panel-item-label">Barangay</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <select name="" id="pm-filter-barangay"  
+                                class="pm-filter-form-panel-item-field-input w-100 
+                                barangay-drop-down" 
+                                data-field-name="h.barangay">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+    
+                
+    
+                </div>
+                <div class="pm-filter-form-panel-row d-flex">
+
+                    <div class="pm-filter-form-panel-item w-60">
+                        <div class="pm-filter-form-panel-item-label">Street</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <input type="text" id="pm-filter-street"  
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-name="h.street">
+                        </div>
+                    </div>
+
+                    <div class="pm-filter-form-panel-item w-20">
+                        <div class="pm-filter-form-panel-item-label">Latitude</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <input type="text" id="pm-filter-latitude"  
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-name="h.latitude">
+                        </div>
+                    </div>
+                    <div class="pm-filter-form-panel-item w-20">
+                        <div class="pm-filter-form-panel-item-label">Longitude</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <input type="text" id="pm-filter-longitude"  
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-name="h.longitude">
+                        </div>
+                    </div>
+                
+                </div>
+
+                <div class="pm-filter-form-panel-row d-flex">
+
+                    <div class="pm-filter-form-panel-item w-20">
+    
+                        <div class="pm-filter-form-panel-item-label">Software Version</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <input type="text" id="pm-filter-software-version"
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-name="genex.software_version">
+                        </div>
+                    </div>
+                    <div class="pm-filter-form-panel-item w-20">
+    
+                        <div class="pm-filter-form-panel-item-label">OS Version</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <input type="text" id="pm-filter-os-version"
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-name="genex.os_version">
+                        </div>
+                    </div>
+
+                    <div class="pm-filter-form-panel-item w-30">
+    
+                        <div class="pm-filter-form-panel-item-label">Warranty Expiry Date</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <input type="date" id="pm-filter-warranty-expiry-date"
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-name="b.warranty_expiry_date">
+                        </div>
+                    </div>
+                    <div class="pm-filter-form-panel-item w-30">
+    
+                        <div class="pm-filter-form-panel-item-label">Service Contract Expiry Date</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <input type="date" id="pm-filter-service-contract-expiry-date" 
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-name="b.service_contract_expiry_date">
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="pm-filter-form-panel-row d-flex">
+                    <div class="pm-filter-form-panel-item w-100">
+                        <div class="pm-filter-form-panel-item-label">Remarks</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <input type="text"  id="pm-filter-remarks" 
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-name="b.remarks">
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>

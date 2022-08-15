@@ -1,0 +1,684 @@
+<div class="filter-content-area">
+
+    <div class="asset-filter-control-panel d-flex">
+        <a href="#" class="asset-filter-genexpert-show asset-filter-control-panel-btn-active" 
+        onclick="genexpertPanel(this)">Genexpert</a>
+        <a href="#" class="asset-filter-assaystatistic-show" onclick="assayPanel(this)">Assaystatic</a>
+        <a href="#" class="asset-filter-module-show" onclick="modulePanel(this)">Module</a>
+        <a href="#" class="asset-filter-peripheral-show" onclick="peripheralPanel(this)">Peripheral</a>
+        <!-- <a href="#" class="asset-filter-xpertcheck-show" onclick="xpertcheckPanel(this)">Xpertcheck</a>
+        <a href="#" class="asset-filter-pm-show" onclick="pmPanel(this)">Preventive Maintenance</a> -->
+        <a href="#" class="asset-filter-submit-btn" onclick="genexpertController.filterProcess(this)">Filter Now</a>
+    </div>
+    <div class="asset-filter-note-area">Note: If you want an exact result, put 
+        (=) sign before you type the search word. </div>
+    <div class="asset-filter-category-panel asset-filter-genexpert-area">
+        <div class="asset-filter-category-body">
+
+            <div class="asset-filter-form-panel-row d-flex">
+                <div class="asset-filter-form-panel-item w-20">
+
+                    <div class="asset-filter-form-panel-item-label">Serial Number</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        id="asset-filter-genexpert-serial-number" 
+                        data-field-name="genex.serialnumber">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-52">
+
+                    <div class="asset-filter-form-panel-item-label">Facility</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        id="asset-filter-genexpert-facility" data-field-name="genex_faci.siteName">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-18">
+
+                    <div class="asset-filter-form-panel-item-label">Date Installed</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="date"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        id="asset-filter-genexpert-date-installed" 
+                        data-field-name="genex.dateinstalled">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-10">
+                    <div class="asset-filter-form-panel-item-label">Status</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <select name="" id="asset-genexpert-filter-status"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="genex.status">
+                            <option value="0"></option>
+                            <option value="Active">Active</option>
+                            <option value="Terminated">Terminated</option>
+                            <option value="Under Repair">Under Repair</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="asset-filter-form-panel-row d-flex">
+                <div class="asset-filter-form-panel-item w-28">
+
+                    <div class="asset-filter-form-panel-item-label">Installed By</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <select name="" id="asset-filter-genexpert-installed-by"
+                            class="asset-filter-form-panel-item-field-input w-100 engineer-drop-down" 
+                            data-field-name="genex_eng.engineerID" 
+                            data-field-name-v2="genex_eng.fullname">
+                            <option value="0"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-28">
+                    <div class="asset-filter-form-panel-item-label">Installation Type</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <select name="" id="asset-filter-genexpert-installation-type" 
+                            class="asset-filter-form-panel-item-field-input w-100 installation-type-drop-down" 
+                            data-field-name="genex_inst.itID" 
+                            data-field-name-v2="genex_inst.itName">
+                            <option value="0"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-44">
+                    <div class="asset-filter-form-panel-item-label">Model Number</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <select id="asset-filter-model-number"  
+                            class="asset-filter-form-panel-item-field-input model-number-drop-down 
+                            w-100" data-field-name="genex_mode.mnID" 
+                            data-field-name-v2="genex_mode.mnName">
+                            <option value="0"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="asset-filter-form-panel-row d-flex">
+                <div class="asset-filter-form-panel-item w-40">
+                    <div class="asset-filter-form-panel-item-label">Remarks</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text"  id="asset-filter-remarks" 
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex.remarks">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-30">
+                    <div class="asset-filter-form-panel-item-label">Region</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <select name="" id="asset-filter-region" 
+                        data-field-name="genex_faci.region" 
+                            class="asset-filter-form-panel-item-field-input 
+                            region-drop-down w-100">
+                            
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="asset-filter-form-panel-item w-30">
+                    <div class="asset-filter-form-panel-item-label">Province</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <!-- <input type="text" id="asset-filter-province" 
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex_faci.province"> -->
+                        <select name="" id="asset-filter-province"  
+                            class="asset-filter-form-panel-item-field-input w-100 province-drop-down" 
+                            data-field-name="genex_faci.province" >
+                            <option value=""></option>
+                            
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="asset-filter-form-panel-row d-flex">
+
+                <div class="asset-filter-form-panel-item w-30">
+                    <div class="asset-filter-form-panel-item-label">City</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <!-- <input type="text"  id="asset-filter-city" 
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex_faci.city"> -->
+                        <select name="" id="asset-filter-city"  
+                            class="asset-filter-form-panel-item-field-input w-100 city-drop-down" 
+                            data-field-name="genex_faci.city">
+                            <option value=""></option>
+                            <option value="">MACARE-PBDC</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-30">
+                    <div class="asset-filter-form-panel-item-label">Barangay</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <!-- <input type="text" id="asset-filter-barangay" 
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex_faci.barangay"> -->
+                        <select name="" id="asset-filter-barangay"  
+                            class="asset-filter-form-panel-item-field-input w-100 
+                            barangay-drop-down" 
+                            data-field-name="genex_faci.barangay">
+                            <option value=""></option>
+                            <option value="">MACARE-PBDC</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="asset-filter-form-panel-item w-40">
+                    <div class="asset-filter-form-panel-item-label">Street</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-street"  
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex_faci.street">
+                    </div>
+                </div>
+
+            </div>
+            <div class="asset-filter-form-panel-row d-flex">
+                <div class="asset-filter-form-panel-item w-20">
+                    <div class="asset-filter-form-panel-item-label">Latitude</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-latitude"  
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex_faci.latitude">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-20">
+                    <div class="asset-filter-form-panel-item-label">Longitude</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-longitude"  
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex_faci.longitude">
+                    </div>
+                </div>
+
+                <div class="asset-filter-form-panel-item w-30">
+
+                    <div class="asset-filter-form-panel-item-label">Contact Person</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" 
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        id="asset-entry-fullname" data-field-name="genex_faci_cont.fullname">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-30">
+
+                    <div class="asset-filter-form-panel-item-label">Contact Position</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-position"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex_faci_cont.position">
+                    </div>
+                </div>
+            </div>
+
+            <div class="asset-filter-form-panel-row d-flex">
+                <div class="asset-filter-form-panel-item w-30">
+
+                    <div class="asset-filter-form-panel-item-label">Contact Email</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-contact-email"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex_faci_cont.email">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-30">
+                    <div class="asset-filter-form-panel-item-label">Contact Number</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-contact-number"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex_faci_cont.contactnumber">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-20">
+
+                    <div class="asset-filter-form-panel-item-label">Software Version</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-software-version"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex.software_version">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-20">
+
+                    <div class="asset-filter-form-panel-item-label">OS Version</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-os-version"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex.os_version">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="asset-filter-form-panel-row d-flex">
+                <div class="asset-filter-form-panel-item w-20">
+
+                    <div class="asset-filter-form-panel-item-label">Warranty Expiry Date</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="date" id="asset-filter-warranty-expiry-date"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex.warranty_expiry_date">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-20">
+
+                    <div class="asset-filter-form-panel-item-label">Service Contract Expiry Date</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="date" id="asset-filter-service-contract-expiry-date" 
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex.service_contract_expiry_date">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-20">
+
+                    <div class="asset-filter-form-panel-item-label">Date Added</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="date" id="asset-filter-date-added" 
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="genex.dateadded">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-20">
+                    <div class="asset-filter-form-panel-item-label">Added By</div>
+                    <div class="asset-filter-form-panel-item-field w-100">  
+                        <input type="text" id="asset-filter-added-by"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-fname="genex_user_addedby.firstname" 
+                        data-field-lname="genex_user_addedby.lastname">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-20">
+                    <div class="asset-filter-form-panel-item-label">Updated By</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="text" id="asset-filter-updated-by"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-fname="genex_user_updatedby.firstname" 
+                        data-field-lname="genex_user_updatedby.lastname">
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="asset-filter-category-panel asset-filter-assay-area">
+        <div class="asset-filter-category-body">
+            <div class="asset-filter-form-panel-row d-flex">
+                <div class="asset-filter-form-panel-item w-25">
+                    <div class="asset-filter-form-panel-item-label">Test</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-assay-test"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="assay.test">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-25">
+                    <div class="asset-filter-form-panel-item-label">Quantity</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-assay-quantity" 
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="assay.quantity">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-25">
+                    <div class="asset-filter-form-panel-item-label">Added By</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-assay-added-by" 
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-fname="assay_addedby.firstname" 
+                        data-field-lname="assay_addedby.lastname">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-25">
+                    <div class="asset-filter-form-panel-item-label">Updated By</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-assay-updated-by" 
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-fname="assay_updatedby.firstname" 
+                        data-field-lname="assay_updatedby.lastname">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="asset-filter-category-panel asset-filter-module-area">
+        <div class="asset-filter-category-body">
+
+            <div class="asset-filter-form-panel-row d-flex">
+                <div class="asset-filter-form-panel-item w-20">
+                    <div class="asset-filter-form-panel-item-label">Serial Number</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-module-serial-number"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="modu.serialnumber">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-10">
+                    <div class="asset-filter-form-panel-item-label">Location</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-module-location" 
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="modu.location">
+                    </div>
+                </div>
+
+                <div class="asset-filter-form-panel-item w-20">
+                    <div class="asset-filter-form-panel-item-label">Date Installed</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="date"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        id="asset-filter-module-date-installed" 
+                        data-field-name="modu.dateinstalled">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-25">
+                    <div class="asset-filter-form-panel-item-label">Installed By</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <select name="" id="asset-filter-module-installed-by"
+                            class="asset-filter-form-panel-item-field-input engineer-drop-down
+                            w-100" data-field-name="modu_eng.engineerID" 
+                            data-field-name-v2="modu_eng.fullname">
+                            <option value="0"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-25">
+                    <div class="asset-filter-form-panel-item-label">Installation Type</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <select name="" id="asset-filter-module-installation-type"
+                            class="asset-filter-form-panel-item-field-input w-100 installation-type-drop-down" 
+                            data-field-name="modu_inst.itID" 
+                            data-field-name-v2="modu_inst.itName">
+                            <option value="0"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="asset-filter-form-panel-row d-flex">
+                <div class="asset-filter-form-panel-item w-25">
+                    <div class="asset-filter-form-panel-item-label">Part Number</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-module-part-number" 
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="modu.part_number">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-25">
+                    <div class="asset-filter-form-panel-item-label">Revision Number</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-module-revision-number" 
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="modu.revision_number">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-25">
+                    <div class="asset-filter-form-panel-item-label">Added By</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-module-added-by" 
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-fname="modu_user_addedby.firstname" 
+                        data-field-lname="modu_user_addedby.lastname">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-25">
+                    <div class="asset-filter-form-panel-item-label">Status</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <select name="" id="asset-filter-module-status"
+                            class="asset-filter-form-panel-item-field-input 
+                            w-100" data-field-name="modu.status">
+                            <option value="0"></option>
+                            <option value="Active">Active</option>
+                            <option value="Terminated">Terminated</option>
+                            <option value="Under Repair">Under Repair</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="asset-filter-category-panel asset-filter-peripheral-area">
+        <div class="asset-filter-category-body">
+
+            <div class="asset-filter-form-panel-row d-flex">
+                <div class="asset-filter-form-panel-item w-30">
+                    <div class="asset-filter-form-panel-item-label">Peripheral Name</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-peripheral-name"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="peri.peripheralName">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-15">
+                    <div class="asset-filter-form-panel-item-label">Serial Number</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-peripheral-serial-number"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="peri.serialnumber">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-15">
+                    <div class="asset-filter-form-panel-item-label">Model Number</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-peripheral-model-number"
+                        class="modelnumber-drop-down 
+                        asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="peri.modelnumber">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-20">
+                    <div class="asset-filter-form-panel-item-label">Added By</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-peripheral-added-by"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-fname="peri_addedby.firstname" 
+                        data-field-lname="peri_addedby.lastname">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-20">
+                    <div class="asset-filter-form-panel-item-label">Updated By</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-peripheral-updated-by"
+                        class="asset-filter-form-panel-item-field-input w-100"
+                        data-field-fname="peri_updatedby.firstname" 
+                        data-field-lname="peri_updatedby.lastname">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<!--     
+    <div class="asset-filter-category-panel asset-filter-xpertcheck-area">
+        <div class="asset-filter-category-body">
+            <div class="asset-filter-form-panel-row d-flex">
+                <div class="asset-filter-form-panel-item w-20">
+                    <div class="asset-filter-form-panel-item-label">Date of Calibration</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="date" id="asset-filter-xpertcheck-date"
+                        class="asset-filter-form-panel-item-field-input w-100"
+                        data-field-name="k.dateofxpertcheck">
+                    </div>
+                </div>
+
+                <div class="asset-filter-form-panel-item w-20">
+                    <div class="asset-filter-form-panel-item-label">Next Calibration</div>
+                    <div class="asset-filter-form-panel-item-field w-100 d-flex">
+                        <input type="date" id="asset-filter-xpertcheck-due-date"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="k.dateofxpertcheck">
+                    </div>
+                </div>
+
+                <div class="asset-filter-form-panel-item w-30">
+                    <div class="asset-filter-form-panel-item-label">Engineer</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <select name="" id="asset-filter-xpertcheck-engineer"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="ka.engineerID">
+                            <option value="0"></option> 
+                        </select>
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-15">
+                    <div class="asset-filter-form-panel-item-label">Status</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <select name="" id="asset-filter-xpertcheck-status"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="k.current">
+                            <option value="0"></option>
+                            <option value="current">Current</option>
+                            <option value="not-current">Not Current</option>
+                            <option value="all">All</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-15">
+                    <div class="asset-filter-form-panel-item-label">Updated Date</div>
+                    <div class="asset-filter-form-panel-item-field w-100 d-flex">
+                        <input type="date" id="asset-filter-xpertcheck-updated-date"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-name="k.dateupdated">
+                    </div>
+                </div>
+    
+            </div>
+            <div class="asset-filter-form-panel-row d-flex">
+            
+                <div class="asset-filter-form-panel-item w-20">
+                    <div class="asset-filter-form-panel-item-label">Added by</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-xpertcheck-added-by"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        style="margin-top:12px" 
+                        data-field-fname="kb.firstname" data-field-lname="kb.lastname">
+                    </div>
+                </div>
+                <div class="asset-filter-form-panel-item w-20">
+                    <div class="asset-filter-form-panel-item-label">Updated By</div>
+                    <div class="asset-filter-form-panel-item-field w-100">
+                        <input type="text" id="asset-filter-xpertcheck-updated-by"
+                        class="asset-filter-form-panel-item-field-input w-100" 
+                        data-field-fname="kc.firstname" data-field-lname="kc.lastname"
+                        style="margin-top:12px">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="asset-filter-category-panel asset-filter-preventive-maintenance-area">
+        <div class="asset-filter-category-body">
+            <div class="asset-filter-form-panel-row d-flex">
+                    <div class="asset-filter-form-panel-item w-15">
+                        <div class="asset-filter-form-panel-item-label">Preventive Maintenance Date</div>
+                        <div class="asset-filter-form-panel-item-field w-100 d-flex">
+                            <input type="date" id="asset-filter-xpertcheck-updated-date"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="l.dateofpm">
+                        </div>
+                    </div>
+                    <div class="asset-filter-form-panel-item w-20">
+                        <div class="asset-filter-form-panel-item-label">Frequency</div>
+                        <div class="asset-filter-form-panel-item-field w-100 d-flex">
+                            <input type="text" id="asset-filter-pm-frequency"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="l.frequency">
+                        </div>
+                    </div>
+                    <div class="asset-filter-form-panel-item w-30">
+                        <div class="asset-filter-form-panel-item-label">Engineer</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <select id="asset-filter-pm-engineer"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="la.engineerID">
+                                <option value="0"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="asset-filter-form-panel-item w-25">
+                        <div class="asset-filter-form-panel-item-label">Updated By</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="text" id="asset-filter-pm-updated-by"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-fname="lc.fullname" data-field-lname="lc.fullname">
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div> -->
+
+
+</div>
+
+<script>
+   
+
+    function showPanel(div){
+        $(div).addClass("asset-filter-control-panel-btn-active").siblings()
+        .removeClass("asset-filter-control-panel-btn-active");
+    }
+    function defaultFilterPanel(){
+        $(".asset-filter-genexpert-area").show();
+        $(".asset-filter-assay-area").hide();
+        $(".asset-filter-module-area").hide();
+        $(".asset-filter-peripheral-area").hide();
+        $(".asset-filter-xpertcheck-area").hide();
+        $(".asset-filter-preventive-maintenance-area").hide();
+    }
+    function genexpertPanel(div){
+        $(".asset-filter-genexpert-area").show();
+        $(".asset-filter-assay-area").hide();
+        $(".asset-filter-module-area").hide();
+        $(".asset-filter-peripheral-area").hide();
+        $(".asset-filter-xpertcheck-area").hide();
+        $(".asset-filter-preventive-maintenance-area").hide();
+        showPanel(div);
+    }
+    function assayPanel(div){
+        $(".asset-filter-assay-area").show();
+        $(".asset-filter-genexpert-area").hide();
+        $(".asset-filter-module-area").hide();
+        $(".asset-filter-peripheral-area").hide();
+        $(".asset-filter-xpertcheck-area").hide();
+        $(".asset-filter-preventive-maintenance-area").hide();
+        showPanel(div);
+    }
+    function modulePanel(div){
+        $(".asset-filter-module-area").show();
+        $(".asset-filter-genexpert-area").hide();
+        $(".asset-filter-assay-area").hide();
+        $(".asset-filter-peripheral-area").hide();
+        $(".asset-filter-xpertcheck-area").hide();
+        $(".asset-filter-preventive-maintenance-area").hide();
+        showPanel(div);
+    }
+    function peripheralPanel(div){
+        $(".asset-filter-peripheral-area").show();
+        $(".asset-filter-genexpert-area").hide();
+        $(".asset-filter-assay-area").hide();
+        $(".asset-filter-module-area").hide();
+        $(".asset-filter-xpertcheck-area").hide();
+        $(".asset-filter-preventive-maintenance-area").hide();
+        showPanel(div);
+    }
+    function xpertcheckPanel(div){
+        $(".asset-filter-xpertcheck-area").show();
+        $(".asset-filter-genexpert-area").hide();
+        $(".asset-filter-assay-area").hide();
+        $(".asset-filter-module-area").hide();
+        $(".asset-filter-peripheral-area").hide();
+        $(".asset-filter-preventive-maintenance-area").hide();
+        showPanel(div);
+    }
+    function pmPanel(div){
+        $(".asset-filter-preventive-maintenance-area").show();
+        $(".asset-filter-genexpert-area").hide();
+        $(".asset-filter-assay-area").hide();
+        $(".asset-filter-module-area").hide();
+        $(".asset-filter-peripheral-area").hide();
+        $(".asset-filter-xpertcheck-area").hide();
+        showPanel(div);
+    }
+</script>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/titlebar.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/component.css">
+    <link rel="stylesheet" href="../../../supporters/dependencies/pagination/pagination.css">
+
+    <!-- css of each frame -->
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/transaction.css">
+    <link rel="stylesheet" href="../css/genexpert.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/haemonetics.css">
+    <link rel="stylesheet" href="../css/xpertcheck.css">
+    <link rel="stylesheet" href="../css/preventive-maintenance.css">
+    <link rel="stylesheet" href="../css/report.css">
+    <link rel="stylesheet" href="../css/ledger.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/flip.css">
+</head>
+<body>
+
+    <div class="sems-notification-box-area notification-box-hide" onclick="hideNotificationBox()">
+        <div class="notification-box-message">New transaction added.</div>
+        <a href="#" class="text-light"><i class="fa fa-caret-right"></i></a>
+    </div>
+    
+    <div class="sems-notification-area notification-sems-hide">
+            <div class="notification-search-area d-flex">
+                <!-- <input type="text" class="notification-search-field"> -->
+                <div class="notification-title w-80 h-100"><h3>Notifications</h3></div>
+                <div class="notification-options d-flex w-30 h-100">
+                    <a href="#" onclick="showAllList(this)" 
+                    class="text-light mr-4 notification-option-active">All</a>
+                    <a href="#" onclick="showUnreadList(this)" 
+                    class="text-light">Unread</a>
+                </div>
+                
+            </div>
+            <div class="notification-list-area">
+                    <div class="notification-list-all-area"></div>
+                    <div class="notification-list-unread-area notification-list-hide"></div>
+                
+            </div>
+
+            <div class="notification-show-all-area w-100 mb-3 d-flex">
+                <!-- <div class="notification-show-search-on-date-area w-50 d-flex">
+                    <a href="#">Select Date</a>
+                </div> -->
+                <div class="notification-show-search-on-date-area w-100 d-flex">
+                    <a href="#">Show All</a>
+                </div>
+                
+            </div>
+    </div>
+
+    <div class="show-account-screen-area">
+        <script>
+            function flipOn(){
+                $(".flip-box-inner").addClass("flip-move-right");
+                $(".show-account-form").addClass("show-account-form-400");
+                $(".show-account-box").addClass("show-account-form-400");
+            }
+            function flipOff(){
+                $(".flip-box-inner").removeClass("flip-move-right");
+                $(".show-account-form").removeClass("show-account-form-400");
+                $(".show-account-box").removeClass("show-account-form-400");
+            }
+        </script>
+        <div class="flip-box-account">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                <div class="flip-box-front">
+                    <div class="show-account-box">
+                        <div class="show-account-form">
+                            <a href="#" class="show-account-close-button" 
+                            onclick="hideAccountInfo()"><i class="fa fa-close"></i></a>
+
+                            <h3 class="account-info-title">Account Information</h3>
+
+                            <div class="show-account-row mt-3">
+                                <div class="show-account-label">Firstname</div>
+                                <div class="show-account-value">
+                                    <input type="text" id="show-account-firstname">
+                                </div>
+                                
+                            </div>
+                
+                            
+                            <div class="show-account-row">
+                                <div class="show-account-label">Lastname</div>
+                                <div class="show-account-value">
+                                    <input type="text" id="show-account-lastname">
+                                </div>
+                                
+                            </div>
+                
+                            <div class="show-account-row">
+                                <div class="show-account-label">Contact Number</div>
+                                <div class="show-account-value">
+                                    <input type="text" id="show-account-contact-number">
+                                </div>
+                                
+                            </div>
+                
+                            <div class="show-account-row">
+                                <div class="show-account-label">Email</div>
+                                <div class="show-account-value">
+                                    <input type="text" id="show-account-email">
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="show-account-row">
+                                <div class="d-flex mb-2">
+                                    <a href="#" class="btn btn-secondary w-50 mr-2"><i class="fa fa-pencil"></i> Update Account</a>
+                                    <a href="#" class="btn btn-secondary w-50" onclick="flipOn()"><i class="fa fa-key"></i> Change Password</a>
+                                </div>
+                            
+                                
+                            </div>
+                        </div>
+                    </div>
+                       
+                </div>
+                <div class="flip-box-back">
+                    <div class="show-account-box">
+                        <div class="show-account-form">
+                            <a href="#" class="show-account-close-button" 
+                            onclick="hideAccountInfo()"><i class="fa fa-close"></i></a>
+                            <h3 class="account-info-title">Change Password</h3>
+                            <div class="show-account-row">
+                                <div class="show-account-label">Current Password</div>
+                                <div class="show-account-value">
+                                    <input type="password" id="show-account-contact-number">
+                                </div>
+                                
+                            </div>
+                
+                            <div class="show-account-row">
+                                <div class="show-account-label">New Password</div>
+                                <div class="show-account-value">
+                                    <input type="password" id="show-account-email">
+                                </div>
+                                
+                            </div>
+
+                            <div class="show-account-row">
+                                <div class="show-account-label">Re-type new password</div>
+                                <div class="show-account-value">
+                                    <input type="password" id="show-account-email">
+                                </div>
+                                
+                            </div>
+                            
+                            
+                            <div class="show-account-row mt-3">
+                                <div class="d-flex mb-2">
+                                    <a href="#" class="btn btn-secondary w-50 mr-2" onclick="flipOff()"><i class="fa fa-pencil"></i> Show Account</a>
+                                    <a href="#" class="btn btn-secondary w-50"><i class="fa fa-key"></i> Update Password</a>
+                                </div>
+                            
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="log-out-screen-area">
+
+        <div class="log-out-form">
+
+            <div class="log-out-message">Are you sure to Log Out?</div>
+            <div class="log-out-buttons mt-6 d-flex">
+                <a href="#" class="w-50 btn btn-danger mr-2" onclick="hideLogOutForm()">Cancel</a>
+                 <a href="#" class="w-50 btn btn-success" onclick="quitApp()">Log Out</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="screen-area"></div>
+    <div class="main-area">
+        <div class="title-bar-reveal-form-area title-bar-form-hide">
+
+            <a href="#" onclick="closeTitleBarForm()" class="title-bar-form-close-btn">
+            <i class="fa fa-caret-up"></i></a>
+
+        </div>
+            <div class="body-area"></div>
+    </div>
+</body>
+<script src="../../../../node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+try {
+    $ = jQuery = module.exports;
+    // If you want module.exports to be empty, uncomment:
+    // module.exports = {};
+} catch(e) {}
+</script>
+<script src="../../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../../supporters/dependencies/pagination/pagination.js"></script>
+<script src="../../../supporters/dependencies/charts/chart.js"></script>
+<script src="../js/declaration.js"></script>
+<script src="../js/settings.js"></script>
+<script src="../js/loader.js"></script>
+<script src="../js/menu.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/table.js"></script>
+<script src="../js/titlebar.js"></script>
+<script src="../js/jotform.js"></script>
+<script src="../js/notification.js"></script>
+<!-- <script>
+   document.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            // console.log("I enter enter")
+        }
+    });
+    
+</script> -->
+    <!-- <script>
+        var runner = require("child_process");
+        var phpScriptPath = "script.php";
+        var argsString = "value1,value2,value3";
+        runner.exec("php " + phpScriptPath + " " +argsString, function(err, phpResponse, stderr) {
+            if(err) console.log(err); /* log error */
+            console.log( phpResponse );
+            });
+    </script> -->
+</html>

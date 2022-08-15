@@ -1,0 +1,335 @@
+<!-- 
+  <div class="transaction-block transaction-general-block">
+
+    <div class="title">General information</div>
+        <div class="body">
+            <div class="line">
+                <div class="item w-20">
+                    <label for="">Serial Number</label>
+                    <input type="text" 
+                    id="genex-install-general-serial-number">
+                </div>
+                <div class="item w-20">
+                    <label for="">Date Installed</label>
+                    <input type="date" 
+                    id="genex-install-general-date-installed">
+                </div>
+               
+
+                <div class="item w-30">
+                    <label for="">Installed By</label>
+                    <select id="genex-install-general-engineer" 
+                    class="engineer-drop-down"></select>
+                </div>
+                <div class="item w-30">
+                    <label for="">Installation Type</label>
+                    <select id="genex-install-general-installType" 
+                    class="installation-type-drop-down"></select>
+                </div>
+                
+            </div>
+            <div class="line">
+              
+                <div class="item w-100">
+                    <label for="">Model Number</label>
+                    <select id="genex-install-general-model-number" 
+                    class="model-number-drop-down"></select>
+                </div>
+            </div>
+          
+
+        </div>
+
+    
+</div>
+
+<div class="transaction-block transaction-address-block">
+
+    <script>
+        function showFacilityForm(){
+            $(".facility-view-form").addClass("show-facility-form");
+        }
+        function hideFacilityForm(){
+            $(".facility-view-form").removeClass("show-facility-form");
+        }
+    </script>
+
+    <div class="title">Facility Information
+        <a href="#" onclick="showFacilityForm()"><i class="fa fa-plus"></i></a>
+    </div>
+        <div class="body">
+            <div class="line">
+                 <div class="item w-100">
+                    <label for="">Site</label>
+
+                    <form autocomplete="off" class="w-100">
+                    <div class="autocomplete w-100">
+                        <input type="text" class="site-field  w-100" 
+                        id="genex-install-general-site">
+                    </div>
+                    </form>
+                </div>
+                
+            </div>
+            <div class="line">
+                <div class="item w-100">
+                    <label for="#">Address</label>
+                    <input type="text" disabled>
+                </div>
+            </div>
+
+            <div class="line">
+                <div class="item w-100">
+                    <label for="#">Contacts</label>
+                    <input type="text" disabled>
+                </div>
+            </div>
+        
+        </div>
+
+    
+</div>
+
+
+    <div class="transaction-block transaction-software-block">
+        <div class="title">Software Information</div>
+        <div class="body">
+            <div class="line">
+                <div class="item w-30">
+                    <label for="#">Software Version</label>
+                    <input type="text" 
+                    id="genex-install-software-version">
+                </div>
+                <div class="item w-30">
+                    <label for="#">OS Version</label>
+                    <input type="text" 
+                    id="genex-install-software-os-version">
+                </div>
+                <div class="item w-20">
+                    <label for="#">Warranty Expiry Date</label>
+                    <input type="date" 
+                    id="genex-install-software-warranty-expiry-date">
+                </div>
+                <div class="item w-20">
+                    <label for="#">Service Contract Expiry Date</label>
+                    <input type="date" 
+                    id="genex-install-software-service-contract-expiry-date">
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div class="transaction-block transaction-assaystatistic-block">
+
+        <div class="title d-flex">Assay Statistic Information
+            <a href="#" onclick="transactionController
+            .genexpert().installation().assaystatistic()
+            .addAssayStatisticRow(this)">
+            <i class="fa fa-plus"></i></a>
+        </div>
+        <div class="body">
+            <table class="w-100">
+                <thead>
+                        <tr>
+                            <th class="w-5">Remove</th>
+                            <th class="w-20">Test Date</th>
+                            <th class="w-25">Test Name</th>
+                            <th class="w-25">Quantity</th>
+                            <th class="w-25">Engineer</th>
+                        </tr>
+                </thead>
+                <tbody id="genex-edit-assay-rows">
+                    <tr>
+                        <td class="w-5">
+                            <a href="#" class="btn btn-danger w-100 h-100" 
+                            onclick="transactionController.genexpert().installation().assaystatistic().deleteAssayStatisticRow(this)">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                        <td class="w-20"><input type="date" 
+                        id="genex-edit-assay-test-date"></td>    
+                        <td class="w-25"><input 
+                        id="genex-edit-assay-test-name"  
+                        type="text"></td>    
+                        <td class="w-25"><input type="text" 
+                        id="genex-edit-assay-quantity" ></td>    
+                        <td class="w-25"><select 
+                        id="genex-edit-assay-engineer" 
+                        class="engineer-drop-down"></select></td>   
+                        
+                    </tr>
+                
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+    <div class="transaction-block transaction-peripheral-block">
+
+        <div class="title d-flex">Peripheral Information
+            <a href="#" onclick="transactionController
+            .genexpert().installation()
+            .peripheral().addPeripheralRow(this)">
+            <i class="fa fa-plus"></i></a>
+        </div>
+        <div class="body">
+            <table class="w-100">
+                <thead>
+                        <tr>
+                            <th class="w-5">Remove</th>
+                            <th class="w-20">Peripheral Name</th>
+                            <th class="w-20">Serial Number</th>
+                            <th class="w-20">Model Number</th>
+                            <th class="w-35">Remarks</th>
+                        </tr>
+                </thead>
+                <tbody id="genex-edit-peripheral-rows">
+                    <tr>
+                        <td class="w-5">
+                            <a href="#" class="btn btn-danger w-100 
+                            h-100" 
+                            onclick="transactionController.genexpert().installation().peripheral().deletePeripheralRow(this)">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                        <td class="w-20"><input type="text" 
+                        id="genex-edit-peripheral-name"></td>    
+                        <td class="w-20"><input type="text" 
+                        id="genex-edit-peripheral-serial-number"></td>    
+                        <td class="w-20"><input type="text"  
+                        id="genex-edit-peripheral-model-number"></td>    
+                        <td class="w-35"><input type="text"
+                        id="genex-edit-peripheral-remarks"></td>   
+                        
+                    </tr>
+                
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+
+    <div class="transaction-block transaction-module-block">
+        <div class="title d-flex">Module Information
+            <a href="#" onclick="transactionController
+            .genexpert().installation().module()
+            .addModuleRow(this)">
+            <i class="fa fa-plus"></i></a>
+        </div>
+        <div class="body">
+            <table class="w-100">
+                <thead>
+                    <tr>
+                        <th class="w-5">Remove</th>
+                        <th class="w-10">Serial Number</th>
+                        <th class="w-10">Location</th>
+                        <th class="w-15">Date Installed</th>
+                        <th class="w-15">Installation Type</th>
+                        <th class="w-15">Installed By</th>
+                        <th class="w-15">Revision Number</th>
+                        <th class="w-15">Part Number</th>
+                    </tr>
+                </thead>
+            <tbody id="genex-edit-module-rows">
+                <tr>
+                    <td class="w-5">
+                        <a href="#" class="btn btn-danger w-100 h-100" 
+                        onclick="transactionController.genexpert().installation().module().deleteModuleRow(this)"">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                    <td class="w-10"><input type="text"
+                        id="genex-edit-module-serial-number"></td>    
+                    <td class="w-10"><input type="text" 
+                        id="genex-edit-module-location"></td>    
+                    <td class="w-15"><input type="date" 
+                        id="genex-edit-module-date-installed"></td>    
+                    <td class="w-15"><select id="genex-install-module-installType" 
+                        class="installation-type-drop-down"></select></td>   
+                    <td class="w-15"><select id="genex-install-module-engineer" 
+                        class="engineer-drop-down"></select></td>   
+                    <td class="w-15"><input type="text" 
+                        id="genex-edit-module-revision-number"></td>    
+                    <td class="w-15"><input type="text" 
+                        id="genex-edit-module-part-number"></td>    
+                </tr>
+                <tr>
+                    <td class="w-5">
+                        <a href="#" class="btn btn-danger w-100 h-100" 
+                        onclick="transactionController.genexpert().installation().module().deleteModuleRow(this)">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                    <td class="w-10"><input type="text"
+                        id="genex-install-module-serial-number"></td>    
+                    <td class="w-10"><input type="text" 
+                        id="genex-install-module-location"></td>    
+                    <td class="w-15"><input type="date" 
+                        id="genex-install-module-date-installed"></td>    
+                    <td class="w-15"><select id="genex-install-module-installType" 
+                        class="installation-type-drop-down"></select></td>   
+                    <td class="w-15"><select id="genex-install-module-engineer" 
+                        class="engineer-drop-down"></select></td>   
+                    <td class="w-15"><input type="text" 
+                        id="genex-install-module-revision-number"></td>    
+                    <td class="w-15"><input type="text" 
+                        id="genex-install-module-part-number"></td>    
+                </tr>
+                <tr>
+                    <td class="w-5">
+                        <a href="#" class="btn btn-danger w-100 h-100" 
+                        onclick="transactionController.genexpert().installation().module().deleteModuleRow(this)">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                    <td class="w-10"><input type="text"
+                        id="genex-install-module-serial-number"></td>    
+                    <td class="w-10"><input type="text" 
+                        id="genex-install-module-location"></td>    
+                    <td class="w-15"><input type="date" 
+                        id="genex-install-module-date-installed"></td>    
+                    <td class="w-15"><select id="genex-install-module-installType" 
+                        class="installation-type-drop-down"></select></td>   
+                    <td class="w-15"><select id="genex-install-module-engineer" 
+                        class="engineer-drop-down"></select></td>   
+                    <td class="w-15"><input type="text" 
+                        id="genex-install-module-revision-number"></td>    
+                    <td class="w-15"><input type="text" 
+                        id="genex-install-module-part-number"></td>    
+                </tr>
+                <tr>
+                    <td class="w-5">
+                        <a href="#" class="btn btn-danger w-100 h-100" 
+                        onclick="transactionController.genexpert().installation().module().deleteModuleRow(this)">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                    <td class="w-10"><input type="text"
+                        id="genex-install-module-serial-number"></td>    
+                    <td class="w-10"><input type="text" 
+                        id="genex-install-module-location"></td>    
+                    <td class="w-15"><input type="date" 
+                        id="genex-install-module-date-installed"></td>    
+                    <td class="w-15"><select id="genex-install-module-installType" 
+                        class="installation-type-drop-down"></select></td>   
+                    <td class="w-15"><select id="genex-install-module-engineer" 
+                        class="engineer-drop-down"></select></td>   
+                    <td class="w-15"><input type="text" 
+                        id="genex-install-module-revision-number"></td>    
+                    <td class="w-15"><input type="text" 
+                        id="genex-install-module-part-number"></td>    
+                </tr>
+            </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+ -->

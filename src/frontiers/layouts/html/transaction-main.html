@@ -1,0 +1,794 @@
+<link rel="stylesheet" href="../css/transaction-main.css">
+<link rel="stylesheet" href="../css/transactions.css">
+<link rel="stylesheet" href="../css/transaction-list.css">
+<div class="frame-area" id="transaction-main-frame-area">
+
+    <!-- <script>
+        function toggleTransDocker(div){
+
+            const ma = $(div).parent(".transaction-menu-docker-area")
+            .parent(".transaction-create-services-list-area");
+
+            if(ma.hasClass("transaction-services-hide")){
+                ma.removeClass("transaction-services-hide");
+                $(div).html(`<i class="fa fa-caret-right"></i>  Service List`);
+            }else{
+                ma.addClass("transaction-services-hide");
+                $(div).html(`<i class="fa fa-caret-left"></i>  Service List`);
+            }
+
+           
+           
+        }
+    </script> -->
+    
+                
+    <!-- <div class="transaction-create-services-list-area d-flex transaction-services-hide">
+        <div class="transaction-menu-docker-area">
+            <a href="#" class="trans-docker-btn" onclick="toggleTransDocker(this)">
+                <i class="fa fa-caret-left"></i> Service List</a>
+        </div>
+    </div> -->
+
+    <div class="frame-control-area">
+
+        <!-- control page -->
+        <ul class="d-flex" id="transaction-main-list-control-area">
+            
+
+            <li>
+                <a href="#" class="frame-control-item frame-control-active 
+                genexpert-list-group" frame-name="transaction-frame-area"
+                onclick="displayTransactionOptionType(this)"><i class="fa fa-plus"></i> Add Transaction</a>
+            </li>
+           
+            <li>
+                <a href="#" class="frame-control-item genexpert-list-group" 
+                frame-name="transaction-list-frame-area"
+                onclick="displayTransactionOptionType(this)">List of Transaction</a>
+                
+            </li>
+
+            <li>
+                <a href="#" class="frame-control-item genexpert-list-group 
+                transaction-list-frame-part transaction-hide" onclick="transactionController.onFilterView(this)">
+                <i class="fa fa-filter"></i> Filter Transaction</a>
+            </li>
+
+        </ul>
+
+        <!-- pagination -->
+        <div class="pagination-box d-flex transaction-list-group 
+        transaction-list-frame-part transaction-hide" id="transaction-index-pagination">
+            <!-- <div class="pagination-label small">0-0 of 0</div> -->
+            <div class="pagination-paging-control d-flex">
+                <div class="pagination-previous">
+                    <a href="#" onclick="genexpertController.onPagination().onPage('Prev')" 
+                    class="a-disabled">
+                        <i class="fa fa-chevron-left"></i></a>
+                </div>
+                <div class="pagination-label small">0-0 of 0</div>
+                <div class="pagination-select hide-pagination">
+                    <input type="number" value='1' onkeyup="paginationControl().onKeyUp(event)">
+                </div>
+                <div class="pagination-next">
+                    <a href="#" onclick="genexpertController.onPagination().onPage('Next')">
+                        <i class="fa fa-chevron-right"></i></a>
+                </div>
+                    
+            </div>
+        </div>
+
+      
+    </div>
+    
+
+    <div class="frame-body-area">
+
+        <div class="transaction-view-option-area">
+
+            <div class="d-flex" id="transaction-frame-area">
+
+
+                <div class="transaction-encode-preview-area">
+            
+                    <div class="transaction-encode-preview-box">
+            
+                        <div class="transaction-prev-panel">
+                            <div class="transaction-prev-title">Installation</div>
+                            <div class="transaction-prev-content">
+                                    <div class="transaction-prev-item">
+                                        <div class="transaction-prev-label">Serial Number</div>
+                                        <div class="transaction-prev-value">890456</div>
+                                    </div>
+                                    <div class="transaction-prev-item">
+                                        <div class="transaction-prev-label">Facility</div>
+                                        <div class="transaction-prev-value">Cebu City Medical Center</div>
+                                    </div>
+                                    <div class="transaction-prev-item">
+                                        <div class="transaction-prev-label">Date Installed</div>
+                                        <div class="transaction-prev-value">07/08/2022</div>
+                                    </div>
+            
+                                    <div class="transaction-prev-item">
+                                        <div class="transaction-prev-label">Engineer</div>
+                                        <div class="transaction-prev-value">Jovy Noel</div>
+                                    </div>
+            
+                                    <div class="transaction-prev-item">
+                                        <div class="transaction-prev-label">Model Number</div>
+                                        <div class="transaction-prev-value">Genexpert 4 System</div>
+                                    </div>
+                            </div>
+                        </div>
+                           
+            
+                    </div>
+                
+                </div>
+
+              
+                <div id="transaction-main">
+
+                    <div class="frame-form">
+
+                        <div id="main-transaction-require-area">
+                            <div class="main-transaction-head-area">
+                                <div class="main-transaction-head-item 
+                                main-transaction-head-item-active" 
+                                onclick="showSideTable(this)" 
+                                panel-id="main-transaction-panel">Main 
+                                <!-- <a href="#" class="ml-2 btn trans-table-thead-btn"><i class="fa fa-plus"></i></a> -->
+                                </div>
+                                <div class="main-transaction-head-item" 
+                                onclick="showSideTable(this)"
+                                panel-id="service-report-transaction-panel">Service Report</div>
+                                <div class="main-transaction-head-item" 
+                                onclick="showSideTable(this)" 
+                                panel-id="jotform-transaction-panel">Jotform</div>
+
+                                <div class="main-transaction-head-item" 
+                                onclick="showSideTable(this)" 
+                                panel-id="address-transaction-panel">Address</div>
+
+                                <div class="main-transaction-head-item" 
+                                onclick="showSideTable(this)" 
+                                panel-id="contacts-transaction-panel">Contacts</div>
+                            </div>
+                            <div class="main-transaction-body-area">
+                                
+                                <div id="main-transaction-panel" 
+                                class="on-transaction-panel">
+                                    <table class="transaction-table" 
+                                    id="main-transaction-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="first-thead-col w-2-5">
+                                                 
+                                                    <a href="#" onclick="addMainTransRow()"><i class="fa fa-plus"></i></a>
+                                                  
+                                                </th>
+                                                
+                                                <th class="w-30">Facility</th>
+                                                <th class="w-20">Department</th>
+                                                <th class="w-20">Tel No</th>
+                                                <th class="w-10">Equipment</th>
+                                                <th class="w-17-5">Equipment Serial Number</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="transaction-main-tbody">
+                                            
+    
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                               
+                                <div id="service-report-transaction-panel" 
+                                class="hide-trans-panel on-transaction-panel">
+                                    <table class="transaction-table on-transaction-table" 
+                                    id="service-report-transaction-table">
+                                        <thead>
+                                            <tr> <th class="first-thead-col w-20-px">
+                                                <a href="#" onclick="addServiceReportTransRow()"><i class="fa fa-plus"></i></a>
+                                                </th>
+                                                <th class="w-150-px">Service Report #</th>
+                                                <th class="w-100-px">Date</th>
+                                                <th class="w-350-px">Facility</th>
+                                                <th class="w-150-px">Department</th>
+                                                <th class="w-150-px">Tel No</th>
+                                                <th class="w-150-px">Equipment</th>
+                                                <th class="w-150-px">Equip. Serial Number</th>
+                                                <th class="w-300-px">Model Number</th>
+                                                <th class="w-350-px">Problems Reported</th>
+                                                <th class="w-350-px">Diagnostic Findings</th>
+                                                <th class="w-350-px">Corrective Action</th>
+                                                <th class="w-350-px">Comments</th>
+                                                <th class="w-200-px">Service Engineer</th>
+                                                <th class="w-200-px">Customer Name</th>
+                                                <th class="w-150-px">Engineer Sign Date</th>
+                                                <th class="w-150-px">Customer Sign Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="transaction-service-report-tbody">
+                                            
+                                           
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="jotform-transaction-panel" 
+                                class="hide-trans-panel on-transaction-panel">
+                                    <table class="transaction-table on-transaction-table" 
+                                    id="jotform-transaction-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="w-200-px">Ticket No.</th>
+                                                <th class="w-150-px">Status</th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody id="transaction-jotform-tbody">
+                                            
+    
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div id="address-transaction-panel" 
+                                class="hide-trans-panel on-transaction-panel">
+
+                                    <table class="transaction-table on-transaction-table" 
+                                    id="address-transaction-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="w-250-px">Region</th>
+                                            <th class="w-250-px">Province</th>
+                                            <th class="w-250-px">City</th>
+                                            <th class="w-250-px">Barangay</th>
+                                            <th class="w-350-px">Street</th>
+                                            <th class="w-150-px">Latitude</th>
+                                            <th class="w-150-px">Longitude</th>
+                                           
+                                        </tr>
+                                    </thead>
+                                    <tbody id="transaction-address-tbody">
+                                        <tr>
+                                            <td class="w-250-px">
+                                                <select class="trans-underline-field w-100 
+                                                region-drop-down"></select></td>
+                                            <td class="w-250-px"> <select class="trans-underline-field w-100 
+                                                province-drop-down"></select></td>
+                                            <td class="w-250-px"> <select class="trans-underline-field w-100 
+                                                city-drop-down"></select></td>
+                                            <td class="w-250-px"> <select class="trans-underline-field w-100 
+                                                barangay-drop-down"></select></td>
+                                            <td class="w-350-px"><input type="text"
+                                                class="trans-underline-field w-100"></td>
+                                            <td class="w-150-px"><input type="text"
+                                                class="trans-underline-field w-100"></td>
+                                            <td class="w-150-px"><input type="text"
+                                                class="trans-underline-field w-100"></td>
+                                           
+                                        </tr>
+
+                                        
+                                    </tbody>
+                                    </table>
+                                </div>
+
+                                <div id="contacts-transaction-panel" 
+                                class="hide-trans-panel on-transaction-panel">
+                                <table class="transaction-table" 
+                                    id="contacts-transaction-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="first-thead-col w-2-5">
+                                                 
+                                                    <a href="#" onclick="addMainTransRow()"><i class="fa fa-plus"></i></a>
+                                                  
+                                                </th>
+                                                
+                                                <th class="w-25">Contact Person</th>
+                                                <th class="w-20">Job Position</th>
+                                                <th class="w-17-5">Tel No./Cellphone Number</th>
+                                                <th class="w-25">Email</th>
+                                                <th class="w-10">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="transaction-contacts-tbody">
+                                            
+    
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div id="main-transaction-services-area">
+                            <div class="main-transaction-head-area">
+                                <div class="main-transaction-head-item 
+                                main-transaction-head-item-active" 
+                                onclick="showSideTable(this)" 
+                                panel-id="machine-transaction-panel">Machine</div>
+                                <div class="main-transaction-head-item" 
+                                panel-id="module-transaction-panel" 
+                                onclick="showSideTable(this)">Module</div>
+                                <div class="main-transaction-head-item" 
+                                panel-id="calibration-transaction-panel" 
+                                onclick="showSideTable(this)">Calibration</div>
+                                <div class="main-transaction-head-item" 
+                                panel-id="maintenance-transaction-panel"  
+                                onclick="showSideTable(this)">Maintenance</div>
+                                <div class="main-transaction-head-item" 
+                                onclick="showSideTable(this)">Peripheral</div>
+                                <div class="main-transaction-head-item" 
+                                onclick="showSideTable(this)">Assay Statistic</div>
+                                <div class="main-transaction-head-item" 
+                                onclick="showSideTable(this)">Others</div>
+                            </div>
+                            <div class="main-transaction-body-area">
+                               
+                                <div id="machine-transaction-panel" class="on-transaction-panel">
+
+                                    <div id="transaction-services-header-area">
+                                        <div class="transaction-services-header-item 
+                                        main-transaction-head-item-active" 
+                                        onclick="showSideTable(this)" 
+                                        panel-id="machine-installation-transaction-panel">Installation</div>
+                                        <div class="transaction-services-header-item" 
+                                        onclick="showSideTable(this)" 
+                                        panel-id="machine-update-transaction-panel">Update</div>
+                                        <div class="transaction-services-header-item" 
+                                        onclick="showSideTable(this)" 
+                                        panel-id="machine-repair-transaction-panel">Repair</div>
+                                        <div class="transaction-services-header-item" 
+                                        onclick="showSideTable(this)" 
+                                        panel-id="machine-transfer-transaction-panel">Transfer</div>
+                                        <div class="transaction-services-header-item" 
+                                        onclick="showSideTable(this)" 
+                                        panel-id="machine-pull-out-transaction-panel">Pull-out</div>
+                                    </div>
+                                    <div id="transaction-services-body-area">
+                                        
+                                            <div id="machine-installation-transaction-panel" 
+                                            class="on-transaction-panel">
+
+                                                <table class="transaction-table on-transaction-table" 
+                                                id="machine-installation-transaction-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="first-thead-col w-20-px">
+                                                             
+                                                                <a href="#" onclick="addMachine().installationRow()"><i class="fa fa-plus"></i></a>
+                                                              
+                                                            </th>
+                                                            
+                                                            <th class="w-150-px">Engineer</th>
+                                                            <th class="w-100-px">Date Installed</th>
+                                                            <th class="w-150-px">Installation Type</th>
+                                                            <th class="w-150-px">Software Version</th>
+                                                            <th class="w-100-px">OS Version</th>
+                                                            <th class="w-150-px">Warranty Expiry Date</th>
+                                                            <th class="w-200-px">Service Contract Expiry Date</th>
+                                                            <th class="w-300-px">Remarks</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="transaction-machine-installation-tbody">
+                                                        
+                                                        
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        
+                                            <div id="machine-update-transaction-panel" 
+                                            class="on-transaction-panel hide-trans-panel">
+                                                
+                                                <table class="transaction-table on-transaction-table" 
+                                                id="machine-update-transaction-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="first-thead-col w-20-px">
+                                                             
+                                                                <a href="#" onclick="addMachine().updateRow()"><i class="fa fa-plus"></i></a>
+                                                              
+                                                            </th>
+                                                            
+                                                            <th class="w-150-px">Serial Number</th>
+                                                            <th class="w-350-px">Facility</th>
+                                                            <th class="w-150-px">Date Installed</th>
+                                                            <th class="w-200-px">Installation Type</th>
+                                                            <th class="w-300-px">Model Number</th>
+                                                            <th class="w-200-px">Installed By</th>
+                                                            <th class="w-150-px">Status</th>
+                                                            <th class="w-150-px">Software Version</th>
+                                                            <th class="w-150-px">OS Version</th>
+                                                            <th class="w-200-px">Warranty Expiry Date</th>
+                                                            <th class="w-200-px">Service Contract Expiry Date</th>
+                                                            <th class="w-300-px">Remarks</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="transaction-machine-update-tbody">
+                                                        
+                                                        
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div id="machine-repair-transaction-panel" 
+                                            class="on-transaction-panel hide-trans-panel">
+                                                <table class="transaction-table" 
+                                                id="machine-repair-transaction-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="first-thead-col w-2-5">
+                                                             
+                                                                <a href="#" onclick="addMachine().repairRow()"><i class="fa fa-plus"></i></a>
+                                                              
+                                                            </th>
+                                                            
+                                                            <th class="w-15">Repair Date</th>
+                                                            <th class="w-22-5">Repair By</th>
+                                                            <th class="w-60">Remarks</th>
+                                                            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="transaction-machine-repair-tbody">
+                                                        
+                                                        
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div id="machine-transfer-transaction-panel" 
+                                            class="on-transaction-panel hide-trans-panel">
+                                            <table class="transaction-table" 
+                                            id="machine-transfer-transaction-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="first-thead-col w-2-5">
+                                                         
+                                                            <a href="#" onclick="addMachine().transferRow()"><i class="fa fa-plus"></i></a>
+                                                          
+                                                        </th>
+                                                        
+                                                        <th class="w-30">Transfer To (Facility)</th>
+                                                        <th class="w-15">Date of Transfer/Installed</th>
+                                                        <th class="w-20">Transfer By</th>
+                                                        <th class="w-32-5">Remarks</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="transaction-machine-transfer-tbody">
+                                                    
+                                              
+                                                    
+                                                </tbody>
+                                            </table>
+                                            </div>
+
+                                            <div id="machine-pull-out-transaction-panel" 
+                                            class="on-transaction-panel hide-trans-panel">
+                                                <table class="transaction-table" 
+                                                id="machine-pullout-transaction-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="first-thead-col w-2-5">
+                                                            
+                                                                <a href="#" onclick="addMachine().pullOutRow()"><i class="fa fa-plus"></i></a>
+                                                            
+                                                            </th>
+                                                            
+                                                            <th class="w-15">Pull-out Date</th>
+                                                            <th class="w-22-5">Pull-out By</th>
+                                                            <th class="w-60">Remarks</th>
+                                                            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="transaction-machine-pullout-tbody">
+                                                        
+                                                        
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                       
+
+                                    </div>
+
+                                </div>
+                                <div id="module-transaction-panel" class="on-transaction-panel 
+                                hide-trans-panel">
+
+                                    <div id="transaction-services-header-area">
+                                        <div class="transaction-services-header-item 
+                                        main-transaction-head-item-active" 
+                                        onclick="showSideTable(this)" 
+                                        panel-id="module-installation-transaction-panel">Installation</div>
+
+                                        <div class="transaction-services-header-item" 
+                                        onclick="showSideTable(this)" 
+                                        panel-id="module-replacement-transaction-panel">Replacement</div>
+
+                                        <div class="transaction-services-header-item" 
+                                        onclick="showSideTable(this)" 
+                                        panel-id="module-update-transaction-panel">Update</div>
+                                    </div>
+                                    <div id="transaction-services-body-area">
+                                        
+                                            <div id="module-installation-transaction-panel" 
+                                            class="on-transaction-panel">
+
+                                                <table class="transaction-table" 
+                                                id="module-installation-transaction-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="first-thead-col w-2-5">
+                                                            
+                                                                <a href="#" onclick="addModule().installationRow()"><i class="fa fa-plus"></i></a>
+                                                            
+                                                            </th>
+                                                            
+                                                            <th class="w-20">Serial Number</th>
+                                                            <th class="w-15">Date Installed</th>
+                                                            <th class="w-15">Location</th>
+                                                            <th class="w-25">Engineer</th>
+                                                            <th class="w-22-5">Installation Type</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="transaction-module-installation-tbody">
+                                                        
+                                                        
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div id="module-replacement-transaction-panel" 
+                                            class="on-transaction-panel">
+
+                                                <table class="transaction-table on-transaction-table" 
+                                                id="module-replacement-transaction-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="first-thead-col w-20-px">
+                                                            
+                                                                <a href="#" onclick="addModule().replaceRow()"><i class="fa fa-plus"></i></a>
+                                                            
+                                                            </th>
+                                                            <th class="w-150-px">Current Module SN</th>
+                                                            <th class="w-150-px">New Module SN</th>
+                                                            <th class="w-100-px">Date Installed</th>
+                                                            <th class="w-200-px">Engineer</th>
+                                                            <th class="w-100-px">Location</th>
+                                                            <th class="w-200-px">Installation Type</th>
+                                                            <th class="w-150-px">Part Number</th>
+                                                            <th class="w-150-px">Revision Number</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="transaction-module-replacement-tbody">
+                                                        
+                                                        
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div id="module-update-transaction-panel" 
+                                            class="on-transaction-panel">
+
+                                                <table class="transaction-table on-transaction-table" 
+                                                id="module-update-transaction-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="first-thead-col w-20-px">
+                                                            
+                                                                <a href="#" onclick="addModule().updateRow()"><i class="fa fa-plus"></i></a>
+                                                            
+                                                            </th>
+                                                            <th class="w-150-px">Module SN</th>
+                                                            <th class="w-100-px">Date Installed</th>
+                                                            <th class="w-200-px">Engineer</th>
+                                                            <th class="w-100-px">Location</th>
+                                                            <th class="w-200-px">Installation Type</th>
+                                                            <th class="w-200-px">Status</th>
+                                                            <th class="w-150-px">Part Number</th>
+                                                            <th class="w-150-px">Revision Number</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="transaction-module-update-tbody">
+                                                        
+                                                        
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                    </div>
+                                
+                                </div>
+
+                                <div id="calibration-transaction-panel" class="on-transaction-panel">
+                                    <table class="transaction-table" 
+                                    id="calibration-transaction-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="first-thead-col w-2-5">
+                                                 
+                                                    <a href="#" onclick="addMachine().installationRow()"><i class="fa fa-plus"></i></a>
+                                                  
+                                                </th>
+                                                
+                                                <th class="w-20">Last Calibration</th>
+                                                <th class="w-20">For Next Calibration</th>
+                                                <th class="w-20">Set New Calibration Date</th>
+                                                <th class="w-20">Set Next Calibration Date</th>
+                                                <th class="w-17-5">Calibrate By</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="transaction-calibration-tbody">
+                                            
+                                            
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                
+                                <div id="maintenance-transaction-panel" class="on-transaction-panel">
+                                    <table class="transaction-table" 
+                                    id="maintenance-transaction-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="first-thead-col w-2-5">
+                                                 
+                                                    <a href="#" onclick="addMachine().installationRow()"><i class="fa fa-plus"></i></a>
+                                                  
+                                                </th>
+                                                
+                                                <th class="w-15">Last Maint.</th>
+                                                <th class="w-15">For Next Maint.</th>
+                                                <th class="w-20">Set New Maint. Date</th>
+                                                <th class="w-15">Set Next Maint. Date</th>
+                                                <th class="w-15">Frequency</th>
+                                                <th class="w-17-5">Engineer</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="transaction-maintenance-tbody">
+                                            
+                                            
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="d-flex flex-column transaction-hide" id="transaction-list-frame-area">
+                    <div class="frame-filter-area"  id="transaction-filter-area"></div>
+                <!-- BODY AREA -->
+            
+                <div class="frame-body-area">
+                    
+                    
+                    <div class="frame-content-area">
+                        
+                        <div class="frame-body-list-area d-flex flex-column" id="transaction-normal-views">
+                            <div class="frame-body-list-title-area d-flex" style="width:1250px;">
+                              
+                                <div class="frame-body-list-title-item small" 
+                                style="width:100px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">TRANS ID</div>
+            
+                                <div class="frame-body-list-title-item small" 
+                                style="width:100px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">DATE</div>
+            
+                                <div class="frame-body-list-title-item small" 
+                                style="width:100px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">GENEX SN </div>
+            
+            
+                                <div class="frame-body-list-title-item small" 
+                                style="width:300px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">FACILITY</div>
+            
+                                <div class="frame-body-list-title-item small" 
+                                style="width:150px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">TRANS TYPE</div>
+            
+            
+                                <div class="frame-body-list-title-item small" 
+                                style="width:150px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">SERVICE REPORT</div>
+            
+                                <div class="frame-body-list-title-item small" 
+                                style="width:150px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">JOTFORM</div>
+            
+                                <div class="frame-body-list-title-item small" 
+                                style="width:200px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">TRANSACT BY</div>
+                                
+                            </div>
+                
+                            <div class="frame-body-list-content-area" 
+                            id="transaction-body-list-content-area"
+                            style="width:1250px;"></div>
+                        
+                
+                        </div>
+                
+                        <div id="transaction-tree-views" class="d-none">
+                        </div>
+            
+                    </div>
+            
+                  
+            
+            
+                </div>
+            
+            
+            
+            </div>
+
+        </div>
+
+     
+
+
+    </div>
+
+
+</div>
+
+<script src="../js/xpertcheck.js"></script>
+<script src="../js/preventive-maintenance.js"></script>
+<script src="../js/transaction.js"></script>
+<script src="../js/transaction-list.js"></script>
+<script src="../js/transaction-main.js"></script>

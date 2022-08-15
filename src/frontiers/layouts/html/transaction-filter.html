@@ -1,0 +1,1409 @@
+<link rel="stylesheet" href="../css/transaction-filter.css">
+<div class="filter-content-area">
+
+    <div class="asset-filter-control-panel d-flex" id="transaction-filter-control-panel">
+        <a href="#" 
+        class="asset-filter-control-panel-btn-active" 
+        onclick="showTransPanel(this)" 
+        panel-id="#transaction-filter-transaction-area">Transaction</a>
+
+        <a href="#" onclick="showTransPanel(this)" 
+        panel-id="#transaction-filter-genexpert-area">Genexpert</a>
+
+        <a href="#" onclick="showTransPanel(this)" 
+        panel-id="#transaction-filter-module-area">Module</a>
+
+        <a href="#" onclick="showTransPanel(this)" 
+        panel-id="#transaction-filter-xpertcheck-area">Xpertcheck</a>
+
+        <a href="#" onclick="showTransPanel(this)" 
+        panel-id="#transaction-filter-maintenance-area">Maintenance</a>
+
+        <a href="#" onclick="showTransPanel(this)" 
+        panel-id="#transaction-filter-peripherals-area">Peripherals</a>
+
+        <a href="#" onclick="showTransPanel(this)" 
+        panel-id="#transaction-filter-assays-area">Assay Statistic</a>
+
+        <a href="#" class="asset-filter-submit-btn" onclick="transactionController.filterProcess()">Filter Now</a>
+    </div>
+    <div class="asset-filter-note-area">Note: If you want an exact result, put 
+        (=) sign before you type the search word. </div>
+    <div class="asset-filter-body-area">
+        <div class="asset-filter-category-panel" id="transaction-filter-transaction-area">
+            <div class="asset-filter-category-body">
+    
+                <div class="asset-filter-form-panel-row d-flex">
+                    <div class="asset-filter-form-panel-item w-20">
+    
+                        <div class="asset-filter-form-panel-item-label">Transaction ID</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="text"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            id="transaction-filter-transaction-id">
+                        </div>
+                    </div>
+                    
+                    <div class="asset-filter-form-panel-item w-60">
+    
+                        <div class="asset-filter-form-panel-item-label">Facility</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="text"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            id="transaction-filter-transaction-facility">
+                        </div>
+                    </div>
+    
+                    <div class="asset-filter-form-panel-item w-20">
+                        <div class="asset-filter-form-panel-item-label">Status</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <select name="" id="transaction-filter-transaction-status"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="genex.status">
+                                <option value="0"></option>
+                                <option value="Active">Active</option>
+                                <option value="Terminated">Cancel</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="asset-filter-form-panel-row d-flex">
+                    
+                    <div class="asset-filter-form-panel-item w-20">
+    
+                        <div class="asset-filter-form-panel-item-label">Transaction Date</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="date"
+                            class="transaction-filter-transaction-date w-100" 
+                            id="asset-filter-transaction-date-installed">
+                        </div>
+                    </div>
+                    <div class="asset-filter-form-panel-item w-35">
+                        <div class="asset-filter-form-panel-item-label">Department</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="text"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                id="transaction-filter-transaction-department">
+                        </div>
+                    </div>
+    
+                    <div class="asset-filter-form-panel-item w-25">
+                        <div class="asset-filter-form-panel-item-label">Equipment</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="text"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                id="transaction-filter-transaction-equipment">
+                        </div>
+                    </div>
+                    <div class="asset-filter-form-panel-item w-20">
+                        <div class="asset-filter-form-panel-item-label">Transact By</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <select name="" id="transaction-filter-transaction-transact-by"
+                            class="asset-filter-form-panel-item-field-input w-100 
+                            engineer-drop-down">
+                            <option value="0"></option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <div class="asset-filter-form-panel-row d-flex">
+                  <div class="asset-filter-form-box w-50 mr-2">
+    
+                    <h4>Type of Services</h4>
+    
+                    <div class="asset-filter-form-box-item">
+                        <input type="checkbox" id="transaction-filter-services-installation" 
+                        class="mr-2" checked>
+                        <p>Machine Installation</p>
+                    </div>
+    
+                    <div class="asset-filter-form-box-item">
+                        <input type="checkbox" id="transaction-filter-services-transfer" 
+                        class="mr-2" checked>
+                        <p>Machine Transfer</p>
+                    </div>
+    
+                    <div class="asset-filter-form-box-item">
+                        <input type="checkbox" id="transaction-filter-services-pull-out" 
+                        class="mr-2" checked>
+                        <p>Machine Pull-out</p>
+                    </div>
+    
+                    <div class="asset-filter-form-box-item">
+                        <input type="checkbox" class="mr-2" 
+                        id="transaction-filter-services-repair" 
+                        checked>
+                        <p>Machine Repair</p>
+                    </div>
+    
+                    <div class="asset-filter-form-box-item">
+                        <input type="checkbox" class="mr-2" 
+                        id="transaction-filter-services-module-installation" checked>
+                        <p>Module Installation</p>
+                    </div>
+    
+                    <div class="asset-filter-form-box-item">
+                        <input type="checkbox" class="mr-2" 
+                        id="transaction-filter-services-module-replacement" checked>
+                        <p>Module Replacement</p>
+                    </div>
+    
+                    <div class="asset-filter-form-box-item">
+                        <input type="checkbox" class="mr-2" 
+                        id="transaction-filter-services-xpertcheck" checked>
+                        <p>Xpertcheck</p>
+                    </div>
+    
+                    <div class="asset-filter-form-box-item">
+                        <input type="checkbox" class="mr-2" 
+                        id="transaction-filter-services-maintenance" checked>
+                        <p>Maintenance</p>
+                    </div>
+    
+                    <div class="asset-filter-form-box-item">
+                        <input type="checkbox" class="mr-2" 
+                        id="transaction-filter-services-peripherals" checked>
+                        <p>Peripherals</p>
+                    </div>
+    
+                    <div class="asset-filter-form-box-item">
+                        <input type="checkbox" class="mr-2" 
+                        id="transaction-filter-services-assay-statistic" checked>
+                        <p>Assay Statistic</p>
+                    </div>
+    
+    
+                  </div>
+    
+                  <div class="asset-filter-form-box w-50 h-25">
+    
+                    <div class="asset-filter-form-box-item">
+                        <input type="checkbox" class="mr-2" 
+                        id="transaction-filter-transaction-has-service-report" checked>
+                        <p>Has service report</p>
+                    </div>
+    
+                    <div class="asset-filter-form-box-item">
+                        <input type="checkbox" class="mr-2" 
+                        id="transaction-filter-transaction-no-service-report" checked>
+                        <p>No service report</p>
+                    </div>
+    
+                    <div class="asset-filter-form-box-item">
+                        <input type="checkbox" class="mr-2" 
+                        id="transaction-filter-transaction-has-jotform" checked>
+                        <p>Has jotform</p>
+                    </div>
+    
+                    <div class="asset-filter-form-box-item">
+                        <input type="checkbox" class="mr-2" 
+                        id="transaction-filter-transaction-no-jotform" checked>
+                        <p>No jotform</p>
+                    </div>
+    
+                  </div>
+                   
+                </div>
+             
+               
+                
+            </div>
+        </div>
+
+        <div class="asset-filter-category-panel" id="transaction-filter-genexpert-area">
+    
+            <div class="asset-filter-category-body">
+
+                <div class="asset-filter-form-panel-row asset-filter-form-box w-100 
+                transaction-genexpert-box">
+                    <h4 class="mb-2">Machine Information</h4>
+                    
+                    <div class="asset-filter-form-panel-row d-flex">
+                        <div class="asset-filter-form-panel-item w-20">
+
+                            <div class="asset-filter-form-panel-item-label">Serial Number</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                id="transaction-filter-genexpert-serial-number">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-52">
+
+                            <div class="asset-filter-form-panel-item-label">Facility</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                id="transaction-filter-genexpert-facility">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-18">
+
+                            <div class="asset-filter-form-panel-item-label">Date Installed</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="date"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                id="transaction-filter-genexpert-date-installed">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-10">
+                            <div class="asset-filter-form-panel-item-label">Status</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select id="transaction-genexpert-filter-status"
+                                    class="asset-filter-form-panel-item-field-input w-100">
+                                    <option value="0"></option>
+                                    <option value="Active">Active</option>
+                                    <option value="Terminated">Terminated</option>
+                                    <option value="Under Repair">Under Repair</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="asset-filter-form-panel-row d-flex">
+                        <div class="asset-filter-form-panel-item w-28">
+
+                            <div class="asset-filter-form-panel-item-label">Installed By</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select id="transaction-filter-genexpert-installed-by"
+                                    class="asset-filter-form-panel-item-field-input 
+                                    w-100 engineer-drop-down">
+                                    <option value="0"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-28">
+                            <div class="asset-filter-form-panel-item-label">Installation Type</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select id="transaction-filter-genexpert-installation-type" 
+                                    class="asset-filter-form-panel-item-field-input w-100 
+                                    installation-type-drop-down">
+                                    <option value="0"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-44">
+                            <div class="asset-filter-form-panel-item-label">Model Number</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select id="transaction-filter-genexpert-model-number"  
+                                    class="asset-filter-form-panel-item-field-input 
+                                    model-number-drop-down 
+                                    w-100">
+                                    <option value="0"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="asset-filter-form-panel-row d-flex">
+                        <div class="asset-filter-form-panel-item w-40">
+                            <div class="asset-filter-form-panel-item-label">Remarks</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" id="transaction-filter-genexpert-remarks" 
+                                class="asset-filter-form-panel-item-field-input w-100">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-30">
+                            <div class="asset-filter-form-panel-item-label">Region</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select id="transaction-filter-address-region" 
+                                    class="asset-filter-form-panel-item-field-input 
+                                    region-drop-down 
+                                    w-100">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="asset-filter-form-panel-item w-30">
+                            <div class="asset-filter-form-panel-item-label">Province</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select id="transaction-filter-address-province"  
+                                    class="asset-filter-form-panel-item-field-input 
+                                    w-100 province-drop-down">
+                                    <option value=""></option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="asset-filter-form-panel-row d-flex">
+
+                        <div class="asset-filter-form-panel-item w-30">
+                            <div class="asset-filter-form-panel-item-label">City</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select id="transaction-filter-address-city"  
+                                    class="asset-filter-form-panel-item-field-input 
+                                    w-100 city-drop-down">
+                                    <option value=""></option>
+                                    <option value="">MACARE-PBDC</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="asset-filter-form-panel-item w-30">
+                            <div class="asset-filter-form-panel-item-label">Barangay</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select id="transaction-filter-address-barangay"  
+                                    class="asset-filter-form-panel-item-field-input 
+                                    w-100 barangay-drop-down">
+                                    <option value=""></option>
+                                    <option value="">MACARE-PBDC</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="asset-filter-form-panel-item w-40">
+                            <div class="asset-filter-form-panel-item-label">Street</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" id="transaction-filter-address-street"  
+                                class="asset-filter-form-panel-item-field-input w-100">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="asset-filter-form-panel-row d-flex">
+                        <div class="asset-filter-form-panel-item w-20">
+                            <div class="asset-filter-form-panel-item-label">Latitude</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" id="transaction-filter-address-latitude"  
+                                class="asset-filter-form-panel-item-field-input w-100">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-20">
+                            <div class="asset-filter-form-panel-item-label">Longitude</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" 
+                                id="transaction-filter-address-longitude"
+                                class="asset-filter-form-panel-item-field-input w-100">
+                            </div>
+                        </div>
+
+                        <div class="asset-filter-form-panel-item w-30">
+
+                            <div class="asset-filter-form-panel-item-label">Contact Person</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" 
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                id="transaction-filter-contact-person">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-30">
+
+                            <div class="asset-filter-form-panel-item-label">Contact Position</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" 
+                                id="transaction-filter-contact-position"
+                                class="asset-filter-form-panel-item-field-input 
+                                w-100">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="asset-filter-form-panel-row d-flex">
+                        <div class="asset-filter-form-panel-item w-30">
+
+                            <div class="asset-filter-form-panel-item-label">Contact Email</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" id="asset-filter-contact-email"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="genex_faci_cont.email">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-30">
+                            <div class="asset-filter-form-panel-item-label">Contact Number</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" id="asset-filter-contact-number"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="genex_faci_cont.contactnumber">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-20">
+
+                            <div class="asset-filter-form-panel-item-label">Software Version</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" id="asset-filter-software-version"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="genex.software_version">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-20">
+
+                            <div class="asset-filter-form-panel-item-label">OS Version</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" id="asset-filter-os-version"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="genex.os_version">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="asset-filter-form-panel-row d-flex">
+                        <div class="asset-filter-form-panel-item w-20">
+
+                            <div class="asset-filter-form-panel-item-label">Warranty Expiry Date</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="date" id="asset-filter-warranty-expiry-date"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="genex.warranty_expiry_date">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-20">
+
+                            <div class="asset-filter-form-panel-item-label">Service Contract Expiry Date</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="date" id="asset-filter-service-contract-expiry-date" 
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="genex.service_contract_expiry_date">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-20">
+
+                            <div class="asset-filter-form-panel-item-label">Date Added</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="date" id="asset-filter-date-added" 
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="genex.dateadded">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-20">
+                            <div class="asset-filter-form-panel-item-label">Added By</div>
+                            <div class="asset-filter-form-panel-item-field w-100">  
+                                <input type="text" id="asset-filter-added-by"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-fname="genex_user_addedby.firstname" 
+                                data-field-lname="genex_user_addedby.lastname">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-20">
+                            <div class="asset-filter-form-panel-item-label">Updated By</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                    <input type="text" id="asset-filter-updated-by"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-fname="genex_user_updatedby.firstname" 
+                                data-field-lname="genex_user_updatedby.lastname">
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+
+                <div class="asset-filter-form-panel-row asset-filter-form-box w-100 
+                transaction-genexpert-box">
+                    <h4 class="mb-2">Repair Information</h4>
+                    
+                    <div class="asset-filter-form-panel-row d-flex">
+                        <div class="asset-filter-form-panel-item w-30">
+
+                            <div class="asset-filter-form-panel-item-label">Repair By</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select name="" id="asset-filter-genexpert-installed-by"
+                                    class="asset-filter-form-panel-item-field-input w-100 engineer-drop-down" 
+                                    data-field-name="genex_eng.engineerID" 
+                                    data-field-name-v2="genex_eng.fullname">
+                                    <option value="0"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-50">
+
+                          
+                        </div>
+                        <div class="asset-filter-form-panel-item w-20">
+
+                            <div class="asset-filter-form-panel-item-label">Repair Date</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="date" id="asset-filter-warranty-expiry-date"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="genex.warranty_expiry_date">
+                            </div>
+                        </div>
+                     
+                    </div>
+
+                    <div class="asset-filter-form-panel-row d-flex">
+
+                        <div class="asset-filter-form-panel-item w-100">
+
+                            <div class="asset-filter-form-panel-item-label">Remarks</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <textarea id="asset-filter-warranty-expiry-date"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name=""></textarea>
+                                
+                            </div>
+                        </div>
+                     
+                    </div>
+            
+    
+                </div>
+
+                <div class="asset-filter-form-panel-row asset-filter-form-box w-100 
+                transaction-genexpert-box">
+                    <h4 class="mb-2">Transfer Information</h4>
+                    
+                    <div class="asset-filter-form-panel-row d-flex">
+                        <div class="asset-filter-form-panel-item w-30">
+
+                            <div class="asset-filter-form-panel-item-label">Transfer By</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select name="" id="asset-filter-genexpert-installed-by"
+                                    class="asset-filter-form-panel-item-field-input w-100 engineer-drop-down" 
+                                    data-field-name="genex_eng.engineerID" 
+                                    data-field-name-v2="genex_eng.fullname">
+                                    <option value="0"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-50">
+                            <div class="asset-filter-form-panel-item-label">Transfer To</div>
+                            <input type="text" id="asset-filter-warranty-expiry-date"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="genex.warranty_expiry_date">
+                          
+                        </div>
+                        <div class="asset-filter-form-panel-item w-20">
+
+                            <div class="asset-filter-form-panel-item-label">Transfer Date</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="date" id="asset-filter-warranty-expiry-date"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="genex.warranty_expiry_date">
+                            </div>
+                        </div>
+                     
+                    </div>
+
+                    <div class="asset-filter-form-panel-row d-flex">
+
+                        <div class="asset-filter-form-panel-item w-100">
+
+                            <div class="asset-filter-form-panel-item-label">Remarks</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <textarea id="asset-filter-warranty-expiry-date"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name=""></textarea>
+                                
+                            </div>
+                        </div>
+                     
+                    </div>
+            
+    
+                </div>
+
+                <div class="asset-filter-form-panel-row asset-filter-form-box w-100 
+                transaction-genexpert-box">
+                    <h4 class="mb-2">Pull Out Information</h4>
+                    
+                    <div class="asset-filter-form-panel-row d-flex">
+                        <div class="asset-filter-form-panel-item w-30">
+
+                            <div class="asset-filter-form-panel-item-label">Pull Out By</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select name="" id="asset-filter-genexpert-installed-by"
+                                    class="asset-filter-form-panel-item-field-input w-100 engineer-drop-down" 
+                                    data-field-name="genex_eng.engineerID" 
+                                    data-field-name-v2="genex_eng.fullname">
+                                    <option value="0"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-50">
+                          
+                          
+                        </div>
+                        <div class="asset-filter-form-panel-item w-20">
+
+                            <div class="asset-filter-form-panel-item-label">Pull-out Date</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="date" id="asset-filter-warranty-expiry-date"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="genex.warranty_expiry_date">
+                            </div>
+                        </div>
+                     
+                    </div>
+
+                    <div class="asset-filter-form-panel-row d-flex">
+
+                        <div class="asset-filter-form-panel-item w-100">
+
+                            <div class="asset-filter-form-panel-item-label">Remarks</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <textarea id="asset-filter-warranty-expiry-date"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name=""></textarea>
+                                
+                            </div>
+                        </div>
+                     
+                    </div>
+            
+    
+                </div>
+
+
+            </div>
+    
+        </div>
+
+        <div class="asset-filter-category-panel" id="transaction-filter-module-area">
+    
+            <div class="asset-filter-category-body">
+
+                <div class="asset-filter-form-panel-row asset-filter-form-box w-100 
+                transaction-genexpert-box">
+                    <h4 class="mb-2">Module Information</h4>
+                    <div class="asset-filter-form-panel-row d-flex">
+                        <div class="asset-filter-form-panel-item w-20">
+                            <div class="asset-filter-form-panel-item-label">Serial Number</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" id="asset-filter-module-serial-number"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="modu.serialnumber">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-10">
+                            <div class="asset-filter-form-panel-item-label">Location</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" id="asset-filter-module-location" 
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="modu.location">
+                            </div>
+                        </div>
+        
+                        <div class="asset-filter-form-panel-item w-20">
+                            <div class="asset-filter-form-panel-item-label">Date Installed</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="date"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                id="asset-filter-module-date-installed" 
+                                data-field-name="modu.dateinstalled">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-25">
+                            <div class="asset-filter-form-panel-item-label">Installed By</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select name="" id="asset-filter-module-installed-by"
+                                    class="asset-filter-form-panel-item-field-input engineer-drop-down
+                                    w-100" data-field-name="modu_eng.engineerID" 
+                                    data-field-name-v2="modu_eng.fullname">
+                                    <option value="0"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-25">
+                            <div class="asset-filter-form-panel-item-label">Installation Type</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select name="" id="asset-filter-module-installation-type"
+                                    class="asset-filter-form-panel-item-field-input w-100 installation-type-drop-down" 
+                                    data-field-name="modu_inst.itID" 
+                                    data-field-name-v2="modu_inst.itName">
+                                    <option value="0"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="asset-filter-form-panel-row d-flex">
+                        <div class="asset-filter-form-panel-item w-25">
+                            <div class="asset-filter-form-panel-item-label">Part Number</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" id="asset-filter-module-part-number" 
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="modu.part_number">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-25">
+                            <div class="asset-filter-form-panel-item-label">Revision Number</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" id="asset-filter-module-revision-number" 
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="modu.revision_number">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-25">
+                            <div class="asset-filter-form-panel-item-label">Added By</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="text" id="asset-filter-module-added-by" 
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-fname="modu_user_addedby.firstname" 
+                                data-field-lname="modu_user_addedby.lastname">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-25">
+                            <div class="asset-filter-form-panel-item-label">Status</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select name="" id="asset-filter-module-status"
+                                    class="asset-filter-form-panel-item-field-input 
+                                    w-100" data-field-name="modu.status">
+                                    <option value="0"></option>
+                                    <option value="Active">Active</option>
+                                    <option value="Terminated">Terminated</option>
+                                    <option value="Under Repair">Under Repair</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+               
+    
+                </div>
+
+                <div class="asset-filter-form-panel-row asset-filter-form-box w-100 
+                transaction-genexpert-box">
+                    <h4 class="mb-2">Replacement Information</h4>
+                    
+                    <div class="asset-filter-form-panel-row d-flex">
+
+                        <div class="asset-filter-form-panel-item w-20">
+
+                            <div class="asset-filter-form-panel-item-label">Installation Date</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <input type="date" id="asset-filter-warranty-expiry-date"
+                                class="asset-filter-form-panel-item-field-input w-100" 
+                                data-field-name="genex.warranty_expiry_date">
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-25">
+
+                            <div class="asset-filter-form-panel-item-label">Engineer</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <select name="" id="asset-filter-genexpert-installed-by"
+                                    class="asset-filter-form-panel-item-field-input w-100 engineer-drop-down" 
+                                    data-field-name="genex_eng.engineerID" 
+                                    data-field-name-v2="genex_eng.fullname">
+                                    <option value="0"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="asset-filter-form-panel-item w-15">
+
+                            <div class="asset-filter-form-panel-item-label">For Replacement</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <div class="asset-filter-form-panel-item-field w-100">
+                                    <input type="text" id="asset-filter-warranty-expiry-date"
+                                    class="asset-filter-form-panel-item-field-input w-100" 
+                                    data-field-name="genex.warranty_expiry_date">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="asset-filter-form-panel-item w-20">
+
+                            <div class="asset-filter-form-panel-item-label">Revision Number</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <div class="asset-filter-form-panel-item-field w-100">
+                                    <input type="text" id="asset-filter-warranty-expiry-date"
+                                    class="asset-filter-form-panel-item-field-input w-100" 
+                                    data-field-name="genex.warranty_expiry_date">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="asset-filter-form-panel-item w-20">
+
+                            <div class="asset-filter-form-panel-item-label">Part Number</div>
+                            <div class="asset-filter-form-panel-item-field w-100">
+                                <div class="asset-filter-form-panel-item-field w-100">
+                                    <input type="text" id="asset-filter-warranty-expiry-date"
+                                    class="asset-filter-form-panel-item-field-input w-100" 
+                                    data-field-name="genex.warranty_expiry_date">
+                                </div>
+                            </div>
+                        </div>
+
+                     
+                    </div>
+
+            
+    
+                </div>
+
+
+            </div>
+    
+        </div>
+
+        <div class="asset-filter-category-panel" id="transaction-filter-xpertcheck-area">
+
+            <!-- <div class="asset-filter-category-body">
+                <div class="xpertcheck-filter-form-panel-row d-flex">
+                        
+                    <div class="xpertcheck-filter-form-panel-item w-25">
+                        <div class="xpertcheck-filter-form-panel-item-label">Current (Full)</div>
+                        <div class="xpertcheck-filter-form-panel-item-field w-100 d-flex">
+                            <input type="date" id="transaction-filter-xpertcheck-current-full-date"
+                            class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                            data-field-name="a.calibrate_start">
+                        </div>
+                    </div>
+
+                    <div class="xpertcheck-filter-form-panel-item w-25">
+                        <div class="xpertcheck-filter-form-panel-item-label">Current (Split)</div>
+                        <div class="xpertcheck-filter-form-panel-item-field w-100">
+                            <div class="d-flex">
+                                <select id="transaction-filter-xpertcheck-current-month" 
+                                class="xpertcheck-filter-form-panel-item-field-input w-50"
+                                data-field-name="a.calibrate_start" data-field-name-part="month">
+                                    <option value="0"></option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+
+                                <script>
+                                    var currentYear = new Date().getFullYear();
+                                </script>
+
+                                <select id="transaction-filter-xpertcheck-current-date" 
+                                class="xpertcheck-filter-form-panel-item-field-input w-20"
+                                data-field-name="a.calibrate_start" data-field-name-part="date">
+
+                                <script>
+                                    $("#transaction-filter-xpertcheck-current-date").html("");
+                                    $("#transaction-filter-xpertcheck-current-date")
+                                        .append(`<option value="0"></option>`);
+                                    for(let x = 1; x<=31; x++){
+                                        $("#transaction-filter-xpertcheck-current-date")
+                                        .append(`<option value="${x}">${x}</option>`);
+                                        
+                                    }
+                                </script>
+                                 
+                                </select>
+
+                                <select id="transaction-filter-xpertcheck-current-year" 
+                                class="xpertcheck-filter-form-panel-item-field-input w-30"
+                                data-field-name="a.calibrate_start" data-field-name-part="year">
+
+                                <script>
+                                    $("#transaction-filter-xpertcheck-current-year").html("");
+                                    $("#transaction-filter-xpertcheck-current-year")
+                                        .append(`<option value="0"></option>`);
+                                    let min = currentYear-50;
+                                    let max = currentYear+10;  
+                                    for(min; min<=max; min++){
+                                        $("#transaction-filter-xpertcheck-current-year")
+                                        .append(`<option value="${min}">${min}</option>`)
+                                        
+                                    }
+                                </script>
+                                 
+                                </select>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    
+
+                    <div class="xpertcheck-filter-form-panel-item w-25">
+                        <div class="xpertcheck-filter-form-panel-item-label">Due (Calendar)</div>
+                        <div class="xpertcheck-filter-form-panel-item-field w-100 d-flex">
+                            <input type="date" id="transaction-filter-xpertcheck-due-full-date"
+                            class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                            data-field-name="a.calibrate_done">
+                        </div>
+                    </div>
+
+                    <div class="xpertcheck-filter-form-panel-item w-25">
+                        <div class="xpertcheck-filter-form-panel-item-label">Due (Split)</div>
+                        <div class="xpertcheck-filter-form-panel-item-field w-100">
+                            <div class="d-flex">
+                                <select id="transaction-filter-xpertcheck-due-month" 
+                                class="xpertcheck-filter-form-panel-item-field-input w-50"
+                                data-field-name="a.calibrate_done" data-field-name-part="month">
+                                    <option value="0"></option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+
+                                <select id="transaction-filter-xpertcheck-due-date" 
+                                class="xpertcheck-filter-form-panel-item-field-input w-20"
+                                data-field-name="a.calibrate_done" data-field-name-part="date">
+
+                                <script>
+                                    $("#transaction-filter-xpertcheck-due-date").html("");
+                                    $("#transaction-filter-xpertcheck-due-date")
+                                        .append(`<option value="0"></option>`);
+                                    for(let x = 1; x<=31; x++){
+                                        $("#transaction-filter-xpertcheck-due-date")
+                                        .append(`<option value="${x}">${x}</option>`);
+                                        
+                                    }
+                                </script>
+                                 
+                                </select>
+
+                                <select id="transaction-filter-xpertcheck-due-year" 
+                                class="xpertcheck-filter-form-panel-item-field-input w-30"
+                                data-field-name="a.calibrate_done" data-field-name-part="year">
+
+                                <script>
+                                    $("#transaction-filter-xpertcheck-due-year").html("");
+                                    $("#transaction-filter-xpertcheck-due-year")
+                                        .append(`<option value="0"></option>`);
+                                    let dueMin = currentYear-50;
+                                    let dueMax = currentYear+10;  
+                                    for(dueMin; dueMin<=dueMax; dueMin++){
+                                        $("#transaction-filter-xpertcheck-due-year")
+                                        .append(`<option value="${dueMin}">${dueMin}</option>`)
+                                        
+                                    }
+                                </script>
+                                 
+                                </select>
+                            </div>
+                           
+                        </div>
+                    </div>
+        
+                </div>
+                <div class="xpertcheck-filter-form-panel-row d-flex">
+
+                    <div class="xpertcheck-filter-form-panel-item w-30">
+                        <div class="xpertcheck-filter-form-panel-item-label">Calibrate By</div>
+                        <div class="xpertcheck-filter-form-panel-item-field w-100">
+                            <select name="" id="transaction-filter-xpertcheck-engineer"
+                                class="xpertcheck-filter-form-panel-item-field-input w-100
+                                engineer-drop-down" 
+                                data-field-name="i.engineerID">
+                                <option value="0"></option> 
+                            </select>
+                        </div>
+                    </div>
+                    
+
+                    <div class="xpertcheck-filter-form-panel-item w-30">
+                        <div class="xpertcheck-filter-form-panel-item-label">Updated By</div>
+                        <div class="xpertcheck-filter-form-panel-item-field w-100">
+                            <input type="text" id="transaction-filter-xpertcheck-updated-by"
+                            class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                            data-field-fname="k.firstname" data-field-lname="k.lastname">
+                        </div>
+                    </div>
+                    <div class="xpertcheck-filter-form-panel-item w-20">
+                        <div class="xpertcheck-filter-form-panel-item-label">Updated Date</div>
+                        <div class="xpertcheck-filter-form-panel-item-field w-100 d-flex">
+                            <input type="date" id="transaction-filter-xpertcheck-updated-date"
+                            class="xpertcheck-filter-form-panel-item-field-input w-100" 
+                            data-field-name="a.dateupdated">
+                        </div>
+                    </div>
+                
+                </div>
+
+            </div> -->
+        
+        </div>
+
+        <div class="asset-filter-category-panel" id="transaction-filter-maintenance-area">
+<!-- 
+            <div class="asset-filter-category-body">
+
+                <div class="pm-filter-form-panel-row d-flex">
+                    
+                    <div class="pm-filter-form-panel-item w-25">
+                        <div class="pm-filter-form-panel-item-label">Current (Full)</div>
+                        <div class="pm-filter-form-panel-item-field w-100 d-flex">
+                            <input type="date" id="transaction-filter-pm-current-full-date"
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-name="a.calibrate_start">
+                        </div>
+                    </div>
+
+                    <div class="pm-filter-form-panel-item w-25">
+                        <div class="pm-filter-form-panel-item-label">Current (Split)</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <div class="d-flex">
+                                <select id="transaction-filter-pm-current-month" 
+                                class="pm-filter-form-panel-item-field-input w-50"
+                                data-field-name="a.calibrate_start" data-field-name-part="month">
+                                    <option value="0"></option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+
+                                <script>
+                                    var currentYear = new Date().getFullYear();
+                                </script>
+
+                                <select id="transaction-filter-pm-current-date" 
+                                class="pm-filter-form-panel-item-field-input w-20"
+                                data-field-name="a.calibrate_start" data-field-name-part="date">
+
+                                <script>
+                                    $("#transaction-filter-pm-current-date").html("");
+                                    $("#transaction-filter-pm-current-date")
+                                        .append(`<option value="0"></option>`);
+                                    for(let x = 1; x<=31; x++){
+                                        $("#transaction-filter-pm-current-date")
+                                        .append(`<option value="${x}">${x}</option>`);
+                                        
+                                    }
+                                </script>
+                                    
+                                </select>
+
+                                <select id="transaction-filter-pm-current-year" 
+                                class="pm-filter-form-panel-item-field-input w-30"
+                                data-field-name="a.calibrate_start" data-field-name-part="year">
+
+                                <script>
+                                    $("#transaction-filter-pm-current-year").html("");
+                                    $("#transaction-filter-pm-current-year")
+                                        .append(`<option value="0"></option>`);
+                                    let cmin = currentYear-50;
+                                    let cmax = currentYear+10;  
+                                    for(cmin; cmin<=cmax; cmin++){
+                                        $("#transaction-filter-pm-current-year")
+                                        .append(`<option value="${cmin}">${cmin}</option>`)
+                                        
+                                    }
+                                </script>
+                                    
+                                </select>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <div class="pm-filter-form-panel-item w-25">
+                        <div class="pm-filter-form-panel-item-label">Due (Calendar)</div>
+                        <div class="pm-filter-form-panel-item-field w-100 d-flex">
+                            <input type="date" id="transaction-filter-pm-due-full-date"
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-name="a.calibrate_done">
+                        </div>
+                    </div>
+
+                    <div class="pm-filter-form-panel-item w-25">
+                        <div class="pm-filter-form-panel-item-label">Due (Split)</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <div class="d-flex">
+                                <select id="transaction-filter-pm-due-month" 
+                                class="pm-filter-form-panel-item-field-input w-50"
+                                data-field-name="a.calibrate_done" data-field-name-part="month">
+                                    <option value="0"></option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+
+                                <select id="transaction-filter-pm-due-date" 
+                                class="pm-filter-form-panel-item-field-input w-20"
+                                data-field-name="a.calibrate_done" data-field-name-part="date">
+
+                                <script>
+                                    $("#transaction-filter-pm-due-date").html("");
+                                    $("#transaction-filter-pm-due-date")
+                                        .append(`<option value="0"></option>`);
+                                    for(let x = 1; x<=31; x++){
+                                        $("#transaction-filter-pm-due-date")
+                                        .append(`<option value="${x}">${x}</option>`);
+                                        
+                                    }
+                                </script>
+                                    
+                                </select>
+
+                                <select id="transaction-filter-pm-due-year" 
+                                class="pm-filter-form-panel-item-field-input w-30"
+                                data-field-name="a.calibrate_done" data-field-name-part="year">
+
+                                <script>
+                                    $("#transaction-filter-pm-due-year").html("");
+                                    $("#transaction-filter-pm-due-year")
+                                        .append(`<option value="0"></option>`);
+                                    let pmdueMin  = currentYear-50;
+                                    let pmdueMax  = currentYear+10;  
+                                    for(dueMin; pmdueMin<=pmdueMax; pmdueMin++){
+                                        $("#transaction-filter-pm-due-year")
+                                        .append(`<option value="${pmdueMin }">${pmdueMin }</option>`)
+                                        
+                                    }
+                                </script>
+                                    
+                                </select>
+                            </div>
+                            
+                        </div>
+                    </div>
+        
+                </div>
+                <div class="pm-filter-form-panel-row d-flex">
+
+                    <div class="pm-filter-form-panel-item w-30">
+                        <div class="pm-filter-form-panel-item-label">Calibrate By</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <select name="" id="transaction-filter-pm-engineer"
+                                class="pm-filter-form-panel-item-field-input w-100
+                                engineer-drop-down" 
+                                data-field-name="i.engineerID">
+                                <option value="0"></option> 
+                            </select>
+                        </div>
+                    </div>
+                    
+
+                    <div class="pm-filter-form-panel-item w-30">
+                        <div class="pm-filter-form-panel-item-label">Updated By</div>
+                        <div class="pm-filter-form-panel-item-field w-100">
+                            <input type="text" id="transaction-filter-pm-updated-by"
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-fname="k.firstname" data-field-lname="k.lastname">
+                        </div>
+                    </div>
+                    <div class="pm-filter-form-panel-item w-20">
+                        <div class="pm-filter-form-panel-item-label">Updated Date</div>
+                        <div class="pm-filter-form-panel-item-field w-100 d-flex">
+                            <input type="date" id="transaction-filter-pm-updated-date"
+                            class="pm-filter-form-panel-item-field-input w-100" 
+                            data-field-name="a.dateupdated">
+                        </div>
+                    </div>
+                
+                </div>
+    
+            </div> -->
+        
+        </div>
+
+        <div class="asset-filter-category-panel" id="transaction-filter-peripherals-area">
+            <div class="asset-filter-category-body">
+
+                <div class="asset-filter-form-panel-row d-flex">
+
+                    <div class="asset-filter-form-panel-item w-32">
+                        <div class="asset-filter-form-panel-item-label">Peripheral Name</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="text" id="transaction-filter-module-serial-number"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="r">
+                        </div>
+                    </div>
+
+                    <div class="asset-filter-form-panel-item w-30">
+                        <div class="asset-filter-form-panel-item-label">Peripheral Serial Number</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="text" id="transaction-filter-module-serial-number"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="r">
+                        </div>
+                    </div>
+
+                    <div class="asset-filter-form-panel-item w-30">
+                        <div class="asset-filter-form-panel-item-label">Peripheral Model Number</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="text" id="transaction-filter-module-serial-number"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="r">
+                        </div>
+                    </div>
+
+
+                    
+                   
+                </div>
+
+                <div class="asset-filter-form-panel-row d-flex">
+
+                    <div class="asset-filter-form-panel-item w-25">
+                        <div class="asset-filter-form-panel-item-label">Added by</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <select name="" id="transaction-filter-xpertcheck-engineer"
+                            class="xpertcheck-filter-form-panel-item-field-input w-100
+                            engineer-drop-down" 
+                            data-field-name="i.engineerID">
+                            <option value="0"></option> 
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="asset-filter-form-panel-item w-20">
+                        <div class="asset-filter-form-panel-item-label">Date Added</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="date" id="transaction-filter-module-serial-number"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="r">
+                        </div>
+                    </div>
+
+                    <div class="asset-filter-form-panel-item w-25">
+                        <div class="asset-filter-form-panel-item-label">Updated by</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <select name="" id="transaction-filter-xpertcheck-engineer"
+                            class="xpertcheck-filter-form-panel-item-field-input w-100
+                            engineer-drop-down" 
+                            data-field-name="i.engineerID">
+                            <option value="0"></option> 
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="asset-filter-form-panel-item w-20">
+                        <div class="asset-filter-form-panel-item-label">Date Updated</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="date" id="transaction-filter-module-serial-number"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="r">
+                        </div>
+                    </div>
+                  
+                   
+                </div>
+
+          
+
+
+            </div>
+        </div>
+
+        <div class="asset-filter-category-panel" id="transaction-filter-assays-area">
+            <div class="asset-filter-category-body">
+
+                <div class="asset-filter-form-panel-row d-flex">
+
+                    <div class="asset-filter-form-panel-item w-20">
+                        <div class="asset-filter-form-panel-item-label">Assays Statistic</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="text" id="transaction-filter-module-serial-number"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="r">
+                        </div>
+                    </div>
+
+                    <div class="asset-filter-form-panel-item w-20">
+                        <div class="asset-filter-form-panel-item-label">Quantity</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="text" id="transaction-filter-module-serial-number"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="r">
+                        </div>
+                    </div>
+
+                    <div class="asset-filter-form-panel-item w-25">
+                        <div class="asset-filter-form-panel-item-label">Added by</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <select name="" id="transaction-filter-xpertcheck-engineer"
+                            class="xpertcheck-filter-form-panel-item-field-input w-100
+                            engineer-drop-down" 
+                            data-field-name="i.engineerID">
+                            <option value="0"></option> 
+                        </select>
+                        </div>
+                    </div>
+
+
+                    
+                   
+                </div>
+
+                <div class="asset-filter-form-panel-row d-flex">
+
+                    <div class="asset-filter-form-panel-item w-20">
+                        <div class="asset-filter-form-panel-item-label">Date Added</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="date" id="transaction-filter-module-serial-number"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="r">
+                        </div>
+                    </div>
+
+                    <div class="asset-filter-form-panel-item w-25">
+                        <div class="asset-filter-form-panel-item-label">Updated by</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <select name="" id="transaction-filter-xpertcheck-engineer"
+                            class="xpertcheck-filter-form-panel-item-field-input w-100
+                            engineer-drop-down" 
+                            data-field-name="i.engineerID">
+                            <option value="0"></option> 
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="asset-filter-form-panel-item w-20">
+                        <div class="asset-filter-form-panel-item-label">Date Updated</div>
+                        <div class="asset-filter-form-panel-item-field w-100">
+                            <input type="date" id="transaction-filter-module-serial-number"
+                            class="asset-filter-form-panel-item-field-input w-100" 
+                            data-field-name="r">
+                        </div>
+                    </div>
+                  
+                   
+                </div>
+
+          
+
+
+            </div>
+        </div>
+
+    </div>    
+ 
+    
+
+</div>
+
+<script>
+    
+    // first panel to show is transaction
+    $("#transaction-filter-control-panel").children("a:first-child").trigger("click");
+
+    function showTransPanel(div){
+        
+        const p = $(div).attr("panel-id");
+        $(p).show().siblings().hide();
+        $(div).addClass("asset-filter-control-panel-btn-active")
+        .siblings().removeClass("asset-filter-control-panel-btn-active");
+    }
+   
+    
+</script>

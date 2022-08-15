@@ -1,0 +1,1571 @@
+<link rel="stylesheet" href="../css/transaction-main.css">
+<link rel="stylesheet" href="../css/transactions.css">
+<link rel="stylesheet" href="../css/transaction-list.css">
+<div class="frame-area" id="transaction-main-frame-area">
+
+    <!-- <script>
+        function toggleTransDocker(div){
+
+            const ma = $(div).parent(".transaction-menu-docker-area")
+            .parent(".transaction-create-services-list-area");
+
+            if(ma.hasClass("transaction-services-hide")){
+                ma.removeClass("transaction-services-hide");
+                $(div).html(`<i class="fa fa-caret-right"></i>  Service List`);
+            }else{
+                ma.addClass("transaction-services-hide");
+                $(div).html(`<i class="fa fa-caret-left"></i>  Service List`);
+            }
+
+           
+           
+        }
+    </script> -->
+    
+                
+    <!-- <div class="transaction-create-services-list-area d-flex transaction-services-hide">
+        <div class="transaction-menu-docker-area">
+            <a href="#" class="trans-docker-btn" onclick="toggleTransDocker(this)">
+                <i class="fa fa-caret-left"></i> Service List</a>
+        </div>
+    </div> -->
+
+    <div class="frame-control-area">
+
+        <!-- control page -->
+        <ul class="d-flex" id="transaction-main-list-control-area">
+            
+
+            <li>
+                <a href="#" class="frame-control-item frame-control-active 
+                genexpert-list-group" frame-name="transaction-frame-area"
+                onclick="displayTransactionOptionType(this)"><i class="fa fa-plus"></i> Add Transaction</a>
+            </li>
+           
+            <li>
+                <a href="#" class="frame-control-item genexpert-list-group" 
+                frame-name="transaction-list-frame-area"
+                onclick="displayTransactionOptionType(this)">List of Transaction</a>
+                
+            </li>
+
+            <li>
+                <a href="#" class="frame-control-item genexpert-list-group 
+                transaction-list-frame-part transaction-hide" onclick="transactionController.onFilterView(this)">
+                <i class="fa fa-filter"></i> Filter Transaction</a>
+            </li>
+
+        </ul>
+
+        <!-- pagination -->
+        <div class="pagination-box d-flex transaction-list-group 
+        transaction-list-frame-part transaction-hide" id="transaction-index-pagination">
+            <!-- <div class="pagination-label small">0-0 of 0</div> -->
+            <div class="pagination-paging-control d-flex">
+                <div class="pagination-previous">
+                    <a href="#" onclick="genexpertController.onPagination().onPage('Prev')" 
+                    class="a-disabled">
+                        <i class="fa fa-chevron-left"></i></a>
+                </div>
+                <div class="pagination-label small">0-0 of 0</div>
+                <div class="pagination-select hide-pagination">
+                    <input type="number" value='1' onkeyup="paginationControl().onKeyUp(event)">
+                </div>
+                <div class="pagination-next">
+                    <a href="#" onclick="genexpertController.onPagination().onPage('Next')">
+                        <i class="fa fa-chevron-right"></i></a>
+                </div>
+                    
+            </div>
+        </div>
+
+      
+    </div>
+    
+
+    <div class="frame-body-area">
+
+        <div class="transaction-view-option-area">
+
+            <div class="d-flex" id="transaction-frame-area">
+
+
+                <div class="transaction-encode-preview-area">
+            
+                    <div class="transaction-encode-preview-box">
+            
+                        <div class="transaction-prev-panel">
+                            <div class="transaction-prev-title">Installation</div>
+                            <div class="transaction-prev-content">
+                                    <div class="transaction-prev-item">
+                                        <div class="transaction-prev-label">Serial Number</div>
+                                        <div class="transaction-prev-value">890456</div>
+                                    </div>
+                                    <div class="transaction-prev-item">
+                                        <div class="transaction-prev-label">Facility</div>
+                                        <div class="transaction-prev-value">Cebu City Medical Center</div>
+                                    </div>
+                                    <div class="transaction-prev-item">
+                                        <div class="transaction-prev-label">Date Installed</div>
+                                        <div class="transaction-prev-value">07/08/2022</div>
+                                    </div>
+            
+                                    <div class="transaction-prev-item">
+                                        <div class="transaction-prev-label">Engineer</div>
+                                        <div class="transaction-prev-value">Jovy Noel</div>
+                                    </div>
+            
+                                    <div class="transaction-prev-item">
+                                        <div class="transaction-prev-label">Model Number</div>
+                                        <div class="transaction-prev-value">Genexpert 4 System</div>
+                                    </div>
+                            </div>
+                        </div>
+                           
+            
+                    </div>
+                
+                </div>
+
+              
+                <div id="transaction-main">
+                    <!-- <div class="frame-main-form"> -->
+                        <div class="frame-form">
+                
+                        <h1>TRANSACTION FORM</h1>
+                        <div class="frame-border"></div>
+                
+                            <!-- <div class="frame-picture-bg"></div>
+                            <div class="frame-blur"></div> -->
+                            <div class="frame-panel" id="facility-panel">
+                                
+                                <!-- facility -->
+                                <div class="frame-row">
+                                    <div class="frame-item d-flex w-100">
+                                        <div class="frame-label">FACILITY/SITE:</div>
+                                        <div class="frame-input w-100">
+                                                    <input type="text"
+                                                    class="trans-underline-field" 
+                                                    id="transaction-facility-field" 
+                                                    onkeyup="getFacilitySN(this)">
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <!-- department -->
+                                <div class="frame-row d-flex">
+                                    <div class="frame-item d-flex w-50">
+                                        <div class="frame-label" style="margin-right:34px;">DEPARTMENT:</div>
+                                        <div class="frame-input w-100">
+                                            <input type="text" class="trans-underline-field"
+                                            id="transaction-department-field">
+                                        
+                                        </div>
+                                    </div>
+                
+                                    <div class="frame-item d-flex w-50">
+                                        <div class="frame-label ml-2">TEL NO:</div>
+                                        <div class="frame-input w-100"><input type="text" 
+                                            id="transaction-tel-no-field"
+                                            class="trans-underline-field"></div>
+                                    </div>
+                                </div>
+                    
+                                <!-- address -->
+                                <div class="frame-row">
+                                    <div class="frame-item w-100">
+                    
+                                        <div class="frame-mini-form">
+                
+                                            <!-- region and province -->
+                                            <div class="frame-row d-flex">
+                                                <div class="frame-item d-flex w-50">
+                                                    <div class="frame-label">REGION:</div>
+                                                    <div class="frame-input w-100">
+                                                        <select
+                                                        class="trans-underline-field region-drop-down" 
+                                                        id="transaction-address-region-field">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="frame-item d-flex w-50">
+                                                    <div class="frame-label ml-2">PROVINCE:</div>
+                                                    <div class="frame-input w-100">
+                                                        <select class="trans-underline-field 
+                                                        province-drop-down" 
+                                                        id="transaction-address-province-field">
+                                                        </select>
+                                                    </div>
+                
+                                                </div>
+                                            
+                                            </div>
+                
+                                            <!-- city and barangay -->
+                                            <div class="frame-row d-flex">
+                                                <div class="frame-item d-flex w-50">
+                                                    <div class="frame-label">CITY:</div>
+                                                    <div class="frame-input w-100">
+                                                        <select class="trans-underline-field 
+                                                        city-drop-down" 
+                                                        id="transaction-address-city-field">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="frame-item d-flex w-50">
+                                                    <div class="frame-label ml-2">BARANGAY:</div>
+                                                    <div class="frame-input w-100">
+                                                        <select class="trans-underline-field 
+                                                        barangay-drop-down" 
+                                                        id="transaction-address-barangay-field">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            <!-- street -->
+                                            <div class="frame-row d-flex">
+                                            
+                                                <div class="frame-item d-flex w-100">
+                                                    <div class="frame-label" 
+                                                    style="margin-right:-20px !important;">STREET:</div>
+                                                    <div class="frame-input w-100">
+                                                        <input type="text" class="trans-underline-field" 
+                                                        id="transaction-address-street-field">
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            <!-- latitude and longitude -->
+                                            <div class="frame-row d-flex">
+                                                <div class="frame-item d-flex w-50">
+                                                    <div class="frame-label">LATITUDE:</div>
+                                                    <div class="frame-input w-100">
+                                                        <input type="text" class="trans-underline-field" 
+                                                        id="transaction-address-latitude-field">
+                                                    </div>
+                                                </div>
+                                                <div class="frame-item d-flex w-50">
+                                                    <div class="frame-label ml-2">LONGITUDE:</div>
+                                                    <div class="frame-input w-100">
+                                                    <input type="text" class="trans-underline-field" 
+                                                    id="transaction-address-longitude-field">
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- contacts -->
+                                <div class="frame-row">
+                                    <div class="frame-item w-100">
+                                        <div class="frame-mini-form">
+                                            <div class="frame-item d-flex w-100">
+                                                <div class="frame-label">CONTACT NAME:</div>
+                                                <div class="frame-input w-100">
+                                                    <input type="text" 
+                                                    class="trans-underline-field" 
+                                                    id="transaction-contact-name-field">
+                                                </div>
+                                            </div>
+                                            <div class="frame-item d-flex w-100">
+                                                <div class="frame-label">POSITION:</div>
+                                                <div class="frame-input w-100"><input type="text" 
+                                                    class="trans-underline-field" 
+                                                    id="transaction-contact-position-field"></div>
+                                            </div>
+                                            <div class="frame-item d-flex w-100">
+                                                <div class="frame-label">CONTACT #:</div>
+                                                <div class="frame-input w-100"><input type="text" 
+                                                    class="trans-underline-field" 
+                                                    id="transaction-contact-number-field"></div>
+                                            </div>
+                                            <div class="frame-item d-flex w-100">
+                                                <div class="frame-label">EMAIL:</div>
+                                                <div class="frame-input w-100"><input type="text" 
+                                                    class="trans-underline-field" 
+                                                    id="transaction-contact-email-field"></div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- jotform -->
+                                <div class="frame-row mt-3">
+                
+                                    <div class="frame-item d-flex w-100">
+                                        <div class="frame-label w-30">Jotform ? </div>
+                                        <div class="frame-input w-70 d-flex">
+                                            <input type="checkbox" 
+                                            class="myinput large custom jotform-toggle-box" 
+                                            id="transaction-jotform-connect-field" style="margin-left:-116px !important;"
+                                            onchange="toggleJotformOption(event)"/>
+                                        <!-- <input type="checkbox" value="yes"
+                                            class="trans-underline-field service-report-toggle-box" onchange="toggleServiceReportOption(event)">  -->
+                                        </div>
+                                    </div>
+                
+                                    <div class="frame-row pt-2 mt-2" id="jotform-reveal-area">
+                                        <div class="frame-item d-flex w-100">
+                                            <div class="frame-label">TICKET NO:</div>
+                                        
+                                            <div class="frame-input w-100 d-flex">
+                
+                                                <select class="trans-underline-field 
+                                                hide-jotform-component transaction-jotform-select 
+                                                transaction-jotform-ticket-no-field" 
+                                                disabled style="width:500px !important">
+                                                </select>
+                
+                                                <input type="text" value="GX-000000"
+                                                class="trans-underline-field transaction-jotform-input
+                                                transaction-jotform-ticket-no-field w-100" 
+                                                id="transaction-jotform-ticket-no-field" disabled 
+                                                style="width:100% !important">
+                
+                                            </div>
+                                            <!-- <div class="frame-input w-30 d-flex">
+                                                <a href="#" class="ml-2 btn btn-secondary trans-underline-field 
+                                                w-100">
+                                                <i class="fa fa-book"></i> Show Ticket Information</a>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                
+                                
+                                </div>
+                                
+                                <!-- equipment -->
+                                <div class="frame-row">
+                                    <div class="frame-item d-flex w-100">
+                                        <div class="frame-label">EQUIPMENT:</div>
+                                        <div class="frame-input w-100">
+                                            <input type="text" value="Genexpert"
+                                            class="trans-underline-field" id="transaction-equipment-field">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- model -->
+                                <div class="frame-row">
+                                    <div class="frame-item d-flex w-100">
+                                        <div class="frame-label">MODEL:</div>
+                                        <div class="frame-input w-100">
+                                            <select class="trans-underline-field 
+                                            model-number-drop-down" 
+                                            id="transaction-model-number-field">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- serial number -->
+                                <div class="frame-row">
+                                    <div class="frame-item d-flex w-100">
+                                        <div class="frame-label">SERIAL NUMBER:</div>
+                                        <div class="frame-input w-100">
+                
+                                            <select class="trans-underline-field 
+                                            hide-serial-number-select transaction-serial-number-select" 
+                                            id="transaction-serial-number-field" 
+                                            onchange="genexpertSNServiceTypeOptionSelect(this)">
+                                            </select>
+                                            <input type="text" value="000000" 
+                                            onkeyup="genexpertSNServiceTypeOption(this)"
+                                            class="trans-underline-field transaction-serial-number-input" 
+                                            id="transaction-serial-number-field-input">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- type of service -->
+                                <div class="frame-row">
+                
+                                    <div class="frame-item d-flex w-100">
+                                        <div class="frame-label">TYPE OF SERVICE:</div>
+                                        <div class="frame-input w-100 d-flex">
+                
+                                            <select class="trans-underline-field w-50"
+                                            onchange="toggleServiceTypeOption(this)" 
+                                            id="transaction-type-of-service-field">
+                                                <option value="None"></option>
+                                                <option value="Installation">Installation</option>
+                                                <option value="Repair">Repair</option>
+                                                <option value="Transfer">Transfer</option>
+                                                <option value="Pull-out">Pull-out</option>
+                                                <option value="Module">Module</option>
+                                                <option value="Xpertcheck">Xpertcheck/Calibration</option>
+                                                <option value="Maintenance">Maintenance</option>
+                                                <option value="Others">Others</option>
+                                            </select>
+                                            <a href="#" class="btn btn-secondary trans-underline-field" 
+                                            style="width:30px !important;" onclick="pinTransaction(this)">
+                                                <i class="fa fa-thumb-tack"></i></a>
+                
+                                            <div class="transaction-service-error-message ml-2">Repair Transaction is not allowed during installation</div>
+                
+                                        </div>
+                                    
+                                    </div>
+                
+                                    <!-- reveal area -->
+                                    <div class="service-reveal-area" id="service-type-reveal-area">
+                
+                                        <!-- genexpert installation -->
+                                        <div class="genexpert-installation-reveal-form st-reveal-form" 
+                                        name="Installation">
+                
+                                            <div class="transaction-block transaction-general-block">
+                                        
+                                                <div class="body">
+                                                    <div class="line">
+                                                        <div class="item w-35">
+                                                            <label for="">Service Engineer</label>
+                                                            <select id="transaction-installation-engineer-field" 
+                                                            class="engineer-drop-down trans-underline-field"></select>
+                                                        </div>
+                                                        <div class="item w-15">
+                                                            <label for="">Date Installed</label>
+                                                            <input type="date"
+                                                            id="transaction-installation-date-installed-field" 
+                                                            class="trans-underline-field">
+                                                        </div>
+                                                        <div class="item w-50">
+                                                            <label for="">Installation Type</label>
+                                                            <select id="transaction-installation-type-field" 
+                                                            class="installation-type-drop-down trans-underline-field"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="line">
+                                                        <div class="item w-100">
+                                                            <label for="">Remarks</label>
+                                                            <input type="text" 
+                                                            id="transaction-installation-remarks-field" 
+                                                            class="trans-underline-field">
+                                                        </div>
+                                                        </div>
+                                    
+                                                </div>
+                
+                                                <div class="body pt-3">
+                                                    <div class="line">
+                                                        <div class="item w-30">
+                                                            <label for="#">Software Version</label>
+                                                            <input type="text" 
+                                                            id="transaction-installation-software-version-field">
+                                                        </div>
+                                                        <div class="item w-30">
+                                                            <label for="#">OS Version</label>
+                                                            <input type="text" 
+                                                            id="transaction-installation-software-os-version-field">
+                                                        </div>
+                                                        <div class="item w-20">
+                                                            <label for="#">Warranty Expiry Date</label>
+                                                            <input type="date" 
+                                                            id="transaction-installation-warranty-expiry-date-field">
+                                                        </div>
+                                                        <div class="item w-20">
+                                                            <label for="#">Service Contract Expiry Date</label>
+                                                            <input type="date" 
+                                                            id="transaction-installation-service-contract-expiry-date-field">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                    
+                                            
+                                            </div>
+                                    
+                                    
+                                            <!-- ASSAYSTATISTIC INFORMATION -->
+                                            <div class="transaction-block transaction-assaystatistic-block">
+                                        
+                                                <div class="title d-flex">Assay Statistic Information
+                                                    <a href="#" onclick="genexpertController.onView()
+                                                    .transaction().installation().addAssayStatisticRow(this)">
+                                                    <i class="fa fa-plus"></i></a>
+                                                </div>
+                                                <div class="body w-100">
+                                                    <table class="w-100">
+                                                        <thead>
+                                                                <tr>
+                                                                    <th class="w-5">Remove</th>
+                                                                    <th class="w-20">Test Date</th>
+                                                                    <th class="w-40">Test Name</th>
+                                                                    <th class="w-35">Quantity</th>
+                                                                </tr>
+                                                        </thead>
+                                                        <tbody id="genex-install-assay-rows">
+                                                            <!-- <tr>
+                                                                <td class="w-5">
+                                                                    <a href="#" class="btn btn-danger w-100 h-100" 
+                                                                    onclick="genexpertController.onView().transaction()
+                                                                    .installation().deleteTableRow(this)">
+                                                                        <i class="fa fa-trash"></i>
+                                                                    </a>
+                                                                </td>
+                                                                <td class="w-20"><input type="date" 
+                                                                id="genex-install-assay-test-date"></td>    
+                                                                <td class="w-25"><input 
+                                                                id="genex-install-assay-test-name"  
+                                                                type="text"></td>    
+                                                                <td class="w-25"><input type="text" 
+                                                                id="genex-install-assay-quantity" ></td>       
+                                                                
+                                                            </tr> -->
+                                                        
+                                                        </tbody>
+                                        
+                                                    </table>
+                                                </div>
+                                        
+                                            </div>
+                                        
+                                            <!-- PERIPHERAL INFORMATION -->
+                                            <div class="transaction-block transaction-peripheral-block">
+                                        
+                                                <div class="title d-flex">Peripheral Information
+                                                    <a href="#" onclick="genexpertController.onView()
+                                                    .transaction().installation().addPeripheralRow(this)">
+                                                    <i class="fa fa-plus"></i></a>
+                                                </div>
+                                                <div class="body w-100">
+                                                    <table class="w-100">
+                                                        <thead>
+                                                                <tr>
+                                                                    <th class="w-5">Remove</th>
+                                                                    <th class="w-35">Peripheral Name</th>
+                                                                    <th class="w-30">Serial Number</th>
+                                                                    <th class="w-30">Model Number</th>
+                                                                </tr>
+                                                        </thead>
+                                                        <tbody id="genex-install-peripheral-rows">
+                                                            <tr>
+                                                                <td class="w-5">
+                                                                    <a href="#" class="btn btn-danger w-100 h-100" 
+                                                                    onclick="genexpertController.onView().transaction()
+                                                                    .installation().deleteTableRow(this)">
+                                                                        <i class="fa fa-trash"></i>
+                                                                    </a>
+                                                                </td>
+                                                                <td class="w-35"><input type="text" 
+                                                                   id="genex-install-peripheral-name" class="genex-install-peripheral-name-cls"></td>    
+                                                                <td class="w-30"><input type="text" 
+                                                                   id="genex-install-peripheral-serial-number"></td>    
+                                                                <td class="w-30"><input type="text"  
+                                                                   id="genex-install-peripheral-model-number"></td>    
+                                                                  
+                                                            </tr>
+                                                            <!-- <tr>
+                                                                <td class="w-5">
+                                                                    <a href="#" class="btn btn-danger w-100 h-100" 
+                                                                    onclick="genexpertController.onView().transaction().installation().deleteTableRow(this)">
+                                                                        <i class="fa fa-trash"></i>
+                                                                    </a>
+                                                                </td>
+                                                                <td class="w-20"><input type="text" 
+                                                                id="genex-install-peripheral-name"></td>    
+                                                                <td class="w-25"><input type="text" 
+                                                                id="genex-install-peripheral-serial-number"></td>    
+                                                                <td class="w-25"><input type="text"  
+                                                                id="genex-install-peripheral-model-number"></td>      
+                                                                
+                                                            </tr> -->
+                                                        
+                                                        </tbody>
+                                        
+                                                    </table>
+                                                </div>
+                                        
+                                            </div>
+                                    
+                                            <!-- MODULE INFORMATION -->
+                                            <!-- <div class="transaction-block transaction-module-block">
+                                                <div class="title d-flex">Module Information
+                                                    <a href="#" onclick="genexpertController.onView()
+                                                    .transaction().installation().addModuleRow(this)">
+                                                    <i class="fa fa-plus"></i></a>
+                                                </div>
+                                                <div class="body">
+                                                    <table class="w-100">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="w-5">Remove</th>
+                                                                <th class="w-10">Serial Number</th>
+                                                                <th class="w-10">Location</th>
+                                                                <th class="w-15">Date Installed</th>
+                                                                <th class="w-15">Installation Type</th>
+                                                                <th class="w-15">Installed By</th>
+                                                                <th class="w-15">Revision Number</th>
+                                                                <th class="w-15">Part Number</th>
+                                                            </tr>
+                                                        </thead>
+                                                    <tbody id="genex-install-module-rows">
+                                                        <tr>
+                                                            <td class="w-5">
+                                                                <a href="#" class="btn btn-danger w-100 h-100" 
+                                                                onclick="genexpertController.onView().transaction().installation().deleteTableRow(this)">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </a>
+                                                            </td>
+                                                            <td class="w-10"><input type="text"
+                                                                id="genex-install-module-serial-number"></td>    
+                                                            <td class="w-10"><input type="text" 
+                                                                id="genex-install-module-location"></td>    
+                                                            <td class="w-15"><input type="date" 
+                                                                id="genex-install-module-date-installed"></td>    
+                                                            <td class="w-15"><select id="genex-install-module-installType" 
+                                                                class="installation-type-drop-down"></select></td>   
+                                                            <td class="w-15"><select id="genex-install-module-engineer" 
+                                                                class="engineer-drop-down"></select></td>   
+                                                            <td class="w-15"><input type="text" 
+                                                                id="genex-install-module-revision-number"></td>    
+                                                            <td class="w-15"><input type="text" 
+                                                                id="genex-install-module-part-number"></td>    
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="w-5">
+                                                                <a href="#" class="btn btn-danger w-100 h-100" 
+                                                                onclick="genexpertController.onView().transaction().installation().deleteTableRow(this)">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </a>
+                                                            </td>
+                                                            <td class="w-10"><input type="text"
+                                                                id="genex-install-module-serial-number"></td>    
+                                                            <td class="w-10"><input type="text" 
+                                                                id="genex-install-module-location"></td>    
+                                                            <td class="w-15"><input type="date" 
+                                                                id="genex-install-module-date-installed"></td>    
+                                                            <td class="w-15"><select id="genex-install-module-installType" 
+                                                                class="installation-type-drop-down"></select></td>   
+                                                            <td class="w-15"><select id="genex-install-module-engineer" 
+                                                                class="engineer-drop-down"></select></td>   
+                                                            <td class="w-15"><input type="text" 
+                                                                id="genex-install-module-revision-number"></td>    
+                                                            <td class="w-15"><input type="text" 
+                                                                id="genex-install-module-part-number"></td>    
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="w-5">
+                                                                <a href="#" class="btn btn-danger w-100 h-100" 
+                                                                onclick="genexpertController.onView().transaction().installation().deleteTableRow(this)">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </a>
+                                                            </td>
+                                                            <td class="w-10"><input type="text"
+                                                                id="genex-install-module-serial-number"></td>    
+                                                            <td class="w-10"><input type="text" 
+                                                                id="genex-install-module-location"></td>    
+                                                            <td class="w-15"><input type="date" 
+                                                                id="genex-install-module-date-installed"></td>    
+                                                            <td class="w-15"><select id="genex-install-module-installType" 
+                                                                class="installation-type-drop-down"></select></td>   
+                                                            <td class="w-15"><select id="genex-install-module-engineer" 
+                                                                class="engineer-drop-down"></select></td>   
+                                                            <td class="w-15"><input type="text" 
+                                                                id="genex-install-module-revision-number"></td>    
+                                                            <td class="w-15"><input type="text" 
+                                                                id="genex-install-module-part-number"></td>    
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="w-5">
+                                                                <a href="#" class="btn btn-danger w-100 h-100" 
+                                                                onclick="genexpertController.onView().transaction().installation().deleteTableRow(this)">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </a>
+                                                            </td>
+                                                            <td class="w-10"><input type="text"
+                                                                id="genex-install-module-serial-number"></td>    
+                                                            <td class="w-10"><input type="text" 
+                                                                id="genex-install-module-location"></td>    
+                                                            <td class="w-15"><input type="date" 
+                                                                id="genex-install-module-date-installed"></td>    
+                                                            <td class="w-15"><select id="genex-install-module-installType" 
+                                                                class="installation-type-drop-down"></select></td>   
+                                                            <td class="w-15"><select id="genex-install-module-engineer" 
+                                                                class="engineer-drop-down"></select></td>   
+                                                            <td class="w-15"><input type="text" 
+                                                                id="genex-install-module-revision-number"></td>    
+                                                            <td class="w-15"><input type="text" 
+                                                                id="genex-install-module-part-number"></td>    
+                                                        </tr>
+                                                    </tbody>
+                                        
+                                                    </table>
+                                                </div>
+                                        
+                                            </div> -->
+                                        
+                                        </div>
+                
+                                        <!-- genexpert repair -->
+                                        <div class="genexpert-repair-reveal-form st-reveal-form" 
+                                        name="Repair">
+                                        
+                                            <div class="frame-row">
+                                                <div class="frame-item d-flex w-100">
+                                                    <div class="frame-label">DATE OF REPAIR:</div>
+                                                    <div class="frame-input w-30" 
+                                                    style="margin-left:-27px !important;">
+                                                        <input type="date" 
+                                                        class="trans-underline-field"
+                                                        id="transaction-repair-date-field">
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            <div class="frame-row">
+                                                <div class="frame-item d-flex w-100">
+                                                    <div class="frame-label">REPAIR BY:</div>
+                                                    <div class="frame-input w-30" 
+                                                        style="margin-left:-27px !important;">
+                                                        <select class="trans-underline-field engineer-drop-down"
+                                                        id="transaction-repair-engineer-field"></select>
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            <div class="frame-row">
+                                                <div class="frame-item w-100">
+                                                    <div class="frame-label w-100">REPAIR REMARKS:</div>
+                                                    <div class="frame-input w-100">
+                                                        <textarea class="trans-underline-field"
+                                                        id="transaction-repair-remarks-field"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <!-- genexpert transfer -->
+                                        <div class="genexpert-transfer-reveal-form st-reveal-form" 
+                                        name="Reveal">
+                                            <div class="frame-row mt-3">
+                                                <div class="frame-item d-flex w-100">
+                                                    <div class="frame-label">TRANSFER TO:</div>
+                                                    <div class="frame-input w-100"><input type="text" 
+                                                        class="trans-underline-field"
+                                                        id="transaction-transfer-new-facility-field" 
+                                                        onkeyup=""></div>
+                                                    <a href="#" onclick="displayAddressFromNewTransfer()"  
+                                                    class="btn btn-secondary trans-underline-field" 
+                                                    style="width:30px !important;">
+                                                    <i class="fa fa-address-card"></i></a>
+                                                </div>
+                
+                                                <div class="frame-row mt-1 transfer-facility-new-address">
+                
+                                                    <div class="frame-item w-100">
+                                    
+                                                        <div class="frame-mini-form">
+                                
+                                                            <!-- region and province -->
+                                                            <div class="frame-row d-flex">
+                                                                <div class="frame-item d-flex w-50">
+                                                                    <div class="frame-label">REGION:</div>
+                                                                    <div class="frame-input w-100">
+                                                                        <select
+                                                                        class="trans-underline-field region-drop-down" 
+                                                                        id="transaction-transfer-region-field">
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                
+                                                                <div class="frame-item d-flex w-50">
+                                                                    <div class="frame-label ml-2">PROVINCE:</div>
+                                                                    <div class="frame-input w-100">
+                                                                        <select class="trans-underline-field 
+                                                                        province-drop-down" 
+                                                                        id="transaction-transfer-province-field">
+                                                                        </select>
+                                                                    </div>
+                                
+                                                                </div>
+                                                            
+                                                            </div>
+                                
+                                                            <!-- city and barangay -->
+                                                            <div class="frame-row d-flex">
+                                                                <div class="frame-item d-flex w-50">
+                                                                    <div class="frame-label">CITY:</div>
+                                                                    <div class="frame-input w-100">
+                                                                        <select class="trans-underline-field 
+                                                                        city-drop-down" 
+                                                                        id="transaction-transfer-city-field">
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="frame-item d-flex w-50">
+                                                                    <div class="frame-label ml-2">BARANGAY:</div>
+                                                                    <div class="frame-input w-100">
+                                                                        <select class="trans-underline-field 
+                                                                        barangay-drop-down" 
+                                                                        id="transaction-transfer-barangay-field">
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                
+                                                            <!-- street -->
+                                                            <div class="frame-row d-flex">
+                                                            
+                                                                <div class="frame-item d-flex w-100">
+                                                                    <div class="frame-label" 
+                                                                    style="margin-right:-20px !important;">STREET:</div>
+                                                                    <div class="frame-input w-100">
+                                                                        <input type="text" class="trans-underline-field" 
+                                                                        id="transaction-transfer-street-field">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                
+                                                            <!-- latitude and longitude -->
+                                                            <div class="frame-row d-flex">
+                                                                <div class="frame-item d-flex w-50">
+                                                                    <div class="frame-label">LATITUDE:</div>
+                                                                    <div class="frame-input w-100">
+                                                                        <input type="text" class="trans-underline-field" 
+                                                                        id="transaction-transfer-latitude-field">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="frame-item d-flex w-50">
+                                                                    <div class="frame-label ml-2">LONGITUDE:</div>
+                                                                    <div class="frame-input w-100">
+                                                                    <input type="text" class="trans-underline-field" 
+                                                                    id="transaction-transfer-longitude-field">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="frame-row">
+                                                <div class="frame-item d-flex w-100">
+                                                    <div class="frame-label">DATE INSTALLED:</div>
+                                                    <div class="frame-input w-30" 
+                                                    style="margin-left:-34px !important;">
+                                                        <input type="date" 
+                                                        class="trans-underline-field"
+                                                        id="transaction-transfer-date-installed-field">
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            <div class="frame-row">
+                                                <div class="frame-item d-flex w-100">
+                                                    <div class="frame-label">TRANSFER BY:</div>
+                                                    <div class="frame-input w-50" 
+                                                        style="margin-left:-34px !important;">
+                                                        <select class="trans-underline-field engineer-drop-down"
+                                                        id="transaction-transfer-engineer-field"></select>
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            <div class="frame-row">
+                                                <div class="frame-item w-100">
+                                                    <div class="frame-label w-100">SOME REMARKS:</div>
+                                                    <div class="frame-input w-100">
+                                                        <textarea class="trans-underline-field"
+                                                        id="transaction-transfer-remarks-field"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <!-- genexpert pullout -->
+                                        <div class="genexpert-pullout-reveal-form st-reveal-form" 
+                                        name="Pull-out">
+                                        
+                                            <div class="frame-row d-flex  mt-3">
+                                                <div class="frame-item d-flex w-50">
+                                                    <div class="frame-label w-60">DATE OF PULL-OUT:</div>
+                                                    <div class="frame-input w-100">
+                                                        <input type="date" style="margin-left:-27px !important;"
+                                                        class="trans-underline-field" 
+                                                        id="transaction-pullout-date-pullout-field">
+                                                    </div>
+                                                </div>
+                
+                                                <div class="frame-item d-flex w-50">
+                                                    <div class="frame-label">PULLOUT BY:</div>
+                                                    <div class="frame-input w-100" 
+                                                        style="margin-left:-27px !important;">
+                                                        <select class="trans-underline-field engineer-drop-down"
+                                                        id="transaction-pullout-engineer-field"></select>
+                                                        
+                                                    </div>
+                                                </div>
+                                            
+                                            </div>
+                
+                                            <div class="frame-row mt-2">
+                                                <div class="frame-item w-100">
+                                                    <div class="frame-label w-100">REASON OF PULL-OUT / REMARKS:</div>
+                                                    <div class="frame-input w-100">
+                                                        <textarea class="trans-underline-field" 
+                                                        id="transaction-pullout-remarks-field">
+                                                        </textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <!-- genexpert module replacement/installation -->
+                                        <div class="genexpert-module-replacement-reveal-form st-reveal-form" 
+                                        name="Module">
+                
+                                            <!-- <div class="module-replacement-loader-reveal"></div> -->
+                                            <div class="frame-row mt-4">
+                                                <script>
+                                                    $(".transaction-module-new-installation-area").hide();
+                                                function revealOption(div){
+                                                        
+                                                    const val = $(div).val();
+                                                        const f = $("#transaction-module-replace-from-field");
+                                                        const p = $("#transaction-module-part-number-field");
+                                                        const r = $("#transaction-module-revision-number-field");
+                                                        const l = $(".transaction-module-location-field");
+                                                    if(val == "Replacement"){
+                                                            keepNewModuleInstallationData(div);
+                                                            l.prop('disabled',true);
+                                                    }else{
+                                                            displayNewModuleInstallationData(div);
+                                                            l.prop('disabled',false);
+                                                    }
+                                                }
+                
+                                                function closeFrame(div){
+                                                        $(div).parent().remove();
+                                                }
+                
+                                                function removeForm(evt,div){
+                                                        if(evt['key'] == "Delete"){
+                                                            $(div).remove();
+                                                        }
+                                                        
+                                                }
+                                            </script>
+                                                <div class="frame-row module-row-main"
+                                                style="display:none !important; position: relative;">
+                                                    <!-- <a href="#" 
+                                                    class="frame-close" onclick="closeFrame(this)">
+                                                    <i class="fa fa-close"></i></a> -->
+                                                    <div class="frame-row d-flex">
+                
+                                                        <div class="frame-item d-flex w-50">
+                                                            <div class="frame-label">TRANSACTION</div>
+                                                            <div class="frame-input w-80">
+                                                                <select data-new="[]"
+                                                                onchange="revealOption(this)" 
+                                                                class="trans-underline-field transaction-module-select-transaction-field">
+                                                                    <option value="Replacement">Replacement</option>
+                                                                    <option value="New Installation">New Installation</option>
+                                                                </select>
+                                                            </div>
+                                                        
+                                                        </div>
+                                                                
+                                                        <div class="frame-item d-flex w-50">
+                                                            <div class="frame-label ml-4 w-50">FOR REPLACEMENT</div>
+                                                            <div class="frame-input w-70">
+                                                                <select onchange="displayModuleInfo(this)" 
+                                                                class="trans-underline-field 
+                                                                transaction-module-replace-from-field">
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                    </div>
+                                        
+                                                    <div class="frame-row d-flex">
+                                                    
+                                                        <div class="frame-item d-flex w-50">
+                                                            <div class="frame-label">NEW SERIAL #</div>
+                                                            <div class="frame-input w-80 d-flex">
+                                                                <input type="text" 
+                                                                class="trans-underline-field 
+                                                                transaction-module-serial-number-field">
+                                                                <a href="#" class="btn btn-secondary trans-underline-field" 
+                                                                style="width:30px !important;" 
+                                                                onclick="pinTransaction(this)">
+                                                                    <i class="fa fa-search"></i> </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="frame-item d-flex w-50">
+                                                            <div class="frame-label ml-4">LOCATION</div>
+                                                            <div class="frame-input w-100">
+                                                                <input type="text" 
+                                                                class="trans-underline-field 
+                                                                transaction-module-location-field" disabled>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                
+                                                    <div class="frame-row d-flex">
+                                                        <div class="frame-item d-flex w-50">
+                                                            <div class="frame-label">DATE INSTALLED</div>
+                                                            <div class="frame-input w-80">
+                                                                <input type="date" 
+                                                                class="trans-underline-field 
+                                                                transaction-module-date-installed-field">
+                                                            </div>
+                                                        </div>
+                                                        <div class="frame-item d-flex w-50">
+                                                            <div class="frame-label ml-4">STATUS</div>
+                                                            <div class="frame-input w-100">
+                
+                                                                <select class="trans-underline-field
+                                                                transaction-module-status-field">
+                                                                <option value="Active">Active</option>
+                                                                <option value="Terminated">Terminated</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                
+                                                    <div class="frame-row d-flex">
+                                                        <div class="frame-item d-flex w-50">
+                                                            <div class="frame-label">ENGINEER</div>
+                                                            <div class="frame-input w-80">
+                
+                                                                <select class="trans-underline-field 
+                                                                engineer-drop-down 
+                                                                transaction-module-engineer-field">
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="frame-item d-flex w-50">
+                                                            <div class="frame-label ml-4">INSTALL TYPE</div>
+                                                            <div class="frame-input w-100">
+                                                                <select class="trans-underline-field 
+                                                                installation-type-drop-down 
+                                                                transaction-module-installation-type-field">
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                
+                                                    <div class="frame-row d-flex">
+                                                        <div class="frame-item d-flex w-50">
+                                                            <div class="frame-label">PART #</div>
+                                                            <div class="frame-input w-80">
+                
+                                                                <input type="text" 
+                                                                class="trans-underline-field
+                                                                transaction-module-part-number-field">
+                                                            </div>
+                                                        </div>
+                                                        <div class="frame-item d-flex w-50">
+                                                            <div class="frame-label ml-4">REVISION #</div>
+                                                            <div class="frame-input w-100">
+                                                                <input type="text" 
+                                                                class="trans-underline-field 
+                                                                transaction-module-revision-number-field">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                
+                                                </div>
+                                                <div class="module-entry-list"></div>
+                                            
+                
+                                                <div class="frame-row module-transaction-button">
+                                                    <a href="#" class="btn" 
+                                                    onclick="addModuleTransaction()">ADD ROW</a>
+                
+                    
+                                                </div>
+                    
+                                            
+                                            
+                                                
+                                            </div>
+                
+                                            <div class="transaction-module-replacement-area">
+                
+                
+                                            </div>
+                                            <div class="transaction-module-new-installation-area">
+                
+                            
+                
+                                            </div>
+                                        
+                                            
+                
+                                        
+                                        </div>
+                
+                                        <div class="genexpert-xpertcheck-reveal-form st-reveal-form" 
+                                        name="Calibration">
+                
+                                            <div class="frame-row  mt-3 d-flex">
+                                                <div class="frame-item d-flex w-50">
+                                                    <div class="frame-label w-60">LAST CALIBRATION:</div>
+                                                    <div class="frame-input w-100">
+                                                        <input type="text" class="trans-underline-field" 
+                                                        disabled 
+                                                        id="transaction-xpertcheck-last-calibration-field">
+                                                    </div>
+                                                </div>
+                
+                                                <div class="frame-item d-flex w-50">
+                                                    <div class="frame-label w-60 ml-4">NEXT CALIBRATION:</div>
+                                                    <div class="frame-input w-100">
+                                                        <input type="text" class="trans-underline-field" 
+                                                        disabled 
+                                                        id="transaction-xpertcheck-last-on-next-calibration-field">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="re-calibrate-area mt-3">
+                
+                                                <div class="frame-row d-flex">
+                                                    <div class="frame-item d-flex w-50">
+                                                        <div class="frame-label w-60">CALIBRATION DATE:</div>
+                                                        <div class="frame-input w-100">
+                                                            <input type="date" 
+                                                            class="trans-underline-field" 
+                                                            id="transaction-xpertcheck-new-start-calibration-field" 
+                                                            onchange="xpertcheckCalcNext()" 
+                                                            onkeyup="xpertcheckCalcNext()">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="frame-item d-flex w-50">
+                                                        <div class="frame-label w-60 ml-4">NEXT CALIBRATION:</div>
+                                                        <div class="frame-input w-100">
+                                                            <input type="date" class="trans-underline-field" 
+                                                            id="transaction-xpertcheck-new-next-calibration-field">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                    
+                    
+                                                <div class="frame-row d-flex">
+                                                    <div class="frame-item d-flex w-50">
+                                                        <div class="frame-label w-60">FREQUENCY:</div>
+                                                        <div class="frame-input d-flex w-100">
+                                                            <select class="trans-underline-field" disabled>
+                                                                <option value="year">Year</option>
+                                                                <option value="month">Month</option>
+                                                                <option value="day">Day</option>
+                                                            </select>
+                                                            <input type="number" value="1" 
+                                                            class="trans-underline-field" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-item d-flex w-50">
+                                                        <div class="frame-label  w-60 ml-4">ENGINEER:</div>
+                                                        <div class="frame-input w-100">
+                                                            <select class="trans-underline-field 
+                                                            engineer-drop-down" 
+                                                            id="transaction-xpertcheck-new-engineer-field"></select>
+                                                        </div>
+                                                    </div>
+                                                
+                                                </div>
+                                            </div>
+                
+                                            <div class="frame-row re-calibrate-area-button">
+                                                <a href="#" class="btn" onclick="recalibrateAreaDisplay()">NEW CALIBRATION</a>
+                
+                                            </div>
+                                        
+                                        
+                                        </div>
+                
+                                        <div class="genexpert-maintenance-reveal-form st-reveal-form" 
+                                        name="Maintenance">
+                
+                                            <div class="frame-row d-flex  mt-3">
+                                                <div class="frame-item d-flex w-50">
+                                                    <div class="frame-label w-60">LAST PM:</div>
+                                                    <div class="frame-input w-100">
+                                                        <input type="text" class="trans-underline-field" 
+                                                        disabled id="transaction-pm-last-maintenance-field">
+                                                    </div>
+                                                </div>
+                
+                                                <div class="frame-item d-flex w-50">
+                                                    <div class="frame-label w-60 ml-4">NEXT PM:</div>
+                                                    <div class="frame-input w-100">
+                                                        <input type="text" class="trans-underline-field" 
+                                                        disabled id="transaction-pm-last-next-maintenance-field">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="re-maintenance-area mt-3">
+                
+                                                <div class="frame-row d-flex">
+                                                    <div class="frame-item d-flex w-50">
+                                                        <div class="frame-label w-60">PM DATE:</div>
+                                                        <div class="frame-input w-100">
+                                                            <input type="date" class="trans-underline-field" 
+                                                            id="transaction-pm-new-start-maintenance-field" 
+                                                            onchange="pmCalcNext()" onkeyup="pmCalcNext()">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="frame-item d-flex w-50">
+                                                        <div class="frame-label w-60 ml-4">NEXT PM.:</div>
+                                                        <div class="frame-input w-100">
+                                                            <input type="date" class="trans-underline-field" 
+                                                            id="transaction-pm-new-next-maintenance-field">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                    
+                    
+                                                <div class="frame-row d-flex">
+                                                    <div class="frame-item d-flex w-50">
+                                                        <div class="frame-label w-60">FREQUENCY:</div>
+                                                        <div class="frame-input d-flex w-100">
+                                                            <select class="trans-underline-field" 
+                                                            id="transaction-pm-duration-frequency-field" 
+                                                            onchange="pmCalcNext()">
+                                                                <option value="year">Year</option>
+                                                                <option value="month">Month</option>
+                                                                <option value="day">Day</option>
+                                                            </select>
+                                                            <input type="number" value="1" 
+                                                            onchange="pmCalcNext()" onkeyup="pmCalcNext()"
+                                                            id="transaction-pm-duration-number-field"
+                                                            class="trans-underline-field">
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-item d-flex w-50">
+                                                        <div class="frame-label  w-60 ml-4">ENGINEER:</div>
+                                                        <div class="frame-input w-100">
+                                                            <select class="trans-underline-field 
+                                                            engineer-drop-down" 
+                                                            id="transaction-pm-engineer-maintenance-field"></select>
+                                                        </div>
+                                                    </div>
+                                                
+                                                </div>
+                                            </div>
+                
+                                            <div class="frame-row re-maintenance-area-button">
+                                                <a href="#" class="btn" onclick="remaintenanceAreaDisplay()">NEW MAINTENANCE</a>
+                
+                                            </div>
+                
+                                            
+                                        
+                                        </div>
+                
+                                        <div class="genexpert-other-reveal-form st-reveal-form" 
+                                        name="Others">
+                                        
+                                            <div class="frame-row mt-3">
+                                                <div class="frame-item d-flex w-100">
+                                                    <div class="frame-label">PLEASE SPECIFY:</div>
+                                                    <div class="frame-input w-100">
+                                                        <input type="text" 
+                                                        class="trans-underline-field"
+                                                        id="transaction-others-specify-field">
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            <div class="frame-row d-flex  mt-3">
+                                                <div class="frame-item d-flex w-50">
+                                                    <div class="frame-label w-60">DATE OF:</div>
+                                                    <div class="frame-input w-100">
+                                                        <input type="date" style="margin-left:-20px !important;"
+                                                        class="trans-underline-field" 
+                                                        id="transaction-others-date-of-field">
+                                                    </div>
+                                                </div>
+                
+                                                <div class="frame-item d-flex w-50">
+                                                    <div class="frame-label">ENGINEER:</div>
+                                                    <div class="frame-input w-100" 
+                                                        style="margin-left:-20px !important;">
+                                                        <select class="trans-underline-field engineer-drop-down"
+                                                        id="transaction-others-engineer-field"></select>
+                                                        
+                                                    </div>
+                                                </div>
+                                            
+                                            </div>
+                
+                                            <div class="frame-row mt-2">
+                                                <div class="frame-item w-100">
+                                                    <div class="frame-label w-100">REMARKS:</div>
+                                                    <div class="frame-input w-100">
+                                                        <textarea class="trans-underline-field" 
+                                                        id="transaction-others-remark-field">
+                                                        </textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                
+                                    
+                                    </div>
+                
+                                            
+                
+                                    </div>
+                                </div>
+                
+                            
+                
+                                <div class="frame-row">
+                                    <div class="frame-item d-flex w-100">
+                                        <div class="frame-label w-30">Service Report ? </div>
+                                        <div class="frame-input w-70 d-flex">
+                                            <input type="checkbox" style="margin-left:-116px !important;"
+                                            class="myinput large custom service-report-toggle-box" 
+                                            id="transaction-service-report-needed-field"
+                                            onchange="toggleServiceReportOption(this)"/>
+                                        <!-- <input type="checkbox" value="yes"
+                                            class="trans-underline-field service-report-toggle-box" onchange="toggleServiceReportOption(event)">  -->
+                                        </div>
+                                    </div>
+                
+                                    <div class="service-reveal-area-report" id="service-report-reveal-area">
+                
+                                        <div class="frame-row pt-2">
+                                            <div class="frame-item d-flex w-100">
+                                                <div class="frame-label">SERVICE REPORT #:</div>
+                                                <div class="frame-input w-100">
+                                                    <input type="text" value="000000"
+                                                    class="trans-underline-field" 
+                                                    id="transaction-service-report-number-field">
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        
+                                        <div class="frame-row">
+                                            <div class="frame-item w-100">
+                                                <div class="frame-label w-100">PROBLEMS REPORTED:</div>
+                                                <div class="frame-input w-100">
+                                                    <textarea class="trans-underline-field"
+                                                    id="transaction-service-report-problems-reported-field"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="frame-row">
+                                            <div class="frame-item w-100">
+                                                <div class="frame-label w-100">DIAGNOSTIC / FINDINGS:</div>
+                                                <div class="frame-input w-100">
+                                                    <textarea class="trans-underline-field"
+                                                    id="transaction-service-report-diagnostic-findings-field"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="frame-row">
+                                            <div class="frame-item w-100">
+                                                <div class="frame-label w-100">CORRECTIVE ACTIONS / SERVICES DONE:</div>
+                                                <div class="frame-input w-100">
+                                                    <textarea class="trans-underline-field"
+                                                    id="transaction-service-report-corrective-action-field"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="frame-row" style="margin-bottom: 50px !important;">
+                                            <div class="frame-item w-100">
+                                                <div class="frame-label w-100">COMMENT(S) / RECOMMENDATION(S):</div>
+                                                <div class="frame-input w-100">
+                                                    <textarea class="trans-underline-field 
+                                                    trans-underline-field-second"
+                                                    id="transaction-service-report-comments-field"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="frame-row d-flex">
+                                            <div class="frame-item w-50 mr-2">
+                                                <div class="frame-label w-100">SERVICE ENGINEER:</div>
+                                                <div class="frame-input w-100">
+                                                    <select class="trans-underline-field engineer-drop-down" 
+                                                    id="transaction-service-report-engineer-field"></select>
+                                                    
+                                                </div>
+                                            </div>
+                
+                                            <div class="frame-item w-50">
+                                                <div class="frame-label w-100">CUSTOMER NAME:</div>
+                                                <div class="frame-input w-100">
+                                                    <input type="text" class="trans-underline-field" 
+                                                    id="transaction-service-report-customer-name-field">
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="frame-row d-flex">
+                                            <div class="frame-item w-50 mr-2">
+                                                <div class="frame-label w-100">SERVICE ENGINEER SIGNATURE DATE:</div>
+                                                <div class="frame-input w-100">
+                                                    <input type="date" class="trans-underline-field" 
+                                                    id="transaction-service-report-engineer-sign-date-field">
+                                                    
+                                                </div>
+                                            </div>
+                
+                                            <div class="frame-item w-50">
+                                                <div class="frame-label w-100">CUSTOMER SIGNATURE DATE:</div>
+                                                <div class="frame-input w-100">
+                                                    <input type="date" class="trans-underline-field" 
+                                                    id="transaction-service-report-customer-sign-date-field">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                
+                                    </div>
+                                </div>
+                                <div class="frame-row transaction-control-button-area">
+                                    <a href="#" class="w-40 input-submit-btn mt-4 ml-2"
+                                    onclick="transactionController.transactionProcess()">
+                                        <i class="fa fa-save"></i> Save</a>
+                                    <a href="#" class="w-40 input-submit-btn mt-4"
+                                    onclick="transactionController.clearAll()">
+                                        <i class="fa fa-trash"></i> Clear All</a>
+                                    
+                                </div>
+                
+                            
+                            
+                        
+                        
+                        </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+
+            <div class="d-flex flex-column transaction-hide" id="transaction-list-frame-area">
+                <div class="frame-filter-area"  id="transaction-filter-area"></div>
+                <!-- BODY AREA -->
+            
+                <div class="frame-body-area">
+                    
+                    
+                    <div class="frame-content-area">
+                        
+                        <div class="frame-body-list-area d-flex flex-column" id="transaction-normal-views">
+                            <div class="frame-body-list-title-area d-flex" style="width:1250px;">
+                              
+                                <div class="frame-body-list-title-item small" 
+                                style="width:100px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">TRANS ID</div>
+            
+                                <div class="frame-body-list-title-item small" 
+                                style="width:100px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">DATE</div>
+            
+                                <div class="frame-body-list-title-item small" 
+                                style="width:100px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">GENEX SN </div>
+            
+            
+                                <div class="frame-body-list-title-item small" 
+                                style="width:300px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">FACILITY</div>
+            
+                                <div class="frame-body-list-title-item small" 
+                                style="width:150px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">TRANS TYPE</div>
+            
+            
+                                <div class="frame-body-list-title-item small" 
+                                style="width:150px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">SERVICE REPORT</div>
+            
+                                <div class="frame-body-list-title-item small" 
+                                style="width:150px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">JOTFORM</div>
+            
+                                <div class="frame-body-list-title-item small" 
+                                style="width:200px" 
+                                add-sorter="sorter" 
+                                sorter-type="alphanumeric" 
+                                sorter-source=".frame-body-list-content-area" 
+                                sorter-field=""
+                                sorter-table="transaction-list">TRANSACT BY</div>
+                                
+                            </div>
+                
+                            <div class="frame-body-list-content-area" 
+                            id="transaction-body-list-content-area"
+                            style="width:1250px;"></div>
+                        
+                
+                        </div>
+                
+                        <div id="transaction-tree-views" class="d-none">
+                        </div>
+            
+                    </div>
+            
+                  
+            
+            
+                </div>
+            
+            
+            
+            </div>
+
+        </div>
+
+     
+
+
+    </div>
+
+
+</div>
+
+<script src="../js/xpertcheck.js"></script>
+<script src="../js/preventive-maintenance.js"></script>
+<script src="../js/transaction.js"></script>
+<script src="../js/transaction-list.js"></script>
+<script src="../js/transaction-main.js"></script>

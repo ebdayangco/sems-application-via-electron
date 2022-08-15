@@ -1,0 +1,128 @@
+#service-report-entry-area{
+    position: absolute;
+    top:-100%;
+    left:0;
+    width:100%;
+    height:100%;
+    padding:25px;
+    background:rgba(32, 32, 32, 0.548);
+    backdrop-filter:blur(5px);
+    z-index:9999;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.service-report-info-back-btn{
+    position: absolute;
+    top:25px;
+    right:80px;
+    font-size:25px;
+    color:rgb(173, 172, 172);
+    font-weight:800;
+}
+.service-report-info-back-btn:hover{
+    color:#fff;
+}
+.service-report-entry-row{
+    display: flex;
+    margin-bottom:20px;
+}
+.service-report-entry-col{
+    margin-right:10px;
+}
+.service-report-entry-panel{
+    padding:20px;
+    border:0.7px solid rgb(131, 130, 130);
+    border-radius:5px;
+}
+
+.service-report-entry-label{
+    text-transform:uppercase;
+    font-size:11px;
+    font-weight:700;
+    color:rgb(131, 130, 130);
+}
+
+.service-report-entry-value{
+    /* text-transform:uppercase; */
+    font-size:15px;
+    font-weight:600;
+    color:rgb(0, 255, 0);
+    padding:5px;
+    border:0.3px solid rgb(131, 130, 130);
+    border-radius:5px;
+    /* background:rgba(241, 208, 208, 0.055); */
+    min-height:30px;
+    box-shadow: inset 0px 1px 7px rgba(207, 205, 205, 0.534);
+}
+a.service-report-entry-value{
+    text-align: center;
+}
+a.service-report-entry-value:hover{
+    color:#fff;
+    font-weight:600;
+    background: rgb(64, 211, 64);
+}
+.mh-150{
+    min-height:150px !important;
+}
+
+.mh-100{
+    min-height:100px !important;
+}
+
+.mh-50{
+    min-height:50px !important;
+}
+
+
+.service-report-entry-form{
+    position: relative;
+    width:100%;
+    border:0.7px solid rgba(165, 165, 165, 0.568);
+    border-radius: 10px;
+    padding:30px;
+    backdrop-filter:blur(10px);
+    box-shadow: inset 0px 2px 15px rgba(207, 205, 205, 0.534);
+}
+
+.service-report-entry-title{
+    color:#fff;
+    font-weight:700;
+    font-size:25px;
+    margin-bottom:30px;
+}
+.service-report-entry-field,
+.service-report-entry-field-second,
+.service-report-entry-field-third{
+    width:100%;
+    height:100%;
+    background:none;
+    border:0;
+    color:rgb(0,255,0);
+    padding:5px;
+    font-weight:600;
+    resize: none;
+}
+.service-report-entry-field:hover,
+.service-report-entry-field:active,
+.service-report-entry-field:focus,
+.service-report-entry-field-second:hover,
+.service-report-entry-field-second:active,
+.service-report-entry-field-second:focus,
+.service-report-entry-field-third:hover,
+.service-report-entry-field-third:active,
+.service-report-entry-field-third:focus{
+    background:none;
+    border:0;
+    outline:none;
+    box-shadow: none;
+}
+textarea.service-report-entry-field{
+    height:20vh;
+}
+textarea.service-report-entry-field-second{
+    height:12vh;
+}
+textarea.service-report-entry-field-third{
+    height:20px;
+}

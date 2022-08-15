@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="../css/report/report-option.css">
+<div id="report-option-area">
+
+    <div class="report-option-form">
+      <h3 class="text-light mb-2" style="text-transform:uppercase;
+       text-align: center;">Report Category List</h3>
+      <div class="report-category-list">
+
+            <a href="#" class="btn btn-success w-100 mb-1" 
+            onclick="reportController.execute('excel')">Excel List</a>
+            <a href="#" class="btn btn-danger w-100 mb-1">PDF List</a>
+            <a href="#" class="btn btn-danger w-100 mb-1">PDF Individual</a>
+      </div>
+
+
+
+
+        <div class="d-flex" style="margin-top:30px;">
+            <a href="#" onclick="reportController.onView().closeReportOption()"
+            class="btn btn-light w-100">Close</a>
+        </div>
+        
+
+    </div>
+
+
+</div>

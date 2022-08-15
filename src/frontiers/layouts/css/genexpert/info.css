@@ -1,0 +1,359 @@
+#genexpert-information-area{
+    position: absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:rgba(2, 2, 2, 0.8);
+    backdrop-filter:blur(10px);
+    z-index:100;
+    transition:600ms all;
+    display:flex;
+    flex-direction: column;
+}
+.genexpert-information-header-area{
+    border-bottom:0.7px solid #fff;
+}
+.genexpert-information-header-area,.genexpert-information-body-area{
+    width:100%;
+    
+}
+.genexpert-information-body-area{
+    height:100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y:auto;
+    transition:400ms all;
+    
+}
+.genexpert-information-read-area,.other-connected-information-read-area{
+    position:relative;
+    top:0;
+    left:0;
+    width:100%;
+    height:auto;
+    padding:30px 100px;
+    opacity: 1;
+    transition:600ms all;
+}
+.other-connected-information-read-area{
+    margin-top:-30px;
+    padding:0px 100px;
+}
+.genexpert-waiting-loading-area{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    /* background:rgba(27, 27, 27, 0.349);
+    backdrop-filter:blur(5px); */
+    z-index:10000;
+}
+.static-height{
+    min-height:200px;
+}
+.static-height-sm{
+    min-height:100px;
+}
+.overflow-hidden{
+    overflow: hidden !important;
+}
+.opacity-0{
+    opacity:0 !important;
+   
+}
+.display-none{
+    display: none !important;
+}
+
+.frame-list-back-btn{
+    color:rgb(151, 151, 151);
+    font-weight:700;
+    font-size:18px;
+    text-decoration:none;
+    padding:20px;
+}
+.frame-list-back-btn:hover{
+    color:rgb(209, 209, 209);
+}
+.frame-list-back-btn:active{
+    color:#fff;
+}
+
+.frame-info-control-area{
+    display:flex;
+    padding:10px;
+    margin-top:12px;
+    margin-right:17px;
+}
+.frame-info-control-button{
+    color:#fff;
+    margin-right:10px;
+    text-decoration: none;
+    padding:5px;
+    border:0.7px solid rgb(143, 143, 143);
+    border-radius:3px;
+    width:70px;
+    height:30px;
+    font-size:11px !important;
+    text-align: center;
+    font-weight:500;
+    overflow: hidden;
+}
+.frame-info-control-button:hover{
+    color:rgb(29, 29, 29);
+    background:rgb(179, 177, 177);
+    font-weight:700;
+}
+.frame-info-control-button:active{
+    color:#000;
+    background:#fff;
+    font-weight:800;
+}
+.frame-info-control-button-active{
+    color:#000;
+    background:#fff;
+}
+.frame-info-control-button:last-child{
+    margin-right:0px;
+}
+
+.frame-info-panel{
+    position: relative;
+    top:0;
+    left:0;
+    width:100%;
+    height:auto;
+    border-radius:5px;
+    box-shadow:0px 0px 2px 1px rgb(197, 197, 197);
+    padding:15px 20px;
+    margin-bottom:20px;
+    /* backdrop-filter:blur(10px); */
+    background:rgba(2, 2, 2, 0.438);
+
+}
+.frame-info-panel-title{
+    color:rgb(0, 255, 242);
+    font-weight:700;
+    font-size:16px;
+    margin-bottom:7px;
+    border-bottom:0.4px solid rgba(233, 233, 233, 0.74);
+}
+.frame-info-panel-body{
+    position:relative;
+    width:100%;
+    height:auto;
+    margin-top:20px;
+    overflow: hidden;
+}
+
+.frame-info-panel-body-item{
+    display:flex;
+    margin-bottom:5px;
+}
+.frame-info-panel-body-item:last-child{
+    margin-bottom:0px;
+}
+.frame-info-panel-body-item-title{
+    color:rgb(109, 109, 109);
+    font-weight:400;
+    font-size:14px;
+    text-align:right;
+    width:150px;
+    margin-right:5px;
+    text-transform: uppercase;
+
+}
+
+.frame-info-panel-body-item-title-lg{
+    color:rgb(109, 109, 109);
+    font-weight:400;
+    font-size:14px;
+    text-align:right;
+    width:250px;
+    margin-right:5px;
+    text-transform: uppercase;
+
+}
+.frame-info-panel-body-item-title::after,
+.frame-info-panel-body-item-title-lg::after{
+    content: ' : ';
+    font-size:700;
+    color:rgb(109, 109, 109);
+}
+.frame-info-panel-body-item-value{
+    color:#fff;
+    font-weight:600;
+    font-size:14px;
+    text-align:left !important;
+    margin-left:5px;
+    width:750px;
+    overflow-x:hidden;
+    padding:0;
+}
+
+.frame-info-panel-body-item-value > a{
+    text-decoration: none;
+    font-weight:600;
+    font-size:14px;
+    text-align:left;
+    width:auto;
+    margin-left:5px;
+    color:#fff;
+    width:100%;
+}
+
+.panel-edit-btn{
+    color:rgba(0, 255, 0, 0.705);
+    text-decoration: none;
+    font-weight:500;
+    font-size:20px;
+    margin-top:-5px;
+}
+.panel-close-btn{
+    color:rgba(255, 0, 0, 0.705);
+    text-decoration: none;
+    font-weight:500;
+    font-size:20px;
+    margin-top:-5px;
+}
+.panel-add-btn{
+    color:rgb(0, 255, 0);
+    text-decoration: none;
+    font-weight:500;
+    font-size:14px;
+    margin-top:3px;
+}
+.panel-add-btn:hover{
+    color:rgb(75, 255, 75);
+}
+.panel-add-btn:active{
+    color:rgb(142, 255, 142);
+}
+.panel-edit-btn:hover{
+    color:rgb(0, 255, 0);
+}
+.panel-edit-btn:active{
+    color:rgb(123, 230, 123);
+    font-weight:700;
+}
+
+.panel-close-btn:hover{
+    color:rgb(0, 255, 0);
+}
+.panel-close-btn:active{
+    color:rgb(123, 230, 123);
+    font-weight:700;
+}
+.panel-history-btn{
+    color:rgba(255, 255, 0, 0.705);
+    text-decoration: none;
+    font-weight:500;
+    font-size:20px;
+    margin-top:-6px;
+    margin-left:10px;
+}
+
+.panel-history-btn:hover{
+    color:rgb(255, 255, 0);
+}
+.panel-history-btn:active{
+    color:rgb(236, 236, 126);
+    font-weight:700;
+}
+.frame-info-panel-table{
+    width:100%;
+    cursor:pointer;
+}
+
+.frame-info-panel-table > thead > tr:hover,
+.frame-info-panel-table > tbody > tr:hover{
+   background:rgba(119, 119, 119, 0.514);
+   color:#000;
+}
+
+.frame-info-panel-table > thead > tr:active,
+.frame-info-panel-table > tbody > tr:active{
+    background:rgba(194, 194, 194, 0.753);
+    color:#000 !important;
+    font-weight:600;
+ }
+
+ .frame-info-panel-table > thead > tr:focus,
+ .frame-info-panel-table > tbody > tr:focus{
+    background:rgba(224, 223, 223, 0.753);
+    color:#000;
+    
+ }
+
+.frame-info-panel-table > tbody > tr > td{
+    border:1px solid #fff;
+    padding:2px;
+    color:#fff;
+    text-align: center;
+}
+.frame-info-panel-table > thead > tr > th{
+    border:1px solid #fff;
+    padding:2px;
+    color:rgb(112, 112, 112);
+    text-transform: uppercase;
+    font-size:600;
+    text-align: center;
+}
+.genexpert-info-field{
+    background:transparent !important;
+    color:rgb(0, 255, 0);
+    height:25px;
+    border:0.6px solid rgba(184, 184, 184, 0.664);
+    padding:3px;
+    border-radius:5px;
+    transition:600ms all;
+    font-weight: 600;
+}
+select.genexpert-info-field > option{
+    background:#000 !important;
+}
+.genexpert-info-field:active,
+.genexpert-info-field:focus{
+    outline:none;
+    box-shadow: none;
+}
+
+.genexpert-info-link{
+    transition:600ms all;
+}
+
+.module-status-option-view{
+    position: absolute;
+    top:16px;
+    right:22px;
+    color:#fff;
+    font-weight:700;
+    text-align:right;
+}
+.module-status-active{
+    position:absolute; 
+    top:0; 
+    right:70px;
+    margin-right:40px;
+}
+
+.module-status-terminated{
+    position:absolute; 
+    top:0; 
+    right:0;
+    
+}
+.module-status-terminated > input{
+    position:absolute; 
+    top:2px;
+    right:65px;
+}
+
+.module-status-active > input{
+    position:absolute; 
+    top:2px;
+    right:40px;
+}
+

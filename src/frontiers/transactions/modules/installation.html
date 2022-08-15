@@ -1,0 +1,105 @@
+<div id="module-installation-form">
+    <link rel="stylesheet" href="../transactions/modules/module-installation.css">
+   
+    <div class="module-installation-area d-flex">
+        
+        <div class="module-installation-image-side">
+            <div class="screen-image-side"></div>
+            <img src="../galleries/module_bg_bg.jpg" alt="">
+        </div>
+        <div class="module-installation-form-side">
+
+            <div class="form-title">Installation Form</div>
+            <div class="form-body">
+                <div class="form-side-group">
+                    <div class="form-side-label">
+                        <label for="">Genexpert</label>
+                       
+                    </div>
+                    <div class="form-side-input d-flex">
+                        <input type="text" id="module-installation-genexpert-serial-number"  
+                        class="w-100" style="border:0.8px solid rgba(136, 136, 136, 0.726); border-right: 0px !important;">
+                        <a href="#" class="btn btn-success" onclick="openSearchGenexpert()">Browse</a>
+                    </div>
+                </div>
+                <div class="form-side-group">
+                    <div class="d-flex w-100">
+                        <div class="form-col w-50 mr-2">
+                            <div class="form-side-label">
+                                <label for="">Serial Number</label>
+                            </div>
+                            <div class="form-side-input">
+                                <input type="text" id="module-installation-serial-number"  
+                                class="w-100">
+                            </div>
+                        </div>
+
+                        <div class="form-col w-50">
+                            <div class="form-side-label">
+                                <label for="">Location</label>
+                            </div>
+                            <div class="form-side-input">
+                                <input type="text" id="module-installation-location" 
+                                class="w-100">
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <div class="form-side-group">
+                    <div class="d-flex w-100">
+                        <div class="form-col w-40 mr-2">
+                            <div class="form-side-label">
+                                <label for="">Date Installed</label>
+                            </div>
+                            <div class="form-side-input">
+                                <input type="date" id="module-installation-date-installed" class="w-100">
+                            </div>
+                        </div>
+
+                        <div class="form-col w-60">
+                            <div class="form-side-label">
+                                <label for="">Installation Type</label>
+                            </div>
+                            <div class="form-side-input">
+                                <select name="#" id="module-installation-installation-type" 
+                                class="installation-type-drop-down w-100"></select>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <div class="form-side-group">
+                    <div class="form-side-label">
+                        <label for="">Engineer</label>
+                    </div>
+                    <div class="form-side-input">
+                        <select name="#" id="module-installation-engineer"  
+                        class="engineer-drop-down w-100"></select>
+                    </div>
+                   
+                </div>
+                <div class="form-side-group">
+                    <a href="#" class="btn btn-primary w-100 mb-2">Clear All</a>
+                    <a href="#" class="btn btn-success w-100" 
+                    onclick="moduletransactionController.goInstall()">Create Module</a>
+                </div>
+             
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const moduletransactionController = require("../transactions/modules/ModuleTransactionController");
+
+    </script>
+
+</div>
+
+
+

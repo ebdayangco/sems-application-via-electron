@@ -1,0 +1,69 @@
+.pagination-box{
+    position: absolute;
+    top:7px;
+    right:5px;
+    z-index:0 !important;
+    padding:0;
+    font-size:20px;
+    color:#fff;
+    height:35px;
+    text-align: center;
+    vertical-align:middle;
+    line-height:1.2em;
+}
+.pagination-label{
+    padding:5px;
+    font-weight:100;
+    margin-right:10px;
+    font-size:20px;
+    color:rgba(158, 158, 158, 0.849);
+    margin-top:-5px;
+}
+.pagination-paging-control{
+    align-items: center;
+    justify-content: space-between;
+    margin-top:-5px;
+}
+.pagination-box > *{
+    position: relative;
+}
+.pagination-previous,.pagination-next{
+    border-radius:100%;
+    width:35px;
+    height:35px;
+}
+.pagination-previous:hover,.pagination-next:hover{
+    background:rgba(117, 117, 117, 0.623);
+}
+.pagination-previous:active,.pagination-next:active,
+.pagination-previous:focus,.pagination-next:focus{
+    background:rgba(202, 202, 202, 0.575);
+}
+
+.pagination-previous > a,.pagination-next > a{
+    text-decoration:none;
+    color:#fff;
+    display:block;
+    width:100%;
+    height:100%;
+    padding:5px;
+    font-weight:100 !important;
+    font-style: italic !important;
+    font-size: 15px !important;
+}
+.pagination-select > input{
+    height:100% !important;
+    width:80px;
+    background: transparent;
+    border:0.6px solid rgba(146, 146, 146, 0.685);
+    color:#fff;
+    text-align: center;
+    font-size:14px;
+    font-weight:700;
+    padding:5px;
+    margin-top:27px;
+}
+.pagination-select > input:hover,.pagination-select > input:active,.pagination-select > input:focus{
+    outline:none;
+    box-shadow: none;
+}

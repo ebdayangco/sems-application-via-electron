@@ -1,0 +1,57 @@
+#module-records-area{
+    position: absolute;
+    top:0;
+    left:-100%;
+    width:90%;
+    height:100%;
+    background:rgba(116, 116, 116, 0.24);
+    backdrop-filter:blur(10px);
+    z-index:99999999;
+    transition:600ms all;
+    padding:40px;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+}
+#module-records-area > .module-content-area > table{
+    width:100%;
+    
+}
+#module-records-area > .module-content-area > table > thead{
+    width:100%;
+    background:#fff;
+    color:#000;
+   
+
+}
+#module-records-area > .module-content-area > table > thead > tr > th{
+    padding:5px;
+    font-size:12px;
+    font-weight:700;
+    border:0.7px solid #fff;
+}
+
+#module-records-area > .module-content-area > table > tbody{
+    width:100%;
+    color:#000;
+  
+}
+
+#module-records-area > .module-content-area > table > tbody > tr > td{
+    padding:5px;
+    font-size:12px;
+    font-weight:200;
+    border:0.7px solid #fff;
+    color:#fff;
+}
+#module-records-area > .module-content-area{
+    margin-top:30px;
+    z-index:1;
+    border-radius:5px;
+    border:0.7px solid #fff;
+}
+.module-record-exit-button{
+    position: absolute;
+    top:30px;
+    right:40px;
+    z-index:9999999;
+}

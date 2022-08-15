@@ -1,0 +1,23 @@
+{
+    "current-configuration":"z.com phillippines sems",
+    "configuration":{
+        "z.com phillippines macare-sems":{
+            "host": "163.44.242.11",
+            "user": "lpytdtsx_macare_service_engineer",
+            "password": "m(y=T1n=zLB$",
+            "database" :"lpytdtsx_macare_sems"
+        },
+        "z.com phillippines sems":{
+            "host": "163.44.242.11",
+            "user": "lpytdtsx_service_engineer",
+            "password": "t~S,BNjrLD*u",
+            "database" : "lpytdtsx_sems"
+        },
+        "local-when-no-internet":{
+            "host": "localhost",
+            "user": "ebdayangco",
+            "password": "gx@yMMe9zt3mg2Ki",
+            "database" : "lpytdtsx_sems"
+        }
+    }
+}

@@ -1,0 +1,144 @@
+#pm-schedule-form{
+    position:relative;
+    width:100%;
+    height:500px;
+    opacity:1;
+    display:block;
+    transition:600ms all;
+    display: none;
+}
+#pm-schedule-form > .pm-schedule-content{
+    /* position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-53%); */
+    /* background:rgba(193, 238, 230, 0.534) !important;
+    border-radius:10px; */
+    /* width:900px;
+    height:560px; */
+    padding:0;
+    overflow: hidden;
+    /* box-shadow:0px 0px 5px 2px rgba(31, 30, 30, 0.514); */
+    /* background:none; */
+    /* backdrop-filter:blur(10px); */
+}
+.pm-schedule-content > .form-left-side{
+    position: absolute;
+    top:-35%;
+    right:55%;
+    width:200%;
+    height:200%;
+    /* border-bottom-left-radius: 50% 20%; */
+    border-top-right-radius: 20% 70%;
+    border-bottom-right-radius: 20% 70%;
+    overflow: hidden !important;
+    box-shadow: 0px 0px 10px 3px rgb(44, 44, 44) !important;
+    z-index:1;
+}
+.pm-schedule-content > .form-left-side > img{
+    position: absolute;
+    top:10%;
+    right:-3%;
+    width:auto;
+    height:700px;
+    z-index:2;
+
+}
+.pm-schedule-content > .form-left-side > .screen-image-side{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(255, 217, 0, 0.466);
+    /* backdrop-filter: blur(10px); */
+    z-index:3;
+}
+
+
+@font-face {
+    font-family:"satisfy";
+    src: url("../../dependencies/fonts-ttf/Satisfy-Regular.ttf") format("truetype");
+  }
+
+/* .module-replacement-content > .form-left-side{
+    position: relative;
+    width:40%;
+    height: 100%;
+} */
+.pm-schedule-content > .form-right-side{
+    position: relative;
+    top:0;
+    left:40%;
+    width:65%;
+    height:100%;
+    padding:10px 90px;
+}
+.pm-schedule-content > .form-right-side > .pm-title{
+    position: absolute;
+    top:10px;
+    right:45px;
+    width:100%;
+    text-align: center;
+    font-size:50px;
+    font-weight:600;
+    font-family: satisfy;
+    background:none;
+}
+
+
+.pm-schedule-content > .form-right-side > .pm-body{
+    width:100%;
+    height:100%;
+    padding:20px;
+    padding-top:0px;
+}
+
+.pm-schedule-content > .form-right-side >
+.pm-body > .pm-row {
+   width: 100%;
+   margin-top:25px;
+}
+.pm-schedule-content > .form-right-side >
+.pm-body > .pm-row > .pm-field{
+    display:flex;
+}
+
+.pm-schedule-content > .form-right-side >
+.pm-body > .pm-row > .pm-field > input{
+    width:86%;
+    height:30px !important;
+}
+
+.pm-schedule-content > .form-right-side >
+.pm-body > .pm-row > .pm-col > input{
+    width:86%;
+    height:30px !important;
+}
+
+.pm-schedule-content > .form-right-side >
+.pm-body > .pm-row > .pm-col > .d-flex > input{
+    width:86%;
+    height:30px !important;
+}
+
+.pm-schedule-content > .form-right-side >
+.pm-body > .pm-row > input{
+    height:30px !important;
+}
+.pm-schedule-content > .form-right-side >
+.pm-body > .pm-row > select{
+    height:30px !important;
+}
+
+.pm-body > .pm-row > textarea{
+    width:100%;
+    height:100px;
+}
+
+.pm-schedule-content > .form-right-side >
+.pm-body > .pm-row > .pm-field > a{
+    width:14%;
+    border-top-left-radius:0px !important;
+    border-bottom-left-radius:0px !important;
+}

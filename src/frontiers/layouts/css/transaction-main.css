@@ -1,0 +1,147 @@
+#transaction-main-frame-area{
+    position: relative;
+    width:100%;
+    height:100%;
+    background:rgba(87, 43, 43, 0.6);
+    backdrop-filter:blur(5px);
+    display:flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+#transaction-main-list-control-area{
+    margin-top:-7px;
+}
+#transaction-main-list-control-area > li > a{
+    width:120px;
+    display: block;
+    text-align: center;
+    padding:5px !important;
+    transition:300ms all;
+}
+#transaction-main-list-control-area > li:not(:last-child){
+    margin-right:5px;
+}
+
+#transaction-main-list-control-area > li > a:hover:not(#transaction-main-list-control-area > 
+li > a.frame-control-active){
+    box-shadow: inset 1px 2px 5px rgb(48, 19, 19),inset 1px 2px 10px rgb(48, 19, 19);
+    transform: translateY(1px);
+    border-radius:0px;
+}
+
+.transaction-hide{
+    display: none !important;
+}
+
+.transaction-view-option-area{
+    position: relative;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+}
+.list-trans-ul{
+    position: absolute;
+    width:100%;
+    right:-100%;
+    transition: 600ms all;
+    background:none !important;
+}
+.add-trans-ul{
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    height:50px;
+    width:2000px;
+    transition: 600ms all;
+}
+.add-trans-ul > li {
+    width:300px;
+}
+.add-trans-ul > li > a{
+    width:100%;
+}
+.move-to-left{
+    left:-100% !important;
+}
+
+.move-to-right{
+    right:0 !important;
+}
+.transaction-create-services-list-area{
+    position: absolute;
+    top:0;
+    right:0;
+    width:300px;
+    height:100%;
+    background:rgba(245, 245, 245, 0.097);
+    backdrop-filter:blur(10px);
+    z-index:9999;
+    border-left:0.7px solid rgba(216, 216, 216, 0.373);
+    transition:600ms all;
+}
+
+.transaction-menu-docker-area{
+    position: relative;
+    top:0;
+    left:0;
+    width:100%;
+    height:45px;
+    background:rgba(78, 78, 78, 0.173);
+    border-right:0.1px solid rgba(236, 236, 236, 0.073);
+    padding:0;
+    /* backdrop-filter:blur(20px); */
+    cursor: pointer;
+    
+}
+.transaction-services-hide > .transaction-menu-docker-area{
+    background:none !important;
+    backdrop-filter:blur(0px) !important;
+}
+.transaction-services-hide{
+    width:150px !important;
+    /* backdrop-filter:blur(60px); */
+    border:none !important;
+    background:none !important;
+    backdrop-filter:blur(0px) !important;
+    height:45px !important;
+}
+.transaction-menu-docker-area:hover{
+    background:rgba(255, 255, 255, 0.097);
+}
+.transaction-menu-docker-area:active{
+    background:rgba(39, 36, 36, 0.61);
+}
+.trans-docker-btn{
+    position: absolute;
+    top:0;
+    right:0;
+    color:#fff;
+    font-weight:700;
+    font-size:16px;
+    width:100%;
+    display:block;
+    height:45px;
+    text-align: center;
+    padding-top:10px;
+    
+}
+.trans-docker-btn:hover{
+    color:#fff;
+}
+
+.trans-docker-btn:active{
+    color:#fff;
+}
+.module-form-divider{
+    width:100% !important;
+    height:4px !important;
+    box-shadow:inset 2px 2px 2px 1px #383735,
+    inset -2px -2px 2px 1px #ffffff !important;
+    margin-top:25px !important;
+}
+#transaction-filter-area{
+    height:0%;
+}

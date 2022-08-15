@@ -1,0 +1,22 @@
+.asset-filter-form-box{
+    padding:10px;
+    border:0.7px solid rgba(119, 119, 119, 0.849);
+}
+.asset-filter-form-box-item{
+    width:100%;
+    display:flex;
+    padding:1px;
+    margin-bottom:2px;
+    line-height:0em;
+    padding-top:7px;
+}
+.asset-filter-form-box-item > p{
+    line-height:1.3em;
+}
+.asset-filter-form-box-item:last-child{
+    margin-bottom: 0px !important;
+}
+.transaction-genexpert-box{
+    padding:30px 20px;
+    
+}

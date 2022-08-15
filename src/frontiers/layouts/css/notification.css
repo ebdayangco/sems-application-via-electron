@@ -1,0 +1,25 @@
+#notification-frame-area{
+    position: relative;
+    width:100%;
+    height:100%;
+    background:rgba(87, 43, 43, 0.6);
+    /* background: lime !important; */
+    backdrop-filter:blur(5px);
+    display:flex;
+    flex-direction: column;
+    overflow: hidden !important;
+}
+.unread-emphasis{
+   
+    color:rgb(206, 0, 0) !important;
+    background:rgba(71, 190, 71, 0.589) !important;
+    border-bottom:0.7px solid rgba(122, 122, 122, 0.699) !important;
+}
+
+/* .unread-emphasis div{
+    font-weight: 800 !important;
+
+} */
+/* .read-word-emphasis{
+    font-weight: 800 !important;
+} */

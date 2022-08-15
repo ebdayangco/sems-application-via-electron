@@ -1,0 +1,161 @@
+<div id="genexpert-information-area" data-prev="null">
+
+    <div class="genexpert-information-header-area">
+        <a href="#" class="frame-list-back-btn pull-left" 
+        onclick="hideSubForm('#genexpert-information-area','left')"><i class="fa fa-arrow-left"></i> Back</a>
+        
+        <!-- MACHINE INFO DISPLAY CONTROL AREA -->
+        <div class="frame-info-control-area pull-right">
+            <a href="#" class="frame-info-control-button frame-info-control-button-active" 
+            data-panel-name="asset-all-information-panel" 
+            onclick="showAllPanel(this)">All</a>
+    
+            <a href="#" class="frame-info-control-button" 
+            data-panel-name="asset-basic-information-panel" 
+            onclick="togglePanel(['genexpert-info-general-panel'
+            ,'genexpert-info-address-panel','genexpert-info-contact-panel',
+            'genexpert-info-software-panel'],this)">Basic</a>
+    
+            <a href="#" class="frame-info-control-button" 
+            data-panel-name="asset-assaystatistic-information-panel" style="width:100px;"
+            onclick="togglePanel(['genexpert-info-assaystatistic-panel'],this)">Assay Statistic</a>
+    
+            <a href="#" class="frame-info-control-button" 
+            data-panel-name="asset-peripheral-information-panel"  
+            onclick="togglePanel(['genexpert-info-peripheral-panel'],this)">Peripheral</a>
+    
+            <a href="#" class="frame-info-control-button" 
+            data-panel-name="asset-module-information-panel"  
+            onclick="togglePanel(['genexpert-info-module-panel'],this)">Module</a>
+
+            <a href="#" class="frame-info-control-button" 
+            data-panel-name="asset-xpertcheck-information-panel"  
+            onclick="togglePanel(['genexpert-xpertcheck-panel'],this)">Xpertcheck</a>
+
+            <a href="#" class="frame-info-control-button" 
+            data-panel-name="asset-pm-information-panel" style="width:150px;" 
+            onclick="togglePanel(['genexpert-preventive-maintenance-panel'],this)">Preventive Maintenance</a>
+
+            <a href="#" class="frame-info-control-button" 
+            data-panel-name="asset-pm-information-panel" style="width:100px;" 
+            onclick="togglePanel(['genexpert-service-report-panel'],this)">Service Report</a>
+    
+            <a href="#" class="frame-info-control-button" 
+            data-panel-name="asset-pm-history-panel" style="width:100px;" 
+            onclick="togglePanel(['genexpert-transaction-history-panel'],this)">Transaction</a>
+            
+            <a href="#" class="frame-info-control-button" 
+            style="width:100px;" onclick="genexpertController.update().onUpdate()">
+            Save Update</a>
+        </div>
+    </div>
+    <div class="genexpert-information-body-area">
+            <div class="genexpert-information-read-area"></div>
+            <!-- <div class="genexpert-information-write-area overflow-hidden opacity-0"></div> -->
+            <div class="other-connected-information-read-area">
+
+                <div class="frame-info-panel static-height overflow-hidden" 
+                id="genexpert-xpertcheck-panel">
+               
+                    <!-- <div class="genexpert-waiting-loading-area"></div> -->
+                    <div class="frame-info-panel-title d-flex">
+                        Xpertcheck Information
+                        <a href="#" class="panel-add-btn" 
+                        style="margin-left:3px;" 
+                        name="contact" onclick="xpertcheckController.onView().userInterfaces()
+                        .openXpertcheckScheduleFromList(this,{
+                            'genexpert-closed-information':true
+                        })">
+                            <i class="fa fa-plus"></i>
+                        </a></div>
+
+                        <table class="frame-info-panel-table">
+                            <thead>
+                                <tr>
+                                    <th>Xpertcheck Date</th>
+                                    <th>Xpertcheck Due</th>
+                                    <th>Calbrate By</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="genexpert-xpertcheck-panel-tbody">
+                                    
+                            </tbody>
+                        </table>
+                </div>
+
+                <div class="frame-info-panel static-height overflow-hidden" 
+                id="genexpert-preventive-maintenance-panel">
+               
+                    <!-- <div class="genexpert-waiting-loading-area"></div> -->
+                    <div class="frame-info-panel-title d-flex">
+                        Preventive Maintenance Information
+                        <a href="#" class="panel-add-btn" 
+                        style="margin-left:3px;" 
+                        name="contact">
+                            <i class="fa fa-plus"></i>
+                        </a></div>
+
+                        <table class="frame-info-panel-table">
+                            <thead>
+                                <tr>
+                                    <th>Preventive Maintenance Date</th>
+                                    <th>Preventive Maintenance Due</th>
+                                    <th>Calbrate By</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="genexpert-preventive-maintenance-panel-tbody">
+                                    
+                            </tbody>
+                        </table>
+                </div>
+
+                <div class="frame-info-panel static-height overflow-hidden" 
+                id="genexpert-service-report-panel">
+               
+                    <div class="genexpert-waiting-loading-area"></div>
+                    <div class="frame-info-panel-title d-flex">Service Report Information</div>
+                    <table class="frame-info-panel-table">
+                        <thead>
+                            <tr>
+                                <th>Service Report Date</th>
+                                <th>Service Report Number</th>
+                                <th>Added By</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="genexpert-service-report-panel-tbody">
+                                
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="frame-info-panel static-height overflow-hidden" 
+                id="genexpert-transaction-history-panel">
+               
+                    <!-- <div class="genexpert-waiting-loading-area"></div> -->
+                    <div class="frame-info-panel-title d-flex">Transaction Information</div>
+                    <table class="frame-info-panel-table">
+                        <thead>
+                            <tr>
+                                <th class="w-10">ID</th>
+                                <th class="w-15">Transaction Date</th>
+                                <th class="w-70">Services</th>
+                                <th class="w-5">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody id="genexpert-transaction-panel-tbody">
+                                
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            
+    </div>
+
+        
+        
+</div>
